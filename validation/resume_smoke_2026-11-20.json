@@ -1,0 +1,42 @@
+{
+  "date": "2026-11-20",
+  "test_suite": "32 passed",
+  "algorithms": {
+    "ppo": {
+      "training": {
+        "actual_timesteps": 512,
+        "initial_timesteps": 256,
+        "additional_timesteps": 256,
+        "seconds": 1.3344655419932678,
+        "steps_per_second": 191.83710028032442
+      },
+      "checkpoint_sha1": "13f18044f440fdffd16b8f20d918a4006e6487a3",
+      "training_episodes": 2,
+      "evaluation_end_reasons": {
+        "time_limit": 1
+      },
+      "run_directory": "runs/ppo-resume-smoke-20261120"
+    },
+    "lstm": {
+      "training": {
+        "actual_timesteps": 512,
+        "initial_timesteps": 256,
+        "additional_timesteps": 256,
+        "seconds": 1.927705958019942,
+        "steps_per_second": 132.8003365528591
+      },
+      "checkpoint_sha1": "328626032cc11b6ccf384bcced1c28ff139a4c49",
+      "training_episodes": 2,
+      "evaluation_end_reasons": {
+        "time_limit": 1
+      },
+      "run_directory": "runs/lstm-resume-smoke-20261120"
+    }
+  },
+  "semantics": "Policy, optimizer and cumulative timestep counter continue; emulator episodes restart, RNGs are reseeded and partial rollouts are discarded.",
+  "source_sha256": {
+    "project_work/v2/experiment.py": "fb643b1fad4e3c46fd891ac90574570775ac8937ac5aa6b3598129e9f55944d6",
+    "project_work/v2/resume.py": "a92c56aade1a66da4023272e57a74250eeb1da1919ba6b3bc42f6d65bd3d3ddd",
+    "tests/test_environment.py": "af00ee2156734bdc98e4ff38a39249e599714e58d99197a349db0a647160d811"
+  }
+}

@@ -1,9 +1,4 @@
 #!/bin/bash
-
-while true; do
-	# latest file with .zip extension
-	latest_file=$(ls -lt runs/*.zip | awk 'NR==1 {print $9}' | sed 's/\.zip$//')
-	echo "starting with checkpoint: $latest_file"
-	echo "$latest_file" | python baseline_fast_v2.py
-
-done
+# Bounded training replaces the old crash/restart loop. Pass --rom and other CLI flags.
+set -euo pipefail
+exec python "$(dirname "$0")/baseline_fast_v2.py" "$@"

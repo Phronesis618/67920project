@@ -1,0 +1,291 @@
+# Pokémon Red Nuzlocke — 6.7920
+
+Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation.
+`previous_work/` preserves the imported Whidden baseline. New experiments live in
+`project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
+The old `TIMELINE.md` is historical planning, not a record of completed work.
+
+## Current status
+
+- Runnable PPO and recurrent PPO entry points with matching observation options.
+- Separate, tested Nuzlocke monitor; terminal episode logs survive vector auto-reset.
+- Checkpoint evaluation reports success, wipes, violations, time limits and coverage.
+- An exact finite-horizon answer key for a **synthetic Bide timing model**.
+- Tests exercise real SB3 PPO/LSTM updates and save/load using a fake emulator.
+- **Real-ROM startup, observations, PPO/LSTM updates, checkpoint reload and evaluation
+  passed a local smoke test on November 20, 2026.** Each policy trained for only 256
+  steps, then completed three 128-step evaluation episodes. This establishes that
+  the pipeline runs, not that either policy has learned the task.
+- Real battle-transition timing, Nuzlocke event handling, scaling performance and
+  Brock mechanics still need validation. See the [smoke-test record](validation/real_game_smoke_2026-11-20.json).
+
+## Deadline and compute planning — November 20
+
+The course instructions supplied in our project chat give a hard report deadline of
+**December 10, 5 p.m. Eastern**. Presentation sessions are listed as December 8/10;
+the slide deadline is inconsistent in those instructions. Use December 4 as our
+internal slide-ready target until the current course announcement is confirmed.
+
+Working priorities for the remaining 20 days:
+
+- November 20–23: validate real Nuzlocke events, fix the experimental rule contract,
+  finish training-resume validation, and prepare/test a remote job.
+- November 24–29: run matched PPO/LSTM experiments and simple baselines. Decide by
+  November 24 whether to use the proposal's staged-gym fallback for the main study.
+  Aim for three independent seeds per learned policy; pilot first to choose a budget.
+- November 30–December 3: held-out evaluation, figures, analysis and report draft.
+- December 4–10: slides, rehearsal and final report. Avoid relying on new experiments
+  during this period. Full-route exact solving, dialogue embeddings and broad risk
+  sweeps are stretch work until the main comparison is complete.
+
+An 8,192-step CPU timing run for each algorithm measured about 284 actions/second
+for PPO and 170 for LSTM with one emulator, 128-step rollouts and four update epochs.
+That extrapolates to about 1.0 and 1.6 hours per million actions respectively, but
+does not establish the sample budget needed to learn the task. A six-run experiment
+(two algorithms, three seeds, five million actions per run) would take approximately
+39 serial hours at those rates, excluding evaluation, queueing and reruns. See the
+[timing record](validation/compute_benchmark_2026-11-20.json).
+
+Jeffrey prioritizes iteration speed over price. The instance actually launched on
+November 20 is **one NVIDIA A10, 30 vCPUs, about 222 GiB RAM**, running Lambda Stack
+22.04. SSH access works using the Mac's existing key. There is no attached persistent
+filesystem; results are copied back to the Mac while it is awake and connected.
+PPO timing with 8,192 actions measured 127 actions/s on CPU with 8 workers, 274 on
+GPU with 8 workers, and 393 on GPU with 16 workers. The large LSTM CPU timing trial
+was stopped to prioritize the requested training campaign. Both algorithms passed
+multi-worker GPU startup, training, checkpoint reload and evaluation checks.
+
+## Active Lambda campaign — November 20
+
+The queue runs in remote tmux session `67920-queue`, using 16 emulator workers and
+one GPU per job, sequentially. It uses a frozen source snapshot so later local edits
+do not silently change a running experiment. This is an **exploratory campaign under
+the current core rules**, not complete hardcore-Nuzlocke evidence.
+
+There are 18 independent runs: PPO/LSTM × seeds 0, 1, 2 × three observation conditions:
+standard `partial`, `partial` without the exploration map, and `history` with explicit
+death/encounter history. All start from the pre-starter bedroom save. Each run is
+queued for cumulative budgets of 1,048,576, 5,242,880, and 10,485,760 actions, with
+3, 5, and 10 stochastic evaluation episodes respectively. Continuation stages depend
+on successful completion of their preceding training stage. These are 54 training
+segments plus 54 evaluation jobs, up to 188,743,680 training actions if all finish.
+
+Shared settings: 128-step rollouts per worker, batch size 256, four update epochs,
+gamma 0.997, episode cap 16,384 actions, and checkpointing every 262,144 actions.
+GPU/CPU/thread settings and complete commands are recorded in `queue.json`.
+
+Remote project: `/home/ubuntu/projects/67920project`.
+Remote campaign: `/home/ubuntu/projects/67920project/runs/campaign-20261120`.
+Frozen source: `/home/ubuntu/experiments/67920-20261120/source`.
+Local backup: `runs/lambda-backup/`, pulled every three minutes while the Mac is on.
+The implementation is published on the `codex/nuzlocke-foundation` branch. The active
+campaign uses the frozen snapshot taken before that commit; its manifests retain
+the original Git metadata and the snapshot is preserved separately.
+
+`status.json` identifies the active job; `controller.log` records transitions and
+each job has its own log. To pause safely between jobs, create `STOP_AFTER_CURRENT`
+in the remote campaign directory. Two consecutive command failures halt the queue;
+failed dependencies are skipped instead of producing invalid continuation runs.
+The queue's hard cutoff is **November 29, 11:59 p.m. Eastern**, leaving the planned
+analysis/writing period before the December 10 report. It exits when the queued jobs
+finish; it does not generate arbitrary new experiments or terminate the instance.
+
+## Setup
+
+Run these commands from the repository root. Python 3.11 and the dependencies are
+pinned in `pyproject.toml` / `uv.lock`. Use this environment for the new experiments;
+the inherited requirements files describe the old baseline.
+
+```sh
+uv sync --python 3.11 --locked
+uv run pytest -q
+```
+
+Kevin's November 20 upload supplies `project_work/PokemonRed.gb`; its SHA-1 matches
+the version expected by Whidden: `ea9bcae617fdf159b045185467ae58b2e4a48b9a`.
+The training command requires an explicit ROM path and records its SHA-1 and the
+starting save state's SHA-1. It works from any current working directory.
+No streaming/broadcast wrapper is enabled.
+
+## First real-game smoke run
+
+```sh
+uv run python project_work/v2/baseline_fast_v2.py \
+  --rom project_work/PokemonRed.gb \
+  --output runs/ppo-smoke \
+  --timesteps 256 --n-steps 32 --batch-size 32 --n-epochs 1 \
+  --max-episode-steps 128
+
+uv run python project_work/v2/evaluate.py runs/ppo-smoke --episodes 3
+```
+
+This checks startup, stepping, updates, checkpoints and evaluation. It is not enough
+training to learn the task. Output directories must be new to prevent mixing runs.
+There is no automatic restart loop and no automatic loading of the inherited
+checkpoint: its observation space differs from the new one.
+
+## Continuing training on Lambda or locally
+
+Use `resume.py` with a run produced by the new runner. `--timesteps` means additional
+steps, and `--output` must be a fresh directory. Algorithm, observations, rules,
+worker count and training hyperparameters are inherited. A changed device is allowed.
+
+```sh
+uv run python project_work/v2/resume.py runs/ppo-smoke \
+  --output runs/ppo-continued --timesteps 100000 \
+  --rom project_work/PokemonRed.gb --state project_work/init.state --device cpu
+```
+
+On a CUDA-capable Lambda instance use `--device cuda` after verifying the installed
+PyTorch build can see the GPU. For an interrupted run with no `final.zip`, explicitly
+choose an intact periodic checkpoint, for example
+`--checkpoint runs/ppo-smoke/checkpoints/policy_100000_steps.zip`.
+Checkpoint paths are relative to the current working directory and must be inside
+the source run. Copy the source run's manifest along with its checkpoint when moving
+machines. `--rom` and `--state` relocate assets; their hashes must still match.
+
+Resume restores policy/value weights, optimizer state and the cumulative timestep
+counter. **Emulator episodes restart, RNGs are reseeded, and any partial rollout is
+discarded.** This is training continuation, not an exact restoration of an interrupted
+trajectory or an independent training seed. A new manifest records the parent run,
+checkpoint hash and starting timestep; prior logs are preserved. The resumed run
+can be evaluated with the same `evaluate.py` entry point.
+
+Each run writes:
+
+- `manifest.json`: configuration, seed, asset hashes, Git commit and dirty status.
+- `episodes-N.jsonl`: every completed episode from worker N, with ending reason,
+  violation reasons, individual deaths, success, badges, coverage, steps and return.
+- `worker-N.monitor.csv`, TensorBoard data and periodic checkpoints.
+- `final.zip` and `training.json` (actual timesteps and measured steps/second).
+- Evaluation writes `evaluation.json` separately, including individual records.
+
+## Observation comparison
+
+| Mode | Shared inputs | Additional history |
+|---|---|---|
+| `partial` (default) | Screen stack, health, levels, badges, events, recent actions, party HP/levels/presence/status, exploration map | None |
+| `history` | Same | Persistent `party_dead` and `used_regions` |
+
+Both modes include privileged RAM measurements. The default exploration map is also
+supplied memory; `--no-explore-map` removes it from **both** conditions when desired.
+`history` is not a full-state oracle: it does not expose enemy stats or Bide timers.
+Party status is one bit per member (any condition), not the identity of the condition.
+The map shape is 48×48×1, screen shape 72×80×3, and events length 2,488.
+
+For the first experiment, keep the same `partial` observations, rules, rewards,
+starting state and training budget; change only the policy class:
+
+```sh
+uv run python project_work/v2/baseline_fast_v2.py \
+  --rom project_work/PokemonRed.gb --algorithm ppo --observation-mode partial \
+  --output runs/ppo-seed0 --seed 0 --num-envs 4 --timesteps 1000000
+
+uv run python project_work/v2/baseline_fast_v2.py \
+  --rom project_work/PokemonRed.gb --algorithm lstm --observation-mode partial \
+  --output runs/lstm-seed0 --seed 0 --num-envs 4 --timesteps 1000000
+```
+
+These are starting configurations, not a claim that a million steps is sufficient.
+Benchmark CPU throughput before increasing worker count. LSTM has more parameters,
+so describe this as a policy-architecture comparison; add a capacity-matched
+feedforward control before attributing all differences specifically to memory.
+Repeat with independent training seeds and a fixed held-out evaluation setup.
+
+The evaluator carries recurrent states between actions and resets them at every
+episode. Evaluation defaults to stochastic actions and uses seeds starting at 1000.
+With `--deterministic` and zero start jitter, repeatedly loading one state produces
+the same deterministic trial; do not treat repetitions as independent evidence.
+`--start-jitter-frames N` samples 0..N idle frames on reset using the episode seed.
+This changes emulator timing but is not a substitute for varied starting teams/maps.
+Confidence intervals quantify episode sampling for one checkpoint, not training-seed
+variability or generalization across unseen game states.
+
+## Exact rule contract of the current monitor
+
+Preset identifier: `core-strict-revival-battle-entry-cap-v1`.
+
+- A party Pokémon observed at zero HP is permanently recorded as dead. A party with
+  no living members ends the run. An empty party before receiving a starter does not.
+- **Strict revival convention inherited from Kevin's implementation:** any positive
+  HP on a recorded dead Pokémon fails the run, including automatic Center healing.
+  This is stricter than allowing a revived Pokémon to remain unusable. It is a
+  deliberate experimental convention, not a claim about every Nuzlocke variant.
+- First observed wild encounter consumes the region, whether caught, defeated or
+  fled. Only that encounter may be caught. Tracking begins at the supplied save state.
+  Starter/gifts are exempt in this preset; there is no duplicate-species exception.
+- A region defaults to its raw map ID. `--region-map path.json` can map several map
+  IDs to one region (JSON object mapping IDs to IDs, all in 0..255).
+- Catch detection uses a party+current-box count increase during a wild battle or
+  its exit snapshot. PC changes outside battle are ignored. This needs validation
+  with staged real-ROM catches, full parties and box changes.
+- `--level-cap 14` checks the entire party **at battle entry**. Level-ups during a
+  battle are allowed. Boxed Pokémon do not count toward this check.
+- Death identity uses original-trainer ID + DVs, surviving evolution and party
+  reordering. These fields are not globally unique. Simultaneous party collisions
+  raise an instrumentation error instead of silently assigning both Pokémon a death.
+  Full PC-roster identity reconciliation is still future work.
+- **Battle-item bans and set-mode/no-free-switch enforcement are not implemented.**
+  Do not describe these runs as a complete hardcore Nuzlocke experiment yet.
+
+Starting states must be before Brock's victory. A save state cannot reconstruct
+earlier encounter/death history. Use `--initial-used-regions` to supply known encounter
+history; only use states whose prior death history is empty for now. The bundled
+`project_work/init.state` was checked in the emulator: it starts in the player's
+bedroom (map 38), with an empty party, no badges, and none of the tracked milestones.
+
+The monitor samples every emulator frame, including within each 24-frame action.
+That avoids skipping transitions visible briefly in RAM, at a possible throughput
+cost. Actual RAM synchronization during battle animations remains unverified.
+Rule failures and wipes are terminations; step limits are truncations. Getting the
+Boulder Badge is success only if there is no rule failure. Individual faint counts
+are independent of healing rewards. The inherited exploration/event/healing reward
+remains the default; `--death-penalty` and `--violation-penalty` are configurable and
+must be held fixed in architecture comparisons. Shaped return is not the success rate.
+
+## ROM-free Bide timing pilot
+
+```sh
+uv run python -m battle_benchmark.bide --output runs/bide-pilot.json
+```
+
+This is a small synthetic model to check transition enumeration, backward induction,
+history-dependent policies and Monte Carlo evaluation **before** building the Gen 1
+engine. It is not Charmander versus Onix and its numbers are not Pokémon results.
+
+Both sides start with 12 HP. The player attacks for 2 or 3 damage with equal
+probability, or waits. The player acts first. If the opponent survives and is idle,
+it attacks for 2 or 3 damage with total probability 3/4, or begins Bide with probability
+1/4. Bide stores damage over the next 2 or 3 player turns (equal probabilities), then
+returns twice the stored damage. Knocking out the enemy prevents its action.
+The horizon is 12 turns; not winning by the horizon is failure.
+
+The policy sees both HP values and the most recent start/release announcement;
+ordinary turns erase the announcement. Remaining Bide duration and stored damage are
+hidden. Baselines are random, always attacking, reacting only to the current start
+message, and remembering the start until release. The exact optimum is a full-state
+oracle with access to both hidden fields. It is **not** the perfect-memory POMDP
+optimum. All transition probabilities and solved values use rational arithmetic.
+
+The pilot omits real damage rolls, stats, speed order, moves, PP, critical hits,
+stat stages, status effects, trainer AI, healing items and cartridge Bide quirks.
+Next on the solver track: implement and validate a Gen 1 turn kernel for one staged
+Charmander–Onix matchup, then replace the synthetic kernel behind the same kind of
+`outcomes(state, action)` interface. Keep model-exact and cartridge-validated claims
+separate throughout the report.
+
+## Next validation checkpoint
+
+1. The real-ROM smoke test above passed for both PPO and LSTM; repeat after changes
+   that affect emulator integration. Retain its manifests and episode logs in `runs/`.
+2. Stage first/second catches, a faint plus Center heal, PC changes and an over-cap
+   battle; check episode reasons against a recorded emulator trace.
+3. Confirm the desired revival/gift/cap conventions and implement missing hardcore
+   rules before collecting any results labeled hardcore Nuzlocke.
+4. Run one comparable PPO/LSTM pair and inspect actual failure modes.
+5. Build the cartridge-backed single-fight transition tests before widening the engine.
+
+Upstream references: [Whidden environment](https://github.com/PWhiddy/PokemonRedExperiments),
+[pokered RAM structures](https://github.com/pret/pokered/blob/master/macros/ram.asm),
+[SB3 mixed-input policy](https://stable-baselines3.readthedocs.io/en/v2.3.2/guide/custom_policy.html),
+[recurrent PPO](https://sb3-contrib.readthedocs.io/en/master/modules/ppo_recurrent.html).

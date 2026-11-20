@@ -1,0 +1,36 @@
+{
+  "date": "2026-11-20",
+  "purpose": "Short CPU training throughput measurement for scheduling; not a policy-quality evaluation or cluster benchmark.",
+  "num_envs": 1,
+  "device": "cpu",
+  "omp_num_threads": 1,
+  "openblas_num_threads": 1,
+  "n_steps": 128,
+  "batch_size": 64,
+  "n_epochs": 4,
+  "max_episode_steps": 16384,
+  "timesteps_per_algorithm": 8192,
+  "algorithms": {
+    "ppo": {
+      "actual_timesteps": 8192,
+      "seconds": 28.84552979201544,
+      "steps_per_second": 283.9954772564995,
+      "estimated_hours_per_million_steps": 0.9781063433164958,
+      "run_directory": "runs/compute-ppo-20261120"
+    },
+    "lstm": {
+      "actual_timesteps": 8192,
+      "seconds": 48.14866829197854,
+      "steps_per_second": 170.13970044452444,
+      "estimated_hours_per_million_steps": 1.632645273572406,
+      "run_directory": "runs/compute-lstm-20261120"
+    }
+  },
+  "estimated_serial_hours_for_2_algorithms_3_seeds_5m_steps_each": 39.161274253333524,
+  "limitations": [
+    "8192-step runs cover early-game behavior only.",
+    "Projections assume constant throughput and exclude evaluation, queueing and reruns.",
+    "No evidence that the proposed step budgets suffice to learn to beat Brock.",
+    "RAM requirements, multi-worker scaling and GPU speedup have not been measured."
+  ]
+}

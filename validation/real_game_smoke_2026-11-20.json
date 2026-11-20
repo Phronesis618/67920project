@@ -1,0 +1,150 @@
+{
+  "date": "2026-11-20",
+  "purpose": "Real-ROM integration smoke test; not a trained-policy result or validation of battle-rule timing.",
+  "rom_sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
+  "state_sha1": "1bbaa172c368b992f9c14bd621881c7532de3863",
+  "initial": {
+    "map_id": 38,
+    "x": 3,
+    "y": 6,
+    "party": [],
+    "badges": 0,
+    "milestones": {
+      "got_parcel": false,
+      "delivered_parcel": false,
+      "got_pokedex": false,
+      "beat_brock": false,
+      "reached_viridian_forest": false,
+      "reached_pewter": false
+    },
+    "observation_valid": true,
+    "observation_shapes": {
+      "screens": [
+        72,
+        80,
+        3
+      ],
+      "health": [
+        1
+      ],
+      "level": [
+        8
+      ],
+      "badges": [
+        8
+      ],
+      "events": [
+        2488
+      ],
+      "map": [
+        48,
+        48,
+        1
+      ],
+      "recent_actions": [
+        3
+      ],
+      "party_hp": [
+        6
+      ],
+      "party_level": [
+        6
+      ],
+      "party_present": [
+        6
+      ],
+      "party_status": [
+        6
+      ]
+    }
+  },
+  "environment_check": {
+    "sb3_check_env": "passed",
+    "random_steps": 128,
+    "all_observations_in_space": true,
+    "all_rewards_finite": true,
+    "final_info": {
+      "is_success": false,
+      "end_reason": "time_limit",
+      "violation_reasons": [],
+      "deaths": 0,
+      "regions_used": 0,
+      "badges": 0,
+      "map_coverage": 7,
+      "max_map_progress": 0,
+      "episode_steps": 128,
+      "episode_return": 0.08750000000000001,
+      "milestones": {
+        "got_parcel": false,
+        "delivered_parcel": false,
+        "got_pokedex": false,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    }
+  },
+  "training_runs": {
+    "ppo": {
+      "run_directory": "runs/ppo-real-smoke-20261120",
+      "git_commit": "9480d226e06f8d04000818b4b97b1995da262436",
+      "git_dirty": true,
+      "observation_mode": "partial",
+      "seed": 0,
+      "n_steps": 32,
+      "batch_size": 32,
+      "n_epochs": 1,
+      "max_episode_steps": 128,
+      "training": {
+        "actual_timesteps": 256,
+        "seconds": 1.1571753340540454,
+        "steps_per_second": 221.22835880292246
+      },
+      "training_episodes": 2,
+      "checkpoint_saved_and_reloaded": true,
+      "evaluation_episodes": 3,
+      "evaluation_end_reasons": {
+        "time_limit": 3
+      },
+      "evaluation_success_rate": 0.0
+    },
+    "lstm": {
+      "run_directory": "runs/lstm-real-smoke-20261120",
+      "git_commit": "9480d226e06f8d04000818b4b97b1995da262436",
+      "git_dirty": true,
+      "observation_mode": "partial",
+      "seed": 0,
+      "n_steps": 32,
+      "batch_size": 32,
+      "n_epochs": 1,
+      "max_episode_steps": 128,
+      "training": {
+        "actual_timesteps": 256,
+        "seconds": 1.4278245839523152,
+        "steps_per_second": 179.2937331919126
+      },
+      "training_episodes": 2,
+      "checkpoint_saved_and_reloaded": true,
+      "evaluation_episodes": 3,
+      "evaluation_end_reasons": {
+        "time_limit": 3
+      },
+      "evaluation_success_rate": 0.0
+    }
+  },
+  "limitations": [
+    "All episodes began before the starter; these runs do not establish competence or a PPO/LSTM comparison.",
+    "Real faint, catch, revival, box and battle-entry transitions remain to be staged and validated.",
+    "Short-run timing includes startup and saving; it is not a scaling benchmark.",
+    "The code was uncommitted; source hashes below identify relevant local files."
+  ],
+  "source_sha256": {
+    "pyproject.toml": "ae7a94960ef20054ef64773f4bc5f265476728b48bc9ff2b2cf4fbd1fb667109",
+    "uv.lock": "7899c4738e3b880423a8f6486ca6350e4883f0e470e168dba93a703129eea2ac",
+    "project_work/v2/red_gym_env_v2.py": "166ca132fea7b30e448d0845dac6da6b80a89452b1000769ecb5d1d2d86802cc",
+    "project_work/v2/red_gym_env_v2_nuzlocke.py": "43af1906520495420fb2dff976e6c9201f516e2ccad46d8aafe4ac8338cd849c",
+    "project_work/v2/nuzlocke_rules.py": "f619cec73caf5656942e39efcd592878633fc8d51b7641558771ca3c8a358994",
+    "project_work/v2/experiment.py": "81ba1211e0d08bbc5b8a91bcaa5a077df517c18723d56946ced135e74457c2ae",
+    "project_work/v2/memory_addresses.py": "f80201e0c3b3352ffbbb066e0699b9d675104bfef1e3d6d8ed5320449e58d1bd"
+  }
+}
