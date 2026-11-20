@@ -1,0 +1,182 @@
+{
+  "date": "2026-11-20",
+  "states": [
+    {
+      "state": "init",
+      "coords": [
+        3,
+        6,
+        38
+      ],
+      "party": [],
+      "milestones": {
+        "got_parcel": false,
+        "delivered_parcel": false,
+        "got_pokedex": false,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      },
+      "battle": 0,
+      "bag": [
+        0,
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "observations_valid": true,
+      "state_sha256": "ef978b1668d2fad22a7b809a45fec37f3dd3fc5ef37d996f65b4ac93041afcb8"
+    },
+    {
+      "state": "fast_text_start",
+      "coords": [
+        3,
+        6,
+        38
+      ],
+      "party": [],
+      "milestones": {
+        "got_parcel": false,
+        "delivered_parcel": false,
+        "got_pokedex": false,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      },
+      "battle": 0,
+      "bag": [
+        0,
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "observations_valid": true,
+      "state_sha256": "bf60d38d16951a193a1f00ba1db837bfb90670c58e9a9567cb222111760de06f"
+    },
+    {
+      "state": "has_pokedex",
+      "coords": [
+        5,
+        3,
+        40
+      ],
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 22,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      },
+      "battle": 0,
+      "bag": [
+        0,
+        255,
+        0,
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "observations_valid": true,
+      "state_sha256": "210e08a72fd86d4f3fe40b80b68653c76131dd9d0e386d8147ab3d45a69f5380"
+    },
+    {
+      "state": "has_pokedex_nballs",
+      "coords": [
+        5,
+        3,
+        40
+      ],
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 22,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      },
+      "battle": 0,
+      "bag": [
+        2,
+        4,
+        5,
+        11,
+        2,
+        255,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "observations_valid": true,
+      "state_sha256": "0ff708b3dcdfa6c1f5fc07687b1641247017b1eb8a9a8b7c6eb0dd988431bd7e"
+    }
+  ],
+  "prior_history_verified": false
+}

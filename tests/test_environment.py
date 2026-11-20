@@ -9,7 +9,7 @@ from stable_baselines3.common.env_checker import check_env
 from stable_baselines3.common.vec_env import DummyVecEnv
 
 
-@pytest.mark.parametrize("mode", ["partial", "history"])
+@pytest.mark.parametrize("mode", ["partial", "history", "pixels"])
 @pytest.mark.parametrize("explore_map", [True, False])
 def test_observation_contract(fake_pyboy, config, mode, explore_map):
     env = RedGymEnv(dict(config, observation_mode=mode, include_explore_map=explore_map))
@@ -19,7 +19,9 @@ def test_observation_contract(fake_pyboy, config, mode, explore_map):
         assert env.observation_space.contains(obs)
         assert ("party_dead" in obs) == (mode == "history")
         assert ("used_regions" in obs) == (mode == "history")
-        assert ("map" in obs) == explore_map
+        assert ("map" in obs) == (explore_map and mode != "pixels")
+        if mode == "pixels":
+            assert set(obs) == {"screens", "recent_actions"}
     finally:
         env.close()
     assert env.pyboy.stopped
@@ -103,7 +105,8 @@ def test_episode_log_survives_vector_auto_reset(fake_pyboy, config, tmp_path):
 
 
 @pytest.mark.parametrize("algorithm", ["ppo", "lstm"])
-def test_actual_policy_train_save_reload_evaluate(fake_pyboy, config, tmp_path, algorithm):
+@pytest.mark.parametrize("mode", ["partial", "pixels"])
+def test_actual_policy_train_save_reload_evaluate(fake_pyboy, config, tmp_path, algorithm, mode):
     output = tmp_path / algorithm
     train_main(
         [
@@ -115,6 +118,8 @@ def test_actual_policy_train_save_reload_evaluate(fake_pyboy, config, tmp_path, 
             str(output),
             "--algorithm",
             algorithm,
+            "--observation-mode",
+            mode,
             "--timesteps",
             "16",
             "--n-steps",

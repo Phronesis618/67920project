@@ -17,6 +17,7 @@ from memory_addresses import (
     PARTY_SIZE_ADDRESS,
     PARTY_STRIDE,
 )
+from navigation import graph_sha256, navigation_state, shaping_reward
 from nuzlocke_rules import NuzlockeTracker, PartyMon
 from red_gym_env_v2 import RedGymEnv as BaseRedGymEnv
 
@@ -27,8 +28,8 @@ class RedGymEnv(BaseRedGymEnv):
         config["session_path"] = Path(config["session_path"])
         config["session_path"].mkdir(parents=True, exist_ok=True)
         self.observation_mode = config.get("observation_mode", "partial")
-        if self.observation_mode not in ("partial", "history"):
-            raise ValueError("observation_mode must be partial or history")
+        if self.observation_mode not in ("partial", "history", "pixels"):
+            raise ValueError("observation_mode must be partial, history or pixels")
         self.include_explore_map = config.get("include_explore_map", True)
         self.level_cap = config.get("level_cap", 14)
         self.initial_used_regions = tuple(config.get("initial_used_regions", ()))
@@ -36,6 +37,14 @@ class RedGymEnv(BaseRedGymEnv):
         self.start_jitter_frames = config.get("start_jitter_frames", 0)
         self.death_penalty = float(config.get("death_penalty", 0))
         self.violation_penalty = float(config.get("violation_penalty", 0))
+        self.navigation_reward = config.get("navigation_reward", False)
+        self.navigation_gamma = float(config.get("navigation_gamma", 0.997))
+        if self.navigation_reward:
+            if not 0 < self.navigation_gamma <= 1:
+                raise ValueError("navigation_gamma must be in (0, 1]")
+            expected = config.get("navigation_graph_sha256")
+            if expected is not None and expected != graph_sha256():
+                raise ValueError("Navigation graph differs from the training manifest")
         if config["action_freq"] < 8 or config["max_steps"] < 1:
             raise ValueError("action_freq must be >= 8 and max_steps must be positive")
         if self.start_jitter_frames < 0:
@@ -57,6 +66,8 @@ class RedGymEnv(BaseRedGymEnv):
             obs_spaces["used_regions"] = spaces.MultiBinary(NUM_MAPS)
         if not self.include_explore_map:
             del obs_spaces["map"]
+        if self.observation_mode == "pixels":
+            obs_spaces = {k: obs_spaces[k] for k in ("screens", "recent_actions")}
         self.observation_space = spaces.Dict(obs_spaces)
         self._episode_done = True
 
@@ -83,7 +94,26 @@ class RedGymEnv(BaseRedGymEnv):
         self.total_reward = sum(self.progress_reward.values())
         self.recent_screens.fill(0)
         self.milestones = self.read_milestones()
+        self.path_reward_total = 0.0
+        self.navigation_goal, self.navigation_distance, self.previous_potential = (
+            self.read_navigation()
+        )
+        self.closest_brock_distance = (
+            self.navigation_distance if self.navigation_goal == "brock" else None
+        )
         return self._get_obs(), {"start_delay_frames": self.start_delay}
+
+    def read_navigation(self):
+        if not self.navigation_reward:
+            return None, None, 0.0
+        x, y, map_id = self.get_game_coords()
+        return navigation_state(
+            map_id,
+            x,
+            y,
+            got_parcel=self.read_bit(0xD74E, 1),
+            got_pokedex=self.read_bit(0xD74B, 5),
+        )
 
     def read_milestones(self):
         # LSB-numbered flags, checked against pret/pokered constants/event_constants.asm.
@@ -127,6 +157,8 @@ class RedGymEnv(BaseRedGymEnv):
 
     def _get_obs(self):
         obs = super()._get_obs()
+        if self.observation_mode == "pixels":
+            return {k: obs[k] for k in ("screens", "recent_actions")}
         obs["health"] = obs["health"].astype(np.float32)
         mons = self.read_party_mons()
         obs["level"] = self.fourier_encode(0.02 * sum(m.level for m in mons)).astype(np.float32)
@@ -211,6 +243,22 @@ class RedGymEnv(BaseRedGymEnv):
         terminated = bool(success or self.tracker.terminated)
         truncated = self.step_count >= self.max_steps and not terminated
         self._episode_done = terminated or truncated
+        self.navigation_goal, self.navigation_distance, potential = self.read_navigation()
+        path_reward = 0.0
+        if self.navigation_reward:
+            path_reward = shaping_reward(
+                self.previous_potential, potential, self.navigation_gamma, terminated
+            )
+            reward += path_reward
+            self.path_reward_total += path_reward
+            self.previous_potential = potential
+            if self.navigation_goal == "brock" and self.navigation_distance is not None:
+                self.closest_brock_distance = min(
+                    self.navigation_distance,
+                    self.closest_brock_distance
+                    if self.closest_brock_distance is not None
+                    else self.navigation_distance,
+                )
         self.episode_return += float(reward)
         reason = (
             "wipe"
@@ -235,6 +283,11 @@ class RedGymEnv(BaseRedGymEnv):
             "episode_steps": self.step_count,
             "episode_return": self.episode_return,
             "milestones": dict(self.milestones),
+            "navigation_goal": self.navigation_goal,
+            "navigation_distance": self.navigation_distance,
+            "closest_brock_distance": self.closest_brock_distance,
+            "path_reward": path_reward,
+            "path_reward_total": self.path_reward_total,
         }
         obs = self._get_obs()
         if self.print_rewards:

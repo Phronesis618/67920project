@@ -12,6 +12,7 @@ from pathlib import Path
 
 import gymnasium as gym
 import numpy as np
+from navigation import graph_sha256
 from red_gym_env_v2_nuzlocke import RedGymEnv
 from sb3_contrib import RecurrentPPO
 from stable_baselines3 import PPO
@@ -97,7 +98,9 @@ def train_parser():
         "--output", type=Path, default=ROOT / "runs" / datetime.now().strftime("%Y%m%d-%H%M%S")
     )
     p.add_argument("--algorithm", choices=ALGORITHMS, default="ppo")
-    p.add_argument("--observation-mode", choices=("partial", "history"), default="partial")
+    p.add_argument(
+        "--observation-mode", choices=("partial", "history", "pixels"), default="partial"
+    )
     p.add_argument("--no-explore-map", action="store_true")
     p.add_argument("--timesteps", type=int, default=100_000)
     p.add_argument("--num-envs", type=int, default=1)
@@ -106,6 +109,9 @@ def train_parser():
     p.add_argument("--n-epochs", type=int, default=4)
     p.add_argument("--max-episode-steps", type=int, default=16_384)
     p.add_argument("--gamma", type=float, default=0.997)
+    p.add_argument("--gae-lambda", type=float, default=0.95)
+    p.add_argument("--navigation-reward", action="store_true")
+    p.add_argument("--explore-weight", type=float, default=0.25)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--level-cap", type=int, default=14)
     p.add_argument("--start-jitter-frames", type=int, default=0)
@@ -140,6 +146,10 @@ def train_main(argv=None):
         parser.error("rollout size (n-steps * num-envs) must be divisible by batch-size >= 2")
     if not 0 < args.gamma <= 1:
         parser.error("gamma must be in (0, 1]")
+    if not 0 <= args.gae_lambda <= 1:
+        parser.error("gae-lambda must be in [0, 1]")
+    if not np.isfinite(args.explore_weight) or args.explore_weight < 0:
+        parser.error("explore-weight must be finite and nonnegative")
     if args.output.exists() and any(args.output.iterdir()):
         parser.error("output directory is not empty; choose a new run directory")
     args.output = args.output.resolve()
@@ -156,9 +166,12 @@ def train_main(argv=None):
         "action_freq": 24,
         "max_steps": args.max_episode_steps,
         "reward_scale": 0.5,
-        "explore_weight": 0.25,
+        "explore_weight": args.explore_weight,
+        "navigation_reward": args.navigation_reward,
+        "navigation_gamma": args.gamma,
+        "navigation_graph_sha256": graph_sha256() if args.navigation_reward else None,
         "observation_mode": args.observation_mode,
-        "include_explore_map": not args.no_explore_map,
+        "include_explore_map": not args.no_explore_map and args.observation_mode != "pixels",
         "level_cap": args.level_cap,
         "start_jitter_frames": args.start_jitter_frames,
         "initial_used_regions": args.initial_used_regions,
@@ -189,6 +202,7 @@ def train_main(argv=None):
             batch_size=args.batch_size,
             n_epochs=args.n_epochs,
             gamma=args.gamma,
+            gae_lambda=args.gae_lambda,
             ent_coef=0.01,
             tensorboard_log=str(args.output / "tensorboard"),
             device=args.device,

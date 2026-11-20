@@ -1,0 +1,34 @@
+{
+  "source_commit": "ba9c0568f64ae602fadda577a08c66639f93082a",
+  "graph_sha256": "95559cfc6d0cefac8d85fd82fc5bbdec86d8cc23b739907f2e67609570a8e02e",
+  "nodes": 4487,
+  "edges": 14787,
+  "oak_to_brock_distance": 386,
+  "shop_to_oak_distance": 98,
+  "oak_to_brock_maps": [
+    40,
+    0,
+    12,
+    1,
+    13,
+    50,
+    51,
+    47,
+    13,
+    2,
+    54
+  ],
+  "shop_to_oak_maps": [
+    42,
+    1,
+    12,
+    0,
+    40
+  ],
+  "tests_passed": 43,
+  "limits": [
+    "Static graph; moving NPCs and battle/healing decisions are not modeled.",
+    "Real navigation replay covers Oak lab exit, Pallet, Route 1 and a catch, not an autonomous journey to Brock.",
+    "No complete legal history is claimed for the inherited save."
+  ]
+}
