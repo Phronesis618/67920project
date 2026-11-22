@@ -132,7 +132,8 @@ def main():
                     )
                     previous[key] = (job_id, run)
     config = {
-        "description": "Post-parcel PPO/LSTM: pixels+recent actions versus RAM-assisted control.",
+        "description": "Corrected post-parcel PPO/LSTM: coherent-v1 map positions; fresh pixels/RAM comparisons.",
+        "position_contract": "coherent-v1; new seeds restart without old policy weights to separate corrected learning from legacy transition artifacts.",
         "cwd": str(source),
         "stop_at": args.stop_at,
         "max_consecutive_failures": 2,

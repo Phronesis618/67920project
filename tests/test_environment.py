@@ -68,12 +68,12 @@ def test_milestones_use_lsb_bits_and_persist(fake_pyboy, config):
     env.reset()
     env.pyboy.memory[0xD74B] = 1 << 5
     env.pyboy.memory[0xD74E] = 1 << 0
-    env.pyboy.memory[0xD35E] = 2
+    env.pyboy.set_map(2)
     *_, info = env.step(0)
     assert info["milestones"]["got_pokedex"]
     assert info["milestones"]["delivered_parcel"]
     assert not info["milestones"]["got_parcel"]
-    env.pyboy.memory[0xD35E] = 0
+    env.pyboy.set_map(0)
     *_, info = env.step(0)
     assert info["milestones"]["reached_pewter"]
     env.close()

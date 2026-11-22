@@ -5,12 +5,43 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
-## Latest results — November 22, 2026
+## Map-transition correction — November 22, 2026
 
-Snapshot: **1:14 a.m. Eastern** (06:14 UTC). The Lambda queue is active:
+The current implementation uses `coherent-v1` position reads. It holds the last
+valid position while the map header is stale, the LCD is disabled for loading,
+coordinates lie outside the map, or a ledge jump is in progress. It commits the
+destination after the map/header/coordinates are consistent. Header identity also
+guards transitions between maps with equal dimensions and tilesets. Expected
+headers are generated from pinned `pret/pokered` sources.
+
+Path rewards, exploration credit/map inputs, region checks and map-progress metrics
+use the same coherent position. Health and battle rules still run every frame.
+Logs retain raw and accepted positions, coherence and deferred-frame counts. The
+potential reward formula and terminal/truncation handling are unchanged.
+
+A fixed **15,150-action real-ROM replay** reproduces both door and ledge artifacts.
+Maximum absolute path reward changes from **1.15725 to 0.04840**, and the false
+minimum distance changes from **68 to 216**. Raw emulator trajectories and pixel
+policy observations match exactly. This validates the correction on that trajectory;
+it does not establish improved learning. See the [replay evidence](validation/map_transition_fix_2026-11-22.json).
+Reproduce it with `python scripts/validate_map_transitions.py --output runs/map-check.json`.
+Unit/integration checks and the real-ROM catch/faint/cap replays also pass.
+
+The corrected campaign is `runs/campaign-coherent-20261122`, with frozen source at
+`/home/ubuntu/experiments/67920-coherent-20261122/source` and tmux session
+`67920-coherent`. It restarts the same 12 configurations from fresh policy weights,
+with matched settings and the same 72-job budget/cutoff. Older campaigns and
+checkpoints remain archived. Fresh runs separate corrected learning from weights
+trained with transition artifacts. Manifests record position version and map-header
+hashes. Evaluation/resume of historical manifests defaults to their legacy position
+semantics, preserving the original experimental conditions.
+
+## Pre-fix results — November 22, 2026
+
+Historical snapshot: **1:14 a.m. Eastern** (06:14 UTC). At that time the Lambda queue was active:
 **46/72 jobs succeeded, one running, 25 pending, zero failed**. All 12 seeds/configurations
-finished their 1.05M-action stage; 11 finished 5.24M. The remaining 5.24M run is
-`ram-lstm-s2-m05-train`; afterward the queue proceeds to the 10.49M stages.
+finished their 1.05M-action stage; 11 finished 5.24M. The remaining 5.24M run was
+`ram-lstm-s2-m05-train`. That campaign is now superseded by the corrected runs.
 
 Across **91 completed evaluation episodes**, 24 reached Viridian Forest, **zero
 reached Pewter City and zero defeated Brock**. These are repeated checkpoint
@@ -35,9 +66,8 @@ during warps. A local replay observed `(map 50, x4, y7)` briefly become
 whose distance is 226. The path reward spiked by about +0.611, then -0.619.
 Therefore `closest_brock_distance` can overstate progress and the shaping signal
 contains transition artifacts. This has not been established as the cause of
-stalling. The next priority is to use coherent map-transition state for shaping
-and metrics, then compare corrected runs. The frozen running campaign is unchanged
-and these results retain its original code/configuration.
+stalling. The correction above addresses this issue. These historical results
+retain the original frozen code/configuration and are not relabeled as corrected.
 
 - [Full progress snapshot and checkpoint hashes](results/2026-11-22/progress.json)
 - [Per-episode evaluations](results/2026-11-22/evaluations.json),

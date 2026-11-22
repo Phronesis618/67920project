@@ -1,0 +1,1962 @@
+{
+  "checks": {
+    "complete_replay": true,
+    "identical_raw_trajectory": true,
+    "identical_pixel_observations": true,
+    "legacy_spikes_reproduced": true,
+    "fixed_spikes_removed": true,
+    "false_distance_removed": true
+  },
+  "actions": 15150,
+  "old_max_abs_path_reward": 1.15725,
+  "fixed_max_abs_path_reward": 0.0484003906249999,
+  "old_closest": 68,
+  "fixed_closest": 216,
+  "affected_steps": [
+    {
+      "old": {
+        "step": 134,
+        "raw": [
+          4,
+          11,
+          0
+        ],
+        "position": [
+          4,
+          11,
+          0
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": 0.002642578125000128,
+        "closest": 377,
+        "deferred_frames": 21,
+        "observation_sha256": "b258d3660ff9815e26325345540821f341da4a9182c41fe3c73d28dd67a48bde",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 134,
+        "raw": [
+          4,
+          11,
+          0
+        ],
+        "position": [
+          4,
+          11,
+          40
+        ],
+        "coherent": false,
+        "distance": 378,
+        "path_reward": -0.0012617187499999183,
+        "closest": 378,
+        "deferred_frames": 21,
+        "observation_sha256": "b258d3660ff9815e26325345540821f341da4a9182c41fe3c73d28dd67a48bde",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 138,
+        "raw": [
+          12,
+          11,
+          40
+        ],
+        "position": [
+          12,
+          11,
+          40
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -0.5322499999999999,
+        "closest": 376,
+        "deferred_frames": 45,
+        "observation_sha256": "bf298e7694ba74b2d97cc73bf5cf277bc64ce5ea33a88587343ac36501a37e45",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 138,
+        "raw": [
+          12,
+          11,
+          40
+        ],
+        "position": [
+          12,
+          12,
+          0
+        ],
+        "coherent": false,
+        "distance": 376,
+        "path_reward": -0.001265624999999826,
+        "closest": 376,
+        "deferred_frames": 45,
+        "observation_sha256": "bf298e7694ba74b2d97cc73bf5cf277bc64ce5ea33a88587343ac36501a37e45",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 139,
+        "raw": [
+          12,
+          11,
+          40
+        ],
+        "position": [
+          12,
+          11,
+          40
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -0.0009999999999998899,
+        "closest": 376,
+        "deferred_frames": 69,
+        "observation_sha256": "453cb757b3311454dfb73a0b3c0acfa7ad54b17463d41a66590fcbb01d2c1205",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 139,
+        "raw": [
+          12,
+          11,
+          40
+        ],
+        "position": [
+          12,
+          12,
+          0
+        ],
+        "coherent": false,
+        "distance": 376,
+        "path_reward": -0.001265624999999826,
+        "closest": 376,
+        "deferred_frames": 69,
+        "observation_sha256": "453cb757b3311454dfb73a0b3c0acfa7ad54b17463d41a66590fcbb01d2c1205",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 140,
+        "raw": [
+          5,
+          11,
+          40
+        ],
+        "position": [
+          5,
+          11,
+          40
+        ],
+        "coherent": true,
+        "distance": 378,
+        "path_reward": 0.5221757812500001,
+        "closest": 376,
+        "deferred_frames": 77,
+        "observation_sha256": "f0301fbabb15888425d80f5bdcdd43939da162d43d0790062648a04a7bce55c6",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 140,
+        "raw": [
+          5,
+          11,
+          40
+        ],
+        "position": [
+          5,
+          11,
+          40
+        ],
+        "coherent": true,
+        "distance": 378,
+        "path_reward": -0.009074218749999918,
+        "closest": 376,
+        "deferred_frames": 77,
+        "observation_sha256": "f0301fbabb15888425d80f5bdcdd43939da162d43d0790062648a04a7bce55c6",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 142,
+        "raw": [
+          5,
+          11,
+          0
+        ],
+        "position": [
+          5,
+          11,
+          0
+        ],
+        "coherent": false,
+        "distance": 376,
+        "path_reward": 0.006546875000000174,
+        "closest": 376,
+        "deferred_frames": 99,
+        "observation_sha256": "20ce9f4e00fa622a8fa6b54a15387c33e12b8578eea9e94c591db1f73642598b",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 142,
+        "raw": [
+          5,
+          11,
+          0
+        ],
+        "position": [
+          5,
+          11,
+          40
+        ],
+        "coherent": false,
+        "distance": 378,
+        "path_reward": -0.0012617187499999183,
+        "closest": 376,
+        "deferred_frames": 99,
+        "observation_sha256": "20ce9f4e00fa622a8fa6b54a15387c33e12b8578eea9e94c591db1f73642598b",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 321,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.024701171874999872,
+        "closest": 371,
+        "deferred_frames": 128,
+        "observation_sha256": "0511adc460a5a0eb1cd31cfa4d23765c469c6625372dd04f144b09040b6b7ba2",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 321,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 371,
+        "deferred_frames": 128,
+        "observation_sha256": "0511adc460a5a0eb1cd31cfa4d23765c469c6625372dd04f144b09040b6b7ba2",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 322,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.001263671874999872,
+        "closest": 371,
+        "deferred_frames": 152,
+        "observation_sha256": "2df205e464f9726cc33c13146aefb78123e0b593c9ee725300874007583b0e1a",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 322,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 371,
+        "deferred_frames": 152,
+        "observation_sha256": "2df205e464f9726cc33c13146aefb78123e0b593c9ee725300874007583b0e1a",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 326,
+        "raw": [
+          3,
+          7,
+          0
+        ],
+        "position": [
+          3,
+          7,
+          0
+        ],
+        "coherent": false,
+        "distance": 374,
+        "path_reward": -0.0051757812499997335,
+        "closest": 371,
+        "deferred_frames": 181,
+        "observation_sha256": "43241348ea6f252184d31f8c6870d7d87ba41c5a8cb22c32cc667f80af75fabc",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 326,
+        "raw": [
+          3,
+          7,
+          0
+        ],
+        "position": [
+          3,
+          7,
+          37
+        ],
+        "coherent": false,
+        "distance": 373,
+        "path_reward": -0.0012714843749996874,
+        "closest": 371,
+        "deferred_frames": 181,
+        "observation_sha256": "43241348ea6f252184d31f8c6870d7d87ba41c5a8cb22c32cc667f80af75fabc",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 333,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.024701171874999872,
+        "closest": 371,
+        "deferred_frames": 201,
+        "observation_sha256": "04df11f2bbeeef619fc45b05bbeaa12d52bcb9821d9ff37c100d2d78ff04468b",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 333,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 371,
+        "deferred_frames": 201,
+        "observation_sha256": "04df11f2bbeeef619fc45b05bbeaa12d52bcb9821d9ff37c100d2d78ff04468b",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 334,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.001263671874999872,
+        "closest": 371,
+        "deferred_frames": 225,
+        "observation_sha256": "26b25b58aecfb5cbcb0a06fe9e9b50f821cec2f3a87934dc4dba5790f0a97fc2",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 334,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 371,
+        "deferred_frames": 225,
+        "observation_sha256": "26b25b58aecfb5cbcb0a06fe9e9b50f821cec2f3a87934dc4dba5790f0a97fc2",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 337,
+        "raw": [
+          2,
+          7,
+          0
+        ],
+        "position": [
+          2,
+          7,
+          0
+        ],
+        "coherent": false,
+        "distance": 375,
+        "path_reward": -0.00908007812499978,
+        "closest": 371,
+        "deferred_frames": 257,
+        "observation_sha256": "e390f413e0fc662f7f47ebb0f4987fee8c71241bda87ea73bf6d15da34742356",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 337,
+        "raw": [
+          2,
+          7,
+          0
+        ],
+        "position": [
+          2,
+          7,
+          37
+        ],
+        "coherent": false,
+        "distance": 373,
+        "path_reward": -0.0012714843749996874,
+        "closest": 371,
+        "deferred_frames": 257,
+        "observation_sha256": "e390f413e0fc662f7f47ebb0f4987fee8c71241bda87ea73bf6d15da34742356",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 462,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.024701171874999872,
+        "closest": 369,
+        "deferred_frames": 296,
+        "observation_sha256": "14e42ca01912db6dbcb3fd2df20249cd1de91e0b8e2653e830a311bfb4e29edd",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 462,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 369,
+        "deferred_frames": 296,
+        "observation_sha256": "14e42ca01912db6dbcb3fd2df20249cd1de91e0b8e2653e830a311bfb4e29edd",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 463,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.001263671874999872,
+        "closest": 369,
+        "deferred_frames": 320,
+        "observation_sha256": "1840b1be8e0f959468cf180e1d8696d8531d7dcff0bc7a104a5d3f813439c71c",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 463,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 369,
+        "deferred_frames": 320,
+        "observation_sha256": "1840b1be8e0f959468cf180e1d8696d8531d7dcff0bc7a104a5d3f813439c71c",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 466,
+        "raw": [
+          2,
+          7,
+          0
+        ],
+        "position": [
+          2,
+          7,
+          0
+        ],
+        "coherent": false,
+        "distance": 375,
+        "path_reward": -0.00908007812499978,
+        "closest": 369,
+        "deferred_frames": 348,
+        "observation_sha256": "2080bfea05d9e87136e56739147ec7a693c9c08647f7d289e0af32984879ce84",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 466,
+        "raw": [
+          2,
+          7,
+          0
+        ],
+        "position": [
+          2,
+          7,
+          37
+        ],
+        "coherent": false,
+        "distance": 373,
+        "path_reward": -0.0012714843749996874,
+        "closest": 369,
+        "deferred_frames": 348,
+        "observation_sha256": "2080bfea05d9e87136e56739147ec7a693c9c08647f7d289e0af32984879ce84",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 469,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.024701171874999872,
+        "closest": 369,
+        "deferred_frames": 372,
+        "observation_sha256": "f7898d75d62c3035aade65e1cb5afdbc3b92ca64ef2217c037da102a3019c246",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 469,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 369,
+        "deferred_frames": 372,
+        "observation_sha256": "f7898d75d62c3035aade65e1cb5afdbc3b92ca64ef2217c037da102a3019c246",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 470,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          5,
+          37
+        ],
+        "coherent": false,
+        "distance": 377,
+        "path_reward": -0.001263671874999872,
+        "closest": 369,
+        "deferred_frames": 396,
+        "observation_sha256": "52d5e750d9aef3b1a0598bae798b3f75a25f031894878272bb6d13f4492f6b62",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 470,
+        "raw": [
+          5,
+          5,
+          37
+        ],
+        "position": [
+          5,
+          6,
+          0
+        ],
+        "coherent": false,
+        "distance": 371,
+        "path_reward": -0.001275390625000039,
+        "closest": 369,
+        "deferred_frames": 396,
+        "observation_sha256": "52d5e750d9aef3b1a0598bae798b3f75a25f031894878272bb6d13f4492f6b62",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 488,
+        "raw": [
+          3,
+          7,
+          0
+        ],
+        "position": [
+          3,
+          7,
+          0
+        ],
+        "coherent": false,
+        "distance": 374,
+        "path_reward": -0.0051757812499997335,
+        "closest": 369,
+        "deferred_frames": 423,
+        "observation_sha256": "ce101a6454c1ae1e135b67372a33da04599ac17f0f5ed49adefe4966ebc2ad2b",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 488,
+        "raw": [
+          3,
+          7,
+          0
+        ],
+        "position": [
+          3,
+          7,
+          37
+        ],
+        "coherent": false,
+        "distance": 373,
+        "path_reward": -0.0012714843749996874,
+        "closest": 369,
+        "deferred_frames": 423,
+        "observation_sha256": "ce101a6454c1ae1e135b67372a33da04599ac17f0f5ed49adefe4966ebc2ad2b",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 5612,
+        "raw": [
+          6,
+          61,
+          13
+        ],
+        "position": [
+          6,
+          61,
+          13
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.0088125,
+        "closest": 254,
+        "deferred_frames": 550,
+        "observation_sha256": "f8586be7eca032c7627128012243191003fba4daa83d45c662b5afd498c62573",
+        "jumping": true
+      },
+      "fixed": {
+        "step": 5612,
+        "raw": [
+          6,
+          61,
+          13
+        ],
+        "position": [
+          6,
+          60,
+          13
+        ],
+        "coherent": false,
+        "distance": 254,
+        "path_reward": -0.0015039062499999645,
+        "closest": 254,
+        "deferred_frames": 550,
+        "observation_sha256": "f8586be7eca032c7627128012243191003fba4daa83d45c662b5afd498c62573",
+        "jumping": true
+      }
+    },
+    {
+      "old": {
+        "step": 5613,
+        "raw": [
+          6,
+          62,
+          13
+        ],
+        "position": [
+          6,
+          62,
+          13
+        ],
+        "coherent": true,
+        "distance": 258,
+        "path_reward": 0.9906914062500003,
+        "closest": 254,
+        "deferred_frames": 569,
+        "observation_sha256": "217ea56526238f252d5e47fc522bdceda6bee5d94e534ad71bb3095bb0788aaf",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 5613,
+        "raw": [
+          6,
+          62,
+          13
+        ],
+        "position": [
+          6,
+          62,
+          13
+        ],
+        "coherent": true,
+        "distance": 258,
+        "path_reward": -0.017121093749999705,
+        "closest": 254,
+        "deferred_frames": 569,
+        "observation_sha256": "217ea56526238f252d5e47fc522bdceda6bee5d94e534ad71bb3095bb0788aaf",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 7094,
+        "raw": [
+          0,
+          47,
+          13
+        ],
+        "position": [
+          0,
+          47,
+          13
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.09475,
+        "closest": 227,
+        "deferred_frames": 653,
+        "observation_sha256": "f437db0fee1d13fa637286442916bb3d5385e1e1e16bab63513ec4f64f4c6339",
+        "jumping": true
+      },
+      "fixed": {
+        "step": 7094,
+        "raw": [
+          0,
+          47,
+          13
+        ],
+        "position": [
+          0,
+          46,
+          13
+        ],
+        "coherent": false,
+        "distance": 232,
+        "path_reward": -0.0015468749999998366,
+        "closest": 227,
+        "deferred_frames": 653,
+        "observation_sha256": "f437db0fee1d13fa637286442916bb3d5385e1e1e16bab63513ec4f64f4c6339",
+        "jumping": true
+      }
+    },
+    {
+      "old": {
+        "step": 7095,
+        "raw": [
+          0,
+          48,
+          13
+        ],
+        "position": [
+          0,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 244,
+        "path_reward": 1.0453515625,
+        "closest": 227,
+        "deferred_frames": 671,
+        "observation_sha256": "edf85f5742d18828f5f4a87ed1813783b8eaeb93dded664abcce8db256200997",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 7095,
+        "raw": [
+          0,
+          48,
+          13
+        ],
+        "position": [
+          0,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 244,
+        "path_reward": -0.04839843749999995,
+        "closest": 227,
+        "deferred_frames": 671,
+        "observation_sha256": "edf85f5742d18828f5f4a87ed1813783b8eaeb93dded664abcce8db256200997",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 8304,
+        "raw": [
+          1,
+          47,
+          13
+        ],
+        "position": [
+          1,
+          47,
+          13
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.09865625,
+        "closest": 227,
+        "deferred_frames": 741,
+        "observation_sha256": "dd3396b1f9381cdf4d9eb510b00175ade7cf92695eccc6b2ced32844b6f9213e",
+        "jumping": true
+      },
+      "fixed": {
+        "step": 8304,
+        "raw": [
+          1,
+          47,
+          13
+        ],
+        "position": [
+          1,
+          46,
+          13
+        ],
+        "coherent": false,
+        "distance": 231,
+        "path_reward": -0.0015488281249997904,
+        "closest": 227,
+        "deferred_frames": 741,
+        "observation_sha256": "dd3396b1f9381cdf4d9eb510b00175ade7cf92695eccc6b2ced32844b6f9213e",
+        "jumping": true
+      }
+    },
+    {
+      "old": {
+        "step": 8305,
+        "raw": [
+          1,
+          48,
+          13
+        ],
+        "position": [
+          1,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 243,
+        "path_reward": 1.049255859375,
+        "closest": 227,
+        "deferred_frames": 757,
+        "observation_sha256": "b0fe5362f492252600aaeb0f4d6611bcc69cc2890c753c49c558d38717e920cb",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 8305,
+        "raw": [
+          1,
+          48,
+          13
+        ],
+        "position": [
+          1,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 243,
+        "path_reward": -0.0484003906249999,
+        "closest": 227,
+        "deferred_frames": 757,
+        "observation_sha256": "b0fe5362f492252600aaeb0f4d6611bcc69cc2890c753c49c558d38717e920cb",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 10151,
+        "raw": [
+          1,
+          47,
+          13
+        ],
+        "position": [
+          1,
+          47,
+          13
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.09865625,
+        "closest": 227,
+        "deferred_frames": 899,
+        "observation_sha256": "f780ab39ce44004d162571967fbd4bb993676a592e1176ff846c24bd429c9542",
+        "jumping": true
+      },
+      "fixed": {
+        "step": 10151,
+        "raw": [
+          1,
+          47,
+          13
+        ],
+        "position": [
+          1,
+          46,
+          13
+        ],
+        "coherent": false,
+        "distance": 231,
+        "path_reward": -0.0015488281249997904,
+        "closest": 227,
+        "deferred_frames": 899,
+        "observation_sha256": "f780ab39ce44004d162571967fbd4bb993676a592e1176ff846c24bd429c9542",
+        "jumping": true
+      }
+    },
+    {
+      "old": {
+        "step": 10152,
+        "raw": [
+          1,
+          48,
+          13
+        ],
+        "position": [
+          1,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 243,
+        "path_reward": 1.049255859375,
+        "closest": 227,
+        "deferred_frames": 917,
+        "observation_sha256": "56b88646a63c9425c9b15de173357b826605841a064bff67524ba9a926498c71",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 10152,
+        "raw": [
+          1,
+          48,
+          13
+        ],
+        "position": [
+          1,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 243,
+        "path_reward": -0.0484003906249999,
+        "closest": 227,
+        "deferred_frames": 917,
+        "observation_sha256": "56b88646a63c9425c9b15de173357b826605841a064bff67524ba9a926498c71",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 10472,
+        "raw": [
+          0,
+          47,
+          13
+        ],
+        "position": [
+          0,
+          47,
+          13
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.09475,
+        "closest": 227,
+        "deferred_frames": 940,
+        "observation_sha256": "28dedf48d230ed87f5492d6d9b5ad8fcca3ccfc053f2db8bbf28cfd33af0342f",
+        "jumping": true
+      },
+      "fixed": {
+        "step": 10472,
+        "raw": [
+          0,
+          47,
+          13
+        ],
+        "position": [
+          0,
+          46,
+          13
+        ],
+        "coherent": false,
+        "distance": 232,
+        "path_reward": -0.0015468749999998366,
+        "closest": 227,
+        "deferred_frames": 940,
+        "observation_sha256": "28dedf48d230ed87f5492d6d9b5ad8fcca3ccfc053f2db8bbf28cfd33af0342f",
+        "jumping": true
+      }
+    },
+    {
+      "old": {
+        "step": 10473,
+        "raw": [
+          0,
+          48,
+          13
+        ],
+        "position": [
+          0,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 244,
+        "path_reward": 1.0453515625,
+        "closest": 227,
+        "deferred_frames": 957,
+        "observation_sha256": "c0112e1df068b48b884dd396cee673e8702b97da9456bb01b2762015e36ed29f",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 10473,
+        "raw": [
+          0,
+          48,
+          13
+        ],
+        "position": [
+          0,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 244,
+        "path_reward": -0.04839843749999995,
+        "closest": 227,
+        "deferred_frames": 957,
+        "observation_sha256": "c0112e1df068b48b884dd396cee673e8702b97da9456bb01b2762015e36ed29f",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 12051,
+        "raw": [
+          5,
+          47,
+          13
+        ],
+        "position": [
+          5,
+          47,
+          13
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.09865625,
+        "closest": 227,
+        "deferred_frames": 1020,
+        "observation_sha256": "c31c77c78b12c1429fb62850d7701cc5dcc4c44c523f92509c419398efacff13",
+        "jumping": true
+      },
+      "fixed": {
+        "step": 12051,
+        "raw": [
+          5,
+          47,
+          13
+        ],
+        "position": [
+          5,
+          46,
+          13
+        ],
+        "coherent": false,
+        "distance": 231,
+        "path_reward": -0.0015488281249997904,
+        "closest": 227,
+        "deferred_frames": 1020,
+        "observation_sha256": "c31c77c78b12c1429fb62850d7701cc5dcc4c44c523f92509c419398efacff13",
+        "jumping": true
+      }
+    },
+    {
+      "old": {
+        "step": 12052,
+        "raw": [
+          5,
+          48,
+          13
+        ],
+        "position": [
+          5,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 239,
+        "path_reward": 1.0648730468750003,
+        "closest": 227,
+        "deferred_frames": 1038,
+        "observation_sha256": "738850e65111433e06f2b43e6bcf4a7773f10ea7cb3fbf1b7b259c0cb2923561",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 12052,
+        "raw": [
+          5,
+          48,
+          13
+        ],
+        "position": [
+          5,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 239,
+        "path_reward": -0.032783203124999716,
+        "closest": 227,
+        "deferred_frames": 1038,
+        "observation_sha256": "738850e65111433e06f2b43e6bcf4a7773f10ea7cb3fbf1b7b259c0cb2923561",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 13525,
+        "raw": [
+          7,
+          47,
+          13
+        ],
+        "position": [
+          7,
+          47,
+          13
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.09084375,
+        "closest": 227,
+        "deferred_frames": 1088,
+        "observation_sha256": "56c43e3e8b44a4aba99e1c8c100c4de6e0210425e1c4c6b8f6d1998de4a7b5e2",
+        "jumping": true
+      },
+      "fixed": {
+        "step": 13525,
+        "raw": [
+          7,
+          47,
+          13
+        ],
+        "position": [
+          7,
+          46,
+          13
+        ],
+        "coherent": false,
+        "distance": 233,
+        "path_reward": -0.0015449218749998828,
+        "closest": 227,
+        "deferred_frames": 1088,
+        "observation_sha256": "56c43e3e8b44a4aba99e1c8c100c4de6e0210425e1c4c6b8f6d1998de4a7b5e2",
+        "jumping": true
+      }
+    },
+    {
+      "old": {
+        "step": 13526,
+        "raw": [
+          7,
+          48,
+          13
+        ],
+        "position": [
+          7,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 237,
+        "path_reward": 1.0726816406250004,
+        "closest": 227,
+        "deferred_frames": 1107,
+        "observation_sha256": "491eae05c09d7d22ccd117b59a6cb64678463d76e4dc2815f7b1bfa759e096e5",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 13526,
+        "raw": [
+          7,
+          48,
+          13
+        ],
+        "position": [
+          7,
+          48,
+          13
+        ],
+        "coherent": true,
+        "distance": 237,
+        "path_reward": -0.017162109374999623,
+        "closest": 227,
+        "deferred_frames": 1107,
+        "observation_sha256": "491eae05c09d7d22ccd117b59a6cb64678463d76e4dc2815f7b1bfa759e096e5",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14338,
+        "raw": [
+          3,
+          43,
+          50
+        ],
+        "position": [
+          3,
+          43,
+          50
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.11428125,
+        "closest": 227,
+        "deferred_frames": 1208,
+        "observation_sha256": "feab40b6811b389ce7d0e2e1a5ca433def0ff7cd73edea20f9b601c8c7da6e5b",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14338,
+        "raw": [
+          3,
+          43,
+          50
+        ],
+        "position": [
+          3,
+          44,
+          13
+        ],
+        "coherent": false,
+        "distance": 227,
+        "path_reward": -0.0015566406250000497,
+        "closest": 227,
+        "deferred_frames": 1208,
+        "observation_sha256": "feab40b6811b389ce7d0e2e1a5ca433def0ff7cd73edea20f9b601c8c7da6e5b",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14339,
+        "raw": [
+          3,
+          43,
+          50
+        ],
+        "position": [
+          3,
+          43,
+          50
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -0.0009999999999998899,
+        "closest": 227,
+        "deferred_frames": 1232,
+        "observation_sha256": "f8cb00f9889c95430b4db87a591ecd6e7c108e57455628bb7e1f5bc514b2a6d6",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14339,
+        "raw": [
+          3,
+          43,
+          50
+        ],
+        "position": [
+          3,
+          44,
+          13
+        ],
+        "coherent": false,
+        "distance": 227,
+        "path_reward": -0.0015566406250000497,
+        "closest": 227,
+        "deferred_frames": 1232,
+        "observation_sha256": "f8cb00f9889c95430b4db87a591ecd6e7c108e57455628bb7e1f5bc514b2a6d6",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14340,
+        "raw": [
+          4,
+          7,
+          50
+        ],
+        "position": [
+          4,
+          7,
+          50
+        ],
+        "coherent": true,
+        "distance": 225,
+        "path_reward": 1.119533203125,
+        "closest": 225,
+        "deferred_frames": 1238,
+        "observation_sha256": "1a2a8f79b5ae3263bd97c4a2d919d7c8a14658ee2de506848b043d272b11674e",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14340,
+        "raw": [
+          4,
+          7,
+          50
+        ],
+        "position": [
+          4,
+          7,
+          50
+        ],
+        "coherent": true,
+        "distance": 225,
+        "path_reward": 0.006251953125000043,
+        "closest": 225,
+        "deferred_frames": 1238,
+        "observation_sha256": "1a2a8f79b5ae3263bd97c4a2d919d7c8a14658ee2de506848b043d272b11674e",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14873,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          0,
+          51
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.1494375,
+        "closest": 218,
+        "deferred_frames": 1249,
+        "observation_sha256": "d9ffc883339d9147d4cdbcaabb003e8dac3d27fee9e67af0bbf4ecc451ae53db",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14873,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          1,
+          50
+        ],
+        "coherent": false,
+        "distance": 218,
+        "path_reward": -0.001574218749999634,
+        "closest": 218,
+        "deferred_frames": 1249,
+        "observation_sha256": "d9ffc883339d9147d4cdbcaabb003e8dac3d27fee9e67af0bbf4ecc451ae53db",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14874,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          0,
+          51
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -0.0009999999999998899,
+        "closest": 218,
+        "deferred_frames": 1273,
+        "observation_sha256": "decc080a146d5b016975127ad397beb48dba0bee5dbc7dec005e236eff645ae4",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14874,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          1,
+          50
+        ],
+        "coherent": false,
+        "distance": 218,
+        "path_reward": -0.001574218749999634,
+        "closest": 218,
+        "deferred_frames": 1273,
+        "observation_sha256": "decc080a146d5b016975127ad397beb48dba0bee5dbc7dec005e236eff645ae4",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14875,
+        "raw": [
+          17,
+          47,
+          51
+        ],
+        "position": [
+          17,
+          47,
+          51
+        ],
+        "coherent": true,
+        "distance": 216,
+        "path_reward": 1.154671875,
+        "closest": 216,
+        "deferred_frames": 1279,
+        "observation_sha256": "21bb0e195bab891c0828da5f32d85006b898f987bec141a81eaf9c70f05b88aa",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14875,
+        "raw": [
+          17,
+          47,
+          51
+        ],
+        "position": [
+          17,
+          47,
+          51
+        ],
+        "coherent": true,
+        "distance": 216,
+        "path_reward": 0.006234375000000014,
+        "closest": 216,
+        "deferred_frames": 1279,
+        "observation_sha256": "21bb0e195bab891c0828da5f32d85006b898f987bec141a81eaf9c70f05b88aa",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14879,
+        "raw": [
+          17,
+          47,
+          50
+        ],
+        "position": [
+          17,
+          47,
+          50
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.15725,
+        "closest": 216,
+        "deferred_frames": 1301,
+        "observation_sha256": "8ad1cb2ed6b9f5ff48f3917b79b728feffd03c8234bd5724d097250bda904533",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14879,
+        "raw": [
+          17,
+          47,
+          50
+        ],
+        "position": [
+          17,
+          47,
+          51
+        ],
+        "coherent": false,
+        "distance": 216,
+        "path_reward": -0.0015781249999999858,
+        "closest": 216,
+        "deferred_frames": 1301,
+        "observation_sha256": "8ad1cb2ed6b9f5ff48f3917b79b728feffd03c8234bd5724d097250bda904533",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14880,
+        "raw": [
+          5,
+          0,
+          50
+        ],
+        "position": [
+          5,
+          0,
+          50
+        ],
+        "coherent": true,
+        "distance": 217,
+        "path_reward": 1.150767578125,
+        "closest": 216,
+        "deferred_frames": 1316,
+        "observation_sha256": "cedd3f42092a309c8d77366182a8f3bfc4986aa6878137dc4e5b83c62ead7672",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14880,
+        "raw": [
+          5,
+          0,
+          50
+        ],
+        "position": [
+          5,
+          0,
+          50
+        ],
+        "coherent": true,
+        "distance": 217,
+        "path_reward": -0.005482421875000032,
+        "closest": 216,
+        "deferred_frames": 1316,
+        "observation_sha256": "cedd3f42092a309c8d77366182a8f3bfc4986aa6878137dc4e5b83c62ead7672",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14888,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          0,
+          51
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.1494375,
+        "closest": 216,
+        "deferred_frames": 1322,
+        "observation_sha256": "8b2f7a71cc5a0c13fd349beaa88a5e055fd539a9d73a9eef99956cea6d91dbf2",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14888,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          1,
+          50
+        ],
+        "coherent": false,
+        "distance": 218,
+        "path_reward": -0.001574218749999634,
+        "closest": 216,
+        "deferred_frames": 1322,
+        "observation_sha256": "8b2f7a71cc5a0c13fd349beaa88a5e055fd539a9d73a9eef99956cea6d91dbf2",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14889,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          0,
+          51
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -0.0009999999999998899,
+        "closest": 216,
+        "deferred_frames": 1346,
+        "observation_sha256": "9ae6b0951ce5a225e0db5b16af8ba3b5af4b668f6f594374df4586b53f01c898",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14889,
+        "raw": [
+          5,
+          0,
+          51
+        ],
+        "position": [
+          5,
+          1,
+          50
+        ],
+        "coherent": false,
+        "distance": 218,
+        "path_reward": -0.001574218749999634,
+        "closest": 216,
+        "deferred_frames": 1346,
+        "observation_sha256": "9ae6b0951ce5a225e0db5b16af8ba3b5af4b668f6f594374df4586b53f01c898",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14890,
+        "raw": [
+          17,
+          47,
+          51
+        ],
+        "position": [
+          17,
+          47,
+          51
+        ],
+        "coherent": true,
+        "distance": 216,
+        "path_reward": 1.154671875,
+        "closest": 216,
+        "deferred_frames": 1353,
+        "observation_sha256": "1cc93a49be27ed80708d4eda6c81a9113a0997823734e3e0d8267d228045da3c",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14890,
+        "raw": [
+          17,
+          47,
+          51
+        ],
+        "position": [
+          17,
+          47,
+          51
+        ],
+        "coherent": true,
+        "distance": 216,
+        "path_reward": 0.006234375000000014,
+        "closest": 216,
+        "deferred_frames": 1353,
+        "observation_sha256": "1cc93a49be27ed80708d4eda6c81a9113a0997823734e3e0d8267d228045da3c",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14892,
+        "raw": [
+          17,
+          47,
+          50
+        ],
+        "position": [
+          17,
+          47,
+          50
+        ],
+        "coherent": false,
+        "distance": null,
+        "path_reward": -1.15725,
+        "closest": 216,
+        "deferred_frames": 1374,
+        "observation_sha256": "aaf80f648a2e98eb3d2973d840914e94767436c54f9a1a0022e1e903ff193a9c",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14892,
+        "raw": [
+          17,
+          47,
+          50
+        ],
+        "position": [
+          17,
+          47,
+          51
+        ],
+        "coherent": false,
+        "distance": 216,
+        "path_reward": -0.0015781249999999858,
+        "closest": 216,
+        "deferred_frames": 1374,
+        "observation_sha256": "aaf80f648a2e98eb3d2973d840914e94767436c54f9a1a0022e1e903ff193a9c",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 14893,
+        "raw": [
+          5,
+          0,
+          50
+        ],
+        "position": [
+          5,
+          0,
+          50
+        ],
+        "coherent": true,
+        "distance": 217,
+        "path_reward": 1.150767578125,
+        "closest": 216,
+        "deferred_frames": 1390,
+        "observation_sha256": "54f4d596ae2128ce213305584816bfaa86af5cd412c4af899bb741871fb9aef8",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 14893,
+        "raw": [
+          5,
+          0,
+          50
+        ],
+        "position": [
+          5,
+          0,
+          50
+        ],
+        "coherent": true,
+        "distance": 217,
+        "path_reward": -0.005482421875000032,
+        "closest": 216,
+        "deferred_frames": 1390,
+        "observation_sha256": "54f4d596ae2128ce213305584816bfaa86af5cd412c4af899bb741871fb9aef8",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 15144,
+        "raw": [
+          4,
+          7,
+          13
+        ],
+        "position": [
+          4,
+          7,
+          13
+        ],
+        "coherent": false,
+        "distance": 68,
+        "path_reward": 0.6114140625000002,
+        "closest": 68,
+        "deferred_frames": 1416,
+        "observation_sha256": "e1f72cf7f138b612947859dc886383eaeb7ae2eeba1459f6b0fa5c8a03f7332f",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 15144,
+        "raw": [
+          4,
+          7,
+          13
+        ],
+        "position": [
+          4,
+          7,
+          50
+        ],
+        "coherent": false,
+        "distance": 225,
+        "path_reward": -0.0015605468749999574,
+        "closest": 216,
+        "deferred_frames": 1416,
+        "observation_sha256": "e1f72cf7f138b612947859dc886383eaeb7ae2eeba1459f6b0fa5c8a03f7332f",
+        "jumping": false
+      }
+    },
+    {
+      "old": {
+        "step": 15145,
+        "raw": [
+          3,
+          43,
+          13
+        ],
+        "position": [
+          3,
+          43,
+          13
+        ],
+        "coherent": true,
+        "distance": 226,
+        "path_reward": -0.61874609375,
+        "closest": 68,
+        "deferred_frames": 1434,
+        "observation_sha256": "1c73a8e2eaa94489ba09d81d6814b58b21f38220940e5005600039a7fdd5b28c",
+        "jumping": false
+      },
+      "fixed": {
+        "step": 15145,
+        "raw": [
+          3,
+          43,
+          13
+        ],
+        "position": [
+          3,
+          43,
+          13
+        ],
+        "coherent": true,
+        "distance": 226,
+        "path_reward": -0.0054648437500000036,
+        "closest": 216,
+        "deferred_frames": 1434,
+        "observation_sha256": "1c73a8e2eaa94489ba09d81d6814b58b21f38220940e5005600039a7fdd5b28c",
+        "jumping": false
+      }
+    }
+  ],
+  "source_sha256": {
+    "scripts/validate_map_transitions.py": "3df4a6287e6295dd55941601fe58bff83013e385dd1224750a5b23d3a063948f",
+    "validation/map_transition_actions.json": "bf3b2293640d10adb80f5f5a76358ec9cc41a9b03fe786d66c975e47c595facc",
+    "project_work/v2/map_position.py": "fbe2f79d44363342d97170f166a1a5dc7aa0e4531585836f1711e556acaa4f2d",
+    "project_work/v2/map_headers.json": "ba9d062fc1a4cabea520e9f2592721133290a12c9091618151033cdccc1a3d1e",
+    "project_work/v2/red_gym_env_v2_nuzlocke.py": "55ad91b51682ef662032e85a66eed31e093df51b468ff99bc611fadbbcaef792",
+    "project_work/PokemonRed.gb": "5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b",
+    "project_work/has_pokedex_nballs.state": "0ff708b3dcdfa6c1f5fc07687b1641247017b1eb8a9a8b7c6eb0dd988431bd7e"
+  },
+  "limits": [
+    "One saved trajectory; not an exhaustive validation of all map transitions.",
+    "This establishes a reward/measurement fix, not improved learned performance."
+  ]
+}

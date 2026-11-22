@@ -1,0 +1,2009 @@
+{
+  "source_repository": "https://github.com/pret/pokered",
+  "source_commit": "ba9c0568f64ae602fadda577a08c66639f93082a",
+  "source_sha256": {
+    "constants/map_constants.asm": "4129ef4e6908267e554c0308254f2269f1fb8f75b5c529faad6fd14c92119271",
+    "constants/tileset_constants.asm": "887387444a2be79ffb2b501fee60fc40f8b31668d0a142ea38fc842f90c96769",
+    "data/maps/headers/AgathasRoom.asm": "e257f441d87401cfd6d878a1a6d8fe5d221446153d53287233d3e8a700df0639",
+    "data/maps/headers/BikeShop.asm": "8cba2d22d8d7865de1f426b730dabf35ee9ab7f9aaee30eca2e5228c1caf4aa3",
+    "data/maps/headers/BillsHouse.asm": "8e7bba3e15c51d55eb9ced2873cb4db78b010f4e0656ca7a2f8c245a86fcb24e",
+    "data/maps/headers/BluesHouse.asm": "0595dcfb73ea45d48c8cffd614b449d9d92629de5044d16f07dd469f97621866",
+    "data/maps/headers/BrunosRoom.asm": "06b9df242533bbec2e980fe33be9a4ced90ce6520ac50bec3f0de387b836b217",
+    "data/maps/headers/CeladonChiefHouse.asm": "ed4b9482251e66cac12b2254eb858f12fd3aa7cf8d553424fa10f2f498a0bdf3",
+    "data/maps/headers/CeladonCity.asm": "ca78a438281c4cc9556ef448bf1ca8e3d6c5a7e59a90c9de13b73e094b0ece6d",
+    "data/maps/headers/CeladonDiner.asm": "4ce29ace7e13bb5731cf480092985a98d8de9be8d0e54ad66cb6f1b7fedf2edd",
+    "data/maps/headers/CeladonGym.asm": "1202ee2c0f43f921c0a1653fd62d051276b86dfdcf385ffb29354806e33ec05c",
+    "data/maps/headers/CeladonHotel.asm": "5bd8bdd939c5346015fe281815047f04833cde182dbe2ebf121c9624bb8d71ec",
+    "data/maps/headers/CeladonMansion1F.asm": "aeecf5026b225ba8dd3da1ac664acf9eda3b4af4d5640be18d417f288f0d0b46",
+    "data/maps/headers/CeladonMansion2F.asm": "a8b7c50fdc3f5a749c7258e7def2b0b8d4b103c5a9307d073f7e3cd08c0c5cfd",
+    "data/maps/headers/CeladonMansion3F.asm": "02a17ca6855be8aaa73a006f709148660372cac4dc27efaa08cd411be2356318",
+    "data/maps/headers/CeladonMansionRoof.asm": "61a2b6c1a2d55cbee4cc3b7dc2ebaf8e1b3fc910f7f562e1a689905915dadfcb",
+    "data/maps/headers/CeladonMansionRoofHouse.asm": "d7ddd35f67a342e31146377397bb5191283575d002c0f52cd8250935d99c916e",
+    "data/maps/headers/CeladonMart1F.asm": "b07a37c9a1dd0e749e00b872959af3c4d779e2cba52db35b4e2a7a969a55ccb1",
+    "data/maps/headers/CeladonMart2F.asm": "287f6192890501f0095ddfb27bcaa5114d531a79a740f324b9f3c22352cd93e8",
+    "data/maps/headers/CeladonMart3F.asm": "0494f87dda7742d665716f2a2f1b3c15c48259e3714028e6d73889a19181ddf2",
+    "data/maps/headers/CeladonMart4F.asm": "6343d963705bad9ee68f6fc871733b272890b7dda7bf7dd4defa850d0bbe5d94",
+    "data/maps/headers/CeladonMart5F.asm": "c05070ab6708400ad0c250da0d8ca8d6315d5701c2124edb667c47956f60f51a",
+    "data/maps/headers/CeladonMartElevator.asm": "ab6bc336c82aa883b8ca39b82e23de56f43412476bacf0264e771b0ca1aeaa9a",
+    "data/maps/headers/CeladonMartRoof.asm": "422730ce104cf8853cafea824f64597450f0ddea36580121a4ce4fa7a55b05b4",
+    "data/maps/headers/CeladonPokecenter.asm": "bcad9da96f8b376cd67fe33ff18e9725f2b5b502be31488987cb75688ff741db",
+    "data/maps/headers/CeruleanBadgeHouse.asm": "f10d9d053bc927058224b6711d0c8063feca89524a010d97231a78e65542ee39",
+    "data/maps/headers/CeruleanCave1F.asm": "cc42a4ec8accd28bcfbf4422f716752c03dc5c4a55df54e8ec278f67c949d4c1",
+    "data/maps/headers/CeruleanCave2F.asm": "47951bc72ce1529d60373e36677547b0f5527f7303eca4dd52b31dd838e0f8dc",
+    "data/maps/headers/CeruleanCaveB1F.asm": "2a3b6a57e11846056763572149246ef2844a74232b57dc4098e1a52fca426ac0",
+    "data/maps/headers/CeruleanCity.asm": "a2651d61e36759998f83531f79a5e6a910e2b9090dc31b4fdd0d08a523587fe1",
+    "data/maps/headers/CeruleanGym.asm": "5c18fd975394a2680fa787736cfb54ca49f7790ff8869598967eec985e285cb6",
+    "data/maps/headers/CeruleanMart.asm": "be0bc4fac42a5db98a5bad21959812b8403c13118e071534ba32867915469ae2",
+    "data/maps/headers/CeruleanPokecenter.asm": "924d957f4b763a5483b3a0b6a765f09bb55559fabc75571665c7ca450eb13a2a",
+    "data/maps/headers/CeruleanTradeHouse.asm": "ec6add351c3f28b8f71a629566d3e6217b45e20440af687d37969d0f8c23de1e",
+    "data/maps/headers/CeruleanTrashedHouse.asm": "a1e14517c43ed6161ee0ff92b78f3b5611ba55af97142abff26fcee7b03ef9a8",
+    "data/maps/headers/ChampionsRoom.asm": "0d53486b0145999d485d4f51b2e31af6b3f7efe7a4e237dcb5ea848a89e7a5ec",
+    "data/maps/headers/CinnabarGym.asm": "81b88f4c3bd0a667cd1359a5386e49e2acde054bf683a88235388440ae80d50e",
+    "data/maps/headers/CinnabarIsland.asm": "2dff40ab41de1b44dccce7926c4aeb6bec374be7761e0f7f5d587e8894d11f7b",
+    "data/maps/headers/CinnabarLab.asm": "e743fe2e347e16affcec6efecc9ae7dafc7ff1c1feba5c9ed3ddcc53bce926e6",
+    "data/maps/headers/CinnabarLabFossilRoom.asm": "6e3cc0872973c158475f95355e0a8f2356e1c4f1d30087997bdf302030f9b8c3",
+    "data/maps/headers/CinnabarLabMetronomeRoom.asm": "3b32220d6a76173bef6f7b14ce4427212cdbe7794311c73493e8e9bc0f251a74",
+    "data/maps/headers/CinnabarLabTradeRoom.asm": "ef6c8223b122ecee500d30970549afc450766eed0d99620f4d9ad53856af990e",
+    "data/maps/headers/CinnabarMart.asm": "cb535c19fa7557f33825a5bdc2e51bb524a9b76dc19f0581ab01a05d3e94e44d",
+    "data/maps/headers/CinnabarPokecenter.asm": "f21d087e3ebd06b639002bc43557adee2e293cc0b8e3ec4e3337fe3ea99d77a9",
+    "data/maps/headers/Colosseum.asm": "708046171969897a95a7a749e21ac9548aaa01273b0663e16b3574e21b7e21ab",
+    "data/maps/headers/CopycatsHouse1F.asm": "40d1cffb01338031224368728805cdb6376b8900fc6ff057b40e8576aae8da49",
+    "data/maps/headers/CopycatsHouse2F.asm": "4c2f9cf8d80d934b0c54d5f2f561e1ce6e5444d8fae7885cc582cdad260623ad",
+    "data/maps/headers/Daycare.asm": "b815c58007fa1020fe5427110f0c0d51569e69686c6b103df20b42b8fed34779",
+    "data/maps/headers/DiglettsCave.asm": "94f0f5de3be5254fd0ed1b42b3f36e719672a01a167de9e089fe7caabebe7fd0",
+    "data/maps/headers/DiglettsCaveRoute11.asm": "e750642de78c5e076f8728e81a2d1ba61421fa98d21a8a7ee2d791b2ea93bfdd",
+    "data/maps/headers/DiglettsCaveRoute2.asm": "08a2699da502254b60eeb223371ef9eb6037cce9211186c12c6e70f5a55bb403",
+    "data/maps/headers/FightingDojo.asm": "d08a7051c6d5e390d217e87be5b26ea385d832adcd7fe441168694b75201cb96",
+    "data/maps/headers/FuchsiaBillsGrandpasHouse.asm": "ab979f28465196aa97710fd5a8245b5918b2ab9aaae361672df2452d2f6332dc",
+    "data/maps/headers/FuchsiaCity.asm": "d24c3d25b29785d5e71054be56e12de5ba2530808b6c2c3a219ace79ba6a96f2",
+    "data/maps/headers/FuchsiaGoodRodHouse.asm": "e49c56d12bda8f7a6a921f51868d44d121254a82ecc7b7b50993a1cb007ffcf3",
+    "data/maps/headers/FuchsiaGym.asm": "df2dd5fe224be36cd35a4a0e65092d7b5e95151b884888ef9c2c95e5cf6ea5a7",
+    "data/maps/headers/FuchsiaMart.asm": "081198c0a7479cab9e04c8024a0796053e3de90252c43924f87b67982b44c71e",
+    "data/maps/headers/FuchsiaMeetingRoom.asm": "cbfe3b80d54cefea17245da8241b2f4fd41920afd811f475d20d5314319d3c74",
+    "data/maps/headers/FuchsiaPokecenter.asm": "39a8a49ba1f9a116b979c5d4848f6bca7b1606c084708796bd9e1f6e66ccb098",
+    "data/maps/headers/GameCorner.asm": "d32f24f98811a217a85529093bf2f7e3ad14c9190d5b10778a6b1c7f443c5a68",
+    "data/maps/headers/GameCornerPrizeRoom.asm": "4fed3414bd2e42aec6d04dc5b6a86b2cf7736e9fe2073e0e9f4d0877fa3c96f7",
+    "data/maps/headers/HallOfFame.asm": "abbf4ad26707b87b21d26afbdff5018ec893540aff17adb11535ff10f5b85d05",
+    "data/maps/headers/IndigoPlateau.asm": "ae4a0fc81891c4a913bd6f557fe659fef4bbef7b4311800dd35478885dca1e0b",
+    "data/maps/headers/IndigoPlateauLobby.asm": "9b9b711b20b8d8f487d795b74c0380b0f7fdca460466626b9b61c8feef7c3cfd",
+    "data/maps/headers/LancesRoom.asm": "041b46fa24afc74a7079721bff6848f609fd1a79fd6bec5aa5230f61c26159c5",
+    "data/maps/headers/LavenderCuboneHouse.asm": "dc51a37de0f4435fe26aa79cd118a1a2ddbb8e9cbce70d94e1c71c6cd95c5ca8",
+    "data/maps/headers/LavenderMart.asm": "6f61260a1c0986c522f817473de0b775005cefddae2eac907cb4cf7420f1539a",
+    "data/maps/headers/LavenderPokecenter.asm": "5563d96f6765123ce6f75795dfe57d14b780ee0a1f6480202b921a0a39a3fe14",
+    "data/maps/headers/LavenderTown.asm": "924a5eeb50c0d1d8f4570be3632f202890c60db62b69a890e978a345a5773b24",
+    "data/maps/headers/LoreleisRoom.asm": "e9a806fa27f4b10b19f218c2ca35a14a9691f4bbb42fb8fcef03fd9ea9e5e0e6",
+    "data/maps/headers/MrFujisHouse.asm": "d262ef0f682caad0890ba98a5e07a14b6c463a2e17d77be1e797e4981c45d315",
+    "data/maps/headers/MrPsychicsHouse.asm": "3ea688efd0e68ed41bfaf5ab5240fcb6c67e53ad3cf38765190fa40496f8d68f",
+    "data/maps/headers/MtMoon1F.asm": "0550a3bfa47cd2c2e09b20bba9397dcca300c5a705bb83e389437bf8750fe4eb",
+    "data/maps/headers/MtMoonB1F.asm": "5616e867a976860ec27dc68839d1ef6f4e1a585723439dc78990262df5dfd898",
+    "data/maps/headers/MtMoonB2F.asm": "1031d4f1497c77472740374d3d333b45a14313cf2480d6827ea21fb85140c064",
+    "data/maps/headers/MtMoonPokecenter.asm": "f7974bd00d024ac1dbee8c9ac867ded5aea53d76a5e0666109c2d0a5851921e1",
+    "data/maps/headers/Museum1F.asm": "c6e597956cb923a9d7baf5656964d4d7f08375b7906a8e6af3aa0afee08dbf1f",
+    "data/maps/headers/Museum2F.asm": "d1bbdeae38e330081220c933688bbeee0b4946c655628e8a316e9a29429c5fc3",
+    "data/maps/headers/NameRatersHouse.asm": "84cb4b27c50a121aeec0b63e56dd20ff1ef778b746424033dd6607afa586ab72",
+    "data/maps/headers/OaksLab.asm": "4db7b23143c30a72333d6535517cd63e017bcd7efe8f48f2afacbd563ef6e66c",
+    "data/maps/headers/PalletTown.asm": "be2b496effb593c55e6a4056e005e3c0518c4e56f670f57121249b561461d144",
+    "data/maps/headers/PewterCity.asm": "c9314dde30c9d399cf6990e659b940c533ec72bee66142de9966fc7ad789bf37",
+    "data/maps/headers/PewterGym.asm": "2138fa4ea9b156ed17eb2fa69fa2e1dee3b9d20c085748b21c30e957f4327ed3",
+    "data/maps/headers/PewterMart.asm": "5ed9c4eb1d2f833e0d5ff4ed87e2374a7bd786ab2b51cbfcb97cd3f84c41f924",
+    "data/maps/headers/PewterNidoranHouse.asm": "0a3c35d8033bcc236b966151c6b00f53eda5794ac0645048f66367ebbb8f7009",
+    "data/maps/headers/PewterPokecenter.asm": "fa4629613287f519f48ff0581cb4841402f80a89dc2bb7ca192fe4b494fc3ffb",
+    "data/maps/headers/PewterSpeechHouse.asm": "a522da56e9a0138133f4d3f6859b782f4b32c780e2d911a19e67ba7311ec21a9",
+    "data/maps/headers/PokemonFanClub.asm": "1b0a83733fc12f2668165a3c1ea6f998a5c3f8dbaffb644085f1fc27253a2f62",
+    "data/maps/headers/PokemonMansion1F.asm": "87bc769fa3aca2aa3a0fe6464ff8c23b43c1fb4696b17d4d0fb971f74098782a",
+    "data/maps/headers/PokemonMansion2F.asm": "9be095690fec3adff83a20869da6bdd5c1fe4c9282bd44175a91f2249d5cdff6",
+    "data/maps/headers/PokemonMansion3F.asm": "d60498fbb04528ab9ed0e15992e9130ddc619fbf7173426bfde5083a0aec94e0",
+    "data/maps/headers/PokemonMansionB1F.asm": "693ede2f33368a1603cc905800bd19840cdcf76e1a7a2109bd953785bfd968cc",
+    "data/maps/headers/PokemonTower1F.asm": "688fcc390d661a6113cb37072b9e0bb3f95a20914cf96effff95cf4ce5a5dbd6",
+    "data/maps/headers/PokemonTower2F.asm": "346a6cf5505cfa0f6deb667608b6580d146203b3118130d1d5758c765c117bd3",
+    "data/maps/headers/PokemonTower3F.asm": "9e5a188c11221137c7101135a1cd718bfbc73485fde883a27b4fa9b9c8f18c63",
+    "data/maps/headers/PokemonTower4F.asm": "635faa98254796fb87dfab834e8ad5eb58dc64a5af91ef684fb8566056345e0d",
+    "data/maps/headers/PokemonTower5F.asm": "f01ce9f41e2ef0de6cf3b0eeeeb51984bf3e19b09fbc907043e762aebc3ccd76",
+    "data/maps/headers/PokemonTower6F.asm": "ef798c83d9ff19fa5fd4e555a5390b85b56e272795983debee912f5a7ee0e92b",
+    "data/maps/headers/PokemonTower7F.asm": "6dcd95fd36fd26f086d333defe7ff28ca1fd0feaf30a6f74a23f1ff5f43189a1",
+    "data/maps/headers/PowerPlant.asm": "a6e90dfe736bac269864e76fbb53e6c3eabd822de6d6b1eafed7fc9cdf239b97",
+    "data/maps/headers/RedsHouse1F.asm": "0942ee8a068595e7df52d84d8ce4f155ae63ed3fda8e5146d489955a60e2f9d2",
+    "data/maps/headers/RedsHouse2F.asm": "d223c8367d44c952378d28e534eb7dec7d8ca540a91e8164d069974dabd6472a",
+    "data/maps/headers/RockTunnel1F.asm": "7dab72e8da18c3e44bf470fdef7d1f92c228e7e16fa117cf54183b92bc62e04b",
+    "data/maps/headers/RockTunnelB1F.asm": "5da0d9d5d3def8e2fe78e169c95c1c214e136280a3e3130a0f464d0014616621",
+    "data/maps/headers/RockTunnelPokecenter.asm": "a2997e5e4004390d6f53c22a719bb00f8b25d1f0f2fc12ba76750ef88c091e03",
+    "data/maps/headers/RocketHideoutB1F.asm": "2c11acecdd30f6dbcb2acbfb0d44e1458a2093553345f403551dd3bf96279ec4",
+    "data/maps/headers/RocketHideoutB2F.asm": "2e74ef57213193de3287d2e42f5db98590e118aceefd6d6392bdf2093e334d74",
+    "data/maps/headers/RocketHideoutB3F.asm": "93f2ab3335ab83db5a21c651e06024f5070dfee8f8fc46f5b7a29eaebe309b1e",
+    "data/maps/headers/RocketHideoutB4F.asm": "8a079d05034ae130ffa7c4d492c79f9531137e307290153e2adb6733784e4572",
+    "data/maps/headers/RocketHideoutElevator.asm": "50064176c3ba2ea0bc001d3b16d2c7d721b7e0eeaf988790e78485c73f9b6b51",
+    "data/maps/headers/Route1.asm": "b64b3376c6516f3edc6a884d9220791805745d6cb7564574a11b9ee457da535d",
+    "data/maps/headers/Route10.asm": "3809acfdc85abd996cdd56f835108fa73db8a50d9e31f7ce9a2c44b556fee064",
+    "data/maps/headers/Route11.asm": "9000ee68704b0ae4038bdfbc3eabe012429cdd6533c8a4b34acd91c57c33ad80",
+    "data/maps/headers/Route11Gate1F.asm": "d3ce29d22ff3a67e89966f53d69193fc11c42f07def00b57d65ddc8c36f7f9c3",
+    "data/maps/headers/Route11Gate2F.asm": "1a2e0d0d297a1683aeb12f4821b2c0577349be34ec4a73142d139c7e022cb853",
+    "data/maps/headers/Route12.asm": "f46853f8bd264cfde6367df51b613eedaf1017920557de2af51dc4cddbc8f466",
+    "data/maps/headers/Route12Gate1F.asm": "ccb34c94942fc7e1d9570a1f73ff05dc8dac3eb84773e0ef0370c2725808780d",
+    "data/maps/headers/Route12Gate2F.asm": "8fc86770642e4e05b79c363d5e3cc2699251ddc8c751daaa3e4dbc7e77ff5702",
+    "data/maps/headers/Route12SuperRodHouse.asm": "bd8e477c0955c3c2eff1b9f78394f48b8ba6ef52ea835d7adbb571d3251d985c",
+    "data/maps/headers/Route13.asm": "f7240b2429ab9e43c5098ab03717adbb3b66d029f69c453ac4f601efa96c8456",
+    "data/maps/headers/Route14.asm": "c43a037cfe8d27886d7e2eec45b6c9a6df422200cb8f9fabc5b3fd24843a7ec2",
+    "data/maps/headers/Route15.asm": "8168e49797bfc1e82acf5ed79c0b15724bf1f8c79f4b0df316e448569e74b35f",
+    "data/maps/headers/Route15Gate1F.asm": "01795f9b2d4e20ca8fb1604767140e1b3137f454985ab6c278fdc44292123c71",
+    "data/maps/headers/Route15Gate2F.asm": "c79c96ed1d6a11f5ae0e3848e97e17b4401f8247ab3bd09d65d3ce4ca1a6b6bc",
+    "data/maps/headers/Route16.asm": "2f84e890230cd5994018fdc4288230461525fca4a887bcb9776cc7f2b99a2345",
+    "data/maps/headers/Route16FlyHouse.asm": "70d36b0791905b5de8cea206e07c09597ac65737e11c08194ca746c36c2282c1",
+    "data/maps/headers/Route16Gate1F.asm": "18ec5889b8eaaf4861aa8a9c139d74bbd7c7061f656471e0ecc16cbf38d73ac7",
+    "data/maps/headers/Route16Gate2F.asm": "06b29f02b8908e5a688b980d9622f9f84672af6c4778a5b56252dc48b314ea00",
+    "data/maps/headers/Route17.asm": "b75e602e043f1e16f385e09b6cdb482cce50c7833d112ec5d460e85e7ecdbfb9",
+    "data/maps/headers/Route18.asm": "728bf13502aaaa2f8e6769fabf8b5f11d7c1d5c02f936c625e0d50d2fb58c4bc",
+    "data/maps/headers/Route18Gate1F.asm": "132558aeb2dc22d8083d7c7a002305d23c9a6290b974fd08c61c36e534036147",
+    "data/maps/headers/Route18Gate2F.asm": "8bdb3ebeb6bd01b052b3062cb8a9b7c3007869bafc02a4f91d21378105966884",
+    "data/maps/headers/Route19.asm": "83b015d7506da3a2d02e871eb9f12852e6c38cdac7b241001a23692d84f189c2",
+    "data/maps/headers/Route2.asm": "68f23142cf8b7e770062dbb680a5e1058a357e26794930183f569981f7365bfe",
+    "data/maps/headers/Route20.asm": "a913c85cc06e65cb995e67f8a7098a37d53bc8d09a6164e1463a86730b749f24",
+    "data/maps/headers/Route21.asm": "cb8638c60b2875827519242f1e02f7dcdccc0973a77d7b0ce005701ef75bbd88",
+    "data/maps/headers/Route22.asm": "3f86459c6a57f5fd64b8f8013a2e1713d46c4708d72b95a0a6816538661c5f56",
+    "data/maps/headers/Route22Gate.asm": "5b265fcab06b45a893fcad0a105b25eafbb792c45833979b1f10839cf9b1ac6d",
+    "data/maps/headers/Route23.asm": "373142771d4cd6f703132342e96dae4dc29cf78f26c3c15bf00e900f6de3f96a",
+    "data/maps/headers/Route24.asm": "6230ac60ea1db2a670a2dcad9d781a4e3fc1083c89696d3c82210643d3541c0b",
+    "data/maps/headers/Route25.asm": "17aedac58f9a3c1bd62d72b7ecd107642ae96adcdd6be8aeb3addcd4b077405f",
+    "data/maps/headers/Route2Gate.asm": "1c524e9a6115fe7b90111ae06d7a72fb159b60c37fb3fded676e341836fc8241",
+    "data/maps/headers/Route2TradeHouse.asm": "b5d3499a991e0dd38f6601a6055c6a8ddaecd3a247934d9481892313cde9f33d",
+    "data/maps/headers/Route3.asm": "d0df69562f4501b6d84908351bd58449bcaa10d4d71efb854b3ee22706b6ece3",
+    "data/maps/headers/Route4.asm": "7b3e58e2d3985cb6c76d109c47fb0538f400daef2281a19796007bc9ca5d337d",
+    "data/maps/headers/Route5.asm": "39167db2d5cfd0869f6d6122086e53d231a8631d89aafc0792d64a9d9e52a1b5",
+    "data/maps/headers/Route5Gate.asm": "96265b0e0d23ad9f048356ef2e15481bee54c4b0faf611b0d7d8cd13dab3795b",
+    "data/maps/headers/Route6.asm": "c797b2852d92d314d823be0581026e6463eaa88ddfed522acdce219d4bdf30b3",
+    "data/maps/headers/Route6Gate.asm": "c9f6e1b189b19f91be2a0f8222ba1d3e48a0508552a573a336d0c0b7ffc598fe",
+    "data/maps/headers/Route7.asm": "297cce9d69c20b0b433cf492b35c2bef0120d0a4b71c9b06e996302783a29c55",
+    "data/maps/headers/Route7Gate.asm": "6db87d022d835ef1c2614aec0630a8302819c8e3572c7862600518c49a23e34a",
+    "data/maps/headers/Route8.asm": "c7c19107d6b966089b6799fa7dbddf2d5cc3b442dbeb01e1cff80023b6920602",
+    "data/maps/headers/Route8Gate.asm": "077acfd496bb6e1b86b15847588ea43017be13fd94c30ad217cd2153c71f01a0",
+    "data/maps/headers/Route9.asm": "e3db7d7d25a64e31a5149f870d406050ff23f1261bd6ce1cc0495f035d1c1aa6",
+    "data/maps/headers/SSAnne1F.asm": "9055e04a27ea4b5da209b916af3d3cf05388ea05b99926991d68aaa1ddfe1635",
+    "data/maps/headers/SSAnne1FRooms.asm": "15d6eef348c6714f29a548a9074f4c3ad3c6b02bf114b040a9b9b338203165f5",
+    "data/maps/headers/SSAnne2F.asm": "f0134c0c6fa94495cf3ea185e229194b2e1de89ea04600fda2faae0c7c8afe34",
+    "data/maps/headers/SSAnne2FRooms.asm": "d2e8ce237a48ea3bd13658912afd554e15d3bb35c2ec8a46dce58c7d4e1da09b",
+    "data/maps/headers/SSAnne3F.asm": "50baaf90e91dce4bba93f3c7db309d3dbc4153e68e05d1873cc42b23928a6dce",
+    "data/maps/headers/SSAnneB1F.asm": "405144e8af9c4978f37c42eb74264f58f4216c520397d74f19a55fb44c5d1f85",
+    "data/maps/headers/SSAnneB1FRooms.asm": "968299ad76609ec8b3395595c330afe52dda1d490c96c17a85f409feb4fca715",
+    "data/maps/headers/SSAnneBow.asm": "917cb6d5892929c71d67bbfb5e5ce7a69eeb95267ca3cee40abb8ec4ab8b2663",
+    "data/maps/headers/SSAnneCaptainsRoom.asm": "7ec7537b151b9a4d83f8a78031fb16055cb471ff2dc5b52e60c20bf196df037c",
+    "data/maps/headers/SSAnneKitchen.asm": "c9a18231de260ca6dc8b179c7dc887a6470b1319d893bb734bca34aab1343db1",
+    "data/maps/headers/SafariZoneCenter.asm": "edbc65710871579113525f88d13eae06bc8c5720a5482cd22b90b8b64a932aaf",
+    "data/maps/headers/SafariZoneCenterRestHouse.asm": "0252ed3c1a07250fbe024677202c6fb44c29acbe709d68312de2d31fd46fb52c",
+    "data/maps/headers/SafariZoneEast.asm": "1bf042e982156f5ac152dbf4430dc28af51d0e4ccda71671774148a355f080a0",
+    "data/maps/headers/SafariZoneEastRestHouse.asm": "b72829c14e9d75fa5c5bab0afec26ed926c3546880eb7fd737b1428919d02b4d",
+    "data/maps/headers/SafariZoneGate.asm": "330e9a07d6f42aa7b4b89fa79a949b9773e3cb2dbd638a8b793d4fcc19201be1",
+    "data/maps/headers/SafariZoneNorth.asm": "e0cfdb0cbb4f8302dc82d75baa7087980c17bdb785e25e84edee927e86ad1a75",
+    "data/maps/headers/SafariZoneNorthRestHouse.asm": "6e786dc518a69cbb3322cc3e16248fb537e726a41dc10a33ea26ffd9107aa169",
+    "data/maps/headers/SafariZoneSecretHouse.asm": "89125aab00695f250fda47207da765fe984d9d740efcf67b7bb0b0d9a30f9c84",
+    "data/maps/headers/SafariZoneWest.asm": "905fc6fb1e965efab4c2cbb86e6aee25f1ed8e78cdbae596bab347d477d5a97d",
+    "data/maps/headers/SafariZoneWestRestHouse.asm": "390991b900f4a46017d390f1073a5c239aa3535d2d9f805b166dd88a6ecc99ec",
+    "data/maps/headers/SaffronCity.asm": "8f27f9ff8434a4d52c8e4c0b37055e26c7d07d817c74a9759f47dda5edacd609",
+    "data/maps/headers/SaffronGym.asm": "a307347c709c40f2c65504593b3b9ddad5223d0afe86e6cdce63119b81d10b95",
+    "data/maps/headers/SaffronMart.asm": "1fa619c86574194cd0c803b006930919acf87d66cce47dcc90481ec900bc6029",
+    "data/maps/headers/SaffronPidgeyHouse.asm": "8e0a79d870bec29db6b04164b6a6d8bb4533705aa48012bdce3e25180cf4f44d",
+    "data/maps/headers/SaffronPokecenter.asm": "8dbe591852ad40f6f23313a4a075945c866ba11195e396e52b14e2be718af0c0",
+    "data/maps/headers/SeafoamIslands1F.asm": "80ba7ba1eeca713c72549e3779a2892ba026df00e868aa51b9f617a7a4a2239b",
+    "data/maps/headers/SeafoamIslandsB1F.asm": "b6c3e88456873477b11b9bfce27e9ab601ba9644e5f75b7fabcd45f5a8e90d90",
+    "data/maps/headers/SeafoamIslandsB2F.asm": "9882d9b215943ad8e88b7809b64df77830d0bee0212ceb5a78cf93b45ed79c93",
+    "data/maps/headers/SeafoamIslandsB3F.asm": "f248f8ab40c5d99bad799c8293d0157fba7324fe20189706363bfc62b76e7f94",
+    "data/maps/headers/SeafoamIslandsB4F.asm": "97071c4c5e6b3fed28e5bce4c1cc64de44ab7cb801c614df16101229d72b69b0",
+    "data/maps/headers/SilphCo10F.asm": "c20f3567a5c5ecf4dbfe3aff2ef92903da104c565cf1ec17f40809e0fca33f13",
+    "data/maps/headers/SilphCo11F.asm": "f4edd5612d87915cdc4b0f2eaa13ac6b41f95759c16d6620aab014296510a560",
+    "data/maps/headers/SilphCo1F.asm": "e39ff8683a0cd24597083e12e59865cd322714d7e1d897b6c94c8390987d2d03",
+    "data/maps/headers/SilphCo2F.asm": "2b4472932158afd068800ee19dc8f0679433e6c2a704541a45b9e12c07a8d382",
+    "data/maps/headers/SilphCo3F.asm": "ee5b189619021800dadf74e678ca919653174a3105b2560e28d31667ecb1b6a6",
+    "data/maps/headers/SilphCo4F.asm": "d141d90fbfd367b79f85612695a389e8236585022accb2249564690f585866b0",
+    "data/maps/headers/SilphCo5F.asm": "aa428f634d3f145ad8663ae0e1e31acb4d5a065af422a1d9f36fd9479927b3b4",
+    "data/maps/headers/SilphCo6F.asm": "1bbc6f296b5eb8f5fbed40ce0d8271420687e390e7a3a8a61be9ddefe7cd80c9",
+    "data/maps/headers/SilphCo7F.asm": "8e98758627a8d4836be1ff6ebd122fbaadc49bbb136ebc41f96194f84acff20f",
+    "data/maps/headers/SilphCo8F.asm": "91ebf6ca7a8961f0fd96f21a5b2d6b0646273b075964bf4b0120891bde84f86d",
+    "data/maps/headers/SilphCo9F.asm": "8a4de4a0f6fea8b65411ca04f2412a8aa041d18feef0164b1abdac10b5d7f976",
+    "data/maps/headers/SilphCoElevator.asm": "3fc8b71d1aff36838983ee5937dd3e101d2be841b50021e79d3eaa0647f56aea",
+    "data/maps/headers/TradeCenter.asm": "6076b632cef4811a3b784cf1b0b458694ae45d654826904a837f324321d3cb30",
+    "data/maps/headers/UndergroundPathNorthSouth.asm": "1be8d0c86e7ab47a8b627428387069ac07106346fcd56beb745c1f0fe6c3942c",
+    "data/maps/headers/UndergroundPathRoute5.asm": "1e0f833975cf128bb8686167e9f94f39de39963af58c6c4164c2c919df9fe0b8",
+    "data/maps/headers/UndergroundPathRoute6.asm": "c78a7abc329465758bf0ac89683f8e6aebfc79fa0189bc2d8201aca6feb40ad0",
+    "data/maps/headers/UndergroundPathRoute7.asm": "45c60a42312dccfe1b9aafdb258677be32cb965371d77758a0f8c57dc61ff400",
+    "data/maps/headers/UndergroundPathRoute7Copy.asm": "cdfe5595f565045cad5e50e0b0cd36dbc623e5e8dd777fb372f73325804c74d6",
+    "data/maps/headers/UndergroundPathRoute8.asm": "faa6e6128a18126ec421ad712125de72ebca2be2d98bb45642674de4a0185d49",
+    "data/maps/headers/UndergroundPathWestEast.asm": "3dd46f752cfb20d74877fdde0b81fd43f84b82f3bf52a9ed68aad921fd0b5348",
+    "data/maps/headers/VermilionCity.asm": "e448c3322f48619b52831818ab20949f00a90e2e87e59b28bda248794d39ac50",
+    "data/maps/headers/VermilionDock.asm": "d9792e33fb5a57731304961319030fbd9b8d1cff138e2f87a41d732e7045e7c1",
+    "data/maps/headers/VermilionGym.asm": "f8264473749458a277c87515197e09e4568ad162bd6528dd476f4ac38ac4af63",
+    "data/maps/headers/VermilionMart.asm": "0a72eadba4bf2d667b7b4db5bd7932a0994d3f248af25e4c2cef49a9eb3d6e26",
+    "data/maps/headers/VermilionOldRodHouse.asm": "ac4f27af85cca294cbc354a134a1840f1808ab7f333cb61aa4dd7a838a31ee12",
+    "data/maps/headers/VermilionPidgeyHouse.asm": "2261005565f5f0ac1e01f2dac05be9db39885142c122c56f54bc9321f4071b6f",
+    "data/maps/headers/VermilionPokecenter.asm": "6a467703a337353b2b8a3a2b1a1281fbeaac50dbd17808de19a74b8d59e4f596",
+    "data/maps/headers/VermilionTradeHouse.asm": "01335402562fa4044ae51c679a2fad6824d0b605e31ec60b086ec556b2b3d519",
+    "data/maps/headers/VictoryRoad1F.asm": "970b9f62b8986045e8e84b0576debc8a0cff2c837d99f170013cc50e8c8f9758",
+    "data/maps/headers/VictoryRoad2F.asm": "a99ad0c96abf459dbc0a2efd997e8d12be18e0d0246ca9ce411968cd0b5201ba",
+    "data/maps/headers/VictoryRoad3F.asm": "9fa32d94acc8e96454159ebb87fa8b3f952cd8ace5bb7279fd82d7c936a1c7b9",
+    "data/maps/headers/ViridianCity.asm": "f00734789d39eb6526b2fe54a4ad87af35253655e2d146f4a2ed3d6537f016b6",
+    "data/maps/headers/ViridianForest.asm": "b88358a783427bf9e8fe956a3ebf9c8339dfa3d612b2c4f8067c95858ddc69b4",
+    "data/maps/headers/ViridianForestNorthGate.asm": "8951b8c0d5360458a8bfd7097fd5878ae3497c5e0eb00c24436fc1ecc55cda87",
+    "data/maps/headers/ViridianForestSouthGate.asm": "bad278cd3b4387a07499cd8ac196941b4537961c29a8dfd4dae3ef2607ebfc1a",
+    "data/maps/headers/ViridianGym.asm": "b0b6afbe959ff0431831d33c50f144e009b8855e09765dc8d406a2df055cf2c1",
+    "data/maps/headers/ViridianMart.asm": "2865a96e291bdaf405e24220ae90f95d77155c1b9148d8551d5dffee17cf51e2",
+    "data/maps/headers/ViridianNicknameHouse.asm": "8482370628da56a494d21daf13f997fb2c306e7e682f797dab1bbbb9d3507c15",
+    "data/maps/headers/ViridianPokecenter.asm": "c8b356c3e40ec10f729044475761a44f2dbc8aa5c559cf732651637e23659c4e",
+    "data/maps/headers/ViridianSchoolHouse.asm": "76be1e20395adcb398f94ef961bfa6a36d42e9e08172621b9a8a6518a0b43861",
+    "data/maps/headers/WardensHouse.asm": "5309f1f76c6a498069a0e7554e3bc251df092a03915b537f8e046ba9c0c9560c"
+  },
+  "maps": {
+    "247": {
+      "name": "AgathasRoom",
+      "header": [
+        15,
+        6,
+        5
+      ]
+    },
+    "66": {
+      "name": "BikeShop",
+      "header": [
+        21,
+        4,
+        4
+      ]
+    },
+    "88": {
+      "name": "BillsHouse",
+      "header": [
+        16,
+        4,
+        4
+      ]
+    },
+    "39": {
+      "name": "BluesHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "246": {
+      "name": "BrunosRoom",
+      "header": [
+        7,
+        6,
+        5
+      ]
+    },
+    "139": {
+      "name": "CeladonChiefHouse",
+      "header": [
+        19,
+        4,
+        4
+      ]
+    },
+    "6": {
+      "name": "CeladonCity",
+      "header": [
+        0,
+        18,
+        25
+      ]
+    },
+    "138": {
+      "name": "CeladonDiner",
+      "header": [
+        18,
+        4,
+        5
+      ]
+    },
+    "134": {
+      "name": "CeladonGym",
+      "header": [
+        7,
+        9,
+        5
+      ]
+    },
+    "140": {
+      "name": "CeladonHotel",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "128": {
+      "name": "CeladonMansion1F",
+      "header": [
+        19,
+        6,
+        4
+      ]
+    },
+    "129": {
+      "name": "CeladonMansion2F",
+      "header": [
+        19,
+        6,
+        4
+      ]
+    },
+    "130": {
+      "name": "CeladonMansion3F",
+      "header": [
+        19,
+        6,
+        4
+      ]
+    },
+    "131": {
+      "name": "CeladonMansionRoof",
+      "header": [
+        19,
+        6,
+        4
+      ]
+    },
+    "132": {
+      "name": "CeladonMansionRoofHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "122": {
+      "name": "CeladonMart1F",
+      "header": [
+        18,
+        4,
+        10
+      ]
+    },
+    "123": {
+      "name": "CeladonMart2F",
+      "header": [
+        18,
+        4,
+        10
+      ]
+    },
+    "124": {
+      "name": "CeladonMart3F",
+      "header": [
+        18,
+        4,
+        10
+      ]
+    },
+    "125": {
+      "name": "CeladonMart4F",
+      "header": [
+        18,
+        4,
+        10
+      ]
+    },
+    "136": {
+      "name": "CeladonMart5F",
+      "header": [
+        18,
+        4,
+        10
+      ]
+    },
+    "127": {
+      "name": "CeladonMartElevator",
+      "header": [
+        18,
+        2,
+        2
+      ]
+    },
+    "126": {
+      "name": "CeladonMartRoof",
+      "header": [
+        18,
+        4,
+        10
+      ]
+    },
+    "133": {
+      "name": "CeladonPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "230": {
+      "name": "CeruleanBadgeHouse",
+      "header": [
+        13,
+        4,
+        4
+      ]
+    },
+    "228": {
+      "name": "CeruleanCave1F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "226": {
+      "name": "CeruleanCave2F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "227": {
+      "name": "CeruleanCaveB1F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "3": {
+      "name": "CeruleanCity",
+      "header": [
+        0,
+        18,
+        20
+      ]
+    },
+    "65": {
+      "name": "CeruleanGym",
+      "header": [
+        7,
+        7,
+        5
+      ]
+    },
+    "67": {
+      "name": "CeruleanMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "64": {
+      "name": "CeruleanPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "63": {
+      "name": "CeruleanTradeHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "62": {
+      "name": "CeruleanTrashedHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "120": {
+      "name": "ChampionsRoom",
+      "header": [
+        7,
+        4,
+        4
+      ]
+    },
+    "166": {
+      "name": "CinnabarGym",
+      "header": [
+        22,
+        9,
+        10
+      ]
+    },
+    "8": {
+      "name": "CinnabarIsland",
+      "header": [
+        0,
+        9,
+        10
+      ]
+    },
+    "167": {
+      "name": "CinnabarLab",
+      "header": [
+        20,
+        4,
+        9
+      ]
+    },
+    "170": {
+      "name": "CinnabarLabFossilRoom",
+      "header": [
+        20,
+        4,
+        4
+      ]
+    },
+    "169": {
+      "name": "CinnabarLabMetronomeRoom",
+      "header": [
+        20,
+        4,
+        4
+      ]
+    },
+    "168": {
+      "name": "CinnabarLabTradeRoom",
+      "header": [
+        20,
+        4,
+        4
+      ]
+    },
+    "172": {
+      "name": "CinnabarMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "171": {
+      "name": "CinnabarPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "240": {
+      "name": "Colosseum",
+      "header": [
+        21,
+        4,
+        5
+      ]
+    },
+    "175": {
+      "name": "CopycatsHouse1F",
+      "header": [
+        1,
+        4,
+        4
+      ]
+    },
+    "176": {
+      "name": "CopycatsHouse2F",
+      "header": [
+        4,
+        4,
+        4
+      ]
+    },
+    "72": {
+      "name": "Daycare",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "197": {
+      "name": "DiglettsCave",
+      "header": [
+        17,
+        18,
+        20
+      ]
+    },
+    "85": {
+      "name": "DiglettsCaveRoute11",
+      "header": [
+        17,
+        4,
+        4
+      ]
+    },
+    "46": {
+      "name": "DiglettsCaveRoute2",
+      "header": [
+        17,
+        4,
+        4
+      ]
+    },
+    "177": {
+      "name": "FightingDojo",
+      "header": [
+        5,
+        6,
+        5
+      ]
+    },
+    "153": {
+      "name": "FuchsiaBillsGrandpasHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "7": {
+      "name": "FuchsiaCity",
+      "header": [
+        0,
+        18,
+        20
+      ]
+    },
+    "164": {
+      "name": "FuchsiaGoodRodHouse",
+      "header": [
+        13,
+        4,
+        4
+      ]
+    },
+    "157": {
+      "name": "FuchsiaGym",
+      "header": [
+        7,
+        9,
+        5
+      ]
+    },
+    "152": {
+      "name": "FuchsiaMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "158": {
+      "name": "FuchsiaMeetingRoom",
+      "header": [
+        20,
+        4,
+        7
+      ]
+    },
+    "154": {
+      "name": "FuchsiaPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "135": {
+      "name": "GameCorner",
+      "header": [
+        18,
+        9,
+        10
+      ]
+    },
+    "137": {
+      "name": "GameCornerPrizeRoom",
+      "header": [
+        18,
+        4,
+        5
+      ]
+    },
+    "118": {
+      "name": "HallOfFame",
+      "header": [
+        7,
+        4,
+        5
+      ]
+    },
+    "9": {
+      "name": "IndigoPlateau",
+      "header": [
+        23,
+        9,
+        10
+      ]
+    },
+    "174": {
+      "name": "IndigoPlateauLobby",
+      "header": [
+        2,
+        6,
+        8
+      ]
+    },
+    "113": {
+      "name": "LancesRoom",
+      "header": [
+        5,
+        13,
+        13
+      ]
+    },
+    "151": {
+      "name": "LavenderCuboneHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "150": {
+      "name": "LavenderMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "141": {
+      "name": "LavenderPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "4": {
+      "name": "LavenderTown",
+      "header": [
+        0,
+        9,
+        10
+      ]
+    },
+    "245": {
+      "name": "LoreleisRoom",
+      "header": [
+        7,
+        6,
+        5
+      ]
+    },
+    "149": {
+      "name": "MrFujisHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "183": {
+      "name": "MrPsychicsHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "59": {
+      "name": "MtMoon1F",
+      "header": [
+        17,
+        18,
+        20
+      ]
+    },
+    "60": {
+      "name": "MtMoonB1F",
+      "header": [
+        17,
+        14,
+        14
+      ]
+    },
+    "61": {
+      "name": "MtMoonB2F",
+      "header": [
+        17,
+        18,
+        20
+      ]
+    },
+    "68": {
+      "name": "MtMoonPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "52": {
+      "name": "Museum1F",
+      "header": [
+        10,
+        4,
+        10
+      ]
+    },
+    "53": {
+      "name": "Museum2F",
+      "header": [
+        10,
+        4,
+        7
+      ]
+    },
+    "229": {
+      "name": "NameRatersHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "40": {
+      "name": "OaksLab",
+      "header": [
+        5,
+        6,
+        5
+      ]
+    },
+    "0": {
+      "name": "PalletTown",
+      "header": [
+        0,
+        9,
+        10
+      ]
+    },
+    "2": {
+      "name": "PewterCity",
+      "header": [
+        0,
+        18,
+        20
+      ]
+    },
+    "54": {
+      "name": "PewterGym",
+      "header": [
+        7,
+        7,
+        5
+      ]
+    },
+    "56": {
+      "name": "PewterMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "55": {
+      "name": "PewterNidoranHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "58": {
+      "name": "PewterPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "57": {
+      "name": "PewterSpeechHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "90": {
+      "name": "PokemonFanClub",
+      "header": [
+        16,
+        4,
+        4
+      ]
+    },
+    "165": {
+      "name": "PokemonMansion1F",
+      "header": [
+        22,
+        14,
+        15
+      ]
+    },
+    "214": {
+      "name": "PokemonMansion2F",
+      "header": [
+        22,
+        14,
+        15
+      ]
+    },
+    "215": {
+      "name": "PokemonMansion3F",
+      "header": [
+        22,
+        9,
+        15
+      ]
+    },
+    "216": {
+      "name": "PokemonMansionB1F",
+      "header": [
+        22,
+        14,
+        15
+      ]
+    },
+    "142": {
+      "name": "PokemonTower1F",
+      "header": [
+        15,
+        9,
+        10
+      ]
+    },
+    "143": {
+      "name": "PokemonTower2F",
+      "header": [
+        15,
+        9,
+        10
+      ]
+    },
+    "144": {
+      "name": "PokemonTower3F",
+      "header": [
+        15,
+        9,
+        10
+      ]
+    },
+    "145": {
+      "name": "PokemonTower4F",
+      "header": [
+        15,
+        9,
+        10
+      ]
+    },
+    "146": {
+      "name": "PokemonTower5F",
+      "header": [
+        15,
+        9,
+        10
+      ]
+    },
+    "147": {
+      "name": "PokemonTower6F",
+      "header": [
+        15,
+        9,
+        10
+      ]
+    },
+    "148": {
+      "name": "PokemonTower7F",
+      "header": [
+        15,
+        9,
+        10
+      ]
+    },
+    "83": {
+      "name": "PowerPlant",
+      "header": [
+        22,
+        18,
+        20
+      ]
+    },
+    "37": {
+      "name": "RedsHouse1F",
+      "header": [
+        1,
+        4,
+        4
+      ]
+    },
+    "38": {
+      "name": "RedsHouse2F",
+      "header": [
+        4,
+        4,
+        4
+      ]
+    },
+    "82": {
+      "name": "RockTunnel1F",
+      "header": [
+        17,
+        18,
+        20
+      ]
+    },
+    "232": {
+      "name": "RockTunnelB1F",
+      "header": [
+        17,
+        18,
+        20
+      ]
+    },
+    "81": {
+      "name": "RockTunnelPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "199": {
+      "name": "RocketHideoutB1F",
+      "header": [
+        22,
+        14,
+        15
+      ]
+    },
+    "200": {
+      "name": "RocketHideoutB2F",
+      "header": [
+        22,
+        14,
+        15
+      ]
+    },
+    "201": {
+      "name": "RocketHideoutB3F",
+      "header": [
+        22,
+        14,
+        15
+      ]
+    },
+    "202": {
+      "name": "RocketHideoutB4F",
+      "header": [
+        22,
+        12,
+        15
+      ]
+    },
+    "203": {
+      "name": "RocketHideoutElevator",
+      "header": [
+        18,
+        4,
+        3
+      ]
+    },
+    "12": {
+      "name": "Route1",
+      "header": [
+        0,
+        18,
+        10
+      ]
+    },
+    "21": {
+      "name": "Route10",
+      "header": [
+        0,
+        36,
+        10
+      ]
+    },
+    "22": {
+      "name": "Route11",
+      "header": [
+        0,
+        9,
+        30
+      ]
+    },
+    "84": {
+      "name": "Route11Gate1F",
+      "header": [
+        12,
+        5,
+        4
+      ]
+    },
+    "86": {
+      "name": "Route11Gate2F",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "23": {
+      "name": "Route12",
+      "header": [
+        0,
+        54,
+        10
+      ]
+    },
+    "87": {
+      "name": "Route12Gate1F",
+      "header": [
+        12,
+        4,
+        5
+      ]
+    },
+    "195": {
+      "name": "Route12Gate2F",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "189": {
+      "name": "Route12SuperRodHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "24": {
+      "name": "Route13",
+      "header": [
+        0,
+        9,
+        30
+      ]
+    },
+    "25": {
+      "name": "Route14",
+      "header": [
+        0,
+        27,
+        10
+      ]
+    },
+    "26": {
+      "name": "Route15",
+      "header": [
+        0,
+        9,
+        30
+      ]
+    },
+    "184": {
+      "name": "Route15Gate1F",
+      "header": [
+        12,
+        5,
+        4
+      ]
+    },
+    "185": {
+      "name": "Route15Gate2F",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "27": {
+      "name": "Route16",
+      "header": [
+        0,
+        9,
+        20
+      ]
+    },
+    "188": {
+      "name": "Route16FlyHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "186": {
+      "name": "Route16Gate1F",
+      "header": [
+        12,
+        7,
+        4
+      ]
+    },
+    "187": {
+      "name": "Route16Gate2F",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "28": {
+      "name": "Route17",
+      "header": [
+        0,
+        72,
+        10
+      ]
+    },
+    "29": {
+      "name": "Route18",
+      "header": [
+        0,
+        9,
+        25
+      ]
+    },
+    "190": {
+      "name": "Route18Gate1F",
+      "header": [
+        12,
+        5,
+        4
+      ]
+    },
+    "191": {
+      "name": "Route18Gate2F",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "30": {
+      "name": "Route19",
+      "header": [
+        0,
+        27,
+        10
+      ]
+    },
+    "13": {
+      "name": "Route2",
+      "header": [
+        0,
+        36,
+        10
+      ]
+    },
+    "31": {
+      "name": "Route20",
+      "header": [
+        0,
+        9,
+        50
+      ]
+    },
+    "32": {
+      "name": "Route21",
+      "header": [
+        0,
+        45,
+        10
+      ]
+    },
+    "33": {
+      "name": "Route22",
+      "header": [
+        0,
+        9,
+        20
+      ]
+    },
+    "193": {
+      "name": "Route22Gate",
+      "header": [
+        12,
+        4,
+        5
+      ]
+    },
+    "34": {
+      "name": "Route23",
+      "header": [
+        23,
+        72,
+        10
+      ]
+    },
+    "35": {
+      "name": "Route24",
+      "header": [
+        0,
+        18,
+        10
+      ]
+    },
+    "36": {
+      "name": "Route25",
+      "header": [
+        0,
+        9,
+        30
+      ]
+    },
+    "49": {
+      "name": "Route2Gate",
+      "header": [
+        12,
+        4,
+        5
+      ]
+    },
+    "48": {
+      "name": "Route2TradeHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "14": {
+      "name": "Route3",
+      "header": [
+        0,
+        9,
+        35
+      ]
+    },
+    "15": {
+      "name": "Route4",
+      "header": [
+        0,
+        9,
+        45
+      ]
+    },
+    "16": {
+      "name": "Route5",
+      "header": [
+        0,
+        18,
+        10
+      ]
+    },
+    "70": {
+      "name": "Route5Gate",
+      "header": [
+        12,
+        3,
+        4
+      ]
+    },
+    "17": {
+      "name": "Route6",
+      "header": [
+        0,
+        18,
+        10
+      ]
+    },
+    "73": {
+      "name": "Route6Gate",
+      "header": [
+        12,
+        3,
+        4
+      ]
+    },
+    "18": {
+      "name": "Route7",
+      "header": [
+        0,
+        9,
+        10
+      ]
+    },
+    "76": {
+      "name": "Route7Gate",
+      "header": [
+        12,
+        4,
+        3
+      ]
+    },
+    "19": {
+      "name": "Route8",
+      "header": [
+        0,
+        9,
+        30
+      ]
+    },
+    "79": {
+      "name": "Route8Gate",
+      "header": [
+        12,
+        4,
+        3
+      ]
+    },
+    "20": {
+      "name": "Route9",
+      "header": [
+        0,
+        9,
+        30
+      ]
+    },
+    "95": {
+      "name": "SSAnne1F",
+      "header": [
+        13,
+        9,
+        20
+      ]
+    },
+    "102": {
+      "name": "SSAnne1FRooms",
+      "header": [
+        13,
+        8,
+        12
+      ]
+    },
+    "96": {
+      "name": "SSAnne2F",
+      "header": [
+        13,
+        9,
+        20
+      ]
+    },
+    "103": {
+      "name": "SSAnne2FRooms",
+      "header": [
+        13,
+        8,
+        12
+      ]
+    },
+    "97": {
+      "name": "SSAnne3F",
+      "header": [
+        13,
+        3,
+        10
+      ]
+    },
+    "98": {
+      "name": "SSAnneB1F",
+      "header": [
+        13,
+        4,
+        15
+      ]
+    },
+    "104": {
+      "name": "SSAnneB1FRooms",
+      "header": [
+        13,
+        8,
+        12
+      ]
+    },
+    "99": {
+      "name": "SSAnneBow",
+      "header": [
+        13,
+        7,
+        10
+      ]
+    },
+    "101": {
+      "name": "SSAnneCaptainsRoom",
+      "header": [
+        13,
+        4,
+        3
+      ]
+    },
+    "100": {
+      "name": "SSAnneKitchen",
+      "header": [
+        13,
+        8,
+        7
+      ]
+    },
+    "220": {
+      "name": "SafariZoneCenter",
+      "header": [
+        3,
+        13,
+        15
+      ]
+    },
+    "221": {
+      "name": "SafariZoneCenterRestHouse",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "217": {
+      "name": "SafariZoneEast",
+      "header": [
+        3,
+        13,
+        15
+      ]
+    },
+    "224": {
+      "name": "SafariZoneEastRestHouse",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "156": {
+      "name": "SafariZoneGate",
+      "header": [
+        12,
+        3,
+        4
+      ]
+    },
+    "218": {
+      "name": "SafariZoneNorth",
+      "header": [
+        3,
+        18,
+        20
+      ]
+    },
+    "225": {
+      "name": "SafariZoneNorthRestHouse",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "222": {
+      "name": "SafariZoneSecretHouse",
+      "header": [
+        20,
+        4,
+        4
+      ]
+    },
+    "219": {
+      "name": "SafariZoneWest",
+      "header": [
+        3,
+        13,
+        15
+      ]
+    },
+    "223": {
+      "name": "SafariZoneWestRestHouse",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "10": {
+      "name": "SaffronCity",
+      "header": [
+        0,
+        18,
+        20
+      ]
+    },
+    "178": {
+      "name": "SaffronGym",
+      "header": [
+        22,
+        9,
+        10
+      ]
+    },
+    "180": {
+      "name": "SaffronMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "179": {
+      "name": "SaffronPidgeyHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "182": {
+      "name": "SaffronPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "192": {
+      "name": "SeafoamIslands1F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "159": {
+      "name": "SeafoamIslandsB1F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "160": {
+      "name": "SeafoamIslandsB2F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "161": {
+      "name": "SeafoamIslandsB3F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "162": {
+      "name": "SeafoamIslandsB4F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "234": {
+      "name": "SilphCo10F",
+      "header": [
+        22,
+        9,
+        8
+      ]
+    },
+    "235": {
+      "name": "SilphCo11F",
+      "header": [
+        16,
+        9,
+        9
+      ]
+    },
+    "181": {
+      "name": "SilphCo1F",
+      "header": [
+        22,
+        9,
+        15
+      ]
+    },
+    "207": {
+      "name": "SilphCo2F",
+      "header": [
+        22,
+        9,
+        15
+      ]
+    },
+    "208": {
+      "name": "SilphCo3F",
+      "header": [
+        22,
+        9,
+        15
+      ]
+    },
+    "209": {
+      "name": "SilphCo4F",
+      "header": [
+        22,
+        9,
+        15
+      ]
+    },
+    "210": {
+      "name": "SilphCo5F",
+      "header": [
+        22,
+        9,
+        15
+      ]
+    },
+    "211": {
+      "name": "SilphCo6F",
+      "header": [
+        22,
+        9,
+        13
+      ]
+    },
+    "212": {
+      "name": "SilphCo7F",
+      "header": [
+        22,
+        9,
+        13
+      ]
+    },
+    "213": {
+      "name": "SilphCo8F",
+      "header": [
+        22,
+        9,
+        13
+      ]
+    },
+    "233": {
+      "name": "SilphCo9F",
+      "header": [
+        22,
+        9,
+        13
+      ]
+    },
+    "236": {
+      "name": "SilphCoElevator",
+      "header": [
+        18,
+        2,
+        2
+      ]
+    },
+    "239": {
+      "name": "TradeCenter",
+      "header": [
+        21,
+        4,
+        5
+      ]
+    },
+    "119": {
+      "name": "UndergroundPathNorthSouth",
+      "header": [
+        11,
+        24,
+        4
+      ]
+    },
+    "71": {
+      "name": "UndergroundPathRoute5",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "74": {
+      "name": "UndergroundPathRoute6",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "77": {
+      "name": "UndergroundPathRoute7Copy",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "80": {
+      "name": "UndergroundPathRoute8",
+      "header": [
+        12,
+        4,
+        4
+      ]
+    },
+    "121": {
+      "name": "UndergroundPathWestEast",
+      "header": [
+        11,
+        4,
+        25
+      ]
+    },
+    "5": {
+      "name": "VermilionCity",
+      "header": [
+        0,
+        18,
+        20
+      ]
+    },
+    "94": {
+      "name": "VermilionDock",
+      "header": [
+        14,
+        6,
+        14
+      ]
+    },
+    "92": {
+      "name": "VermilionGym",
+      "header": [
+        7,
+        9,
+        5
+      ]
+    },
+    "91": {
+      "name": "VermilionMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "163": {
+      "name": "VermilionOldRodHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "93": {
+      "name": "VermilionPidgeyHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "89": {
+      "name": "VermilionPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "196": {
+      "name": "VermilionTradeHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "108": {
+      "name": "VictoryRoad1F",
+      "header": [
+        17,
+        9,
+        10
+      ]
+    },
+    "194": {
+      "name": "VictoryRoad2F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "198": {
+      "name": "VictoryRoad3F",
+      "header": [
+        17,
+        9,
+        15
+      ]
+    },
+    "1": {
+      "name": "ViridianCity",
+      "header": [
+        0,
+        18,
+        20
+      ]
+    },
+    "51": {
+      "name": "ViridianForest",
+      "header": [
+        3,
+        24,
+        17
+      ]
+    },
+    "47": {
+      "name": "ViridianForestNorthGate",
+      "header": [
+        9,
+        4,
+        5
+      ]
+    },
+    "50": {
+      "name": "ViridianForestSouthGate",
+      "header": [
+        9,
+        4,
+        5
+      ]
+    },
+    "45": {
+      "name": "ViridianGym",
+      "header": [
+        7,
+        9,
+        10
+      ]
+    },
+    "42": {
+      "name": "ViridianMart",
+      "header": [
+        2,
+        4,
+        4
+      ]
+    },
+    "44": {
+      "name": "ViridianNicknameHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "41": {
+      "name": "ViridianPokecenter",
+      "header": [
+        6,
+        4,
+        7
+      ]
+    },
+    "43": {
+      "name": "ViridianSchoolHouse",
+      "header": [
+        8,
+        4,
+        4
+      ]
+    },
+    "155": {
+      "name": "WardensHouse",
+      "header": [
+        20,
+        4,
+        5
+      ]
+    }
+  }
+}

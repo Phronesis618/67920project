@@ -3,6 +3,7 @@ from types import SimpleNamespace
 import numpy as np
 import pytest
 import torch
+from map_position import map_headers
 
 
 class FakePyBoy:
@@ -19,8 +20,15 @@ class FakePyBoy:
         self.memory[:] = bytes(65536)
         self.memory[0xD163] = 1
         self.set_mon()
-        self.memory[0xD35E] = 0
+        self.set_map(0)
         self.frames = 0
+
+    def set_map(self, map_id, x=0, y=0):
+        self.memory[0xD35E] = map_id
+        self.memory[0xD362] = x
+        self.memory[0xD361] = y
+        self.memory[0xD367:0xD371] = bytes((*map_headers()[map_id], map_id, 0, 0, 0, map_id, 0, 0))
+        self.memory[0xFF40] = 0x80
 
     def set_mon(self, slot=0, hp=20, level=14, identity=(123, 456)):
         b = 0xD16B + slot * 0x2C

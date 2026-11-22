@@ -21,6 +21,7 @@ def main():
     p.add_argument("--output", type=Path, required=True)
     p.add_argument("--seed", type=int, default=1000)
     p.add_argument("--threshold", type=int, default=100)
+    p.add_argument("--position-mode", choices=("legacy-raw", "coherent-v1"), default="legacy-raw")
     args = p.parse_args()
     manifest = json.loads((args.run / "manifest.json").read_text())
     config = dict(manifest["config"])
@@ -28,6 +29,7 @@ def main():
         session_path=str(args.output.parent / "emulator"),
         gb_path=str(ROOT / "project_work/PokemonRed.gb"),
         init_state=str(ROOT / "project_work/has_pokedex_nballs.state"),
+        position_mode=args.position_mode,
     )
     import hashlib
 
@@ -65,6 +67,8 @@ def main():
                         "step": step + 1,
                         "previous": previous,
                         "coords": coords,
+                        "raw_coords": env.raw_game_coords(),
+                        "position_coherent": info["position_coherent"],
                         "distance": distance,
                         "reward": reward,
                         "path_reward": info["path_reward"],

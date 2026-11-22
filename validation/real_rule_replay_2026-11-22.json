@@ -1,0 +1,384 @@
+{
+  "created_utc": "2026-11-22T06:34:13.742010+00:00",
+  "checks": {
+    "navigation_pixels": true,
+    "legal_catch": true,
+    "illegal_catch": true,
+    "battle_entry_cap": true,
+    "faint_and_wipe": true,
+    "observations": true,
+    "reward_wiring": true
+  },
+  "cases": {
+    "legal_catch": {
+      "info": {
+        "is_success": false,
+        "end_reason": "running",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 32,
+        "max_map_progress": 2,
+        "episode_steps": 114,
+        "episode_return": 0.4,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": null,
+        "navigation_distance": null,
+        "closest_brock_distance": null,
+        "path_reward": 0.0,
+        "path_reward_total": 0.0,
+        "position": [
+          10,
+          32,
+          12
+        ],
+        "raw_position": [
+          10,
+          32,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 47
+      },
+      "all_observations_valid": true,
+      "party_size": 2,
+      "health_changes": [
+        {
+          "step": 1,
+          "hp": 22
+        }
+      ],
+      "missing_path_states": 0,
+      "observation_keys": [
+        "badges",
+        "events",
+        "health",
+        "level",
+        "map",
+        "party_hp",
+        "party_level",
+        "party_present",
+        "party_status",
+        "recent_actions",
+        "screens"
+      ]
+    },
+    "illegal_catch": {
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 31,
+        "max_map_progress": 2,
+        "episode_steps": 98,
+        "episode_return": 0.3875,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": null,
+        "navigation_distance": null,
+        "closest_brock_distance": null,
+        "path_reward": 0.0,
+        "path_reward_total": 0.0,
+        "position": [
+          10,
+          32,
+          12
+        ],
+        "raw_position": [
+          10,
+          32,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 41
+      },
+      "all_observations_valid": true,
+      "party_size": 2,
+      "health_changes": [
+        {
+          "step": 1,
+          "hp": 22
+        }
+      ],
+      "missing_path_states": 0,
+      "observation_keys": [
+        "badges",
+        "events",
+        "health",
+        "level",
+        "map",
+        "party_hp",
+        "party_level",
+        "party_present",
+        "party_status",
+        "recent_actions",
+        "screens"
+      ]
+    },
+    "battle_entry_cap": {
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "level_cap"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 31,
+        "max_map_progress": 2,
+        "episode_steps": 40,
+        "episode_return": 0.3875,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": null,
+        "navigation_distance": null,
+        "closest_brock_distance": null,
+        "path_reward": 0.0,
+        "path_reward_total": 0.0,
+        "position": [
+          10,
+          32,
+          12
+        ],
+        "raw_position": [
+          10,
+          32,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 39
+      },
+      "all_observations_valid": true,
+      "party_size": 1,
+      "health_changes": [
+        {
+          "step": 1,
+          "hp": 22
+        }
+      ],
+      "missing_path_states": 0,
+      "observation_keys": [
+        "badges",
+        "events",
+        "health",
+        "level",
+        "map",
+        "party_hp",
+        "party_level",
+        "party_present",
+        "party_status",
+        "recent_actions",
+        "screens"
+      ]
+    },
+    "faint_and_wipe": {
+      "info": {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 31,
+        "max_map_progress": 2,
+        "episode_steps": 239,
+        "episode_return": 0.3875,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": null,
+        "navigation_distance": null,
+        "closest_brock_distance": null,
+        "path_reward": 0.0,
+        "path_reward_total": 0.0,
+        "position": [
+          10,
+          32,
+          12
+        ],
+        "raw_position": [
+          10,
+          32,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 41
+      },
+      "all_observations_valid": true,
+      "party_size": 1,
+      "health_changes": [
+        {
+          "step": 1,
+          "hp": 22
+        },
+        {
+          "step": 79,
+          "hp": 20
+        },
+        {
+          "step": 108,
+          "hp": 17
+        },
+        {
+          "step": 133,
+          "hp": 15
+        },
+        {
+          "step": 145,
+          "hp": 13
+        },
+        {
+          "step": 157,
+          "hp": 11
+        },
+        {
+          "step": 194,
+          "hp": 8
+        },
+        {
+          "step": 216,
+          "hp": 5
+        },
+        {
+          "step": 228,
+          "hp": 2
+        },
+        {
+          "step": 239,
+          "hp": 0
+        }
+      ],
+      "missing_path_states": 0,
+      "observation_keys": [
+        "badges",
+        "events",
+        "health",
+        "level",
+        "map",
+        "party_hp",
+        "party_level",
+        "party_present",
+        "party_status",
+        "recent_actions",
+        "screens"
+      ]
+    },
+    "navigation_pixels": {
+      "info": {
+        "is_success": false,
+        "end_reason": "running",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 32,
+        "max_map_progress": 2,
+        "episode_steps": 114,
+        "episode_return": 0.009546875000022464,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 356,
+        "closest_brock_distance": 356,
+        "path_reward": -0.0013046874999997904,
+        "path_reward_total": -0.030453124999977543,
+        "position": [
+          10,
+          32,
+          12
+        ],
+        "raw_position": [
+          10,
+          32,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 47
+      },
+      "all_observations_valid": true,
+      "party_size": 2,
+      "health_changes": [
+        {
+          "step": 1,
+          "hp": 22
+        }
+      ],
+      "missing_path_states": 0,
+      "observation_keys": [
+        "recent_actions",
+        "screens"
+      ]
+    }
+  },
+  "reward_wiring_injected_ram": {
+    "parcel": {
+      "first_reward": 2.0,
+      "repeat_reward": 0.0
+    },
+    "delivery": {
+      "first_reward": 2.0,
+      "repeat_reward": 0.0
+    },
+    "pokedex": {
+      "first_reward": 2.0,
+      "repeat_reward": 0.0
+    },
+    "stuck_at_599": -0.0,
+    "stuck_at_600": -0.025
+  },
+  "source_sha256": {
+    "scripts/validate_real_game.py": "e730036e8b13c5cf4d1b61374d1bda08dc469a9bcca3628eff23e6513ad2cad9",
+    "validation/first_catch_actions.json": "d9e3c28bea3730726c21cf2788ced5ae48cd10bf86af88181c1eeee971dc7cfb",
+    "project_work/PokemonRed.gb": "5ca7ba01642a3b27b0cc0b5349b52792795b62d3ed977e98a09390659af96b7b",
+    "project_work/has_pokedex_nballs.state": "0ff708b3dcdfa6c1f5fc07687b1641247017b1eb8a9a8b7c6eb0dd988431bd7e",
+    "project_work/v2/red_gym_env_v2_nuzlocke.py": "55ad91b51682ef662032e85a66eed31e093df51b468ff99bc611fadbbcaef792",
+    "project_work/v2/nuzlocke_rules.py": "f619cec73caf5656942e39efcd592878633fc8d51b7641558771ca3c8a358994",
+    "project_work/v2/navigation.py": "67986996739e64c5cd7dcd2a8b2f47e7e21efa1de1893306666f6e60b8af1510",
+    "project_work/v2/navigation_graph.json": "95559cfc6d0cefac8d85fd82fc5bbdec86d8cc23b739907f2e67609570a8e02e"
+  },
+  "limitations": [
+    "Inherited save history is unknown; these are rules-from-reset fixtures.",
+    "Illegal catch uses the same real catch with Route 1 declared used at reset.",
+    "Cap test lowers the cap to five for a real battle entered by a level-six starter.",
+    "Reward audit injects flags and does not validate the complete parcel route.",
+    "Full-party box catches, PC identity changes, revival and Brock remain unvalidated in real play.",
+    "Battle item bans and set-mode enforcement remain unimplemented."
+  ]
+}

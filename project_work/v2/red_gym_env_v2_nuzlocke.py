@@ -8,10 +8,10 @@ from pathlib import Path
 
 import numpy as np
 from gymnasium import Env, spaces
+from map_position import POSITION_VERSION, MapPosition, headers_sha256
 from memory_addresses import (
     BATTLE_TYPE_ADDRESS,
     BOX_COUNT_ADDRESS,
-    MAP_N_ADDRESS,
     NUM_MAPS,
     PARTY_BASE,
     PARTY_SIZE_ADDRESS,
@@ -39,6 +39,12 @@ class RedGymEnv(BaseRedGymEnv):
         self.violation_penalty = float(config.get("violation_penalty", 0))
         self.navigation_reward = config.get("navigation_reward", False)
         self.navigation_gamma = float(config.get("navigation_gamma", 0.997))
+        self.position_mode = config.get("position_mode", POSITION_VERSION)
+        if self.position_mode not in (POSITION_VERSION, "legacy-raw"):
+            raise ValueError("Unsupported position_mode")
+        expected_headers = config.get("map_headers_sha256")
+        if expected_headers is not None and expected_headers != headers_sha256():
+            raise ValueError("Map headers differ from the training manifest")
         if self.navigation_reward:
             if not 0 < self.navigation_gamma <= 1:
                 raise ValueError("navigation_gamma must be in (0, 1]")
@@ -77,9 +83,12 @@ class RedGymEnv(BaseRedGymEnv):
         self.tracker = NuzlockeTracker(self.level_cap, self.initial_used_regions, self.region_map)
         self.episode_return = 0.0
         self._episode_done = False
+        self.position = MapPosition()
         # Base reset calls our observation reader; tracker must already exist.
         super().reset(seed=seed, options=options or {})
         self._observe_rules()
+        if self.position_mode != "legacy-raw" and self.position.coords is None:
+            raise ValueError("Initial save must have a loaded map and valid coordinates")
         self.start_delay = int(self.np_random.integers(self.start_jitter_frames + 1))
         for _ in range(self.start_delay):
             self.pyboy.tick(1, True)
@@ -115,6 +124,33 @@ class RedGymEnv(BaseRedGymEnv):
             got_pokedex=self.read_bit(0xD74B, 5),
         )
 
+    def raw_game_coords(self):
+        return super().get_game_coords()
+
+    def get_game_coords(self):
+        if (
+            self.position_mode != "legacy-raw"
+            and getattr(self, "position", None) is not None
+            and self.position.coords is not None
+        ):
+            return self.position.coords
+        # Base reset requests an observation before the first position sample;
+        # this observation is discarded and reset validates before returning.
+        return self.raw_game_coords()
+
+    def update_seen_coords(self):
+        if self.position_mode == "legacy-raw" or self.position.valid:
+            super().update_seen_coords()
+
+    def update_explore_map(self):
+        if self.position_mode == "legacy-raw" or self.position.valid:
+            super().update_explore_map()
+
+    def update_map_progress(self):
+        self.max_map_progress = max(
+            self.max_map_progress, self.get_map_progress(self.get_game_coords()[2])
+        )
+
     def read_milestones(self):
         # LSB-numbered flags, checked against pret/pokered constants/event_constants.asm.
         return {
@@ -122,8 +158,8 @@ class RedGymEnv(BaseRedGymEnv):
             "delivered_parcel": self.read_bit(0xD74E, 0),
             "got_pokedex": self.read_bit(0xD74B, 5),
             "beat_brock": self.read_bit(0xD755, 7),
-            "reached_viridian_forest": self.read_m(MAP_N_ADDRESS) == 51,
-            "reached_pewter": self.read_m(MAP_N_ADDRESS) == 2,
+            "reached_viridian_forest": self.get_game_coords()[2] == 51,
+            "reached_pewter": self.get_game_coords()[2] == 2,
         }
 
     def read_party_mons(self):
@@ -147,9 +183,17 @@ class RedGymEnv(BaseRedGymEnv):
         return sum(m.hp for m in mons) / max(sum(m.max_hp for m in mons), 1)
 
     def _observe_rules(self):
+        self.position.observe(
+            self.raw_game_coords(),
+            self.pyboy.memory[0xD367:0xD371],
+            bool(self.read_m(0xFF40) & 0x80),
+            # wMovementFlags BIT_LEDGE_OR_FISHING: intermediate jump coordinates
+            # can occupy a non-walkable ledge; commit the landing instead.
+            jumping=bool(self.read_m(0xD736) & 0x40),
+        )
         self.tracker.observe(
             self.read_party_mons(),
-            map_id=self.read_m(MAP_N_ADDRESS),
+            map_id=self.get_game_coords()[2],
             battle_type=self.read_m(BATTLE_TYPE_ADDRESS),
             owned_count=self.read_m(PARTY_SIZE_ADDRESS) + self.read_m(BOX_COUNT_ADDRESS),
         )
@@ -288,6 +332,10 @@ class RedGymEnv(BaseRedGymEnv):
             "closest_brock_distance": self.closest_brock_distance,
             "path_reward": path_reward,
             "path_reward_total": self.path_reward_total,
+            "position": self.get_game_coords(),
+            "raw_position": self.raw_game_coords(),
+            "position_coherent": self.position.valid,
+            "deferred_position_frames": self.position.deferred_frames,
         }
         obs = self._get_obs()
         if self.print_rewards:

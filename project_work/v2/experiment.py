@@ -12,6 +12,7 @@ from pathlib import Path
 
 import gymnasium as gym
 import numpy as np
+from map_position import POSITION_VERSION, headers_sha256
 from navigation import graph_sha256
 from red_gym_env_v2_nuzlocke import RedGymEnv
 from sb3_contrib import RecurrentPPO
@@ -170,6 +171,8 @@ def train_main(argv=None):
         "navigation_reward": args.navigation_reward,
         "navigation_gamma": args.gamma,
         "navigation_graph_sha256": graph_sha256() if args.navigation_reward else None,
+        "position_mode": POSITION_VERSION,
+        "map_headers_sha256": headers_sha256(),
         "observation_mode": args.observation_mode,
         "include_explore_map": not args.no_explore_map and args.observation_mode != "pixels",
         "level_cap": args.level_cap,
@@ -261,6 +264,7 @@ def resume_main(argv=None):
     if parent["ruleset"] != RULESET or parent["algorithm"] not in ALGORITHMS:
         p.error("source run uses an unsupported algorithm or ruleset")
     config = dict(parent["config"])
+    config.setdefault("position_mode", "legacy-raw")
     for name, key, hash_key in (
         ("rom", "gb_path", "rom_sha1"),
         ("state", "init_state", "state_sha1"),
@@ -367,6 +371,7 @@ def evaluate_main(argv=None):
         p.error("evaluation output exists; choose a new --output path")
     manifest = json.loads((args.run / "manifest.json").read_text())
     config = dict(manifest["config"])
+    config.setdefault("position_mode", "legacy-raw")
     for key, hash_key in (("gb_path", "rom_sha1"), ("init_state", "state_sha1")):
         if sha1(config[key]) != manifest[hash_key]:
             p.error(f"{key} differs from the training asset")
