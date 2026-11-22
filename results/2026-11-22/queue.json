@@ -1,0 +1,1730 @@
+{
+  "description": "Post-parcel PPO/LSTM: pixels+recent actions versus RAM-assisted control.",
+  "cwd": "/home/ubuntu/experiments/67920-postparcel-20261120/source",
+  "stop_at": "2026-11-30T04:59:00+00:00",
+  "max_consecutive_failures": 2,
+  "starting_state_contract": {
+    "state": "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+    "rules_begin_at_reset": true,
+    "prior_history_verified": false,
+    "initial_used_regions": [
+      12
+    ],
+    "note": "Inherited level-six starter, Pokedex, five balls and two antidotes. Route 1 conservatively unavailable for catches. Not a full-game Nuzlocke claim."
+  },
+  "reward_contract": "Identical quest-conditioned shortest-path potential shaping and base rewards across observations/algorithms. Gamma 0.9995, GAE lambda 0.99, 512-step worker rollouts; exploration weight 0.025.",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MPLCONFIGDIR": "/tmp/67920-matplotlib",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "jobs": [
+    {
+      "id": "pixels-ppo-s0-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m01",
+        "--algorithm",
+        "ppo",
+        "--observation-mode",
+        "pixels",
+        "--seed",
+        "0",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 0,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "pixels-ppo-s0-m01-eval",
+      "needs": [
+        "pixels-ppo-s0-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s0-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m01",
+        "--algorithm",
+        "lstm",
+        "--observation-mode",
+        "pixels",
+        "--seed",
+        "0",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 0,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "pixels-lstm-s0-m01-eval",
+      "needs": [
+        "pixels-lstm-s0-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s0-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m01",
+        "--algorithm",
+        "ppo",
+        "--observation-mode",
+        "partial",
+        "--seed",
+        "0",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 0,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "ram-ppo-s0-m01-eval",
+      "needs": [
+        "ram-ppo-s0-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s0-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m01",
+        "--algorithm",
+        "lstm",
+        "--observation-mode",
+        "partial",
+        "--seed",
+        "0",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 0,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "ram-lstm-s0-m01-eval",
+      "needs": [
+        "ram-lstm-s0-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s1-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m01",
+        "--algorithm",
+        "ppo",
+        "--observation-mode",
+        "pixels",
+        "--seed",
+        "1",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 1,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "pixels-ppo-s1-m01-eval",
+      "needs": [
+        "pixels-ppo-s1-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s1-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m01",
+        "--algorithm",
+        "lstm",
+        "--observation-mode",
+        "pixels",
+        "--seed",
+        "1",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 1,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "pixels-lstm-s1-m01-eval",
+      "needs": [
+        "pixels-lstm-s1-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s1-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m01",
+        "--algorithm",
+        "ppo",
+        "--observation-mode",
+        "partial",
+        "--seed",
+        "1",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 1,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "ram-ppo-s1-m01-eval",
+      "needs": [
+        "ram-ppo-s1-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s1-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m01",
+        "--algorithm",
+        "lstm",
+        "--observation-mode",
+        "partial",
+        "--seed",
+        "1",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 1,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "ram-lstm-s1-m01-eval",
+      "needs": [
+        "ram-lstm-s1-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s2-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m01",
+        "--algorithm",
+        "ppo",
+        "--observation-mode",
+        "pixels",
+        "--seed",
+        "2",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 2,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "pixels-ppo-s2-m01-eval",
+      "needs": [
+        "pixels-ppo-s2-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s2-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m01",
+        "--algorithm",
+        "lstm",
+        "--observation-mode",
+        "pixels",
+        "--seed",
+        "2",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 2,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "pixels-lstm-s2-m01-eval",
+      "needs": [
+        "pixels-lstm-s2-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s2-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m01",
+        "--algorithm",
+        "ppo",
+        "--observation-mode",
+        "partial",
+        "--seed",
+        "2",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 2,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "ram-ppo-s2-m01-eval",
+      "needs": [
+        "ram-ppo-s2-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s2-m01-train",
+      "needs": [],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/baseline_fast_v2.py",
+        "--rom",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/PokemonRed.gb",
+        "--state",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/has_pokedex_nballs.state",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m01",
+        "--algorithm",
+        "lstm",
+        "--observation-mode",
+        "partial",
+        "--seed",
+        "2",
+        "--num-envs",
+        "16",
+        "--timesteps",
+        "1048576",
+        "--n-steps",
+        "512",
+        "--batch-size",
+        "512",
+        "--n-epochs",
+        "4",
+        "--max-episode-steps",
+        "16384",
+        "--gamma",
+        "0.9995",
+        "--gae-lambda",
+        "0.99",
+        "--navigation-reward",
+        "--explore-weight",
+        "0.025",
+        "--initial-used-regions",
+        "12",
+        "--device",
+        "cuda",
+        "--checkpoint-every",
+        "262144"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 2,
+      "additional_timesteps": 1048576
+    },
+    {
+      "id": "ram-lstm-s2-m01-eval",
+      "needs": [
+        "ram-lstm-s2-m01-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m01",
+        "--episodes",
+        "3",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s0-m05-train",
+      "needs": [
+        "pixels-ppo-s0-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 0,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "pixels-ppo-s0-m05-eval",
+      "needs": [
+        "pixels-ppo-s0-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s0-m05-train",
+      "needs": [
+        "pixels-lstm-s0-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 0,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "pixels-lstm-s0-m05-eval",
+      "needs": [
+        "pixels-lstm-s0-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s0-m05-train",
+      "needs": [
+        "ram-ppo-s0-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 0,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "ram-ppo-s0-m05-eval",
+      "needs": [
+        "ram-ppo-s0-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s0-m05-train",
+      "needs": [
+        "ram-lstm-s0-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 0,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "ram-lstm-s0-m05-eval",
+      "needs": [
+        "ram-lstm-s0-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s1-m05-train",
+      "needs": [
+        "pixels-ppo-s1-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 1,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "pixels-ppo-s1-m05-eval",
+      "needs": [
+        "pixels-ppo-s1-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s1-m05-train",
+      "needs": [
+        "pixels-lstm-s1-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 1,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "pixels-lstm-s1-m05-eval",
+      "needs": [
+        "pixels-lstm-s1-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s1-m05-train",
+      "needs": [
+        "ram-ppo-s1-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 1,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "ram-ppo-s1-m05-eval",
+      "needs": [
+        "ram-ppo-s1-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s1-m05-train",
+      "needs": [
+        "ram-lstm-s1-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 1,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "ram-lstm-s1-m05-eval",
+      "needs": [
+        "ram-lstm-s1-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s2-m05-train",
+      "needs": [
+        "pixels-ppo-s2-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 2,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "pixels-ppo-s2-m05-eval",
+      "needs": [
+        "pixels-ppo-s2-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s2-m05-train",
+      "needs": [
+        "pixels-lstm-s2-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 2,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "pixels-lstm-s2-m05-eval",
+      "needs": [
+        "pixels-lstm-s2-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s2-m05-train",
+      "needs": [
+        "ram-ppo-s2-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 2,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "ram-ppo-s2-m05-eval",
+      "needs": [
+        "ram-ppo-s2-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s2-m05-train",
+      "needs": [
+        "ram-lstm-s2-m01-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m01",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m05",
+        "--timesteps",
+        "4194304",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 2,
+      "additional_timesteps": 4194304
+    },
+    {
+      "id": "ram-lstm-s2-m05-eval",
+      "needs": [
+        "ram-lstm-s2-m05-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m05",
+        "--episodes",
+        "5",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s0-m10-train",
+      "needs": [
+        "pixels-ppo-s0-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 0,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "pixels-ppo-s0-m10-eval",
+      "needs": [
+        "pixels-ppo-s0-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s0-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s0-m10-train",
+      "needs": [
+        "pixels-lstm-s0-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 0,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "pixels-lstm-s0-m10-eval",
+      "needs": [
+        "pixels-lstm-s0-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s0-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s0-m10-train",
+      "needs": [
+        "ram-ppo-s0-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 0,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "ram-ppo-s0-m10-eval",
+      "needs": [
+        "ram-ppo-s0-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s0-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s0-m10-train",
+      "needs": [
+        "ram-lstm-s0-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 0,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "ram-lstm-s0-m10-eval",
+      "needs": [
+        "ram-lstm-s0-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s0-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s1-m10-train",
+      "needs": [
+        "pixels-ppo-s1-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 1,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "pixels-ppo-s1-m10-eval",
+      "needs": [
+        "pixels-ppo-s1-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s1-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s1-m10-train",
+      "needs": [
+        "pixels-lstm-s1-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 1,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "pixels-lstm-s1-m10-eval",
+      "needs": [
+        "pixels-lstm-s1-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s1-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s1-m10-train",
+      "needs": [
+        "ram-ppo-s1-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 1,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "ram-ppo-s1-m10-eval",
+      "needs": [
+        "ram-ppo-s1-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s1-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s1-m10-train",
+      "needs": [
+        "ram-lstm-s1-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 1,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "ram-lstm-s1-m10-eval",
+      "needs": [
+        "ram-lstm-s1-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s1-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-ppo-s2-m10-train",
+      "needs": [
+        "pixels-ppo-s2-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "seed": 2,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "pixels-ppo-s2-m10-eval",
+      "needs": [
+        "pixels-ppo-s2-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-ppo-s2-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "pixels-lstm-s2-m10-train",
+      "needs": [
+        "pixels-lstm-s2-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "seed": 2,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "pixels-lstm-s2-m10-eval",
+      "needs": [
+        "pixels-lstm-s2-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/pixels-lstm-s2-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-ppo-s2-m10-train",
+      "needs": [
+        "ram-ppo-s2-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "ppo",
+      "seed": 2,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "ram-ppo-s2-m10-eval",
+      "needs": [
+        "ram-ppo-s2-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-ppo-s2-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    },
+    {
+      "id": "ram-lstm-s2-m10-train",
+      "needs": [
+        "ram-lstm-s2-m05-train"
+      ],
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/resume.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m05",
+        "--output",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m10",
+        "--timesteps",
+        "5242880",
+        "--device",
+        "cuda"
+      ],
+      "timeout_seconds": 86400,
+      "condition": "ram",
+      "algorithm": "lstm",
+      "seed": 2,
+      "additional_timesteps": 5242880
+    },
+    {
+      "id": "ram-lstm-s2-m10-eval",
+      "needs": [
+        "ram-lstm-s2-m10-train"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/projects/67920project/.venv/bin/python",
+        "/home/ubuntu/experiments/67920-postparcel-20261120/source/project_work/v2/evaluate.py",
+        "/home/ubuntu/projects/67920project/runs/campaign-postparcel-20261120/runs/ram-lstm-s2-m10",
+        "--episodes",
+        "10",
+        "--seed",
+        "1000"
+      ]
+    }
+  ]
+}

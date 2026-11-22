@@ -1,0 +1,459 @@
+{
+  "config_sha256": "5e4e009b76b10280f71ab30cd82a0e9f24b0fe05092a3190fa45437525644cc8",
+  "created_utc": "2026-11-20T23:39:57.879252+00:00",
+  "jobs": {
+    "pixels-ppo-s0-m01-train": {
+      "status": "succeeded",
+      "pid": 9516,
+      "started_utc": "2026-11-20T23:39:57.881207+00:00",
+      "elapsed_seconds": 1814.0199023630003,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T00:10:11.899949+00:00"
+    },
+    "pixels-ppo-s0-m01-eval": {
+      "status": "succeeded",
+      "pid": 11029,
+      "started_utc": "2026-11-21T00:10:11.902664+00:00",
+      "elapsed_seconds": 327.64990922700053,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T00:15:39.551402+00:00"
+    },
+    "pixels-lstm-s0-m01-train": {
+      "status": "succeeded",
+      "pid": 11191,
+      "started_utc": "2026-11-21T00:15:39.553957+00:00",
+      "elapsed_seconds": 2442.155295736,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T00:56:21.708257+00:00"
+    },
+    "pixels-lstm-s0-m01-eval": {
+      "status": "succeeded",
+      "pid": 12464,
+      "started_utc": "2026-11-21T00:56:21.711946+00:00",
+      "elapsed_seconds": 406.56492662300025,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T01:03:08.275534+00:00"
+    },
+    "ram-ppo-s0-m01-train": {
+      "status": "succeeded",
+      "pid": 12546,
+      "started_utc": "2026-11-21T01:03:08.278235+00:00",
+      "elapsed_seconds": 2147.5465478319993,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T01:38:55.823560+00:00"
+    },
+    "ram-ppo-s0-m01-eval": {
+      "status": "succeeded",
+      "pid": 13794,
+      "started_utc": "2026-11-21T01:38:55.826307+00:00",
+      "elapsed_seconds": 654.6896307740008,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T01:49:50.514650+00:00"
+    },
+    "ram-lstm-s0-m01-train": {
+      "status": "succeeded",
+      "pid": 13890,
+      "started_utc": "2026-11-21T01:49:50.517537+00:00",
+      "elapsed_seconds": 3691.056866642999,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T02:51:21.573236+00:00"
+    },
+    "ram-lstm-s0-m01-eval": {
+      "status": "succeeded",
+      "pid": 15190,
+      "started_utc": "2026-11-21T02:51:21.575538+00:00",
+      "elapsed_seconds": 522.6382835610002,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T03:00:04.212799+00:00"
+    },
+    "pixels-ppo-s1-m01-train": {
+      "status": "succeeded",
+      "pid": 15276,
+      "started_utc": "2026-11-21T03:00:04.216372+00:00",
+      "elapsed_seconds": 2165.589141131999,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T03:36:09.804247+00:00"
+    },
+    "pixels-ppo-s1-m01-eval": {
+      "status": "succeeded",
+      "pid": 16550,
+      "started_utc": "2026-11-21T03:36:09.808903+00:00",
+      "elapsed_seconds": 509.19569774999763,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T03:44:39.002506+00:00"
+    },
+    "pixels-lstm-s1-m01-train": {
+      "status": "succeeded",
+      "pid": 16672,
+      "started_utc": "2026-11-21T03:44:39.006097+00:00",
+      "elapsed_seconds": 2929.0555325530004,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T04:33:28.060166+00:00"
+    },
+    "pixels-lstm-s1-m01-eval": {
+      "status": "succeeded",
+      "pid": 18275,
+      "started_utc": "2026-11-21T04:33:28.063223+00:00",
+      "elapsed_seconds": 645.9517446140017,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T04:44:14.013641+00:00"
+    },
+    "ram-ppo-s1-m01-train": {
+      "status": "succeeded",
+      "pid": 18395,
+      "started_utc": "2026-11-21T04:44:14.017267+00:00",
+      "elapsed_seconds": 2271.5925634159976,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T05:22:05.608280+00:00"
+    },
+    "ram-ppo-s1-m01-eval": {
+      "status": "succeeded",
+      "pid": 19718,
+      "started_utc": "2026-11-21T05:22:05.612439+00:00",
+      "elapsed_seconds": 519.9301733649991,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T05:30:45.541178+00:00"
+    },
+    "ram-lstm-s1-m01-train": {
+      "status": "succeeded",
+      "pid": 19812,
+      "started_utc": "2026-11-21T05:30:45.544261+00:00",
+      "elapsed_seconds": 3243.7050664050003,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T06:24:49.248162+00:00"
+    },
+    "ram-lstm-s1-m01-eval": {
+      "status": "succeeded",
+      "pid": 21146,
+      "started_utc": "2026-11-21T06:24:49.250817+00:00",
+      "elapsed_seconds": 716.3598374690009,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T06:36:45.609553+00:00"
+    },
+    "pixels-ppo-s2-m01-train": {
+      "status": "succeeded",
+      "pid": 21295,
+      "started_utc": "2026-11-21T06:36:45.613929+00:00",
+      "elapsed_seconds": 2082.472506481001,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T07:11:28.084841+00:00"
+    },
+    "pixels-ppo-s2-m01-eval": {
+      "status": "succeeded",
+      "pid": 22545,
+      "started_utc": "2026-11-21T07:11:28.085862+00:00",
+      "elapsed_seconds": 387.9136048399996,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T07:17:55.998995+00:00"
+    },
+    "pixels-lstm-s2-m01-train": {
+      "status": "succeeded",
+      "pid": 22624,
+      "started_utc": "2026-11-21T07:17:56.002112+00:00",
+      "elapsed_seconds": 3229.4974797330033,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T08:11:45.498280+00:00"
+    },
+    "pixels-lstm-s2-m01-eval": {
+      "status": "succeeded",
+      "pid": 24134,
+      "started_utc": "2026-11-21T08:11:45.502491+00:00",
+      "elapsed_seconds": 170.8394472889995,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T08:14:36.340340+00:00"
+    },
+    "ram-ppo-s2-m01-train": {
+      "status": "succeeded",
+      "pid": 24234,
+      "started_utc": "2026-11-21T08:14:36.342371+00:00",
+      "elapsed_seconds": 2464.938351708006,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T08:55:41.280234+00:00"
+    },
+    "ram-ppo-s2-m01-eval": {
+      "status": "succeeded",
+      "pid": 25743,
+      "started_utc": "2026-11-21T08:55:41.284083+00:00",
+      "elapsed_seconds": 630.200438672,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T09:06:11.483046+00:00"
+    },
+    "ram-lstm-s2-m01-train": {
+      "status": "succeeded",
+      "pid": 25882,
+      "started_utc": "2026-11-21T09:06:11.486978+00:00",
+      "elapsed_seconds": 3617.8017749220016,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T10:06:29.287407+00:00"
+    },
+    "ram-lstm-s2-m01-eval": {
+      "status": "succeeded",
+      "pid": 27400,
+      "started_utc": "2026-11-21T10:06:29.290191+00:00",
+      "elapsed_seconds": 515.0094861120015,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T10:15:04.298600+00:00"
+    },
+    "pixels-ppo-s0-m05-train": {
+      "status": "succeeded",
+      "pid": 27485,
+      "started_utc": "2026-11-21T10:15:04.301357+00:00",
+      "elapsed_seconds": 8608.117910028996,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T12:38:32.418184+00:00"
+    },
+    "pixels-ppo-s0-m05-eval": {
+      "status": "succeeded",
+      "pid": 30165,
+      "started_utc": "2026-11-21T12:38:32.422755+00:00",
+      "elapsed_seconds": 993.9744270099982,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T12:55:06.395591+00:00"
+    },
+    "pixels-lstm-s0-m05-train": {
+      "status": "succeeded",
+      "pid": 30303,
+      "started_utc": "2026-11-21T12:55:06.399492+00:00",
+      "elapsed_seconds": 12341.559001017005,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T16:20:47.957039+00:00"
+    },
+    "pixels-lstm-s0-m05-eval": {
+      "status": "succeeded",
+      "pid": 32216,
+      "started_utc": "2026-11-21T16:20:47.960175+00:00",
+      "elapsed_seconds": 1040.8829301279984,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T16:38:08.842037+00:00"
+    },
+    "ram-ppo-s0-m05-train": {
+      "status": "succeeded",
+      "pid": 33001,
+      "started_utc": "2026-11-21T16:38:08.845006+00:00",
+      "elapsed_seconds": 9970.299142175005,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T19:24:19.143178+00:00"
+    },
+    "ram-ppo-s0-m05-eval": {
+      "status": "succeeded",
+      "pid": 34906,
+      "started_utc": "2026-11-21T19:24:19.145776+00:00",
+      "elapsed_seconds": 533.3256515240064,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T19:33:12.470495+00:00"
+    },
+    "ram-lstm-s0-m05-train": {
+      "status": "succeeded",
+      "pid": 34994,
+      "started_utc": "2026-11-21T19:33:12.473673+00:00",
+      "elapsed_seconds": 6343.435410377002,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T21:18:55.907844+00:00"
+    },
+    "ram-lstm-s0-m05-eval": {
+      "status": "succeeded",
+      "pid": 36662,
+      "started_utc": "2026-11-21T21:18:55.908892+00:00",
+      "elapsed_seconds": 288.68704715500644,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T21:23:44.595550+00:00"
+    },
+    "pixels-ppo-s1-m05-train": {
+      "status": "succeeded",
+      "pid": 36761,
+      "started_utc": "2026-11-21T21:23:44.596640+00:00",
+      "elapsed_seconds": 3118.2610434020025,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T22:15:42.857263+00:00"
+    },
+    "pixels-ppo-s1-m05-eval": {
+      "status": "succeeded",
+      "pid": 38070,
+      "started_utc": "2026-11-21T22:15:42.859256+00:00",
+      "elapsed_seconds": 355.15095119399484,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T22:21:38.009659+00:00"
+    },
+    "pixels-lstm-s1-m05-train": {
+      "status": "succeeded",
+      "pid": 38175,
+      "started_utc": "2026-11-21T22:21:38.010771+00:00",
+      "elapsed_seconds": 4796.537504183012,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T23:41:34.547848+00:00"
+    },
+    "pixels-lstm-s1-m05-eval": {
+      "status": "succeeded",
+      "pid": 39717,
+      "started_utc": "2026-11-21T23:41:34.549207+00:00",
+      "elapsed_seconds": 162.14332298299996,
+      "exit_code": 0,
+      "finished_utc": "2026-11-21T23:44:16.692078+00:00"
+    },
+    "ram-ppo-s1-m05-train": {
+      "status": "succeeded",
+      "pid": 39819,
+      "started_utc": "2026-11-21T23:44:16.693279+00:00",
+      "elapsed_seconds": 3517.3828114650096,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T00:42:54.075710+00:00"
+    },
+    "ram-ppo-s1-m05-eval": {
+      "status": "succeeded",
+      "pid": 41401,
+      "started_utc": "2026-11-22T00:42:54.076834+00:00",
+      "elapsed_seconds": 356.9538310909993,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T00:48:51.030179+00:00"
+    },
+    "ram-lstm-s1-m05-train": {
+      "status": "succeeded",
+      "pid": 41491,
+      "started_utc": "2026-11-22T00:48:51.031970+00:00",
+      "elapsed_seconds": 5224.640418441995,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T02:15:55.671915+00:00"
+    },
+    "ram-lstm-s1-m05-eval": {
+      "status": "succeeded",
+      "pid": 43032,
+      "started_utc": "2026-11-22T02:15:55.673002+00:00",
+      "elapsed_seconds": 392.6891739970015,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T02:22:28.361780+00:00"
+    },
+    "pixels-ppo-s2-m05-train": {
+      "status": "succeeded",
+      "pid": 43125,
+      "started_utc": "2026-11-22T02:22:28.362874+00:00",
+      "elapsed_seconds": 2950.8743136329867,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T03:11:39.236782+00:00"
+    },
+    "pixels-ppo-s2-m05-eval": {
+      "status": "succeeded",
+      "pid": 44413,
+      "started_utc": "2026-11-22T03:11:39.238164+00:00",
+      "elapsed_seconds": 268.70065667400195,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T03:16:07.938458+00:00"
+    },
+    "pixels-lstm-s2-m05-train": {
+      "status": "succeeded",
+      "pid": 44488,
+      "started_utc": "2026-11-22T03:16:07.939589+00:00",
+      "elapsed_seconds": 4781.51167565801,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T04:35:49.450894+00:00"
+    },
+    "pixels-lstm-s2-m05-eval": {
+      "status": "succeeded",
+      "pid": 45910,
+      "started_utc": "2026-11-22T04:35:49.452198+00:00",
+      "elapsed_seconds": 398.39880475100654,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T04:42:27.850516+00:00"
+    },
+    "ram-ppo-s2-m05-train": {
+      "status": "succeeded",
+      "pid": 45991,
+      "started_utc": "2026-11-22T04:42:27.852409+00:00",
+      "elapsed_seconds": 3516.117452599996,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T05:41:03.969463+00:00"
+    },
+    "ram-ppo-s2-m05-eval": {
+      "status": "succeeded",
+      "pid": 47352,
+      "started_utc": "2026-11-22T05:41:03.970741+00:00",
+      "elapsed_seconds": 390.4356664369989,
+      "exit_code": 0,
+      "finished_utc": "2026-11-22T05:47:34.405965+00:00"
+    },
+    "ram-lstm-s2-m05-train": {
+      "status": "running",
+      "pid": 47461,
+      "started_utc": "2026-11-22T05:47:34.407061+00:00",
+      "elapsed_seconds": 1605.0985866580013
+    },
+    "ram-lstm-s2-m05-eval": {
+      "status": "pending"
+    },
+    "pixels-ppo-s0-m10-train": {
+      "status": "pending"
+    },
+    "pixels-ppo-s0-m10-eval": {
+      "status": "pending"
+    },
+    "pixels-lstm-s0-m10-train": {
+      "status": "pending"
+    },
+    "pixels-lstm-s0-m10-eval": {
+      "status": "pending"
+    },
+    "ram-ppo-s0-m10-train": {
+      "status": "pending"
+    },
+    "ram-ppo-s0-m10-eval": {
+      "status": "pending"
+    },
+    "ram-lstm-s0-m10-train": {
+      "status": "pending"
+    },
+    "ram-lstm-s0-m10-eval": {
+      "status": "pending"
+    },
+    "pixels-ppo-s1-m10-train": {
+      "status": "pending"
+    },
+    "pixels-ppo-s1-m10-eval": {
+      "status": "pending"
+    },
+    "pixels-lstm-s1-m10-train": {
+      "status": "pending"
+    },
+    "pixels-lstm-s1-m10-eval": {
+      "status": "pending"
+    },
+    "ram-ppo-s1-m10-train": {
+      "status": "pending"
+    },
+    "ram-ppo-s1-m10-eval": {
+      "status": "pending"
+    },
+    "ram-lstm-s1-m10-train": {
+      "status": "pending"
+    },
+    "ram-lstm-s1-m10-eval": {
+      "status": "pending"
+    },
+    "pixels-ppo-s2-m10-train": {
+      "status": "pending"
+    },
+    "pixels-ppo-s2-m10-eval": {
+      "status": "pending"
+    },
+    "pixels-lstm-s2-m10-train": {
+      "status": "pending"
+    },
+    "pixels-lstm-s2-m10-eval": {
+      "status": "pending"
+    },
+    "ram-ppo-s2-m10-train": {
+      "status": "pending"
+    },
+    "ram-ppo-s2-m10-eval": {
+      "status": "pending"
+    },
+    "ram-lstm-s2-m10-train": {
+      "status": "pending"
+    },
+    "ram-lstm-s2-m10-eval": {
+      "status": "pending"
+    }
+  },
+  "phase": "running",
+  "controller_pid": 9513,
+  "active_job": "ram-lstm-s2-m05-train",
+  "updated_utc": "2026-11-22T06:14:19.505269+00:00"
+}

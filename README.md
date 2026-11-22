@@ -5,6 +5,54 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Latest results — November 22, 2026
+
+Snapshot: **1:14 a.m. Eastern** (06:14 UTC). The Lambda queue is active:
+**46/72 jobs succeeded, one running, 25 pending, zero failed**. All 12 seeds/configurations
+finished their 1.05M-action stage; 11 finished 5.24M. The remaining 5.24M run is
+`ram-lstm-s2-m05-train`; afterward the queue proceeds to the 10.49M stages.
+
+Across **91 completed evaluation episodes**, 24 reached Viridian Forest, **zero
+reached Pewter City and zero defeated Brock**. These are repeated checkpoint
+measurements, not 91 independent training seeds. The 5.24M comparison is still
+incomplete:
+
+| Inputs | Policy | Seeds evaluated at 5.24M | Forest episodes | Pewter / Brock |
+|---|---|---:|---:|---:|
+| pixels | PPO | 3/3 | 4/15 | 0 / 0 |
+| pixels | LSTM | 3/3 | 5/15 | 0 / 0 |
+| ram | PPO | 3/3 | 9/15 | 0 / 0 |
+| ram | LSTM | 2/3 | 4/10 | 0 / 0 |
+
+No architecture winner is established. In completed training episodes, the two
+terminal failure types are wipes and forbidden catches; all recorded rule violations
+are `illegal_catch`. Time limits are also common. Route 1 was deliberately marked
+used in this staged benchmark, which makes catches there illegal.
+
+**Known navigation-reward issue:** map ID and coordinates update at different times
+during warps. A local replay observed `(map 50, x4, y7)` briefly become
+`(map 13, x4, y7)`, giving distance 68, before settling at `(map 13, x3, y43)`,
+whose distance is 226. The path reward spiked by about +0.611, then -0.619.
+Therefore `closest_brock_distance` can overstate progress and the shaping signal
+contains transition artifacts. This has not been established as the cause of
+stalling. The next priority is to use coherent map-transition state for shaping
+and metrics, then compare corrected runs. The frozen running campaign is unchanged
+and these results retain its original code/configuration.
+
+- [Full progress snapshot and checkpoint hashes](results/2026-11-22/progress.json)
+- [Per-episode evaluations](results/2026-11-22/evaluations.json),
+  [training totals](results/2026-11-22/training.json),
+  [run manifests](results/2026-11-22/manifests.json),
+  [queue definition](results/2026-11-22/queue.json)
+- [Map-transition diagnostic](results/2026-11-22/map_transition_diagnostic.json)
+- [Download experiment checkpoints and logs](https://github.com/Phronesis618/67920project/releases/tag/experiments-2026-11-22)
+
+The release contains the final checkpoint from every completed training segment,
+plus logs and metadata for those segments. Periodic intermediate checkpoints remain
+on Lambda and in local backups. Training data and checkpoints were not committed
+as large Git blobs. The report deadline remains December 10, 5 p.m. Eastern;
+training is capped at November 29, 11:59 p.m. Eastern.
+
 ## Current status
 
 - Runnable PPO and recurrent PPO entry points with matching observation options.

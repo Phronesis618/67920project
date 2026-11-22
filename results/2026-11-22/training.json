@@ -1,0 +1,185 @@
+{
+  "pixels-lstm-s0-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 2430.559122222,
+      "steps_per_second": 431.41349264583994
+    }
+  },
+  "pixels-lstm-s0-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 12325.518272253998,
+      "steps_per_second": 340.29433143122327
+    }
+  },
+  "pixels-lstm-s1-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 2915.313833925,
+      "steps_per_second": 359.6786005670825
+    }
+  },
+  "pixels-lstm-s1-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 4791.535214674004,
+      "steps_per_second": 875.3570227669427
+    }
+  },
+  "pixels-lstm-s2-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 3214.002880799999,
+      "steps_per_second": 326.2523522502253
+    }
+  },
+  "pixels-lstm-s2-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 4776.624836955001,
+      "steps_per_second": 878.0894759726999
+    }
+  },
+  "pixels-ppo-s0-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 1802.4474076800002,
+      "steps_per_second": 581.7512319816658
+    }
+  },
+  "pixels-ppo-s0-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 8594.744826682,
+      "steps_per_second": 488.00797284626435
+    }
+  },
+  "pixels-ppo-s1-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 2152.6787810319984,
+      "steps_per_second": 487.10286422636204
+    }
+  },
+  "pixels-ppo-s1-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 3113.3718803540105,
+      "steps_per_second": 1347.1901723230958
+    }
+  },
+  "pixels-ppo-s2-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 2071.0065878819987,
+      "steps_per_second": 506.31224745275676
+    }
+  },
+  "pixels-ppo-s2-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 2945.9902776959934,
+      "steps_per_second": 1423.7331439125762
+    }
+  },
+  "ram-lstm-s0-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 3677.439191149,
+      "steps_per_second": 285.1375496632962
+    }
+  },
+  "ram-lstm-s0-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 6331.751564350008,
+      "steps_per_second": 662.423968687497
+    }
+  },
+  "ram-lstm-s1-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 3228.2146940079983,
+      "steps_per_second": 324.8160668948997
+    }
+  },
+  "ram-lstm-s1-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 5219.791065787998,
+      "steps_per_second": 803.5386756168588
+    }
+  },
+  "ram-lstm-s2-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 3604.004751622,
+      "steps_per_second": 290.94745214419686
+    }
+  },
+  "ram-ppo-s0-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 2134.943734214,
+      "steps_per_second": 491.1492435120513
+    }
+  },
+  "ram-ppo-s0-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 9956.818133822999,
+      "steps_per_second": 421.24943366717537
+    }
+  },
+  "ram-ppo-s1-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 2255.6839243799986,
+      "steps_per_second": 464.85945511546504
+    }
+  },
+  "ram-ppo-s1-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 3512.4749578320043,
+      "steps_per_second": 1194.116413740595
+    }
+  },
+  "ram-ppo-s2-m01": {
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 2458.338081598995,
+      "steps_per_second": 426.53856597216566
+    }
+  },
+  "ram-ppo-s2-m05": {
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 3511.0598356170085,
+      "steps_per_second": 1194.597698806498
+    }
+  }
+}

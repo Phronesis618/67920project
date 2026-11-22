@@ -1,0 +1,274 @@
+{
+  "snapshot_utc": "2026-11-22T06:14:19.505269+00:00",
+  "collected_utc": "2026-11-22T06:15:14.616330+00:00",
+  "phase": "running",
+  "active_job": "ram-lstm-s2-m05-train",
+  "job_counts": {
+    "succeeded": 46,
+    "running": 1,
+    "pending": 25
+  },
+  "total_jobs": 72,
+  "completed_training_segments": 23,
+  "completed_training_actions": 58720256,
+  "completed_evaluation_episodes": 91,
+  "evaluation_successes": 0,
+  "evaluation_milestones": {
+    "reached_viridian_forest": 24,
+    "reached_pewter": 0,
+    "beat_brock": 0
+  },
+  "evaluation_end_reasons": {
+    "time_limit": 63,
+    "wipe": 10,
+    "rule_violation": 18
+  },
+  "evaluation_violations": {
+    "illegal_catch": 18
+  },
+  "completed_training_episode_count": 4589,
+  "completed_training_milestones": {
+    "reached_viridian_forest": 1988,
+    "reached_pewter": 0,
+    "beat_brock": 0
+  },
+  "completed_training_end_reasons": {
+    "time_limit": 2343,
+    "rule_violation": 1396,
+    "wipe": 850
+  },
+  "completed_training_violations": {
+    "illegal_catch": 1396
+  },
+  "groups": [
+    {
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "stage": "m05",
+      "training_seeds_completed": 3,
+      "evaluation_episodes": 15,
+      "forest_episodes": 4,
+      "pewter_episodes": 0,
+      "successes": 0,
+      "end_reasons": {
+        "time_limit": 12,
+        "rule_violation": 3
+      }
+    },
+    {
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "stage": "m05",
+      "training_seeds_completed": 3,
+      "evaluation_episodes": 15,
+      "forest_episodes": 5,
+      "pewter_episodes": 0,
+      "successes": 0,
+      "end_reasons": {
+        "time_limit": 10,
+        "wipe": 3,
+        "rule_violation": 2
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "ppo",
+      "stage": "m05",
+      "training_seeds_completed": 3,
+      "evaluation_episodes": 15,
+      "forest_episodes": 9,
+      "pewter_episodes": 0,
+      "successes": 0,
+      "end_reasons": {
+        "wipe": 4,
+        "rule_violation": 3,
+        "time_limit": 8
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "lstm",
+      "stage": "m05",
+      "training_seeds_completed": 2,
+      "evaluation_episodes": 10,
+      "forest_episodes": 4,
+      "pewter_episodes": 0,
+      "successes": 0,
+      "end_reasons": {
+        "wipe": 3,
+        "time_limit": 5,
+        "rule_violation": 2
+      }
+    }
+  ],
+  "models": [
+    {
+      "run": "pixels-lstm-s0-m01",
+      "path": "runs/pixels-lstm-s0-m01/final.zip",
+      "bytes": 21073056,
+      "sha256": "22d7ef97498a24e1ca6a266eb816e0147e88742dc4357abc8099a2ffe0dd730e",
+      "timesteps": 1048576
+    },
+    {
+      "run": "pixels-lstm-s0-m05",
+      "path": "runs/pixels-lstm-s0-m05/final.zip",
+      "bytes": 21076727,
+      "sha256": "a2c6d40b99bd888fbd662f138b5c00431db376da2da5b504c3a4d222a3904431",
+      "timesteps": 5242880
+    },
+    {
+      "run": "pixels-lstm-s1-m01",
+      "path": "runs/pixels-lstm-s1-m01/final.zip",
+      "bytes": 21072212,
+      "sha256": "55830bb31145ad8dac447fb666e6bc4c02199914904b13c6b12287deb4b41e4f",
+      "timesteps": 1048576
+    },
+    {
+      "run": "pixels-lstm-s1-m05",
+      "path": "runs/pixels-lstm-s1-m05/final.zip",
+      "bytes": 21076755,
+      "sha256": "6d31d92746d53cd0fa997ceca43c6f2726857d725c3a0b473a1ff06e662456d1",
+      "timesteps": 5242880
+    },
+    {
+      "run": "pixels-lstm-s2-m01",
+      "path": "runs/pixels-lstm-s2-m01/final.zip",
+      "bytes": 21073792,
+      "sha256": "8c33709802899e8f7549929a23231f3509a1cb4ede62c9885c1411565951dc0b",
+      "timesteps": 1048576
+    },
+    {
+      "run": "pixels-lstm-s2-m05",
+      "path": "runs/pixels-lstm-s2-m05/final.zip",
+      "bytes": 21076919,
+      "sha256": "12e4d5ad6007d764261826bdaff6265b7d5bc42f87775d15258317950b29130e",
+      "timesteps": 5242880
+    },
+    {
+      "run": "pixels-ppo-s0-m01",
+      "path": "runs/pixels-ppo-s0-m01/final.zip",
+      "bytes": 7860748,
+      "sha256": "ba21c22594668755763c13d5dfe4ade3e6f96c0b80bb28edfcc21296d7f9e91b",
+      "timesteps": 1048576
+    },
+    {
+      "run": "pixels-ppo-s0-m05",
+      "path": "runs/pixels-ppo-s0-m05/final.zip",
+      "bytes": 7864643,
+      "sha256": "7842dc0b78be0ff23b70aed7c2029a5f704dc2dd186d6bf3b9baeaefe9b13be7",
+      "timesteps": 5242880
+    },
+    {
+      "run": "pixels-ppo-s1-m01",
+      "path": "runs/pixels-ppo-s1-m01/final.zip",
+      "bytes": 7860960,
+      "sha256": "9bb8a489ca816092b70f6e3a5bf578d682af1a53ca1e1216018b5b00fbf6743c",
+      "timesteps": 1048576
+    },
+    {
+      "run": "pixels-ppo-s1-m05",
+      "path": "runs/pixels-ppo-s1-m05/final.zip",
+      "bytes": 7865039,
+      "sha256": "8c0f0c90012d91802b402ff228c99c841c52cfbf077b0ae6954596f43d289478",
+      "timesteps": 5242880
+    },
+    {
+      "run": "pixels-ppo-s2-m01",
+      "path": "runs/pixels-ppo-s2-m01/final.zip",
+      "bytes": 7860712,
+      "sha256": "9ea156752ca74685d76027fda548b36410a400a1e172ed27e54e8bb97694b0a5",
+      "timesteps": 1048576
+    },
+    {
+      "run": "pixels-ppo-s2-m05",
+      "path": "runs/pixels-ppo-s2-m05/final.zip",
+      "bytes": 7865127,
+      "sha256": "b99e66d0e2cf40b21db4362bef4b230d197969ce211ac0a132fb9c56e5bb5d58",
+      "timesteps": 5242880
+    },
+    {
+      "run": "ram-lstm-s0-m01",
+      "path": "runs/ram-lstm-s0-m01/final.zip",
+      "bytes": 91312815,
+      "sha256": "6fb9922763095ca635fce3a0d0cdef1711e4eaa5c61a9b9b4e7f1fb2b65b92fe",
+      "timesteps": 1048576
+    },
+    {
+      "run": "ram-lstm-s0-m05",
+      "path": "runs/ram-lstm-s0-m05/final.zip",
+      "bytes": 91313710,
+      "sha256": "81ec1fae554be99139fc4083cecfe1d4379c731afea413aeb4b2156edfb1165a",
+      "timesteps": 5242880
+    },
+    {
+      "run": "ram-lstm-s1-m01",
+      "path": "runs/ram-lstm-s1-m01/final.zip",
+      "bytes": 91309647,
+      "sha256": "aa46940494dd2ef8391389369cd13d8571549eba550569221fe125f4fb9741a2",
+      "timesteps": 1048576
+    },
+    {
+      "run": "ram-lstm-s1-m05",
+      "path": "runs/ram-lstm-s1-m05/final.zip",
+      "bytes": 91313666,
+      "sha256": "4a32b8363d4d3650ee061861eeffe9b5828a4c60c2e8cd88e22809be2c5c72eb",
+      "timesteps": 5242880
+    },
+    {
+      "run": "ram-lstm-s2-m01",
+      "path": "runs/ram-lstm-s2-m01/final.zip",
+      "bytes": 91310595,
+      "sha256": "3891cf15cd0931f082590a8cc33f74a955586ffe4aeba99fd003f34575f2eafb",
+      "timesteps": 1048576
+    },
+    {
+      "run": "ram-ppo-s0-m01",
+      "path": "runs/ram-ppo-s0-m01/final.zip",
+      "bytes": 13932123,
+      "sha256": "be284069fe65a28f200059feda93aa0569b6318e51325072795a749015a721dc",
+      "timesteps": 1048576
+    },
+    {
+      "run": "ram-ppo-s0-m05",
+      "path": "runs/ram-ppo-s0-m05/final.zip",
+      "bytes": 13935382,
+      "sha256": "1e191acea95c93c6984ee91212386c93cb1161f1bde03d3424a8efb4dc4efc4d",
+      "timesteps": 5242880
+    },
+    {
+      "run": "ram-ppo-s1-m01",
+      "path": "runs/ram-ppo-s1-m01/final.zip",
+      "bytes": 13932547,
+      "sha256": "0fb719896715c2472b3bc2f8cb2b67230b4fa66a9399692c9a1a84e8252b7f7a",
+      "timesteps": 1048576
+    },
+    {
+      "run": "ram-ppo-s1-m05",
+      "path": "runs/ram-ppo-s1-m05/final.zip",
+      "bytes": 13935481,
+      "sha256": "a21266247c0ab21b50443c00d6c25741138cb6d6840581f9c273c06ed6861b66",
+      "timesteps": 5242880
+    },
+    {
+      "run": "ram-ppo-s2-m01",
+      "path": "runs/ram-ppo-s2-m01/final.zip",
+      "bytes": 13931675,
+      "sha256": "14a36010ff4594fd6ccfb279354c3b88ff74eafea6827682db9bb6fd1d373c2a",
+      "timesteps": 1048576
+    },
+    {
+      "run": "ram-ppo-s2-m05",
+      "path": "runs/ram-ppo-s2-m05/final.zip",
+      "bytes": 13935538,
+      "sha256": "3a611b4c465b6146067e47d45987ac864dbd57604845bb2b884b02b0603cab49",
+      "timesteps": 5242880
+    }
+  ],
+  "interpretation": [
+    "Checkpoint evaluations share the same initial state and seed set; pooled counts are descriptive, not independent trials or evidence of an architecture winner.",
+    "The five-million-action comparison is incomplete until ram-lstm seed 2 finishes.",
+    "Closest-path-distance minima require map-transition validation; use reached-map milestones for current progress claims.",
+    "Current active training steps and episodes are excluded from completed-training totals.",
+    "The checkpoint release includes every completed training segment final.zip; periodic intermediate checkpoints remain on Lambda and in local backups."
+  ]
+}

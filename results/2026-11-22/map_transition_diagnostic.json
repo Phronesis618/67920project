@@ -1,0 +1,1795 @@
+{
+  "source_run": "pixels-ppo-s2-m01",
+  "seed": 1000,
+  "found": true,
+  "records": [
+    {
+      "step": 134,
+      "previous": [
+        4,
+        11,
+        40
+      ],
+      "coords": [
+        4,
+        11,
+        0
+      ],
+      "distance": 377,
+      "reward": 0.003892578125000129,
+      "path_reward": 0.002642578125000128,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 138,
+      "previous": [
+        12,
+        12,
+        0
+      ],
+      "coords": [
+        12,
+        11,
+        40
+      ],
+      "distance": null,
+      "reward": -0.5309999999999999,
+      "path_reward": -0.5322499999999999,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 142,
+      "previous": [
+        5,
+        11,
+        40
+      ],
+      "coords": [
+        5,
+        11,
+        0
+      ],
+      "distance": 376,
+      "reward": 0.007796875000000175,
+      "path_reward": 0.006546875000000174,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 321,
+      "previous": [
+        5,
+        6,
+        0
+      ],
+      "coords": [
+        5,
+        5,
+        37
+      ],
+      "distance": 377,
+      "reward": -0.023451171874999885,
+      "path_reward": -0.024701171874999872,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 326,
+      "previous": [
+        3,
+        7,
+        37
+      ],
+      "coords": [
+        3,
+        7,
+        0
+      ],
+      "distance": 374,
+      "reward": -0.0051757812499997335,
+      "path_reward": -0.0051757812499997335,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 333,
+      "previous": [
+        5,
+        6,
+        0
+      ],
+      "coords": [
+        5,
+        5,
+        37
+      ],
+      "distance": 377,
+      "reward": -0.024701171874999872,
+      "path_reward": -0.024701171874999872,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 337,
+      "previous": [
+        2,
+        7,
+        37
+      ],
+      "coords": [
+        2,
+        7,
+        0
+      ],
+      "distance": 375,
+      "reward": -0.007830078124999779,
+      "path_reward": -0.00908007812499978,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 462,
+      "previous": [
+        5,
+        6,
+        0
+      ],
+      "coords": [
+        5,
+        5,
+        37
+      ],
+      "distance": 377,
+      "reward": -0.024701171874999872,
+      "path_reward": -0.024701171874999872,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 466,
+      "previous": [
+        2,
+        7,
+        37
+      ],
+      "coords": [
+        2,
+        7,
+        0
+      ],
+      "distance": 375,
+      "reward": -0.00908007812499978,
+      "path_reward": -0.00908007812499978,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 469,
+      "previous": [
+        5,
+        6,
+        0
+      ],
+      "coords": [
+        5,
+        5,
+        37
+      ],
+      "distance": 377,
+      "reward": -0.024701171874999872,
+      "path_reward": -0.024701171874999872,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 488,
+      "previous": [
+        3,
+        7,
+        37
+      ],
+      "coords": [
+        3,
+        7,
+        0
+      ],
+      "distance": 374,
+      "reward": -0.0051757812499997335,
+      "path_reward": -0.0051757812499997335,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 1900,
+      "previous": [
+        10,
+        0,
+        0
+      ],
+      "coords": [
+        10,
+        35,
+        12
+      ],
+      "distance": 359,
+      "reward": 0.0038574218750000444,
+      "path_reward": 0.002607421875000071,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3411,
+      "previous": [
+        11,
+        0,
+        12
+      ],
+      "coords": [
+        21,
+        35,
+        1
+      ],
+      "distance": 306,
+      "reward": 0.0037539062500000497,
+      "path_reward": 0.0025039062500002984,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3736,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0036777343750000746,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3770,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.004134765624999481,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3786,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3789,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3791,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3793,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3794,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3798,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3922,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3924,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3943,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3957,
+      "previous": [
+        8,
+        71,
+        13
+      ],
+      "coords": [
+        18,
+        0,
+        1
+      ],
+      "distance": 268,
+      "reward": -0.005382812499999723,
+      "path_reward": -0.005382812499999723,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3974,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 3979,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4014,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4015,
+      "previous": [
+        8,
+        71,
+        13
+      ],
+      "coords": [
+        18,
+        0,
+        1
+      ],
+      "distance": 268,
+      "reward": -0.005382812499999723,
+      "path_reward": -0.005382812499999723,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4040,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4050,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4051,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4072,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4079,
+      "previous": [
+        19,
+        0,
+        1
+      ],
+      "coords": [
+        9,
+        71,
+        13
+      ],
+      "distance": 268,
+      "reward": 0.002429687500000277,
+      "path_reward": 0.002429687500000277,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4088,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4107,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4109,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4128,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4131,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4167,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4186,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4187,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4193,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4219,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4225,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4264,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4265,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4308,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4309,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4362,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4364,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4366,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4422,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4431,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4433,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4440,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4449,
+      "previous": [
+        8,
+        71,
+        13
+      ],
+      "coords": [
+        18,
+        0,
+        1
+      ],
+      "distance": 268,
+      "reward": -0.005382812499999723,
+      "path_reward": -0.005382812499999723,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4451,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4490,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4492,
+      "previous": [
+        18,
+        0,
+        1
+      ],
+      "coords": [
+        8,
+        71,
+        13
+      ],
+      "distance": 267,
+      "reward": 0.0024277343750003233,
+      "path_reward": 0.0024277343750003233,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4496,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4500,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4501,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4515,
+      "previous": [
+        17,
+        0,
+        1
+      ],
+      "coords": [
+        7,
+        71,
+        13
+      ],
+      "distance": 266,
+      "reward": 0.0024257812500003695,
+      "path_reward": 0.0024257812500003695,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4530,
+      "previous": [
+        7,
+        71,
+        13
+      ],
+      "coords": [
+        17,
+        0,
+        1
+      ],
+      "distance": 267,
+      "reward": -0.005384765624999677,
+      "path_reward": -0.005384765624999677,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 4568,
+      "previous": [
+        19,
+        0,
+        1
+      ],
+      "coords": [
+        9,
+        71,
+        13
+      ],
+      "distance": 268,
+      "reward": 0.002429687500000277,
+      "path_reward": 0.002429687500000277,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 14338,
+      "previous": [
+        3,
+        44,
+        13
+      ],
+      "coords": [
+        3,
+        43,
+        50
+      ],
+      "distance": null,
+      "reward": -1.1130312500000001,
+      "path_reward": -1.11428125,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": false,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 14873,
+      "previous": [
+        5,
+        1,
+        50
+      ],
+      "coords": [
+        5,
+        0,
+        51
+      ],
+      "distance": null,
+      "reward": -1.1481875000000001,
+      "path_reward": -1.1494375,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 14879,
+      "previous": [
+        17,
+        47,
+        51
+      ],
+      "coords": [
+        17,
+        47,
+        50
+      ],
+      "distance": null,
+      "reward": -1.1560000000000001,
+      "path_reward": -1.15725,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 14888,
+      "previous": [
+        5,
+        1,
+        50
+      ],
+      "coords": [
+        5,
+        0,
+        51
+      ],
+      "distance": null,
+      "reward": -1.1494375,
+      "path_reward": -1.1494375,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 14892,
+      "previous": [
+        17,
+        47,
+        51
+      ],
+      "coords": [
+        17,
+        47,
+        50
+      ],
+      "distance": null,
+      "reward": -1.15725,
+      "path_reward": -1.15725,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 15144,
+      "previous": [
+        4,
+        7,
+        50
+      ],
+      "coords": [
+        4,
+        7,
+        13
+      ],
+      "distance": 68,
+      "reward": 0.6126640624999999,
+      "path_reward": 0.6114140625000002,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": false
+      }
+    },
+    {
+      "step": 15145,
+      "coords": [
+        3,
+        43,
+        13
+      ],
+      "distance": 226,
+      "path_reward": -0.61874609375
+    },
+    {
+      "step": 15146,
+      "coords": [
+        3,
+        44,
+        13
+      ],
+      "distance": 227,
+      "path_reward": -0.00546289062500005
+    },
+    {
+      "step": 15147,
+      "coords": [
+        2,
+        44,
+        13
+      ],
+      "distance": 228,
+      "path_reward": -0.005460937499999652
+    },
+    {
+      "step": 15148,
+      "coords": [
+        2,
+        44,
+        13
+      ],
+      "distance": 228,
+      "path_reward": -0.0015546874999996518
+    },
+    {
+      "step": 15149,
+      "coords": [
+        2,
+        45,
+        13
+      ],
+      "distance": 229,
+      "path_reward": -0.005458984374999698
+    },
+    {
+      "step": 15150,
+      "coords": [
+        2,
+        45,
+        13
+      ],
+      "distance": 229,
+      "path_reward": -0.001552734374999698
+    }
+  ]
+}

@@ -1,0 +1,2811 @@
+{
+  "pixels-lstm-s0-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 3
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 174,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -20.577755859377817,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 370,
+        "closest_brock_distance": 363,
+        "path_reward": -0.001277343749999993,
+        "path_reward_total": -20.770255859378366,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 123,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -20.57832421875212,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 374,
+        "closest_brock_distance": 363,
+        "path_reward": -0.0012695312499997335,
+        "path_reward_total": -20.73207421875253,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 150,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -18.989259765621533,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 347,
+        "closest_brock_distance": 343,
+        "path_reward": -0.0013222656249998188,
+        "path_reward_total": -21.151759765619538,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-lstm-s0-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 5
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 419,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -18.515878906248464,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 298,
+        "closest_brock_distance": 288,
+        "path_reward": -0.0014179687499997762,
+        "path_reward_total": -21.039628906250275,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 363,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -19.902007812497946,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": null,
+        "closest_brock_distance": 290,
+        "path_reward": -0.0009999999999998899,
+        "path_reward_total": -22.355757812497966,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 127,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -19.26173242187284,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 355,
+        "closest_brock_distance": 343,
+        "path_reward": -0.0013066406249997442,
+        "path_reward_total": -21.420482421871984,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 473,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -18.581699218747666,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 240,
+        "closest_brock_distance": 239,
+        "path_reward": -0.001531249999999762,
+        "path_reward_total": -21.172949218748734,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 243,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -19.01186132812347,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 310,
+        "closest_brock_distance": 308,
+        "path_reward": -0.0013945312499998863,
+        "path_reward_total": -21.315611328122763,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-lstm-s1-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 3
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 399,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -23.260812500001116,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 233,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015449218749998828,
+        "path_reward_total": -23.75956250000131,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 505,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -24.002439453121895,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 222,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015664062499998188,
+        "path_reward_total": -24.633689453122265,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 515,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -22.950777343748644,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 215,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015800781249999396,
+        "path_reward_total": -23.59452734374911,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-lstm-s1-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "wipe": 3,
+      "rule_violation": 2
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 512,
+        "max_map_progress": 5,
+        "episode_steps": 12561,
+        "episode_return": -19.677195842538584,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 184,
+        "closest_brock_distance": 67,
+        "path_reward": -3.28125,
+        "path_reward_total": -22.350031249999,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 101,
+        "max_map_progress": 2,
+        "episode_steps": 1151,
+        "episode_return": -3.8967089843748393,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 323,
+        "closest_brock_distance": 323,
+        "path_reward": -2.73828125,
+        "path_reward_total": -4.022958984374839,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 464,
+        "max_map_progress": 5,
+        "episode_steps": 9000,
+        "episode_return": -13.727679687497073,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 196,
+        "closest_brock_distance": 67,
+        "path_reward": -3.234375,
+        "path_reward_total": -16.307679687497103,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 461,
+        "max_map_progress": 5,
+        "episode_steps": 6496,
+        "episode_return": -11.86681588792583,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 67,
+        "path_reward": -3.23828125,
+        "path_reward_total": -12.457126953123211,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 333,
+        "max_map_progress": 4,
+        "episode_steps": 3432,
+        "episode_return": -4.889406249999506,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 241,
+        "closest_brock_distance": 238,
+        "path_reward": -3.05859375,
+        "path_reward_total": -7.3056562499995055,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-lstm-s2-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "rule_violation": 2,
+      "time_limit": 1
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 331,
+        "max_map_progress": 4,
+        "episode_steps": 6992,
+        "episode_return": -11.590644531248419,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 241,
+        "closest_brock_distance": 232,
+        "path_reward": -3.05859375,
+        "path_reward_total": -12.004394531248284,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 402,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -18.953953124997625,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 302,
+        "closest_brock_distance": 290,
+        "path_reward": -0.001410156249999961,
+        "path_reward_total": -21.456453124996692,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 93,
+        "max_map_progress": 2,
+        "episode_steps": 3188,
+        "episode_return": -6.412240234374573,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 351,
+        "closest_brock_distance": 351,
+        "path_reward": -2.62890625,
+        "path_reward_total": -6.528490234374582,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-lstm-s2-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 5
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 554,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -20.125279296872517,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 209,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015917968749996625,
+        "path_reward_total": -22.81777929687225,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 428,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -20.563695312498172,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 229,
+        "closest_brock_distance": 67,
+        "path_reward": -0.001552734374999698,
+        "path_reward_total": -23.0986953124984,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 384,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -19.371080078122908,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 230,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015507812499997442,
+        "path_reward_total": -21.85108007812338,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 385,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -23.87251171874805,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 225,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015605468749999574,
+        "path_reward_total": -24.353761718748174,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 473,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -22.423671874999002,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 182,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0016445312499997478,
+        "path_reward_total": -25.014921875001995,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-ppo-s0-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "rule_violation": 1,
+      "time_limit": 2
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 289,
+        "max_map_progress": 2,
+        "episode_steps": 12207,
+        "episode_return": -9.36156054687357,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 350,
+        "closest_brock_distance": 341,
+        "path_reward": -2.6328125,
+        "path_reward_total": -17.72281054687363,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 231,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -12.407533203121965,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 388,
+        "closest_brock_distance": 361,
+        "path_reward": -0.001242187499999936,
+        "path_reward_total": -18.696283203120093,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 249,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.240564453124236,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 380,
+        "closest_brock_distance": 364,
+        "path_reward": -0.005164062500000011,
+        "path_reward_total": -19.55181445312376,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-ppo-s0-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 5
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 20,
+        "max_map_progress": 0,
+        "episode_steps": 16384,
+        "episode_return": -20.41699804686693,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 386,
+        "closest_brock_distance": 383,
+        "path_reward": -0.0012460937499998437,
+        "path_reward_total": -20.416998046866688,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 360,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -23.641683593743274,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 195,
+        "path_reward": -0.001619140624999904,
+        "path_reward_total": -24.091683593743294,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 30,
+        "max_map_progress": 0,
+        "episode_steps": 16384,
+        "episode_return": -20.400082031242597,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 386,
+        "closest_brock_distance": 381,
+        "path_reward": -0.005152343749999844,
+        "path_reward_total": -20.412582031242394,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 25,
+        "max_map_progress": 0,
+        "episode_steps": 16384,
+        "episode_return": -20.407949218742132,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 386,
+        "closest_brock_distance": 384,
+        "path_reward": -0.0012460937499998437,
+        "path_reward_total": -20.4141992187416,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 358,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -21.72942578125207,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 181,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0016464843749997016,
+        "path_reward_total": -24.176925781254923,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-ppo-s1-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 3
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 201,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -14.187289062497975,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": null,
+        "closest_brock_distance": 360,
+        "path_reward": -0.0009999999999998899,
+        "path_reward_total": -20.438539062499597,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 223,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.580822265622798,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 371,
+        "closest_brock_distance": 360,
+        "path_reward": 0.002630859374999961,
+        "path_reward_total": -19.859572265625108,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 207,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -14.020982421872423,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": null,
+        "closest_brock_distance": 360,
+        "path_reward": -0.0009999999999998899,
+        "path_reward_total": -20.254732421874085,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-ppo-s1-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 5
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 251,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.874238281246786,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 393,
+        "closest_brock_distance": 362,
+        "path_reward": -0.0012324218749997229,
+        "path_reward_total": -20.162988281248342,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 227,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.954541015622492,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 365,
+        "closest_brock_distance": 362,
+        "path_reward": -0.001287109374999762,
+        "path_reward_total": -20.23829101562353,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 158,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.771572265622744,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 366,
+        "closest_brock_distance": 360,
+        "path_reward": -0.0012851562499998082,
+        "path_reward_total": -19.96907226562299,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 201,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -14.142742187497689,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 375,
+        "closest_brock_distance": 359,
+        "path_reward": -0.0012675781249997797,
+        "path_reward_total": -20.39399218749819,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 434,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -12.525687499998273,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 292,
+        "closest_brock_distance": 286,
+        "path_reward": -0.0014296874999999432,
+        "path_reward_total": -21.068187499998352,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-ppo-s2-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 2,
+      "rule_violation": 1
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 483,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -21.229986328122294,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 237,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015371093749996234,
+        "path_reward_total": -23.833736328122647,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 410,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -15.808793840385965,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": null,
+        "closest_brock_distance": 288,
+        "path_reward": -0.0009999999999998899,
+        "path_reward_total": -18.827492187498482,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 510,
+        "max_map_progress": 4,
+        "episode_steps": 14896,
+        "episode_return": -21.76711718749766,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 238,
+        "closest_brock_distance": 68,
+        "path_reward": -3.0703125,
+        "path_reward_total": -24.404617187497692,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "pixels-ppo-s2-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 2,
+      "rule_violation": 3
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 504,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -20.445583935946463,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 68,
+        "path_reward": -0.001619140624999904,
+        "path_reward_total": -23.116906249996372,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 89,
+        "max_map_progress": 2,
+        "episode_steps": 7226,
+        "episode_return": -9.907572265623854,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 343,
+        "closest_brock_distance": 343,
+        "path_reward": -2.66015625,
+        "path_reward_total": -12.018822265623717,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 407,
+        "max_map_progress": 4,
+        "episode_steps": 14976,
+        "episode_return": -20.2786339746861,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 242,
+        "closest_brock_distance": 241,
+        "path_reward": -3.0546875,
+        "path_reward_total": -23.045648437494528,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 138,
+        "max_map_progress": 2,
+        "episode_steps": 4476,
+        "episode_return": -6.101368543387775,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 324,
+        "closest_brock_distance": 324,
+        "path_reward": -2.734375,
+        "path_reward_total": -8.36684374999936,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 561,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -19.687999999996933,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 206,
+        "closest_brock_distance": 67,
+        "path_reward": -0.001597656249999968,
+        "path_reward_total": -22.389249999996665,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-lstm-s0-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "rule_violation": 1,
+      "time_limit": 2
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 123,
+        "max_map_progress": 2,
+        "episode_steps": 4012,
+        "episode_return": -7.509605468749465,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 360,
+        "closest_brock_distance": 350,
+        "path_reward": -2.59375,
+        "path_reward_total": -7.6633554687494545,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 662,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -18.287632812497954,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 249,
+        "closest_brock_distance": 248,
+        "path_reward": 0.0023925781250002665,
+        "path_reward_total": -21.11513281249782,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 456,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -19.823638671871517,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 265,
+        "closest_brock_distance": 253,
+        "path_reward": -0.0014824218750000284,
+        "path_reward_total": -22.393638671871134,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-lstm-s0-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "wipe": 1,
+      "time_limit": 2,
+      "rule_violation": 2
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 437,
+        "max_map_progress": 5,
+        "episode_steps": 9218,
+        "episode_return": -15.954030511072837,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 196,
+        "closest_brock_distance": 68,
+        "path_reward": -3.234375,
+        "path_reward_total": -16.528976562495885,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 502,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -23.11393272568932,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 195,
+        "path_reward": -0.001619140624999904,
+        "path_reward_total": -23.750113281244996,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 123,
+        "max_map_progress": 2,
+        "episode_steps": 3600,
+        "episode_return": -6.986664062499592,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 341,
+        "closest_brock_distance": 341,
+        "path_reward": -2.66796875,
+        "path_reward_total": -7.140414062499582,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 86,
+        "max_map_progress": 2,
+        "episode_steps": 2393,
+        "episode_return": -5.42592968749969,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 358,
+        "closest_brock_distance": 358,
+        "path_reward": -2.6015625,
+        "path_reward_total": -5.53342968749969,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 407,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -18.529854047699324,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 181,
+        "closest_brock_distance": 180,
+        "path_reward": -0.0016464843749997016,
+        "path_reward_total": -25.007074218754447,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-lstm-s1-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 3
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 198,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -20.695470703124283,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 360,
+        "closest_brock_distance": 351,
+        "path_reward": -0.0012968749999999751,
+        "path_reward_total": -20.942970703124345,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 195,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -20.74731250000057,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 362,
+        "closest_brock_distance": 350,
+        "path_reward": -0.0012929687500000675,
+        "path_reward_total": -20.991062500001,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 295,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -20.93088085937444,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 362,
+        "closest_brock_distance": 316,
+        "path_reward": -0.0012929687500000675,
+        "path_reward_total": -21.27463085937469,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-lstm-s1-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 3,
+      "wipe": 2
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 375,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -19.177173828122257,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 340,
+        "closest_brock_distance": 307,
+        "path_reward": -0.0013359374999999396,
+        "path_reward_total": -21.645923828122058,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 182,
+        "max_map_progress": 2,
+        "episode_steps": 9026,
+        "episode_return": -12.0708496093736,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 353,
+        "closest_brock_distance": 343,
+        "path_reward": -2.62109375,
+        "path_reward_total": -14.298349609373638,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 712,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -21.18860546874756,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 247,
+        "closest_brock_distance": 67,
+        "path_reward": -0.005423828124999641,
+        "path_reward_total": -24.078605468746524,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 502,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -19.419986328123372,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": null,
+        "closest_brock_distance": 289,
+        "path_reward": -0.0009999999999998899,
+        "path_reward_total": -22.047486328123117,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 517,
+        "max_map_progress": 3,
+        "episode_steps": 12641,
+        "episode_return": -14.484978515620384,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": null,
+        "closest_brock_distance": 292,
+        "path_reward": -2.0,
+        "path_reward_total": -17.131228515620364,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-lstm-s2-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 1,
+      "rule_violation": 2
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 177,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -18.66158593749956,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 354,
+        "closest_brock_distance": 348,
+        "path_reward": -0.001308593749999698,
+        "path_reward_total": -20.857835937499758,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 197,
+        "max_map_progress": 2,
+        "episode_steps": 8713,
+        "episode_return": -13.3687753906244,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 352,
+        "closest_brock_distance": 344,
+        "path_reward": -2.625,
+        "path_reward_total": -13.615025390624485,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 237,
+        "max_map_progress": 2,
+        "episode_steps": 11600,
+        "episode_return": -13.182187499998678,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 351,
+        "closest_brock_distance": 343,
+        "path_reward": -2.62890625,
+        "path_reward_total": -17.478437499999878,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-ppo-s0-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 3
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 344,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -19.12124218749877,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 338,
+        "closest_brock_distance": 318,
+        "path_reward": -0.0013398437499998472,
+        "path_reward_total": -21.55124218749941,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 199,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -18.95959765624799,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 357,
+        "closest_brock_distance": 342,
+        "path_reward": -0.0013027343749998366,
+        "path_reward_total": -21.208347656248225,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 149,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.68574609374778,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 380,
+        "closest_brock_distance": 362,
+        "path_reward": -0.0012578125000000107,
+        "path_reward_total": -19.871996093748677,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-ppo-s0-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "wipe": 3,
+      "rule_violation": 1,
+      "time_limit": 1
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 200,
+        "max_map_progress": 2,
+        "episode_steps": 4454,
+        "episode_return": -2.0019863281243477,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 324,
+        "closest_brock_distance": 324,
+        "path_reward": -2.734375,
+        "path_reward_total": -8.251986328124257,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 671,
+        "max_map_progress": 5,
+        "episode_steps": 12345,
+        "episode_return": -13.49627343749793,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 67,
+        "path_reward": -3.23828125,
+        "path_reward_total": -20.335023437498393,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 118,
+        "max_map_progress": 2,
+        "episode_steps": 2155,
+        "episode_return": -3.0912734374996775,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 355,
+        "closest_brock_distance": 349,
+        "path_reward": -2.61328125,
+        "path_reward_total": -5.238773437499677,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 252,
+        "max_map_progress": 2,
+        "episode_steps": 3492,
+        "episode_return": 1.2589433593755839,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 320,
+        "closest_brock_distance": 320,
+        "path_reward": -2.75,
+        "path_reward_total": -7.056056640624529,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 847,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -19.439632812497628,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 228,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015546874999996518,
+        "path_reward_total": -22.49838281249788,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-ppo-s1-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 2,
+      "rule_violation": 1
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 415,
+        "max_map_progress": 4,
+        "episode_steps": 16384,
+        "episode_return": -21.65345507812119,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 238,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0015351562499996696,
+        "path_reward_total": -22.172205078121543,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 309,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -22.230798828121703,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 302,
+        "closest_brock_distance": 286,
+        "path_reward": 0.002496093750000039,
+        "path_reward_total": -22.61704882812145,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 428,
+        "max_map_progress": 4,
+        "episode_steps": 9596,
+        "episode_return": -7.977073266397678,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 238,
+        "closest_brock_distance": 228,
+        "path_reward": -3.0703125,
+        "path_reward_total": -16.241412109372927,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-ppo-s1-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "wipe": 1,
+      "time_limit": 3,
+      "rule_violation": 1
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 359,
+        "max_map_progress": 5,
+        "episode_steps": 11066,
+        "episode_return": -11.053256976725013,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 194,
+        "path_reward": -3.23828125,
+        "path_reward_total": -19.61334765624546,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 428,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -18.469632974917772,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 181,
+        "closest_brock_distance": 68,
+        "path_reward": -0.0016464843749997016,
+        "path_reward_total": -25.18257226561802,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 346,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -16.758780166718356,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 195,
+        "path_reward": -0.001619140624999904,
+        "path_reward_total": -25.244726562492524,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 401,
+        "max_map_progress": 5,
+        "episode_steps": 6039,
+        "episode_return": -1.8252578124988488,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 217,
+        "closest_brock_distance": 208,
+        "path_reward": -3.15234375,
+        "path_reward_total": -10.326507812498656,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 531,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -21.662685717653115,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 196,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0016171874999999503,
+        "path_reward_total": -24.35997656249196,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-ppo-s2-m01": {
+    "episodes": 3,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      5.551115123125783e-17,
+      0.5614970317550454
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 3
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 238,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.926503906247266,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 372,
+        "closest_brock_distance": 362,
+        "path_reward": -0.0012734374999996412,
+        "path_reward_total": -20.224003906248825,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 246,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -14.240199218747101,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 382,
+        "closest_brock_distance": 359,
+        "path_reward": -0.001253906249999659,
+        "path_reward_total": -20.547699218748,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 344,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -13.384423828122827,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 395,
+        "closest_brock_distance": 362,
+        "path_reward": -0.0012285156249998153,
+        "path_reward_total": -19.814423828122045,
+        "evaluation_seed": 1002
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  },
+  "ram-ppo-s2-m05": {
+    "episodes": 5,
+    "seed": 1000,
+    "deterministic": false,
+    "success_rate": 0.0,
+    "success_wilson_95": [
+      0.0,
+      0.43448246478317476
+    ],
+    "stochastic_trials": true,
+    "end_reasons": {
+      "time_limit": 4,
+      "rule_violation": 1
+    },
+    "records": [
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 308,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -13.625953124997253,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 317,
+        "closest_brock_distance": 292,
+        "path_reward": -0.0013808593749997655,
+        "path_reward_total": -21.985953124997526,
+        "evaluation_seed": 1000
+      },
+      {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 110,
+        "max_map_progress": 2,
+        "episode_steps": 5275,
+        "episode_return": -9.212310546874825,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 358,
+        "closest_brock_distance": 349,
+        "path_reward": -2.6015625,
+        "path_reward_total": -9.349810546874838,
+        "evaluation_seed": 1001
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 420,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -16.220884717194938,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 196,
+        "closest_brock_distance": 67,
+        "path_reward": -0.0016171874999999503,
+        "path_reward_total": -24.787207031239532,
+        "evaluation_seed": 1002
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 485,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -16.081298828119678,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 67,
+        "path_reward": -0.001619140624999904,
+        "path_reward_total": -24.687548828119077,
+        "evaluation_seed": 1003
+      },
+      {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 728,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -15.016662109372271,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 195,
+        "closest_brock_distance": 67,
+        "path_reward": -0.001619140624999904,
+        "path_reward_total": -23.92666210936946,
+        "evaluation_seed": 1004
+      }
+    ],
+    "interpretation": "Episode sampling uncertainty for this checkpoint and start setup; not variation across training seeds."
+  }
+}
