@@ -17,6 +17,9 @@ or Brock; the remaining comparisons are incomplete.
 The replacement uses a dedicated Virginia filesystem, `jeff-67920-rl-checkpoints`,
 mounted at `/lambda/nfs/jeff-67920-rl-checkpoints`. Source, restored results, new
 checkpoints, queue status and logs belong under its `67920project/` directory.
+The resumed queue runs in tmux session `67920-recovery`, with new outputs in
+`67920project/runs/campaign-recovery-20261123` on that filesystem. All 21 completed
+models and 197 historical periodic checkpoints have been restored there.
 The Python environment can remain on the instance's local disk and be rebuilt
 from the saved `pyproject.toml` and `uv.lock`. Keep this filesystem when terminating
 an instance, then attach it when launching another instance in the same region.
