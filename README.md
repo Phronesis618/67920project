@@ -5,6 +5,34 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Persistent-storage recovery — November 23, 2026
+
+The original A10 was terminated. The last successful Mac backup captured the
+corrected campaign at **November 22, 5:18 p.m. Eastern**: 42 completed jobs,
+21 completed training segments, 81 evaluation episodes, and the interrupted
+`pixels-lstm-s2-m05` run. The backup contains 21 final models and 197 periodic
+checkpoints. Those evaluations reached Viridian Forest 20 times, but never Pewter
+or Brock; the remaining comparisons are incomplete.
+
+The replacement uses a dedicated Virginia filesystem, `jeff-67920-rl-checkpoints`,
+mounted at `/lambda/nfs/jeff-67920-rl-checkpoints`. Source, restored results, new
+checkpoints, queue status and logs belong under its `67920project/` directory.
+The Python environment can remain on the instance's local disk and be rebuilt
+from the saved `pyproject.toml` and `uv.lock`. Keep this filesystem when terminating
+an instance, then attach it when launching another instance in the same region.
+
+`scripts/build_recovery_queue.py` generates a fresh 30-job continuation without
+rewriting the historical campaign. The interrupted run resumes weights and
+optimizer state at **2,359,296 actions**, with **2,883,584 additional actions** to
+reach its original 5,242,880-action target. Episodes restart and RNGs are reseeded;
+this is not an exact continuation of emulator state. The other completed jobs are
+preserved and the original November 29 training cutoff is retained.
+
+Recovery queues declare `required_mount`; the controller refuses to start unless
+the queue resides on that mounted filesystem, and checks again before each job.
+The Mac backup remains a second copy. Training's cutoff stops the experiment queue;
+it does not terminate the instance or delete the filesystem.
+
 ## Map-transition correction — November 22, 2026
 
 The current implementation uses `coherent-v1` position reads. It holds the last

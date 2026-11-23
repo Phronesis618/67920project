@@ -42,6 +42,13 @@ def run_queue(config_path):
     config_path = Path(config_path).resolve()
     raw = config_path.read_bytes()
     config = json.loads(raw)
+    def check_mount():
+        if config.get("required_mount"):
+            mount = Path(config["required_mount"]).resolve()
+            if not mount.is_mount() or not config_path.is_relative_to(mount):
+                raise ValueError(f"Queue must reside on its mounted persistent filesystem: {mount}")
+
+    check_mount()
     jobs = config["jobs"]
     seen = set()
     for job in jobs:
@@ -101,6 +108,7 @@ def run_queue(config_path):
             record = state["jobs"][job_id]
             if record["status"] != "pending":
                 continue
+            check_mount()
             if (folder / "STOP_AFTER_CURRENT").exists() or (
                 stop_at is not None and datetime.now(UTC) >= stop_at
             ):

@@ -1,6 +1,8 @@
 import json
 import sys
 
+import pytest
+
 from scripts.run_experiment_queue import run_queue
 
 
@@ -66,6 +68,20 @@ def test_stop_marker_pauses_before_starting_next_job(tmp_path):
     state = json.loads((tmp_path / "status.json").read_text())
     assert state["phase"] == "paused"
     assert state["jobs"]["later"]["status"] == "pending"
+
+
+def test_persistent_queue_refuses_an_unmounted_directory(tmp_path):
+    path = configure(
+        tmp_path,
+        [{"id": "train", "command": [sys.executable, "-c", "open('unsafe', 'w').close()"]}],
+    )
+    config = json.loads(path.read_text())
+    config["required_mount"] = str(tmp_path)
+    path.write_text(json.dumps(config))
+    with pytest.raises(ValueError, match="mounted persistent filesystem"):
+        run_queue(path)
+    assert not (tmp_path / "unsafe").exists()
+    assert not (tmp_path / "status.json").exists()
 
 
 def test_timeouts_stop_processes_and_repeated_failures_halt(tmp_path):
