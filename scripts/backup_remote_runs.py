@@ -44,6 +44,8 @@ def main():
     command = [
         "rsync",
         "-az",
+        "--exclude=.*.zip.*",
+        "--exclude=*.tmp",
         "--partial",
         "--timeout=120",
         "-e",

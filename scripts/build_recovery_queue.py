@@ -86,6 +86,8 @@ def build(backup, destination, source, python, campaign, mount):
     config = {key: copy.deepcopy(value) for key, value in original.items() if key != "jobs"}
     config.update(
         description="Persistent-storage recovery of the corrected November 22 campaign",
+        position_contract="coherent-v1; resume corrected policy weights and optimizer state "
+        "from the last verified backup; historical transition-artifact weights remain excluded.",
         cwd=str(source), required_mount=str(mount), jobs=remaining,
         recovery={"backup_status_utc": status["updated_utc"],
                   "original_config_sha256": status["config_sha256"],
