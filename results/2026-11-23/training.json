@@ -1,0 +1,707 @@
+{
+  "campaign-coherent-20261122/pixels-lstm-s0-m01": {
+    "completed_episode_summary": {
+      "episodes": 68,
+      "forest": 1,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 46,
+        "rule_violation": 18,
+        "wipe": 4
+      },
+      "violations": {
+        "illegal_catch": 18
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 1165.288490988998,
+      "steps_per_second": 899.8424065014643
+    }
+  },
+  "campaign-coherent-20261122/pixels-lstm-s0-m05": {
+    "completed_episode_summary": {
+      "episodes": 309,
+      "forest": 190,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 83,
+        "wipe": 46,
+        "time_limit": 180
+      },
+      "violations": {
+        "illegal_catch": 83
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 4848.837138165982,
+      "steps_per_second": 865.0123484218421
+    }
+  },
+  "campaign-coherent-20261122/pixels-lstm-s1-m01": {
+    "completed_episode_summary": {
+      "episodes": 119,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 18,
+        "rule_violation": 86,
+        "wipe": 15
+      },
+      "violations": {
+        "illegal_catch": 86
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 1235.1376167449926,
+      "steps_per_second": 848.9547932021973
+    }
+  },
+  "campaign-coherent-20261122/pixels-lstm-s1-m05": {
+    "completed_episode_summary": {
+      "episodes": 338,
+      "forest": 258,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 119,
+        "rule_violation": 62,
+        "time_limit": 157
+      },
+      "violations": {
+        "illegal_catch": 62
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 4718.201799389004,
+      "steps_per_second": 888.962401002677
+    }
+  },
+  "campaign-coherent-20261122/pixels-lstm-s2-m01": {
+    "completed_episode_summary": {
+      "episodes": 85,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 29,
+        "time_limit": 32,
+        "wipe": 24
+      },
+      "violations": {
+        "illegal_catch": 29
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 1199.7784160510055,
+      "steps_per_second": 873.9747156406776
+    }
+  },
+  "campaign-coherent-20261122/pixels-lstm-s2-m05": {
+    "completed_episode_summary": {
+      "episodes": 98,
+      "forest": 25,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 13,
+        "time_limit": 58,
+        "rule_violation": 27
+      },
+      "violations": {
+        "illegal_catch": 27
+      }
+    },
+    "incomplete_json_lines": 0
+  },
+  "campaign-coherent-20261122/pixels-ppo-s0-m01": {
+    "completed_episode_summary": {
+      "episodes": 66,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 12,
+        "time_limit": 54
+      },
+      "violations": {
+        "illegal_catch": 12
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 740.5492406010017,
+      "steps_per_second": 1415.9436571010667
+    }
+  },
+  "campaign-coherent-20261122/pixels-ppo-s0-m05": {
+    "completed_episode_summary": {
+      "episodes": 331,
+      "forest": 199,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 178,
+        "wipe": 55,
+        "rule_violation": 98
+      },
+      "violations": {
+        "illegal_catch": 98
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 2918.0942099530075,
+      "steps_per_second": 1437.3435873640092
+    }
+  },
+  "campaign-coherent-20261122/pixels-ppo-s1-m01": {
+    "completed_episode_summary": {
+      "episodes": 66,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 9,
+        "time_limit": 45,
+        "rule_violation": 12
+      },
+      "violations": {
+        "illegal_catch": 12
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 710.2801250460034,
+      "steps_per_second": 1476.2851486687537
+    }
+  },
+  "campaign-coherent-20261122/pixels-ppo-s1-m05": {
+    "completed_episode_summary": {
+      "episodes": 281,
+      "forest": 83,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 211,
+        "rule_violation": 47,
+        "wipe": 23
+      },
+      "violations": {
+        "illegal_catch": 47
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 2890.2714745780104,
+      "steps_per_second": 1451.179945168432
+    }
+  },
+  "campaign-coherent-20261122/pixels-ppo-s2-m01": {
+    "completed_episode_summary": {
+      "episodes": 77,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 21,
+        "time_limit": 35,
+        "wipe": 21
+      },
+      "violations": {
+        "illegal_catch": 21
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 714.0647283339931,
+      "steps_per_second": 1468.4607128634761
+    }
+  },
+  "campaign-coherent-20261122/pixels-ppo-s2-m05": {
+    "completed_episode_summary": {
+      "episodes": 329,
+      "forest": 182,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 159,
+        "wipe": 66,
+        "rule_violation": 104
+      },
+      "violations": {
+        "illegal_catch": 104
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 3075.8437212599965,
+      "steps_per_second": 1363.6271475723202
+    }
+  },
+  "campaign-coherent-20261122/ram-lstm-s0-m01": {
+    "completed_episode_summary": {
+      "episodes": 143,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 57,
+        "rule_violation": 71,
+        "time_limit": 15
+      },
+      "violations": {
+        "illegal_catch": 71
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 1365.2299772760016,
+      "steps_per_second": 768.0581421836262
+    }
+  },
+  "campaign-coherent-20261122/ram-lstm-s0-m05": {
+    "completed_episode_summary": {
+      "episodes": 339,
+      "forest": 147,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 118,
+        "time_limit": 171,
+        "wipe": 50
+      },
+      "violations": {
+        "illegal_catch": 118
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 5049.194014564011,
+      "steps_per_second": 830.6878261959936
+    }
+  },
+  "campaign-coherent-20261122/ram-lstm-s1-m01": {
+    "completed_episode_summary": {
+      "episodes": 168,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 34,
+        "rule_violation": 124,
+        "time_limit": 10
+      },
+      "violations": {
+        "illegal_catch": 124
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 1464.419851175,
+      "steps_per_second": 716.0350900451525
+    }
+  },
+  "campaign-coherent-20261122/ram-lstm-s1-m05": {
+    "completed_episode_summary": {
+      "episodes": 498,
+      "forest": 41,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 182,
+        "rule_violation": 203,
+        "time_limit": 113
+      },
+      "violations": {
+        "illegal_catch": 203
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 5668.677357768989,
+      "steps_per_second": 739.9087538915329
+    }
+  },
+  "campaign-coherent-20261122/ram-lstm-s2-m01": {
+    "completed_episode_summary": {
+      "episodes": 104,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 75,
+        "time_limit": 21,
+        "wipe": 8
+      },
+      "violations": {
+        "illegal_catch": 75
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 1323.033363191993,
+      "steps_per_second": 792.5544654975077
+    }
+  },
+  "campaign-coherent-20261122/ram-ppo-s0-m01": {
+    "completed_episode_summary": {
+      "episodes": 82,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 41,
+        "rule_violation": 33,
+        "wipe": 8
+      },
+      "violations": {
+        "illegal_catch": 33
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 863.227086526007,
+      "steps_per_second": 1214.716285398221
+    }
+  },
+  "campaign-coherent-20261122/ram-ppo-s0-m05": {
+    "completed_episode_summary": {
+      "episodes": 356,
+      "forest": 154,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 85,
+        "rule_violation": 115,
+        "time_limit": 156
+      },
+      "violations": {
+        "illegal_catch": 115
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 3503.7450710819976,
+      "steps_per_second": 1197.0916590414924
+    }
+  },
+  "campaign-coherent-20261122/ram-ppo-s1-m01": {
+    "completed_episode_summary": {
+      "episodes": 70,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 42,
+        "wipe": 8,
+        "rule_violation": 20
+      },
+      "violations": {
+        "illegal_catch": 20
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 898.0617639959964,
+      "steps_per_second": 1167.5989804245519
+    }
+  },
+  "campaign-coherent-20261122/ram-ppo-s1-m05": {
+    "completed_episode_summary": {
+      "episodes": 308,
+      "forest": 147,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 184,
+        "rule_violation": 91,
+        "wipe": 33
+      },
+      "violations": {
+        "illegal_catch": 91
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 4170.874874390021,
+      "steps_per_second": 1005.6173168257427
+    }
+  },
+  "campaign-coherent-20261122/ram-ppo-s2-m01": {
+    "completed_episode_summary": {
+      "episodes": 90,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 28,
+        "rule_violation": 44,
+        "wipe": 18
+      },
+      "violations": {
+        "illegal_catch": 44
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 1048576,
+      "seconds": 855.2850842070038,
+      "steps_per_second": 1225.9958923195884
+    }
+  },
+  "campaign-recovery-20261123/pixels-lstm-s0-m10": {
+    "completed_episode_summary": {
+      "episodes": 415,
+      "forest": 251,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 223,
+        "wipe": 75,
+        "rule_violation": 117
+      },
+      "violations": {
+        "illegal_catch": 117
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 10485760,
+      "initial_timesteps": 5242880,
+      "additional_timesteps": 5242880,
+      "seconds": 6178.414079516999,
+      "steps_per_second": 848.5802234235917
+    }
+  },
+  "campaign-recovery-20261123/pixels-lstm-s1-m10": {
+    "completed_episode_summary": {
+      "episodes": 37,
+      "forest": 4,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 13,
+        "rule_violation": 13,
+        "time_limit": 11
+      },
+      "violations": {
+        "illegal_catch": 13
+      }
+    },
+    "incomplete_json_lines": 0
+  },
+  "campaign-recovery-20261123/pixels-lstm-s2-m05": {
+    "completed_episode_summary": {
+      "episodes": 228,
+      "forest": 164,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 31,
+        "time_limit": 103,
+        "wipe": 94
+      },
+      "violations": {
+        "illegal_catch": 31
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 2359296,
+      "additional_timesteps": 2883584,
+      "seconds": 3679.536920954,
+      "steps_per_second": 783.6812245526722
+    }
+  },
+  "campaign-recovery-20261123/pixels-ppo-s0-m10": {
+    "completed_episode_summary": {
+      "episodes": 398,
+      "forest": 320,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 200,
+        "rule_violation": 51,
+        "wipe": 147
+      },
+      "violations": {
+        "illegal_catch": 51
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 10485760,
+      "initial_timesteps": 5242880,
+      "additional_timesteps": 5242880,
+      "seconds": 4116.005986162001,
+      "steps_per_second": 1273.7785167530235
+    }
+  },
+  "campaign-recovery-20261123/pixels-ppo-s1-m10": {
+    "completed_episode_summary": {
+      "episodes": 335,
+      "forest": 184,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 286,
+        "wipe": 18,
+        "rule_violation": 31
+      },
+      "violations": {
+        "illegal_catch": 31
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 10485760,
+      "initial_timesteps": 5242880,
+      "additional_timesteps": 5242880,
+      "seconds": 3685.8612927389986,
+      "steps_per_second": 1422.4300871897342
+    }
+  },
+  "campaign-recovery-20261123/ram-lstm-s0-m10": {
+    "completed_episode_summary": {
+      "episodes": 423,
+      "forest": 317,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 192,
+        "rule_violation": 88,
+        "wipe": 143
+      },
+      "violations": {
+        "illegal_catch": 88
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 10485760,
+      "initial_timesteps": 5242880,
+      "additional_timesteps": 5242880,
+      "seconds": 6644.637101404001,
+      "steps_per_second": 789.0393290089819
+    }
+  },
+  "campaign-recovery-20261123/ram-lstm-s2-m05": {
+    "completed_episode_summary": {
+      "episodes": 329,
+      "forest": 104,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 183,
+        "rule_violation": 100,
+        "wipe": 46
+      },
+      "violations": {
+        "illegal_catch": 100
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 5688.238001013,
+      "steps_per_second": 737.3643647212107
+    }
+  },
+  "campaign-recovery-20261123/ram-ppo-s0-m10": {
+    "completed_episode_summary": {
+      "episodes": 457,
+      "forest": 314,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 121,
+        "time_limit": 202,
+        "rule_violation": 134
+      },
+      "violations": {
+        "illegal_catch": 134
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 10485760,
+      "initial_timesteps": 5242880,
+      "additional_timesteps": 5242880,
+      "seconds": 4886.015105122002,
+      "steps_per_second": 1073.038025302848
+    }
+  },
+  "campaign-recovery-20261123/ram-ppo-s2-m05": {
+    "completed_episode_summary": {
+      "episodes": 350,
+      "forest": 201,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 106,
+        "time_limit": 154,
+        "wipe": 90
+      },
+      "violations": {
+        "illegal_catch": 106
+      }
+    },
+    "incomplete_json_lines": 0,
+    "training": {
+      "actual_timesteps": 5242880,
+      "initial_timesteps": 1048576,
+      "additional_timesteps": 4194304,
+      "seconds": 3753.549919985,
+      "steps_per_second": 1117.4232631537138
+    }
+  }
+}

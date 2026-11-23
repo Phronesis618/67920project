@@ -5,6 +5,19 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Forest diagnosis and current results — November 23, 2026
+
+The [corrected/recovery snapshot and forest report](results/2026-11-23/README.md)
+now include the results that were previously only on Lambda: **146 evaluation
+episodes, 53 forest arrivals, zero Pewter arrivals and zero Brock wins**. All twelve
+configurations completed the 5.24M-action stage; the 10.49M stage remains incomplete.
+The pixel-only PPO and LSTM models already receive screens and recent actions only.
+
+Frame-level replay diagnostics distinguish trainer/wild battles, walking poison,
+illegal catches and timeouts, and count actual rejected RUN selections. They leave
+the training campaign unchanged. See the report for reproducible traces, videos,
+input/reward provenance and the proposed controlled follow-up.
+
 ## Persistent-storage recovery — November 23, 2026
 
 The original A10 was terminated. The last successful Mac backup captured the

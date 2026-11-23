@@ -1,0 +1,432 @@
+{
+  "diagnostic_episodes": 17,
+  "original_evaluation_matches": 17,
+  "forest_episodes": 10,
+  "end_reasons": {
+    "wipe": 6,
+    "rule_violation": 7,
+    "time_limit": 4
+  },
+  "faints": {
+    "trainer_battle": 4,
+    "overworld_poison": 3,
+    "wild_battle": 1
+  },
+  "run_hooks": {
+    "run_attempt_battle1": 276,
+    "run_succeeded_battle1": 264,
+    "wild_run_failed_battle1": 12,
+    "run_attempt_battle2": 198,
+    "trainer_run_rejected_battle2": 198
+  },
+  "forest_frame_counts": {
+    "forest_battle0": 670945,
+    "forest_battle1": 329735,
+    "forest_battle2": 293596
+  },
+  "forest_actions": 53923,
+  "forest_wild_battles": 115,
+  "records": [
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1000,
+      "steps": 10033,
+      "arrival_step": 4704,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 19,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 5242,
+      "forest_wild_battles": 21,
+      "wild_battles_per_1000_forest_actions": 4.006104540251813,
+      "forest_trainers": 1,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": 0.4540599394406606,
+      "end_reason": "wipe",
+      "faint_causes": [
+        "trainer_battle"
+      ]
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1001,
+      "steps": 14609,
+      "arrival_step": 6322,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 22,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 7665,
+      "forest_wild_battles": 3,
+      "wild_battles_per_1000_forest_actions": 0.3913894324853229,
+      "forest_trainers": 2,
+      "rejected_trainer_runs": 122,
+      "forest_battle_fraction": 0.8093289644566889,
+      "end_reason": "wipe",
+      "faint_causes": [
+        "trainer_battle"
+      ]
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1002,
+      "steps": 9137,
+      "arrival_step": 6561,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 22,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 2577,
+      "forest_wild_battles": 5,
+      "wild_battles_per_1000_forest_actions": 1.9402405898331394,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": 0.14971783386963763,
+      "end_reason": "wipe",
+      "faint_causes": [
+        "overworld_poison"
+      ]
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1003,
+      "steps": 8747,
+      "arrival_step": 5220,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 22,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 3495,
+      "forest_wild_battles": 1,
+      "wild_battles_per_1000_forest_actions": 0.2861230329041488,
+      "forest_trainers": 2,
+      "rejected_trainer_runs": 38,
+      "forest_battle_fraction": 0.8009272501906941,
+      "end_reason": "wipe",
+      "faint_causes": [
+        "trainer_battle"
+      ]
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1004,
+      "steps": 15893,
+      "arrival_step": 14225,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 22,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 1443,
+      "forest_wild_battles": 5,
+      "wild_battles_per_1000_forest_actions": 3.465003465003465,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": 0.3210852936931736,
+      "end_reason": "wipe",
+      "faint_causes": [
+        "wild_battle"
+      ]
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1000,
+      "steps": 827,
+      "arrival_step": null,
+      "party_at_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": null,
+      "end_reason": "rule_violation",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1001,
+      "steps": 16384,
+      "arrival_step": null,
+      "party_at_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": null,
+      "end_reason": "time_limit",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1002,
+      "steps": 7876,
+      "arrival_step": 4308,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 13,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 3569,
+      "forest_wild_battles": 11,
+      "wild_battles_per_1000_forest_actions": 3.0820958251611095,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": 0.6098845287160387,
+      "end_reason": "rule_violation",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1003,
+      "steps": 5838,
+      "arrival_step": null,
+      "party_at_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": null,
+      "end_reason": "rule_violation",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1004,
+      "steps": 1285,
+      "arrival_step": null,
+      "party_at_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": null,
+      "end_reason": "rule_violation",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1005,
+      "steps": 16384,
+      "arrival_step": 11668,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 18,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        },
+        {
+          "identity": [
+            25110,
+            11022
+          ],
+          "species": 36,
+          "hp": 13,
+          "max_hp": 17,
+          "level": 4,
+          "status": 0
+        }
+      ],
+      "forest_actions": 4712,
+      "forest_wild_battles": 4,
+      "wild_battles_per_1000_forest_actions": 0.8488964346349746,
+      "forest_trainers": 2,
+      "rejected_trainer_runs": 38,
+      "forest_battle_fraction": 0.8763374303651958,
+      "end_reason": "time_limit",
+      "faint_causes": [
+        "overworld_poison",
+        "trainer_battle"
+      ]
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1000,
+      "steps": 8654,
+      "arrival_step": null,
+      "party_at_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": null,
+      "end_reason": "rule_violation",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1001,
+      "steps": 16384,
+      "arrival_step": 6561,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 12,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 9824,
+      "forest_wild_battles": 25,
+      "wild_battles_per_1000_forest_actions": 2.544788273615635,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": 0.28562582177545914,
+      "end_reason": "time_limit",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1002,
+      "steps": 16384,
+      "arrival_step": 4426,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 19,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 11952,
+      "forest_wild_battles": 35,
+      "wild_battles_per_1000_forest_actions": 2.928380187416332,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": 0.29600488059961655,
+      "end_reason": "time_limit",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1003,
+      "steps": 6726,
+      "arrival_step": null,
+      "party_at_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": null,
+      "end_reason": "rule_violation",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1004,
+      "steps": 1511,
+      "arrival_step": null,
+      "party_at_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": null,
+      "end_reason": "rule_violation",
+      "faint_causes": []
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1005,
+      "steps": 13079,
+      "arrival_step": 9363,
+      "party_at_arrival": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 20,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "forest_actions": 3444,
+      "forest_wild_battles": 5,
+      "wild_battles_per_1000_forest_actions": 1.4518002322880372,
+      "forest_trainers": 0,
+      "rejected_trainer_runs": 0,
+      "forest_battle_fraction": 0.31549915929792305,
+      "end_reason": "wipe",
+      "faint_causes": [
+        "overworld_poison"
+      ]
+    }
+  ]
+}
