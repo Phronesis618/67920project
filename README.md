@@ -5,6 +5,19 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Antidote audit and curriculum fixture — November 25, 2026
+
+The [inventory audit](results/2026-11-25-antidote/README.md) resolves the supply question
+for all three previously diagnosed walking-poison deaths: the agents still had
+**3, 2, and 2 antidotes**. Five successful cures were observed, all during battles.
+A natural poisoned-overworld save with level-6 Squirtle at 18/22 HP and three
+antidotes is now available, with a verified scripted cure and preserved region history.
+The report also compares native/current menu resolution and confirms the fixed
+Squirtle starter. No curriculum or resolution treatment has been trained yet.
+
+The 80-episode intermediate-checkpoint search completed with **49 forest arrivals,
+zero Pewter arrivals and zero Brock wins**. Its earlier launch snapshot follows.
+
 ## Completed baseline and checkpoint follow-up — November 25, 2026
 
 The [completed comparison](results/2026-11-25/README.md) contains all 12 configurations

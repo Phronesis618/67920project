@@ -1,0 +1,130 @@
+{
+  "episodes_replayed_in_original_reset_order": 15,
+  "cures": [
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1000,
+      "step": 9485,
+      "battle": 1,
+      "antidotes_before": 2,
+      "antidotes_after": 1
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1000,
+      "step": 10003,
+      "battle": 2,
+      "antidotes_before": 1,
+      "antidotes_after": 0
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1001,
+      "step": 10242,
+      "battle": 2,
+      "antidotes_before": 2,
+      "antidotes_after": 1
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1001,
+      "step": 13054,
+      "battle": 2,
+      "antidotes_before": 1,
+      "antidotes_after": 0
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1002,
+      "step": 5692,
+      "battle": 1,
+      "antidotes_before": 2,
+      "antidotes_after": 1
+    }
+  ],
+  "faints": [
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1000,
+      "step": 10033,
+      "causes": [
+        "trainer_battle"
+      ],
+      "antidotes_remaining": 0
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1001,
+      "step": 14609,
+      "causes": [
+        "trainer_battle"
+      ],
+      "antidotes_remaining": 0
+    },
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1002,
+      "step": 9137,
+      "causes": [
+        "overworld_poison"
+      ],
+      "antidotes_remaining": 3
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1005,
+      "step": 14396,
+      "causes": [
+        "overworld_poison"
+      ],
+      "antidotes_remaining": 2
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1005,
+      "step": 16255,
+      "causes": [
+        "trainer_battle"
+      ],
+      "antidotes_remaining": 2
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1005,
+      "step": 13079,
+      "causes": [
+        "overworld_poison"
+      ],
+      "antidotes_remaining": 2
+    }
+  ],
+  "poison_deaths": [
+    {
+      "run": "pixels-ppo-s0-m10",
+      "seed": 1002,
+      "step": 9137,
+      "causes": [
+        "overworld_poison"
+      ],
+      "antidotes_remaining": 3
+    },
+    {
+      "run": "ram-lstm-s0-m10",
+      "seed": 1005,
+      "step": 14396,
+      "causes": [
+        "overworld_poison"
+      ],
+      "antidotes_remaining": 2
+    },
+    {
+      "run": "ram-ppo-s0-m10",
+      "seed": 1005,
+      "step": 13079,
+      "causes": [
+        "overworld_poison"
+      ],
+      "antidotes_remaining": 2
+    }
+  ]
+}

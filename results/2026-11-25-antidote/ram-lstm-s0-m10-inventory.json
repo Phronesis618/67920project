@@ -1,0 +1,1326 @@
+{
+  "source_trace": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/diagnostics/forest-20261123/ram-lstm-s0-m10",
+  "source_model_sha256": "fd89942c79a2a36d0446e5f3cfda4f90574d9806f3b7e6617188370756bf8e7f",
+  "script_sha256": "102279031408f78f139d297ea64397e6c7af3953cc419393e8bcccc75f85db00",
+  "requested_episodes": [
+    5
+  ],
+  "reset_order": "Replay every preceding episode in original order; jumping directly to a later reset did not reproduce the original trace.",
+  "created_utc": "2026-11-25T23:29:10.098520+00:00",
+  "records": [
+    {
+      "episode_index": 0,
+      "evaluation_seed": 1000,
+      "every_action_state_matches": true,
+      "original_ending_matches": true,
+      "initial_bag": {
+        "4": 5,
+        "11": 2
+      },
+      "final_bag": {
+        "4": 5,
+        "11": 2
+      },
+      "events": [],
+      "faint_inventory": [],
+      "poison_save": null,
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 66,
+        "max_map_progress": 2,
+        "episode_steps": 827,
+        "episode_return": -3.4548984374998994,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 351,
+        "closest_brock_distance": 351,
+        "path_reward": -2.62890625,
+        "path_reward_total": -3.5373984374998986,
+        "position": [
+          9,
+          28,
+          12
+        ],
+        "raw_position": [
+          9,
+          28,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 446
+      }
+    },
+    {
+      "episode_index": 1,
+      "evaluation_seed": 1001,
+      "every_action_state_matches": true,
+      "original_ending_matches": true,
+      "initial_bag": {
+        "4": 5,
+        "11": 2
+      },
+      "final_bag": {
+        "4": 4
+      },
+      "events": [
+        {
+          "step": 3030,
+          "bag": {
+            "4": 5,
+            "11": 2,
+            "20": 1
+          },
+          "antidotes": 2,
+          "position": [
+            5,
+            24,
+            12
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 17,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 8117,
+          "bag": {
+            "4": 4,
+            "11": 2,
+            "20": 1
+          },
+          "antidotes": 2,
+          "position": [
+            15,
+            8,
+            12
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 17,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2,
+            "20": 1
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 8168,
+          "bag": {
+            "4": 4,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            15,
+            8,
+            12
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 2,
+            "20": 1
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 14804,
+          "bag": {
+            "4": 4
+          },
+          "antidotes": 0,
+          "position": [
+            2,
+            1,
+            44
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 19,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        }
+      ],
+      "faint_inventory": [],
+      "poison_save": null,
+      "info": {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 369,
+        "max_map_progress": 3,
+        "episode_steps": 16384,
+        "episode_return": -16.572501178326974,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": null,
+        "closest_brock_distance": 279,
+        "path_reward": -0.0009999999999998899,
+        "path_reward_total": -19.669908203125633,
+        "position": [
+          2,
+          1,
+          44
+        ],
+        "raw_position": [
+          2,
+          1,
+          44
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 1310
+      }
+    },
+    {
+      "episode_index": 2,
+      "evaluation_seed": 1002,
+      "every_action_state_matches": true,
+      "original_ending_matches": true,
+      "initial_bag": {
+        "4": 5,
+        "11": 2
+      },
+      "final_bag": {
+        "4": 3,
+        "11": 1
+      },
+      "events": [
+        {
+          "step": 1791,
+          "bag": {
+            "4": 5,
+            "11": 2,
+            "20": 1
+          },
+          "antidotes": 2,
+          "position": [
+            6,
+            25,
+            12
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 3195,
+          "bag": {
+            "4": 4,
+            "11": 2,
+            "20": 1
+          },
+          "antidotes": 2,
+          "position": [
+            15,
+            9,
+            12
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2,
+            "20": 1
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 5468,
+          "bag": {
+            "4": 4,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            18,
+            32,
+            51
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 2,
+            "20": 1
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 5692,
+          "bag": {
+            "4": 4,
+            "11": 1
+          },
+          "antidotes": 1,
+          "position": [
+            18,
+            32,
+            51
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 15,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 2
+          },
+          "poison_cleared_alive": [
+            [
+              25110,
+              34706
+            ]
+          ],
+          "fainted": []
+        },
+        {
+          "step": 5894,
+          "bag": {
+            "4": 3,
+            "11": 1
+          },
+          "antidotes": 1,
+          "position": [
+            18,
+            32,
+            51
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 1
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        }
+      ],
+      "faint_inventory": [],
+      "poison_save": null,
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 399,
+        "max_map_progress": 5,
+        "episode_steps": 7876,
+        "episode_return": -9.656956450152602,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 218,
+        "closest_brock_distance": 212,
+        "path_reward": -3.1484375,
+        "path_reward_total": -13.90157421874741,
+        "position": [
+          18,
+          32,
+          51
+        ],
+        "raw_position": [
+          18,
+          32,
+          51
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 1019
+      }
+    },
+    {
+      "episode_index": 3,
+      "evaluation_seed": 1003,
+      "every_action_state_matches": true,
+      "original_ending_matches": true,
+      "initial_bag": {
+        "4": 5,
+        "11": 2
+      },
+      "final_bag": {
+        "4": 3,
+        "11": 2,
+        "20": 1
+      },
+      "events": [
+        {
+          "step": 1516,
+          "bag": {
+            "4": 4,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            11,
+            33,
+            12
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 1778,
+          "bag": {
+            "4": 4,
+            "11": 2,
+            "20": 1
+          },
+          "antidotes": 2,
+          "position": [
+            6,
+            24,
+            12
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 20,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 2757,
+          "bag": {
+            "4": 3,
+            "11": 2,
+            "20": 1
+          },
+          "antidotes": 2,
+          "position": [
+            14,
+            8,
+            12
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 17,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 2,
+            "20": 1
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        }
+      ],
+      "faint_inventory": [],
+      "poison_save": null,
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 405,
+        "max_map_progress": 4,
+        "episode_steps": 5838,
+        "episode_return": -8.038228515624102,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 239,
+        "closest_brock_distance": 239,
+        "path_reward": -3.06640625,
+        "path_reward_total": -10.544478515624064,
+        "position": [
+          8,
+          51,
+          13
+        ],
+        "raw_position": [
+          8,
+          51,
+          13
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 1259
+      }
+    },
+    {
+      "episode_index": 4,
+      "evaluation_seed": 1004,
+      "every_action_state_matches": true,
+      "original_ending_matches": true,
+      "initial_bag": {
+        "4": 5,
+        "11": 2
+      },
+      "final_bag": {
+        "4": 4,
+        "11": 2
+      },
+      "events": [
+        {
+          "step": 950,
+          "bag": {
+            "4": 4,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            7,
+            2,
+            0
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        }
+      ],
+      "faint_inventory": [],
+      "poison_save": null,
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 108,
+        "max_map_progress": 2,
+        "episode_steps": 1285,
+        "episode_return": -3.986535156249808,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 360,
+        "closest_brock_distance": 360,
+        "path_reward": -2.59375,
+        "path_reward_total": -4.121535156249807,
+        "position": [
+          11,
+          35,
+          12
+        ],
+        "raw_position": [
+          11,
+          35,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 237
+      }
+    },
+    {
+      "episode_index": 5,
+      "evaluation_seed": 1005,
+      "every_action_state_matches": true,
+      "original_ending_matches": true,
+      "initial_bag": {
+        "4": 5,
+        "11": 2
+      },
+      "final_bag": {
+        "11": 2
+      },
+      "events": [
+        {
+          "step": 603,
+          "bag": {
+            "4": 5,
+            "11": 2,
+            "20": 1
+          },
+          "antidotes": 2,
+          "position": [
+            5,
+            24,
+            12
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 7840,
+          "bag": {
+            "4": 5,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            5,
+            49,
+            13
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2,
+            "20": 1
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 7914,
+          "bag": {
+            "4": 4,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            5,
+            49,
+            13
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 18,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 13,
+              "max_hp": 17,
+              "level": 4,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 5,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 11809,
+          "bag": {
+            "4": 3,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            25,
+            39,
+            51
+          ],
+          "battle": 1,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 18,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 13,
+              "max_hp": 17,
+              "level": 4,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 4,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 11922,
+          "bag": {
+            "4": 2,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            25,
+            39,
+            51
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 18,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 13,
+              "max_hp": 17,
+              "level": 4,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                6315
+              ],
+              "species": 84,
+              "hp": 15,
+              "max_hp": 15,
+              "level": 3,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 3,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 12635,
+          "bag": {
+            "4": 1,
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            27,
+            33,
+            51
+          ],
+          "battle": 2,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 16,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 13,
+              "max_hp": 17,
+              "level": 4,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                6315
+              ],
+              "species": 84,
+              "hp": 15,
+              "max_hp": 15,
+              "level": 3,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 2,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 14221,
+          "bag": {
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            27,
+            33,
+            51
+          ],
+          "battle": 2,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 4,
+              "max_hp": 22,
+              "level": 6,
+              "status": 8
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 1,
+              "max_hp": 17,
+              "level": 4,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                6315
+              ],
+              "species": 84,
+              "hp": 15,
+              "max_hp": 15,
+              "level": 3,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "4": 1,
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": []
+        },
+        {
+          "step": 14396,
+          "bag": {
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            27,
+            31,
+            51
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 0,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 5,
+              "max_hp": 21,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                6315
+              ],
+              "species": 84,
+              "hp": 15,
+              "max_hp": 15,
+              "level": 3,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": [
+            [
+              25110,
+              34706
+            ]
+          ]
+        },
+        {
+          "step": 16255,
+          "bag": {
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            26,
+            19,
+            51
+          ],
+          "battle": 2,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 0,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 0,
+              "max_hp": 25,
+              "level": 8,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                6315
+              ],
+              "species": 84,
+              "hp": 17,
+              "max_hp": 17,
+              "level": 4,
+              "status": 0
+            }
+          ],
+          "previous_bag": {
+            "11": 2
+          },
+          "poison_cleared_alive": [],
+          "fainted": [
+            [
+              25110,
+              11022
+            ]
+          ]
+        }
+      ],
+      "faint_inventory": [
+        {
+          "step": 14396,
+          "bag": {
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            27,
+            31,
+            51
+          ],
+          "battle": 0,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 0,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 5,
+              "max_hp": 21,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                6315
+              ],
+              "species": 84,
+              "hp": 15,
+              "max_hp": 15,
+              "level": 3,
+              "status": 0
+            }
+          ]
+        },
+        {
+          "step": 16255,
+          "bag": {
+            "11": 2
+          },
+          "antidotes": 2,
+          "position": [
+            26,
+            19,
+            51
+          ],
+          "battle": 2,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 0,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                11022
+              ],
+              "species": 36,
+              "hp": 0,
+              "max_hp": 25,
+              "level": 8,
+              "status": 0
+            },
+            {
+              "identity": [
+                25110,
+                6315
+              ],
+              "species": 84,
+              "hp": 17,
+              "max_hp": 17,
+              "level": 4,
+              "status": 0
+            }
+          ]
+        }
+      ],
+      "poison_save": null,
+      "info": {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 2,
+        "regions_used": 3,
+        "badges": 0,
+        "map_coverage": 436,
+        "max_map_progress": 5,
+        "episode_steps": 16384,
+        "episode_return": -16.801857005972874,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": true,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 174,
+        "closest_brock_distance": 174,
+        "path_reward": -0.0016601562499998224,
+        "path_reward_total": -23.475310546873636,
+        "position": [
+          26,
+          14,
+          51
+        ],
+        "raw_position": [
+          26,
+          14,
+          51
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 802
+      }
+    }
+  ],
+  "finished_utc": "2026-11-25T23:31:50.233964+00:00"
+}

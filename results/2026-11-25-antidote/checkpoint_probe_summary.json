@@ -1,0 +1,50 @@
+[
+  {
+    "checkpoint": "ram-ppo-s1-10485760",
+    "episodes": 20,
+    "forest": 7,
+    "pewter": 0,
+    "brock": 0,
+    "end_reasons": {
+      "time_limit": 14,
+      "wipe": 4,
+      "rule_violation": 2
+    }
+  },
+  {
+    "checkpoint": "ram-ppo-s1-7864320",
+    "episodes": 20,
+    "forest": 18,
+    "pewter": 0,
+    "brock": 0,
+    "end_reasons": {
+      "time_limit": 11,
+      "rule_violation": 4,
+      "wipe": 5
+    }
+  },
+  {
+    "checkpoint": "ram-ppo-s1-8126464",
+    "episodes": 20,
+    "forest": 8,
+    "pewter": 0,
+    "brock": 0,
+    "end_reasons": {
+      "time_limit": 14,
+      "rule_violation": 5,
+      "wipe": 1
+    }
+  },
+  {
+    "checkpoint": "ram-ppo-s1-8388608",
+    "episodes": 20,
+    "forest": 16,
+    "pewter": 0,
+    "brock": 0,
+    "end_reasons": {
+      "time_limit": 12,
+      "rule_violation": 5,
+      "wipe": 3
+    }
+  }
+]

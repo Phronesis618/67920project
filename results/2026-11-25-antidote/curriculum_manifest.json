@@ -1,0 +1,88 @@
+{
+  "state_file": "forest-poisoned-squirtle.state",
+  "state_sha256": "383455fb58d0a13ab53b5ab60b491e51e11a8664345950059b87105d7be5aced",
+  "source_step": 8688,
+  "snapshot": {
+    "position": [
+      22,
+      40,
+      51
+    ],
+    "starting_hp": 18,
+    "starting_status": 8,
+    "starting_antidotes": 3
+  },
+  "bag": {
+    "4": 4,
+    "11": 3,
+    "20": 1
+  },
+  "initial_used_regions": [
+    1,
+    12,
+    13,
+    51
+  ],
+  "dead": [],
+  "ram_edited": false,
+  "note": "Natural poisoned overworld state; histories/exploration and LSTM reset for a new curriculum. Not yet a trained curriculum.",
+  "settling_frames": 168,
+  "observation_mode": "pixels",
+  "scripted_cure_validation": {
+    "actions": [
+      {
+        "action": 6,
+        "additional_idle_frames": 24
+      },
+      {
+        "action": 0,
+        "additional_idle_frames": 0
+      },
+      {
+        "action": 0,
+        "additional_idle_frames": 0
+      },
+      {
+        "action": 4,
+        "additional_idle_frames": 24
+      },
+      {
+        "action": 0,
+        "additional_idle_frames": 0
+      },
+      {
+        "action": 4,
+        "additional_idle_frames": 24
+      },
+      {
+        "action": 4,
+        "additional_idle_frames": 24
+      },
+      {
+        "action": 4,
+        "additional_idle_frames": 120
+      }
+    ],
+    "ending_party": [
+      {
+        "identity": [
+          25110,
+          34706
+        ],
+        "species": 177,
+        "hp": 18,
+        "max_hp": 22,
+        "level": 6,
+        "status": 0
+      }
+    ],
+    "ending_bag": {
+      "4": 4,
+      "11": 2,
+      "20": 1
+    },
+    "ram_edited": false,
+    "passed": true,
+    "note": "Scripted demonstration with button-free waiting for menus; not a learned-policy result."
+  }
+}
