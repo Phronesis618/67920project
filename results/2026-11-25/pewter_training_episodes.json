@@ -1,0 +1,92 @@
+[
+  {
+    "run": "ram-ppo-s1-m10",
+    "episode_log": "episodes-1.jsonl",
+    "record": {
+      "is_success": false,
+      "end_reason": "time_limit",
+      "violation_reasons": [],
+      "deaths": 0,
+      "regions_used": 3,
+      "badges": 0,
+      "map_coverage": 678,
+      "max_map_progress": 6,
+      "episode_steps": 16384,
+      "episode_return": -16.979939935575327,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": true
+      },
+      "navigation_goal": "brock",
+      "navigation_distance": 49,
+      "closest_brock_distance": 35,
+      "path_reward": -0.0019042968749998224,
+      "path_reward_total": -28.21146484374845,
+      "position": [
+        32,
+        10,
+        2
+      ],
+      "raw_position": [
+        32,
+        10,
+        2
+      ],
+      "position_coherent": true,
+      "deferred_position_frames": 1174,
+      "worker": 1,
+      "episode_index": 17,
+      "terminated": false,
+      "truncated": true
+    }
+  },
+  {
+    "run": "ram-ppo-s1-m10",
+    "episode_log": "episodes-11.jsonl",
+    "record": {
+      "is_success": false,
+      "end_reason": "time_limit",
+      "violation_reasons": [],
+      "deaths": 0,
+      "regions_used": 3,
+      "badges": 0,
+      "map_coverage": 833,
+      "max_map_progress": 6,
+      "episode_steps": 16384,
+      "episode_return": -15.348202585151363,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": true
+      },
+      "navigation_goal": "brock",
+      "navigation_distance": 53,
+      "closest_brock_distance": 29,
+      "path_reward": -0.001896484375000007,
+      "path_reward_total": -26.67361523437396,
+      "position": [
+        34,
+        8,
+        2
+      ],
+      "raw_position": [
+        34,
+        8,
+        2
+      ],
+      "position_coherent": true,
+      "deferred_position_frames": 1529,
+      "worker": 11,
+      "episode_index": 15,
+      "terminated": false,
+      "truncated": true
+    }
+  }
+]

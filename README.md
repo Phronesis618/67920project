@@ -5,6 +5,20 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Completed baseline and checkpoint follow-up — November 25, 2026
+
+The [completed comparison](results/2026-11-25/README.md) contains all 12 configurations
+at 10.49M training actions. Final-checkpoint forest arrivals are 20/30 for pixel PPO,
+10/30 for pixel LSTM, 17/30 for RAM PPO and 11/30 for RAM LSTM. No evaluated episode
+reaches Pewter or beats Brock. Two RAM-PPO training episodes finish alive in Pewter;
+these are rare training outcomes, not reliable evaluation performance.
+
+All 72 planned jobs finished on November 24, and their final backup succeeded.
+An 80-episode evaluation of four saved RAM-PPO checkpoints around the two Pewter
+training episodes is now running on persistent storage, with automatic Mac backups.
+The proposed survival/reward changes have not yet been trained. See the dated report
+for exact status, counts, checkpoint hashes and the remaining November 29 cutoff.
+
 ## Forest diagnosis and current results — November 23, 2026
 
 The [corrected/recovery snapshot and forest report](results/2026-11-23/README.md)

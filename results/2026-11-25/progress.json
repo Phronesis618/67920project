@@ -1,0 +1,320 @@
+{
+  "collected_utc": "2026-11-25T19:07:44.627183+00:00",
+  "campaigns": {
+    "campaign-coherent-20261122": {
+      "evaluations": {
+        "episodes": 81,
+        "forest": 20,
+        "pewter": 0,
+        "brock": 0,
+        "end_reasons": {
+          "rule_violation": 22,
+          "time_limit": 47,
+          "wipe": 12
+        },
+        "violations": {
+          "illegal_catch": 22
+        }
+      },
+      "training_episodes": {
+        "episodes": 4325,
+        "forest": 1427,
+        "pewter": 0,
+        "brock": 0,
+        "end_reasons": {
+          "time_limit": 1954,
+          "rule_violation": 1493,
+          "wipe": 878
+        },
+        "violations": {
+          "illegal_catch": 1493
+        }
+      },
+      "job_counts": {
+        "succeeded": 42,
+        "running": 1,
+        "pending": 29
+      }
+    },
+    "campaign-recovery-20261123": {
+      "evaluations": {
+        "episodes": 135,
+        "forest": 70,
+        "pewter": 0,
+        "brock": 0,
+        "end_reasons": {
+          "time_limit": 67,
+          "rule_violation": 31,
+          "wipe": 37
+        },
+        "violations": {
+          "illegal_catch": 31
+        }
+      },
+      "training_episodes": {
+        "episodes": 6083,
+        "forest": 3961,
+        "pewter": 2,
+        "brock": 0,
+        "end_reasons": {
+          "time_limit": 2845,
+          "wipe": 1772,
+          "rule_violation": 1466
+        },
+        "violations": {
+          "illegal_catch": 1466
+        }
+      },
+      "job_counts": {
+        "succeeded": 30
+      }
+    }
+  },
+  "evaluations": {
+    "episodes": 216,
+    "forest": 90,
+    "pewter": 0,
+    "brock": 0,
+    "end_reasons": {
+      "rule_violation": 53,
+      "time_limit": 114,
+      "wipe": 49
+    },
+    "violations": {
+      "illegal_catch": 53
+    }
+  },
+  "training_episodes": {
+    "episodes": 10408,
+    "forest": 5388,
+    "pewter": 2,
+    "brock": 0,
+    "end_reasons": {
+      "time_limit": 4799,
+      "rule_violation": 2959,
+      "wipe": 2650
+    },
+    "violations": {
+      "illegal_catch": 2959
+    }
+  },
+  "completed_training_segments": 36,
+  "completed_segment_actions": 124518400,
+  "interpretation": "Corrected campaign plus its continuation; excludes pre-fix runs. Checkpoint stages and recovery segments are not independent training seeds. The archived corrected status is historical, not a live process. Completed-segment actions exclude partially completed segments, including the interrupted segment. Episode summaries include completed episodes in partial segments.",
+  "groups": [
+    {
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "stage": "m01",
+      "training_seeds_evaluated": 3,
+      "episodes": 9,
+      "forest": 1,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 5,
+        "time_limit": 4
+      },
+      "violations": {
+        "illegal_catch": 5
+      }
+    },
+    {
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "stage": "m05",
+      "training_seeds_evaluated": 3,
+      "episodes": 15,
+      "forest": 6,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 8,
+        "rule_violation": 2,
+        "wipe": 5
+      },
+      "violations": {
+        "illegal_catch": 2
+      }
+    },
+    {
+      "condition": "pixels",
+      "algorithm": "lstm",
+      "stage": "m10",
+      "training_seeds_evaluated": 3,
+      "episodes": 30,
+      "forest": 10,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 12,
+        "rule_violation": 5,
+        "wipe": 13
+      },
+      "violations": {
+        "illegal_catch": 5
+      }
+    },
+    {
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "stage": "m01",
+      "training_seeds_evaluated": 3,
+      "episodes": 9,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 2,
+        "time_limit": 7
+      },
+      "violations": {
+        "illegal_catch": 2
+      }
+    },
+    {
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "stage": "m05",
+      "training_seeds_evaluated": 3,
+      "episodes": 15,
+      "forest": 6,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 4,
+        "time_limit": 10,
+        "rule_violation": 1
+      },
+      "violations": {
+        "illegal_catch": 1
+      }
+    },
+    {
+      "condition": "pixels",
+      "algorithm": "ppo",
+      "stage": "m10",
+      "training_seeds_evaluated": 3,
+      "episodes": 30,
+      "forest": 20,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 7,
+        "rule_violation": 5,
+        "time_limit": 18
+      },
+      "violations": {
+        "illegal_catch": 5
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "lstm",
+      "stage": "m01",
+      "training_seeds_evaluated": 3,
+      "episodes": 9,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 7,
+        "wipe": 1,
+        "time_limit": 1
+      },
+      "violations": {
+        "illegal_catch": 7
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "lstm",
+      "stage": "m05",
+      "training_seeds_evaluated": 3,
+      "episodes": 15,
+      "forest": 10,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "time_limit": 10,
+        "rule_violation": 2,
+        "wipe": 3
+      },
+      "violations": {
+        "illegal_catch": 2
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "lstm",
+      "stage": "m10",
+      "training_seeds_evaluated": 3,
+      "episodes": 30,
+      "forest": 11,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 14,
+        "time_limit": 11,
+        "wipe": 5
+      },
+      "violations": {
+        "illegal_catch": 14
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "ppo",
+      "stage": "m01",
+      "training_seeds_evaluated": 3,
+      "episodes": 9,
+      "forest": 0,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 3,
+        "wipe": 1,
+        "time_limit": 5
+      },
+      "violations": {
+        "illegal_catch": 3
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "ppo",
+      "stage": "m05",
+      "training_seeds_evaluated": 3,
+      "episodes": 15,
+      "forest": 9,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "wipe": 4,
+        "time_limit": 9,
+        "rule_violation": 2
+      },
+      "violations": {
+        "illegal_catch": 2
+      }
+    },
+    {
+      "condition": "ram",
+      "algorithm": "ppo",
+      "stage": "m10",
+      "training_seeds_evaluated": 3,
+      "episodes": 30,
+      "forest": 17,
+      "pewter": 0,
+      "brock": 0,
+      "end_reasons": {
+        "rule_violation": 5,
+        "time_limit": 19,
+        "wipe": 6
+      },
+      "violations": {
+        "illegal_catch": 5
+      }
+    }
+  ]
+}

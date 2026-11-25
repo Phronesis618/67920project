@@ -1,0 +1,109 @@
+{
+  "description": "Exploratory checkpoint search around the two logged Pewter training episodes; not a new training treatment or held-out model-selection test.",
+  "cwd": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source",
+  "required_mount": "/lambda/nfs/jeff-67920-rl-checkpoints",
+  "stop_at": "2026-11-30T04:59:00+00:00",
+  "max_consecutive_failures": 2,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "MPLCONFIGDIR": "/tmp/67920-matplotlib",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "PYTHONUNBUFFERED": "1"
+  },
+  "jobs": [
+    {
+      "id": "ram-ppo-s1-7864320-eval",
+      "needs": [],
+      "timeout_seconds": 7200,
+      "checkpoint_sha256": "52f80270b32e9778bd57bce623f4ffa310d3e7ec43d1806c0d5c6369f6ef6d62",
+      "checkpoint": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/checkpoints/policy_7864320_steps.zip",
+      "checkpoint_training_step": 7864320,
+      "evaluation_seed_start": 2000,
+      "evaluation_episodes": 20,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10",
+        "--model",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/checkpoints/policy_7864320_steps.zip",
+        "--episodes",
+        "20",
+        "--seed",
+        "2000",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-checkpoint-probe-20261125/evaluations/ram-ppo-s1-7864320.json"
+      ]
+    },
+    {
+      "id": "ram-ppo-s1-8126464-eval",
+      "needs": [],
+      "timeout_seconds": 7200,
+      "checkpoint_sha256": "41fb7f3ee7a632f60603c98ae50fb3fdf1d4f8726cda3e9497a669033d0a87f4",
+      "checkpoint": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/checkpoints/policy_8126464_steps.zip",
+      "checkpoint_training_step": 8126464,
+      "evaluation_seed_start": 2000,
+      "evaluation_episodes": 20,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10",
+        "--model",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/checkpoints/policy_8126464_steps.zip",
+        "--episodes",
+        "20",
+        "--seed",
+        "2000",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-checkpoint-probe-20261125/evaluations/ram-ppo-s1-8126464.json"
+      ]
+    },
+    {
+      "id": "ram-ppo-s1-8388608-eval",
+      "needs": [],
+      "timeout_seconds": 7200,
+      "checkpoint_sha256": "1e41702f953178cd99e276ba6fb10293dc679b6c1301902ba35daace4066c22d",
+      "checkpoint": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/checkpoints/policy_8388608_steps.zip",
+      "checkpoint_training_step": 8388608,
+      "evaluation_seed_start": 2000,
+      "evaluation_episodes": 20,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10",
+        "--model",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/checkpoints/policy_8388608_steps.zip",
+        "--episodes",
+        "20",
+        "--seed",
+        "2000",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-checkpoint-probe-20261125/evaluations/ram-ppo-s1-8388608.json"
+      ]
+    },
+    {
+      "id": "ram-ppo-s1-10485760-eval",
+      "needs": [],
+      "timeout_seconds": 7200,
+      "checkpoint_sha256": "4459dabe9132790ba671ddb8e2f34648525a100afbc8b68d836e5592c550e197",
+      "checkpoint": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/final.zip",
+      "checkpoint_training_step": 10485760,
+      "evaluation_seed_start": 2000,
+      "evaluation_episodes": 20,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10",
+        "--model",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/ram-ppo-s1-m10/final.zip",
+        "--episodes",
+        "20",
+        "--seed",
+        "2000",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-checkpoint-probe-20261125/evaluations/ram-ppo-s1-10485760.json"
+      ]
+    }
+  ]
+}
