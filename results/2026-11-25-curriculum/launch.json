@@ -1,0 +1,117 @@
+{
+  "snapshot_utc": "2026-11-26T00:10:03.414181+00:00",
+  "phase": "running",
+  "active_job": "train-ppo-half-s0",
+  "training_jobs": 12,
+  "evaluation_jobs": 12,
+  "jobs": {
+    "train-ppo-half-s0": {
+      "status": "running",
+      "pid": 39384,
+      "started_utc": "2026-11-26T00:09:33.378161+00:00",
+      "elapsed_seconds": 30.040244490024634
+    },
+    "eval-ppo-half-s0": {
+      "status": "pending"
+    },
+    "train-ppo-native-s0": {
+      "status": "pending"
+    },
+    "eval-ppo-native-s0": {
+      "status": "pending"
+    },
+    "train-lstm-half-s0": {
+      "status": "pending"
+    },
+    "eval-lstm-half-s0": {
+      "status": "pending"
+    },
+    "train-lstm-native-s0": {
+      "status": "pending"
+    },
+    "eval-lstm-native-s0": {
+      "status": "pending"
+    },
+    "train-ppo-half-s1": {
+      "status": "pending"
+    },
+    "eval-ppo-half-s1": {
+      "status": "pending"
+    },
+    "train-ppo-native-s1": {
+      "status": "pending"
+    },
+    "eval-ppo-native-s1": {
+      "status": "pending"
+    },
+    "train-lstm-half-s1": {
+      "status": "pending"
+    },
+    "eval-lstm-half-s1": {
+      "status": "pending"
+    },
+    "train-lstm-native-s1": {
+      "status": "pending"
+    },
+    "eval-lstm-native-s1": {
+      "status": "pending"
+    },
+    "train-ppo-half-s2": {
+      "status": "pending"
+    },
+    "eval-ppo-half-s2": {
+      "status": "pending"
+    },
+    "train-ppo-native-s2": {
+      "status": "pending"
+    },
+    "eval-ppo-native-s2": {
+      "status": "pending"
+    },
+    "train-lstm-half-s2": {
+      "status": "pending"
+    },
+    "eval-lstm-half-s2": {
+      "status": "pending"
+    },
+    "train-lstm-native-s2": {
+      "status": "pending"
+    },
+    "eval-lstm-native-s2": {
+      "status": "pending"
+    }
+  },
+  "first_run_observed_actions": 21504,
+  "source_commit": "7a59b6cbd299928d7bd537dfd93be21b5860244e",
+  "source_dirty": false,
+  "queue_sha256": "d66fc6e6780ddbce928079ff74b315f6e22597b8a9b734b53396ecd8a6d0bc14",
+  "suite_sha256": "e75f6b88cd717632f5cd3a67ccd86ee7cb7e79c16402396a5bd0f88989584312",
+  "storage_mount": "/lambda/nfs/jeff-67920-rl-checkpoints",
+  "filesystem_type": "virtiofs",
+  "campaign": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125",
+  "tmux_session": "67920-poison",
+  "backup": {
+    "pid": 52171,
+    "started_utc": "2026-11-26T00:10:01.385385+00:00",
+    "finished_utc": "2026-11-26T00:10:05.895200+00:00",
+    "exit_code": 0
+  },
+  "test_result": {
+    "passed": 66,
+    "seconds": 3.97
+  },
+  "remote_smoke": {
+    "algorithm": "lstm",
+    "screen_scale": 1,
+    "device": "cuda",
+    "parameters": 1705128,
+    "training": {
+      "actual_timesteps": 128,
+      "seconds": 2.9677676600113045
+    },
+    "evaluation_conditions_completed": 8,
+    "route_max_steps": 16,
+    "interpretation": "Infrastructure smoke only, 128 training actions; no learning claim."
+  },
+  "interpretation": "Launch snapshot. No completed full-budget treatment or transfer result yet."
+}

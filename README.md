@@ -11,7 +11,9 @@ The [curriculum experiment](results/2026-11-25-curriculum/README.md) adds an
 outside-battle antidote task using natural poisoned saves, plus a capacity-matched
 half/native-resolution comparison. The 12 fine-tunes pair PPO/LSTM and three seeds;
 initial/final evaluations include held-out HP/location saves and full-route transfer.
-See its launch record for deployment status. All 66 tests and real-emulator cure
+The queue launched at 4:09 p.m. Pacific on November 25; PPO half-resolution seed 0
+is running, with the remaining train/evaluate jobs queued on persistent storage.
+See its launch record for the snapshot. All 66 tests and real-emulator cure
 checks passed; those scripted checks are not learned-policy results.
 
 ## Antidote audit and curriculum fixture — November 25, 2026

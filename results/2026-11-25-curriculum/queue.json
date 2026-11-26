@@ -1,0 +1,437 @@
+{
+  "cwd": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125",
+  "required_mount": "/lambda/nfs/jeff-67920-rl-checkpoints",
+  "stop_at": "2026-11-30T04:59:00+00:00",
+  "max_consecutive_failures": 2,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "PYTHONUNBUFFERED": "1",
+    "MPLCONFIGDIR": "/tmp/67920-matplotlib"
+  },
+  "contract": "12 paired fine-tunes: PPO/LSTM x half/native x 3 seeds; 1,048,576 actions each. Each gets initial/final cure, healthy-control and route-transfer evaluation. Originals untouched.",
+  "jobs": [
+    {
+      "id": "train-ppo-half-s0",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s0-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-half-s0",
+        "--screen-scale",
+        "2",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-ppo-half-s0",
+      "needs": [
+        "train-ppo-half-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-half-s0"
+      ]
+    },
+    {
+      "id": "train-ppo-native-s0",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s0-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-native-s0",
+        "--screen-scale",
+        "1",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-ppo-native-s0",
+      "needs": [
+        "train-ppo-native-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-native-s0"
+      ]
+    },
+    {
+      "id": "train-lstm-half-s0",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s0-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-half-s0",
+        "--screen-scale",
+        "2",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-lstm-half-s0",
+      "needs": [
+        "train-lstm-half-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-half-s0"
+      ]
+    },
+    {
+      "id": "train-lstm-native-s0",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s0-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-native-s0",
+        "--screen-scale",
+        "1",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-lstm-native-s0",
+      "needs": [
+        "train-lstm-native-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-native-s0"
+      ]
+    },
+    {
+      "id": "train-ppo-half-s1",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s1-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-half-s1",
+        "--screen-scale",
+        "2",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-ppo-half-s1",
+      "needs": [
+        "train-ppo-half-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-half-s1"
+      ]
+    },
+    {
+      "id": "train-ppo-native-s1",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s1-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-native-s1",
+        "--screen-scale",
+        "1",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-ppo-native-s1",
+      "needs": [
+        "train-ppo-native-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-native-s1"
+      ]
+    },
+    {
+      "id": "train-lstm-half-s1",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s1-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-half-s1",
+        "--screen-scale",
+        "2",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-lstm-half-s1",
+      "needs": [
+        "train-lstm-half-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-half-s1"
+      ]
+    },
+    {
+      "id": "train-lstm-native-s1",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s1-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-native-s1",
+        "--screen-scale",
+        "1",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-lstm-native-s1",
+      "needs": [
+        "train-lstm-native-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-native-s1"
+      ]
+    },
+    {
+      "id": "train-ppo-half-s2",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s2-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-half-s2",
+        "--screen-scale",
+        "2",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-ppo-half-s2",
+      "needs": [
+        "train-ppo-half-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-half-s2"
+      ]
+    },
+    {
+      "id": "train-ppo-native-s2",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s2-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-native-s2",
+        "--screen-scale",
+        "1",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-ppo-native-s2",
+      "needs": [
+        "train-ppo-native-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-native-s2"
+      ]
+    },
+    {
+      "id": "train-lstm-half-s2",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s2-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-half-s2",
+        "--screen-scale",
+        "2",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-lstm-half-s2",
+      "needs": [
+        "train-lstm-half-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-half-s2"
+      ]
+    },
+    {
+      "id": "train-lstm-native-s2",
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "train",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s2-m10",
+        "--suite",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/curricula/poison-20261125/suite.json",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/PokemonRed.gb",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-native-s2",
+        "--screen-scale",
+        "1",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-lstm-native-s2",
+      "needs": [
+        "train-lstm-native-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-poison-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/lstm-native-s2"
+      ]
+    }
+  ]
+}

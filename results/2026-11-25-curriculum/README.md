@@ -66,5 +66,12 @@ campaign: `runs/campaign-poison-20261125`. Baseline source and results stay inta
 The queue requires the persistent mount. A second copy is pulled to the Mac every
 three minutes while its backup process and network remain available.
 
-Launch status and the remote smoke result are recorded in `launch.json` after
-deployment. Training outcomes will be reported only after logs/evaluations exist.
+The queue launched November 25 at 4:09 p.m. Pacific (November 26, 00:09 UTC).
+`train-ppo-half-s0` is advancing; the other 23 jobs are queued. The first Mac backup
+succeeded at 4:10 p.m. Pacific and includes its initial checkpoint and episode logs.
+See [launch.json](launch.json) and the exact [queue.json](queue.json). Source commit
+`7a59b6c` is clean in the frozen deployment. A separate real-ROM CUDA LSTM smoke
+completed 128 training actions, saved/reloaded both checkpoints, and completed all
+eight evaluation conditions; its route cap was shortened to 16 actions for that
+infrastructure check only. Full queue route evaluations retain 16,384 actions.
+No full-budget curriculum or transfer result is available at this launch snapshot.
