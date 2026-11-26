@@ -1,0 +1,39 @@
+{
+  "snapshot_utc": "2026-11-26T04:17:18.943048+00:00",
+  "controller": {
+    "phase": "running",
+    "controller_pid": 49564,
+    "active_job": "wait-for-primary",
+    "jobs": {},
+    "updated_utc": "2026-11-26T04:17:18.943048+00:00"
+  },
+  "backup": {
+    "pid": 57521,
+    "started_utc": "2026-11-26T04:17:31.011334+00:00",
+    "finished_utc": "2026-11-26T04:17:32.531593+00:00",
+    "exit_code": 0
+  },
+  "validation": {
+    "controller_after_cutoff_with_incomplete_primary": "passed",
+    "video_episodes_matched": 2,
+    "selected_video": "episode-01-tail.mp4",
+    "source_commit": "f58dd4197f61934ac80879478b3ef72de3675452",
+    "source_dirty": false,
+    "automated_tests_passed": 77,
+    "video_width": 160,
+    "video_height": 144,
+    "video_frames": 128
+  },
+  "primary_campaign": "campaign-failure-20261125",
+  "output_campaign": "campaign-followups-20261125",
+  "tmux": "67920-followups",
+  "training_cutoff_utc": "2026-11-30T04:59:00+00:00",
+  "pipeline": [
+    "wait for active comparison",
+    "original-start report and plots",
+    "up to four ordered diagnostic replays and eight selected videos",
+    "at most one six-run matched refinement if criteria and time allow",
+    "final report, plots, per-seed CSV and presentation outline"
+  ],
+  "interpretation": "Controller is running and waiting for the primary comparison. Follow-up outcomes do not exist yet. Analysis/reporting can run after the training cutoff."
+}

@@ -67,3 +67,12 @@ The Mac copy is `runs/followups-backup-20261125`, pulled every three minutes whi
 the backup process/network remain available. `launch.json` records actual launch
 and video validation status. This plan does not claim the future experiments have
 already completed or that a conditional branch is guaranteed to run.
+
+The controller launched **November 25 at 8:17 p.m. Pacific**, from clean frozen
+source `f58dd41`, and is waiting for the primary comparison. The first Mac backup
+succeeded. Lambda validation produced the selected 160×144, 128-frame tail video,
+with both short replays matching a same-host CPU reference. A separate controller
+smoke test verified report generation after cutoff with incomplete primary data.
+The copied Mac reference diverged on Lambda and was excluded; production replays
+use the same host/device as their evaluation and still verify the match explicitly.
+See [launch.json](launch.json) for this deployment snapshot.
