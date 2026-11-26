@@ -1,5 +1,10 @@
 # Antidote curriculum and resolution comparison
 
+**Update:** the [failure-restart comparison](../2026-11-25-failure-restarts/README.md)
+supersedes this full grid. Only the active PPO half-resolution seed-0 run is retained
+and evaluated as a diagnostic; later poison-specific jobs are stopped. The design
+and launch snapshot below document the original plan, not twelve completed runs.
+
 This follows the [inventory audit](../2026-11-25-antidote/README.md). All three
 diagnosed walking-poison deaths still had antidotes (3, 2, 2); all five observed
 successful cures occurred in battle. Supply alone does not explain those deaths.

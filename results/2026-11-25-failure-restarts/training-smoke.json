@@ -1,0 +1,40 @@
+[
+  {
+    "algorithm": "ppo",
+    "training": {
+      "additional_timesteps": 1024,
+      "total_timesteps": 10486784,
+      "seconds": 2.940000707982108
+    },
+    "episode_reset_counts": {
+      "original": 5,
+      "failure": 3
+    },
+    "bank_entries": 12,
+    "reload_evaluation": {
+      "episodes": 2,
+      "original_start_only": true,
+      "max_steps": 128
+    },
+    "interpretation": "Infrastructure smoke, 1024 extra actions and a shortened 128-action horizon; not full-route performance."
+  },
+  {
+    "algorithm": "lstm",
+    "training": {
+      "additional_timesteps": 1024,
+      "total_timesteps": 10486784,
+      "seconds": 5.073188666952774
+    },
+    "episode_reset_counts": {
+      "original": 5,
+      "failure": 3
+    },
+    "bank_entries": 12,
+    "reload_evaluation": {
+      "episodes": 2,
+      "original_start_only": true,
+      "max_steps": 128
+    },
+    "interpretation": "Infrastructure smoke, 1024 extra actions and a shortened 128-action horizon; not full-route performance."
+  }
+]

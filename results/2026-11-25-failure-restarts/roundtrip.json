@@ -1,0 +1,79 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "step": 64,
+      "matched_actions": 16,
+      "battle": 0,
+      "position": [
+        10,
+        34,
+        12
+      ],
+      "snapshot_bytes": 20876
+    },
+    {
+      "step": 512,
+      "matched_actions": 16,
+      "battle": 0,
+      "position": [
+        4,
+        25,
+        12
+      ],
+      "snapshot_bytes": 19594
+    },
+    {
+      "step": 2048,
+      "matched_actions": 16,
+      "battle": 0,
+      "position": [
+        10,
+        24,
+        12
+      ],
+      "snapshot_bytes": 18185
+    },
+    {
+      "step": 4096,
+      "matched_actions": 16,
+      "battle": 0,
+      "position": [
+        5,
+        56,
+        13
+      ],
+      "snapshot_bytes": 22030
+    },
+    {
+      "step": 8192,
+      "matched_actions": 16,
+      "battle": 0,
+      "position": [
+        20,
+        40,
+        51
+      ],
+      "snapshot_bytes": 23999
+    },
+    {
+      "step": 10000,
+      "matched_actions": 16,
+      "battle": 2,
+      "position": [
+        27,
+        33,
+        51
+      ],
+      "snapshot_bytes": 15299
+    }
+  ],
+  "matched": [
+    "observation_pixels_and_history",
+    "reward",
+    "termination",
+    "all_info",
+    "all_WRAM"
+  ],
+  "contract": "Snapshots taken after ordinary policy actions. Reset-time snapshots excluded. No RAM edits. Fixed actions validate restoration, not policy quality."
+}

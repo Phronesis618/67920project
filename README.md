@@ -5,15 +5,26 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Failure-driven restart comparison — November 25, 2026
+
+The [new comparison](results/2026-11-25-failure-restarts/README.md) responds to the
+request for a general curriculum: sample states before failures, take fresh policy
+actions, and retain the existing route reward. PPO/LSTM × ordinary/failure starts
+× three seeds receive matched additional budgets and original-start evaluation.
+All 72 tests, exact real-emulator restore checks and PPO/LSTM training/reload checks
+passed. The poison-specific queue stops after its active run, which is retained as
+a diagnostic. The initial save supplies two antidotes; learned buying is unproven.
+
 ## Antidote curriculum and resolution follow-up — November 25, 2026
 
 The [curriculum experiment](results/2026-11-25-curriculum/README.md) adds an
 outside-battle antidote task using natural poisoned saves, plus a capacity-matched
 half/native-resolution comparison. The 12 fine-tunes pair PPO/LSTM and three seeds;
 initial/final evaluations include held-out HP/location saves and full-route transfer.
-The queue launched at 4:09 p.m. Pacific on November 25; PPO half-resolution seed 0
-is running, with the remaining train/evaluate jobs queued on persistent storage.
-See its launch record for the snapshot. All 66 tests and real-emulator cure
+The queue launched at 4:09 p.m. Pacific on November 25. Its first PPO half-resolution
+run is retained as a diagnostic; the rest of this grid is stopped in favor of the
+failure-restart comparison above. See its launch record for the original snapshot.
+All 66 tests at that revision and real-emulator cure
 checks passed; those scripted checks are not learned-policy results.
 
 ## Antidote audit and curriculum fixture — November 25, 2026
