@@ -97,5 +97,9 @@ Persistent root: `/lambda/nfs/jeff-67920-rl-checkpoints/67920project`.
 Source: `source-failure-20261125`; campaign: `runs/campaign-failure-20261125`;
 tmux: `67920-failure`. The second Mac backup is `runs/failure-backup-20261125`,
 updated every three minutes while its process/network remain available.
-See `launch.json` for the actual deployment snapshot. No completed full-budget
-failure-versus-control result is claimed here.
+The controller launched at **4:27 p.m. Pacific, November 25**, using clean frozen
+source commit `0655df9`. It is waiting for the active cure diagnostic to finish;
+the paired training jobs have not started at this snapshot. The first new-campaign
+Mac backup succeeded. See [launch.json](launch.json) and the exact [queue.json](queue.json).
+All implementation tests are complete; full-budget training/evaluation outcomes
+are still pending. No failure-versus-control performance result is claimed here.

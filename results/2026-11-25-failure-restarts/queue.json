@@ -1,0 +1,509 @@
+{
+  "cwd": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125",
+  "required_mount": "/lambda/nfs/jeff-67920-rl-checkpoints",
+  "stop_at": "2026-11-30T04:59:00+00:00",
+  "max_consecutive_failures": 2,
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "PYTHONUNBUFFERED": "1",
+    "MPLCONFIGDIR": "/tmp/67920-matplotlib"
+  },
+  "contract": "PPO/LSTM x failure/ordinary resets x 3 seeds. Same original rewards and 1,048,576 added actions per arm. Failure arm samples 50% original starts, 50% prior failure anchors once available. Final evaluation always original start. First finish/evaluate the one active cure diagnostic; no other poison-grid jobs.",
+  "jobs": [
+    {
+      "id": "wait-for-diagnostic",
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "-c",
+        "import json,time,sys\nfrom pathlib import Path\np=Path(sys.argv[1])\nwhile json.loads(p.read_text())['phase'] == 'running':\n    time.sleep(15)\n",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/status.json"
+      ]
+    },
+    {
+      "id": "evaluate-cure-diagnostic",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/poison_experiment.py",
+        "evaluate",
+        "--run",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-poison-20261125/runs/ppo-half-s0"
+      ]
+    },
+    {
+      "id": "train-ppo-failure-s0",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s0-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-failure-s0",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0.5",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-ppo-failure-s0",
+      "needs": [
+        "train-ppo-failure-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-failure-s0",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-ppo-ordinary-s0",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s0-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-ordinary-s0",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-ppo-ordinary-s0",
+      "needs": [
+        "train-ppo-ordinary-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-ordinary-s0",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-lstm-failure-s0",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s0-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-failure-s0",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0.5",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-lstm-failure-s0",
+      "needs": [
+        "train-lstm-failure-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-failure-s0",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-lstm-ordinary-s0",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s0-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s0",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0",
+        "--seed",
+        "0"
+      ]
+    },
+    {
+      "id": "eval-lstm-ordinary-s0",
+      "needs": [
+        "train-lstm-ordinary-s0"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s0",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-ppo-failure-s1",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s1-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-failure-s1",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0.5",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-ppo-failure-s1",
+      "needs": [
+        "train-ppo-failure-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-failure-s1",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-ppo-ordinary-s1",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s1-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-ordinary-s1",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-ppo-ordinary-s1",
+      "needs": [
+        "train-ppo-ordinary-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-ordinary-s1",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-lstm-failure-s1",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s1-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-failure-s1",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0.5",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-lstm-failure-s1",
+      "needs": [
+        "train-lstm-failure-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-failure-s1",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-lstm-ordinary-s1",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s1-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s1",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0",
+        "--seed",
+        "1"
+      ]
+    },
+    {
+      "id": "eval-lstm-ordinary-s1",
+      "needs": [
+        "train-lstm-ordinary-s1"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s1",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-ppo-failure-s2",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s2-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-failure-s2",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0.5",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-ppo-failure-s2",
+      "needs": [
+        "train-ppo-failure-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-failure-s2",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-ppo-ordinary-s2",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-ppo-s2-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-ordinary-s2",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-ppo-ordinary-s2",
+      "needs": [
+        "train-ppo-ordinary-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/ppo-ordinary-s2",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-lstm-failure-s2",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s2-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-failure-s2",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0.5",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-lstm-failure-s2",
+      "needs": [
+        "train-lstm-failure-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-failure-s2",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    },
+    {
+      "id": "train-lstm-ordinary-s2",
+      "needs": [
+        "wait-for-diagnostic"
+      ],
+      "timeout_seconds": 21600,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/failure_experiment.py",
+        "--parent",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-recovery-20261123/runs/pixels-lstm-s2-m10",
+        "--output",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s2",
+        "--rom",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/PokemonRed.gb",
+        "--state",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/has_pokedex_nballs.state",
+        "--restart-probability",
+        "0",
+        "--seed",
+        "2"
+      ]
+    },
+    {
+      "id": "eval-lstm-ordinary-s2",
+      "needs": [
+        "train-lstm-ordinary-s2"
+      ],
+      "timeout_seconds": 7200,
+      "command": [
+        "/home/ubuntu/67920-venv/bin/python",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-failure-20261125/project_work/v2/evaluate.py",
+        "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s2",
+        "--episodes",
+        "10",
+        "--seed",
+        "4000"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "snapshot_utc": "2026-11-26T00:27:20.685651+00:00",
+  "source_commit": "0655df9dff67976ed77e5d0fe3faa419a1176f4a",
+  "phase": "running",
+  "active_job": "wait-for-diagnostic",
+  "jobs": {
+    "wait-for-diagnostic": {
+      "status": "running",
+      "pid": 40373,
+      "started_utc": "2026-11-26T00:27:05.664664+00:00",
+      "elapsed_seconds": 15.024454142985633
+    },
+    "evaluate-cure-diagnostic": {
+      "status": "pending"
+    },
+    "train-ppo-failure-s0": {
+      "status": "pending"
+    },
+    "eval-ppo-failure-s0": {
+      "status": "pending"
+    },
+    "train-ppo-ordinary-s0": {
+      "status": "pending"
+    },
+    "eval-ppo-ordinary-s0": {
+      "status": "pending"
+    },
+    "train-lstm-failure-s0": {
+      "status": "pending"
+    },
+    "eval-lstm-failure-s0": {
+      "status": "pending"
+    },
+    "train-lstm-ordinary-s0": {
+      "status": "pending"
+    },
+    "eval-lstm-ordinary-s0": {
+      "status": "pending"
+    },
+    "train-ppo-failure-s1": {
+      "status": "pending"
+    },
+    "eval-ppo-failure-s1": {
+      "status": "pending"
+    },
+    "train-ppo-ordinary-s1": {
+      "status": "pending"
+    },
+    "eval-ppo-ordinary-s1": {
+      "status": "pending"
+    },
+    "train-lstm-failure-s1": {
+      "status": "pending"
+    },
+    "eval-lstm-failure-s1": {
+      "status": "pending"
+    },
+    "train-lstm-ordinary-s1": {
+      "status": "pending"
+    },
+    "eval-lstm-ordinary-s1": {
+      "status": "pending"
+    },
+    "train-ppo-failure-s2": {
+      "status": "pending"
+    },
+    "eval-ppo-failure-s2": {
+      "status": "pending"
+    },
+    "train-ppo-ordinary-s2": {
+      "status": "pending"
+    },
+    "eval-ppo-ordinary-s2": {
+      "status": "pending"
+    },
+    "train-lstm-failure-s2": {
+      "status": "pending"
+    },
+    "eval-lstm-failure-s2": {
+      "status": "pending"
+    },
+    "train-lstm-ordinary-s2": {
+      "status": "pending"
+    },
+    "eval-lstm-ordinary-s2": {
+      "status": "pending"
+    }
+  },
+  "queue_sha256": "c8b2f2de8dab253d44f526ba4a10e412a925ab129b0cbac8ca401ae66d82153a",
+  "training_jobs": 12,
+  "full_route_evaluation_jobs": 12,
+  "diagnostic_evaluation_jobs": 1,
+  "controller_wait_jobs": 1,
+  "previous_queue": "STOP_AFTER_CURRENT set; active cure run finishes, later poison-grid jobs remain unstarted",
+  "tests": {
+    "repository_tests_passed": 72,
+    "real_restore_points": 6,
+    "matched_restore_actions": 96,
+    "real_training_smoke_algorithms": [
+      "ppo",
+      "lstm"
+    ],
+    "original_start_smoke_evaluations": 4
+  },
+  "backup": {
+    "pid": 54079,
+    "started_utc": "2026-11-26T00:27:19.578025+00:00",
+    "finished_utc": "2026-11-26T00:27:21.090865+00:00",
+    "exit_code": 0
+  },
+  "interpretation": "Implementation validation is complete. The new controller is waiting for the active diagnostic, not training a failure-restart model yet. No full-budget comparison results exist."
+}
