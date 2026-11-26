@@ -1,0 +1,66 @@
+{
+  "action": "report_only",
+  "evidence": [
+    {
+      "algorithm": "ppo",
+      "deltas": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          3
+        ]
+      ],
+      "aggregate": [
+        0,
+        0,
+        3
+      ],
+      "positive_seeds": 1,
+      "retry_stats": {
+        "eligible_restarts": 80,
+        "failed_by_previous_failure_time": 22
+      }
+    },
+    {
+      "algorithm": "lstm",
+      "deltas": [
+        [
+          0,
+          0,
+          -3
+        ],
+        [
+          0,
+          0,
+          -1
+        ],
+        [
+          0,
+          0,
+          -2
+        ]
+      ],
+      "aggregate": [
+        0,
+        0,
+        -6
+      ],
+      "positive_seeds": 0,
+      "retry_stats": {
+        "eligible_restarts": 70,
+        "failed_by_previous_failure_time": 12
+      }
+    }
+  ],
+  "reason": "No preregistered follow-up signal, or incomplete/mismatched seed pairs. Preserve the report and traces for interpretation; do not launch an arbitrary treatment."
+}

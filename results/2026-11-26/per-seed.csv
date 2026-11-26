@@ -1,0 +1,13 @@
+phase,name,algorithm,seed,arm,episodes,forest,pewter,brock,wipes,timeouts,deaths,violations
+campaign-failure-20261125,lstm-failure-s0,lstm,0,failure-w1024,10,2,0,0,0,10,0,0
+campaign-failure-20261125,lstm-failure-s1,lstm,1,failure-w1024,10,7,0,0,4,5,4,1
+campaign-failure-20261125,lstm-failure-s2,lstm,2,failure-w1024,10,8,0,0,2,8,2,0
+campaign-failure-20261125,lstm-ordinary-s0,lstm,0,ordinary,10,5,0,0,1,5,1,4
+campaign-failure-20261125,lstm-ordinary-s1,lstm,1,ordinary,10,8,0,0,9,1,9,0
+campaign-failure-20261125,lstm-ordinary-s2,lstm,2,ordinary,10,10,0,0,7,3,7,0
+campaign-failure-20261125,ppo-failure-s0,ppo,0,failure-w1024,10,9,0,0,6,1,7,3
+campaign-failure-20261125,ppo-failure-s1,ppo,1,failure-w1024,10,8,0,0,1,9,1,0
+campaign-failure-20261125,ppo-failure-s2,ppo,2,failure-w1024,10,9,0,0,4,5,4,1
+campaign-failure-20261125,ppo-ordinary-s0,ppo,0,ordinary,10,9,0,0,6,4,6,0
+campaign-failure-20261125,ppo-ordinary-s1,ppo,1,ordinary,10,8,0,0,5,2,6,3
+campaign-failure-20261125,ppo-ordinary-s2,ppo,2,ordinary,10,6,0,0,7,1,7,2

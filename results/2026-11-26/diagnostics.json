@@ -1,0 +1,59 @@
+{
+  "replayed_episodes": 40,
+  "matched_episodes": 40,
+  "excluded_mismatches": 0,
+  "faint_causes": {
+    "wild_battle": 6,
+    "overworld_poison": 6,
+    "trainer_battle": 10
+  },
+  "run_hooks": {
+    "run_attempt_battle1": 788,
+    "run_succeeded_battle1": 771,
+    "run_attempt_battle2": 580,
+    "trainer_run_rejected_battle2": 580,
+    "wild_run_failed_battle1": 17
+  },
+  "videos": [
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/lstm-failure-s2/episode-06-tail.mp4",
+      "episode_index": 6,
+      "matches_original_end_state_and_return": true
+    },
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/lstm-failure-s2/episode-07-tail.mp4",
+      "episode_index": 7,
+      "matches_original_end_state_and_return": true
+    },
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/lstm-ordinary-s2/episode-01-tail.mp4",
+      "episode_index": 1,
+      "matches_original_end_state_and_return": true
+    },
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/lstm-ordinary-s2/episode-09-tail.mp4",
+      "episode_index": 9,
+      "matches_original_end_state_and_return": true
+    },
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/ppo-failure-s0/episode-05-tail.mp4",
+      "episode_index": 5,
+      "matches_original_end_state_and_return": true
+    },
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/ppo-failure-s0/episode-08-tail.mp4",
+      "episode_index": 8,
+      "matches_original_end_state_and_return": true
+    },
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/ppo-ordinary-s0/episode-02-tail.mp4",
+      "episode_index": 2,
+      "matches_original_end_state_and_return": true
+    },
+    {
+      "path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-followups-20261125/diagnostics/ppo-ordinary-s0/episode-05-tail.mp4",
+      "episode_index": 5,
+      "matches_original_end_state_and_return": true
+    }
+  ]
+}

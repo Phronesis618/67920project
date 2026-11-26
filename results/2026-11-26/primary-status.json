@@ -1,0 +1,218 @@
+{
+  "config_sha256": "c8b2f2de8dab253d44f526ba4a10e412a925ab129b0cbac8ca401ae66d82153a",
+  "created_utc": "2026-11-26T00:27:05.649995+00:00",
+  "jobs": {
+    "wait-for-diagnostic": {
+      "status": "succeeded",
+      "pid": 40373,
+      "started_utc": "2026-11-26T00:27:05.664664+00:00",
+      "elapsed_seconds": 1230.3875263519876,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T00:47:36.048696+00:00"
+    },
+    "evaluate-cure-diagnostic": {
+      "status": "succeeded",
+      "pid": 40696,
+      "started_utc": "2026-11-26T00:47:36.070693+00:00",
+      "elapsed_seconds": 482.9488340249809,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T00:55:39.014273+00:00"
+    },
+    "train-ppo-failure-s0": {
+      "status": "succeeded",
+      "pid": 40875,
+      "started_utc": "2026-11-26T00:55:39.037150+00:00",
+      "elapsed_seconds": 1167.3344832469884,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T01:15:06.366918+00:00"
+    },
+    "eval-ppo-failure-s0": {
+      "status": "succeeded",
+      "pid": 42076,
+      "started_utc": "2026-11-26T01:15:06.397835+00:00",
+      "elapsed_seconds": 504.50980968700605,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T01:23:30.901435+00:00"
+    },
+    "train-ppo-ordinary-s0": {
+      "status": "succeeded",
+      "pid": 42179,
+      "started_utc": "2026-11-26T01:23:30.928124+00:00",
+      "elapsed_seconds": 1164.4885065910057,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T01:42:55.410880+00:00"
+    },
+    "eval-ppo-ordinary-s0": {
+      "status": "succeeded",
+      "pid": 43425,
+      "started_utc": "2026-11-26T01:42:55.434246+00:00",
+      "elapsed_seconds": 561.489059133979,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T01:52:16.918485+00:00"
+    },
+    "train-lstm-failure-s0": {
+      "status": "succeeded",
+      "pid": 43527,
+      "started_utc": "2026-11-26T01:52:16.948620+00:00",
+      "elapsed_seconds": 1552.1787043060176,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T02:18:09.122004+00:00"
+    },
+    "eval-lstm-failure-s0": {
+      "status": "succeeded",
+      "pid": 44835,
+      "started_utc": "2026-11-26T02:18:09.148742+00:00",
+      "elapsed_seconds": 838.4695378849865,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T02:32:07.613725+00:00"
+    },
+    "train-lstm-ordinary-s0": {
+      "status": "succeeded",
+      "pid": 44969,
+      "started_utc": "2026-11-26T02:32:07.637962+00:00",
+      "elapsed_seconds": 1706.3444272610068,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T03:00:33.977591+00:00"
+    },
+    "eval-lstm-ordinary-s0": {
+      "status": "succeeded",
+      "pid": 46178,
+      "started_utc": "2026-11-26T03:00:34.005054+00:00",
+      "elapsed_seconds": 893.0962810450001,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T03:15:27.095102+00:00"
+    },
+    "train-ppo-failure-s1": {
+      "status": "succeeded",
+      "pid": 46269,
+      "started_utc": "2026-11-26T03:15:27.121298+00:00",
+      "elapsed_seconds": 1266.4139184070227,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T03:36:33.530025+00:00"
+    },
+    "eval-ppo-failure-s1": {
+      "status": "succeeded",
+      "pid": 47513,
+      "started_utc": "2026-11-26T03:36:33.556465+00:00",
+      "elapsed_seconds": 873.6059716249874,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T03:51:07.157510+00:00"
+    },
+    "train-ppo-ordinary-s1": {
+      "status": "succeeded",
+      "pid": 47607,
+      "started_utc": "2026-11-26T03:51:07.184358+00:00",
+      "elapsed_seconds": 1374.0596523309941,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T04:14:01.238506+00:00"
+    },
+    "eval-ppo-ordinary-s1": {
+      "status": "succeeded",
+      "pid": 48886,
+      "started_utc": "2026-11-26T04:14:01.267056+00:00",
+      "elapsed_seconds": 423.69935031599016,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T04:21:04.961245+00:00"
+    },
+    "train-lstm-failure-s1": {
+      "status": "succeeded",
+      "pid": 49649,
+      "started_utc": "2026-11-26T04:21:04.986490+00:00",
+      "elapsed_seconds": 1943.4019655849843,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T04:53:28.383594+00:00"
+    },
+    "eval-lstm-failure-s1": {
+      "status": "succeeded",
+      "pid": 51278,
+      "started_utc": "2026-11-26T04:53:28.409005+00:00",
+      "elapsed_seconds": 818.4453166939784,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T05:07:06.849538+00:00"
+    },
+    "train-lstm-ordinary-s1": {
+      "status": "succeeded",
+      "pid": 51510,
+      "started_utc": "2026-11-26T05:07:06.876353+00:00",
+      "elapsed_seconds": 1870.3002060650033,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T05:38:17.171282+00:00"
+    },
+    "eval-lstm-ordinary-s1": {
+      "status": "succeeded",
+      "pid": 53749,
+      "started_utc": "2026-11-26T05:38:17.197119+00:00",
+      "elapsed_seconds": 606.3978766669752,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T05:48:23.590376+00:00"
+    },
+    "train-ppo-failure-s2": {
+      "status": "succeeded",
+      "pid": 53967,
+      "started_utc": "2026-11-26T05:48:23.617295+00:00",
+      "elapsed_seconds": 1588.8871539990068,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T06:14:52.498646+00:00"
+    },
+    "eval-ppo-failure-s2": {
+      "status": "succeeded",
+      "pid": 55533,
+      "started_utc": "2026-11-26T06:14:52.524750+00:00",
+      "elapsed_seconds": 793.175838694995,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T06:28:05.694626+00:00"
+    },
+    "train-ppo-ordinary-s2": {
+      "status": "succeeded",
+      "pid": 55860,
+      "started_utc": "2026-11-26T06:28:05.718658+00:00",
+      "elapsed_seconds": 1336.8554746650043,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T06:50:22.568960+00:00"
+    },
+    "eval-ppo-ordinary-s2": {
+      "status": "succeeded",
+      "pid": 57313,
+      "started_utc": "2026-11-26T06:50:22.597626+00:00",
+      "elapsed_seconds": 476.4723086550075,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T06:58:19.063828+00:00"
+    },
+    "train-lstm-failure-s2": {
+      "status": "succeeded",
+      "pid": 57512,
+      "started_utc": "2026-11-26T06:58:19.089828+00:00",
+      "elapsed_seconds": 1984.2927795680007,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T07:31:23.376911+00:00"
+    },
+    "eval-lstm-failure-s2": {
+      "status": "succeeded",
+      "pid": 59112,
+      "started_utc": "2026-11-26T07:31:23.407329+00:00",
+      "elapsed_seconds": 904.2180828260025,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T07:46:27.618460+00:00"
+    },
+    "train-lstm-ordinary-s2": {
+      "status": "succeeded",
+      "pid": 59379,
+      "started_utc": "2026-11-26T07:46:27.645296+00:00",
+      "elapsed_seconds": 1895.2935377399845,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T08:18:02.932744+00:00"
+    },
+    "eval-lstm-ordinary-s2": {
+      "status": "succeeded",
+      "pid": 60944,
+      "started_utc": "2026-11-26T08:18:02.961151+00:00",
+      "elapsed_seconds": 683.9829680719995,
+      "exit_code": 0,
+      "finished_utc": "2026-11-26T08:29:26.938615+00:00"
+    }
+  },
+  "phase": "completed",
+  "controller_pid": 40372,
+  "active_job": null,
+  "updated_utc": "2026-11-26T08:29:26.962538+00:00"
+}

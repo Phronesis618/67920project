@@ -5,6 +5,19 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Completed comparison and diagnosis — November 26, 2026
+
+All 12 matched runs and 120 original-start evaluations are complete. Failure
+restarts change PPO forest arrivals from 23/30 to 26/30, and LSTM from 23/30 to
+17/30. No evaluation reaches Pewter or Brock. Deaths decrease while timeouts
+increase. Forty selected diagnostic replays record 580 rejected trainer RUNs.
+The antidote task improves held-out cures from 0/9 to 9/9 but its small route probe
+loses forest arrivals (3/3 to 0/3). See the [completed results](results/2026-11-26/README.md).
+
+The conditional extension criteria were not met, so the queues finished after
+reporting; no new training is active from these campaigns. Final results and
+checkpoints are on persistent storage and backed up to the Mac.
+
 ## Failure-driven restart comparison — November 25, 2026
 
 The [follow-up pipeline](results/2026-11-25-followups/README.md) is queued behind
