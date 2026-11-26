@@ -10,7 +10,7 @@ import gzip
 import hashlib
 import json
 import sys
-from collections import Counter
+from collections import Counter, deque
 from dataclasses import asdict
 from datetime import UTC, datetime
 from pathlib import Path
@@ -23,6 +23,7 @@ from stable_baselines3.common.utils import set_random_seed
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "project_work/v2"))
 from experiment import ALGORITHMS
+from poison_curriculum import antidote_count
 from red_gym_env_v2_nuzlocke import RedGymEnv
 
 ROM_SHA1 = "ea9bcae617fdf159b045185467ae58b2e4a48b9a"
@@ -60,6 +61,7 @@ class ForestObserver(RedGymEnv):
             "position": list(self.get_game_coords()),
             "battle": self.read_m(0xD057),
             "party": [asdict(mon) for mon in self.read_party_mons()],
+            "antidotes": antidote_count(self.pyboy.memory),
         }
 
     def begin(self, event_stream):
@@ -150,9 +152,20 @@ def main():
     parser.add_argument("--seed", type=int, default=1000)
     parser.add_argument("--device", default="cuda")
     parser.add_argument("--videos", type=int, default=2)
+    parser.add_argument(
+        "--video-episodes",
+        type=int,
+        nargs="*",
+        help="Record selected zero-based episodes; preceding episodes still replay",
+    )
+    parser.add_argument("--video-scope", choices=("forest", "tail"), default="forest")
     args = parser.parse_args()
     if args.episodes < 1 or args.videos < 0:
         parser.error("episodes must be positive and videos nonnegative")
+    if args.video_episodes is not None and any(
+        i < 0 or i >= args.episodes for i in args.video_episodes
+    ):
+        parser.error("video episodes must be within the replayed episode range")
     args.output.mkdir(parents=True, exist_ok=False)
     manifest = json.loads((args.run / "manifest.json").read_text())
     config = dict(manifest["config"])
@@ -174,6 +187,8 @@ def main():
         "created_utc": datetime.now(UTC).isoformat(),
         "device": args.device,
         "seed": args.seed,
+        "video_scope": args.video_scope,
+        "video_episodes": args.video_episodes,
         "config": config,
         "hooks": HOOKS,
         "records": [],
@@ -193,6 +208,12 @@ def main():
             state, episode_start = None, np.array([True])
             forest_actions = 0
             writer = None
+            record_video = (
+                episode in args.video_episodes
+                if args.video_episodes is not None
+                else episode < args.videos
+            )
+            tail_frames = deque(maxlen=600)
             prefix = args.output / f"episode-{episode:02d}"
             with (
                 gzip.open(f"{prefix}-events.jsonl.gz", "wt") as events,
@@ -221,7 +242,13 @@ def main():
                         )
                         if snapshot["position"][2] == 51:
                             forest_actions += 1
-                        if env.first_forest is not None and episode < args.videos:
+                        if record_video and args.video_scope == "tail":
+                            tail_frames.append(env.pyboy.screen.ndarray[:, :, :3].copy())
+                        if (
+                            env.first_forest is not None
+                            and record_video
+                            and args.video_scope == "forest"
+                        ):
                             if writer is None:
                                 writer = media.VideoWriter(
                                     str(prefix) + "-forest.mp4", shape=(144, 160), fps=10
@@ -230,6 +257,12 @@ def main():
                             writer.add_image(env.pyboy.screen.ndarray[:, :, :3])
                         if terminated or truncated:
                             break
+                    if record_video and args.video_scope == "tail" and tail_frames:
+                        with media.VideoWriter(
+                            str(prefix) + "-tail.mp4", shape=(144, 160), fps=10
+                        ) as tail_writer:
+                            for frame in tail_frames:
+                                tail_writer.add_image(frame)
                 finally:
                     if writer is not None:
                         writer.__exit__(None, None, None)

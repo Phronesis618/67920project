@@ -7,6 +7,11 @@ The old `TIMELINE.md` is historical planning, not a record of completed work.
 
 ## Failure-driven restart comparison — November 25, 2026
 
+The [follow-up pipeline](results/2026-11-25-followups/README.md) is queued behind
+this comparison: per-seed reports/plots, representative failure traces and videos,
+one conditional matched curriculum refinement, and a presentation evidence pack.
+It retains the training cutoff and produces a report even from partial results.
+
 The [new comparison](results/2026-11-25-failure-restarts/README.md) responds to the
 request for a general curriculum: sample states before failures, take fresh policy
 actions, and retain the existing route reward. PPO/LSTM × ordinary/failure starts

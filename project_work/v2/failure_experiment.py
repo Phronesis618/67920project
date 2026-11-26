@@ -16,9 +16,11 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 
 
-def make_env(config, output, rank, probability, seed):
+def make_env(config, output, rank, probability, seed, window=1024):
     env = RedGymEnv(dict(config, session_path=str(output / f"worker-{rank}")))
-    env = FailureRestart(env, output / "failure-banks" / f"worker-{rank}", probability, seed + rank)
+    env = FailureRestart(
+        env, output / "failure-banks" / f"worker-{rank}", probability, seed + rank, window=window
+    )
     env = EpisodeLog(env, output / f"episodes-{rank}.jsonl", rank)
     return Monitor(env, info_keywords=("is_success", "end_reason", "deaths", "training_reset"))
 
@@ -31,6 +33,7 @@ def main(argv=None):
     p.add_argument("--seed", type=int, required=True)
     p.add_argument("--timesteps", type=int, default=1048576)
     p.add_argument("--num-envs", type=int, default=16)
+    p.add_argument("--restart-window", type=int, choices=(1024, 4096), default=1024)
     p.add_argument("--device", default="cuda")
     p.add_argument(
         "--smoke",
@@ -59,7 +62,15 @@ def main(argv=None):
         config["max_steps"] = 128
     args.output.mkdir(parents=True, exist_ok=True)
     factories = [
-        partial(make_env, config, args.output, i, args.restart_probability, args.seed)
+        partial(
+            make_env,
+            config,
+            args.output,
+            i,
+            args.restart_probability,
+            args.seed,
+            args.restart_window,
+        )
         for i in range(args.num_envs)
     ]
     env = DummyVecEnv(factories) if args.num_envs == 1 else SubprocVecEnv(factories)
@@ -97,7 +108,7 @@ def main(argv=None):
                 "probability": args.restart_probability,
                 "stride": 64,
                 "min_lead": 64,
-                "window": 1024,
+                "window": args.restart_window,
                 "anchors_per_failure": 4,
                 "max_failures_per_worker": 8,
             },
