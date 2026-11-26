@@ -31,6 +31,9 @@ class RedGymEnv(Env):
         self.save_video = config["save_video"]
         self.fast_video = config["fast_video"]
         self.frame_stacks = 3
+        self.screen_scale = config.get("screen_scale", 2)
+        if self.screen_scale not in (1, 2):
+            raise ValueError("screen_scale must be 1 (native) or 2 (half resolution)")
         self.explore_weight = (
             1 if "explore_weight" not in config else config["explore_weight"]
         )
@@ -84,7 +87,7 @@ class RedGymEnv(Env):
             event_names = json.load(f)
         self.event_names = event_names
 
-        self.output_shape = (72, 80, self.frame_stacks)
+        self.output_shape = (144 // self.screen_scale, 160 // self.screen_scale, self.frame_stacks)
         self.coords_pad = 12
 
         # Set these in ALL subclasses
@@ -169,9 +172,9 @@ class RedGymEnv(Env):
 
     def render(self, reduce_res=True):
         game_pixels_render = self.pyboy.screen.ndarray[:,:,0:1]  # (144, 160, 3)
-        if reduce_res:
+        if reduce_res and self.screen_scale != 1:
             game_pixels_render = (
-                downscale_local_mean(game_pixels_render, (2,2,1))
+                downscale_local_mean(game_pixels_render, (self.screen_scale,self.screen_scale,1))
             ).astype(np.uint8)
         return game_pixels_render
     

@@ -1,0 +1,114 @@
+[
+  {
+    "screen_scale": 2,
+    "action_sequence": [
+      6,
+      0,
+      0,
+      4,
+      0,
+      4,
+      4,
+      4
+    ],
+    "info": {
+      "is_success": true,
+      "end_reason": "antidote_cure",
+      "violation_reasons": [],
+      "deaths": 0,
+      "regions_used": 4,
+      "badges": 0,
+      "map_coverage": 1,
+      "max_map_progress": 5,
+      "episode_steps": 8,
+      "episode_return": 0.992,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": false
+      },
+      "navigation_goal": null,
+      "navigation_distance": null,
+      "closest_brock_distance": null,
+      "path_reward": 0.0,
+      "path_reward_total": 0.0,
+      "position": [
+        22,
+        40,
+        51
+      ],
+      "raw_position": [
+        22,
+        40,
+        51
+      ],
+      "position_coherent": true,
+      "deferred_position_frames": 1,
+      "scenario": "train-overworld",
+      "antidotes_remaining": 2,
+      "antidotes_spent": 1,
+      "overworld_antidote_cures": 1,
+      "poisoned_alive": 0
+    },
+    "reward_at_success": 0.999
+  },
+  {
+    "screen_scale": 1,
+    "action_sequence": [
+      6,
+      0,
+      0,
+      4,
+      0,
+      4,
+      4,
+      4
+    ],
+    "info": {
+      "is_success": true,
+      "end_reason": "antidote_cure",
+      "violation_reasons": [],
+      "deaths": 0,
+      "regions_used": 4,
+      "badges": 0,
+      "map_coverage": 1,
+      "max_map_progress": 5,
+      "episode_steps": 8,
+      "episode_return": 0.992,
+      "milestones": {
+        "got_parcel": true,
+        "delivered_parcel": true,
+        "got_pokedex": true,
+        "beat_brock": false,
+        "reached_viridian_forest": true,
+        "reached_pewter": false
+      },
+      "navigation_goal": null,
+      "navigation_distance": null,
+      "closest_brock_distance": null,
+      "path_reward": 0.0,
+      "path_reward_total": 0.0,
+      "position": [
+        22,
+        40,
+        51
+      ],
+      "raw_position": [
+        22,
+        40,
+        51
+      ],
+      "position_coherent": true,
+      "deferred_position_frames": 1,
+      "scenario": "train-overworld",
+      "antidotes_remaining": 2,
+      "antidotes_spent": 1,
+      "overworld_antidote_cures": 1,
+      "poisoned_alive": 0
+    },
+    "reward_at_success": 0.999
+  }
+]

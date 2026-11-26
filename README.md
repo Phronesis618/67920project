@@ -5,6 +5,15 @@ Jeffrey Li and Kevin Li. Target: Pallet Town through Brock, including navigation
 `project_work/v2/`; the ROM-free mechanism pilot lives in `battle_benchmark/`.
 The old `TIMELINE.md` is historical planning, not a record of completed work.
 
+## Antidote curriculum and resolution follow-up — November 25, 2026
+
+The [curriculum experiment](results/2026-11-25-curriculum/README.md) adds an
+outside-battle antidote task using natural poisoned saves, plus a capacity-matched
+half/native-resolution comparison. The 12 fine-tunes pair PPO/LSTM and three seeds;
+initial/final evaluations include held-out HP/location saves and full-route transfer.
+See its launch record for deployment status. All 66 tests and real-emulator cure
+checks passed; those scripted checks are not learned-policy results.
+
 ## Antidote audit and curriculum fixture — November 25, 2026
 
 The [inventory audit](results/2026-11-25-antidote/README.md) resolves the supply question
@@ -13,7 +22,7 @@ for all three previously diagnosed walking-poison deaths: the agents still had
 A natural poisoned-overworld save with level-6 Squirtle at 18/22 HP and three
 antidotes is now available, with a verified scripted cure and preserved region history.
 The report also compares native/current menu resolution and confirms the fixed
-Squirtle starter. No curriculum or resolution treatment has been trained yet.
+Squirtle starter. The follow-up above implements the curriculum/resolution treatment.
 
 The 80-episode intermediate-checkpoint search completed with **49 forest arrivals,
 zero Pewter arrivals and zero Brock wins**. Its earlier launch snapshot follows.
@@ -28,8 +37,8 @@ these are rare training outcomes, not reliable evaluation performance.
 
 All 72 planned jobs finished on November 24, and their final backup succeeded.
 An 80-episode evaluation of four saved RAM-PPO checkpoints around the two Pewter
-training episodes is now running on persistent storage, with automatic Mac backups.
-The proposed survival/reward changes have not yet been trained. See the dated report
+training episodes subsequently completed: 49 forest arrivals, zero Pewter/Brock.
+See the dated report
 for exact status, counts, checkpoint hashes and the remaining November 29 cutoff.
 
 ## Forest diagnosis and current results — November 23, 2026

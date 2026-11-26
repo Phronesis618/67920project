@@ -1,0 +1,253 @@
+{
+  "format": 1,
+  "created_utc": "2026-11-26T00:01:05.454224+00:00",
+  "rom_sha1": "ea9bcae617fdf159b045185467ae58b2e4a48b9a",
+  "source_state_sha256": "383455fb58d0a13ab53b5ab60b491e51e11a8664345950059b87105d7be5aced",
+  "scenarios": [
+    {
+      "id": "train-overworld",
+      "split": "train",
+      "weight": 6,
+      "state_file": "train-overworld.state",
+      "state_sha256": "1d9f6a983b5da90d0b3b27db22d3dab8cac00cc2b17d0b0a4dc4784be195242a",
+      "initial_used_regions": [
+        1,
+        12,
+        13,
+        51
+      ],
+      "dead": [],
+      "ram_edited": false,
+      "poisoned": true,
+      "antidotes": 3,
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 18,
+          "max_hp": 22,
+          "level": 6,
+          "status": 8
+        }
+      ],
+      "position": [
+        22,
+        40,
+        51
+      ]
+    },
+    {
+      "id": "train-bag",
+      "split": "train",
+      "weight": 3,
+      "state_file": "train-bag.state",
+      "state_sha256": "e6e527b1f5fd0578c93bcc31fbf23ae9c24fe15386e48ebc8618f48ebc713865",
+      "initial_used_regions": [
+        1,
+        12,
+        13,
+        51
+      ],
+      "dead": [],
+      "ram_edited": false,
+      "poisoned": true,
+      "antidotes": 3,
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 18,
+          "max_hp": 22,
+          "level": 6,
+          "status": 8
+        }
+      ],
+      "position": [
+        22,
+        40,
+        51
+      ]
+    },
+    {
+      "id": "train-party",
+      "split": "train",
+      "weight": 1,
+      "state_file": "train-party.state",
+      "state_sha256": "e964f1f476a35f451edb0f2883bd3a553a4b74dfb90eebe2da6a78fb7a3f67e1",
+      "initial_used_regions": [
+        1,
+        12,
+        13,
+        51
+      ],
+      "dead": [],
+      "ram_edited": false,
+      "poisoned": true,
+      "antidotes": 3,
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 18,
+          "max_hp": 22,
+          "level": 6,
+          "status": 8
+        }
+      ],
+      "position": [
+        22,
+        40,
+        51
+      ]
+    },
+    {
+      "id": "heldout-other-location",
+      "split": "heldout",
+      "weight": 1,
+      "state_file": "heldout-other-location.state",
+      "state_sha256": "5fd3d2c2fd9157519db005215e42d4efa6a2f0cc563d7cc2af85a4114fa99d21",
+      "initial_used_regions": [
+        12,
+        13,
+        51
+      ],
+      "dead": [],
+      "ram_edited": false,
+      "poisoned": true,
+      "antidotes": 2,
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 18,
+          "max_hp": 22,
+          "level": 6,
+          "status": 8
+        }
+      ],
+      "position": [
+        2,
+        41,
+        51
+      ]
+    },
+    {
+      "id": "heldout-low-hp-12",
+      "split": "heldout",
+      "weight": 1,
+      "state_file": "heldout-low-hp-12.state",
+      "state_sha256": "14d6af0dd81830e82e65a53ac017f0d2e262dab95d1335f6be1e2f92eb150ac5",
+      "initial_used_regions": [
+        1,
+        12,
+        13,
+        51
+      ],
+      "dead": [],
+      "ram_edited": false,
+      "poisoned": true,
+      "antidotes": 3,
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 12,
+          "max_hp": 22,
+          "level": 6,
+          "status": 8
+        }
+      ],
+      "position": [
+        22,
+        42,
+        51
+      ]
+    },
+    {
+      "id": "heldout-low-hp-6",
+      "split": "heldout",
+      "weight": 1,
+      "state_file": "heldout-low-hp-6.state",
+      "state_sha256": "8a5ae0f3ed86e40c00476dedbcabfdc8416d5bb40397c8f3866b13c45d1cb20e",
+      "initial_used_regions": [
+        1,
+        12,
+        13,
+        51
+      ],
+      "dead": [],
+      "ram_edited": false,
+      "poisoned": true,
+      "antidotes": 3,
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 6,
+          "max_hp": 22,
+          "level": 6,
+          "status": 8
+        }
+      ],
+      "position": [
+        18,
+        42,
+        51
+      ]
+    },
+    {
+      "id": "healthy-control",
+      "split": "healthy",
+      "weight": 1,
+      "state_file": "healthy-control.state",
+      "state_sha256": "9eea6539f3dec4d5285a35f93e14ab731aa0c352c8abc55c53d1ecc6d9978449",
+      "initial_used_regions": [
+        1,
+        12,
+        13,
+        51
+      ],
+      "dead": [],
+      "ram_edited": false,
+      "poisoned": false,
+      "antidotes": 2,
+      "party": [
+        {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 18,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      ],
+      "position": [
+        22,
+        40,
+        51
+      ]
+    }
+  ],
+  "contract": "Natural game states, no RAM edits, no prior deaths. Region history preserved; recurrent and exploration history reset. Heldout low-HP fixtures share the source episode; not independent game seeds."
+}
