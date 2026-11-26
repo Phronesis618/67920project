@@ -328,7 +328,10 @@ def export_report(campaigns, output, diagnostics=None, decision=None):
         import numpy as np
 
         fig, axes = plt.subplots(1, 3, figsize=(14, 5), sharey=True)
-        labels = ["\n".join(k) for k in groups]
+        labels = [
+            f"{'primary' if k[0] == Path(campaigns[0]).name else 'follow-up'}\n{k[1].upper()}\n{k[2]}"
+            for k in groups
+        ]
         for ax, metric in zip(axes, ("forest", "pewter", "brock")):
             for i, runs in enumerate(groups.values()):
                 vals = [r["metrics"][metric] / r["metrics"]["episodes"] for r in runs]
