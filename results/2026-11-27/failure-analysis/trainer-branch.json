@@ -1,0 +1,213 @@
+{
+  "snapshot_sha256": "56001f53d4c570061d761325fdb629e687d0855f5988786e5d13842b3f6373a2",
+  "source_episode": 6003,
+  "source_step": 3389,
+  "initial_party": [
+    {
+      "identity": [
+        25110,
+        34706
+      ],
+      "species": 177,
+      "hp": 22,
+      "max_hp": 22,
+      "level": 6,
+      "status": 0
+    }
+  ],
+  "branches": [
+    {
+      "mode": "recorded_policy",
+      "fresh_actions": 12995,
+      "battle_exit_after_actions": null,
+      "first_trainer_flag": false,
+      "end_reason": "time_limit",
+      "final": {
+        "position": [
+          26,
+          33,
+          51
+        ],
+        "battle": 2,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 15,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle2": 441,
+        "trainer_run_rejected_battle2": 441
+      },
+      "reward_score_changes": {
+        "event": 0.0,
+        "heal": 0.041322314049586806,
+        "badge": 0.0,
+        "explore": 0.0,
+        "stuck": 0.0
+      },
+      "undiscounted_reward": -20.999410107819063,
+      "discounted_reward": -3.209511122976564,
+      "start_potential": 3.23828125,
+      "end_potential": 3.23828125,
+      "reward_events": [
+        {
+          "fresh_action": 1096,
+          "step": 4485,
+          "score_delta": {
+            "heal": 0.041322314049586806
+          },
+          "reward": 0.03970317342458696,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ]
+        }
+      ],
+      "faints": []
+    },
+    {
+      "mode": "press_A",
+      "fresh_actions": 290,
+      "battle_exit_after_actions": 289,
+      "first_trainer_flag": true,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          26,
+          33,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 9,
+            "max_hp": 26,
+            "level": 8,
+            "status": 8
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {},
+      "reward_score_changes": {
+        "event": 2.0,
+        "heal": 0.015992105699273514,
+        "badge": 0.0,
+        "explore": 0.0,
+        "stuck": 0.0
+      },
+      "undiscounted_reward": 1.546441324449301,
+      "discounted_reward": 1.3077472421094751,
+      "start_potential": 3.23828125,
+      "end_potential": 3.23828125,
+      "reward_events": [
+        {
+          "fresh_action": 118,
+          "step": 3507,
+          "score_delta": {
+            "heal": 0.001147842056932964
+          },
+          "reward": -0.0004712985680668247,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 20,
+              "max_hp": 24,
+              "level": 7,
+              "status": 8
+            }
+          ]
+        },
+        {
+          "fresh_action": 264,
+          "step": 3653,
+          "score_delta": {
+            "heal": 0.014844263642340549
+          },
+          "reward": 0.013225123017340579,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 9,
+              "max_hp": 26,
+              "level": 8,
+              "status": 8
+            }
+          ]
+        },
+        {
+          "fresh_action": 290,
+          "step": 3679,
+          "score_delta": {
+            "event": 2.0
+          },
+          "reward": 1.9983808593749997,
+          "party": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 9,
+              "max_hp": 26,
+              "level": 8,
+              "status": 8
+            }
+          ]
+        }
+      ],
+      "faints": []
+    }
+  ],
+  "contract": "Same naturally reached trainer-entry snapshot. First branch replays original policy buttons and validates rewards/positions. Second branch repeatedly presses A (ordinary 24-frame actions) to test whether selecting Fight/first move can progress. No policy weights or environment rewards/rules/state changed. One controlled state, not a success-rate estimate.",
+  "matched_prefix_actions": 32365,
+  "same_290_action_recorded_policy": {
+    "undiscounted_reward": -0.4695507812499722,
+    "discounted_reward": -0.4371973523795259,
+    "event_reward": 0.0
+  },
+  "prefix_validation": {
+    "matched_actions": 32365,
+    "fields": [
+      "reward",
+      "position",
+      "battle",
+      "party identity/species/HP/max HP/level/status",
+      "antidote count"
+    ],
+    "independent_reconstruction_snapshot_sha256": "56001f53d4c570061d761325fdb629e687d0855f5988786e5d13842b3f6373a2"
+  }
+}

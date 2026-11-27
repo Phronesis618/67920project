@@ -1,0 +1,569 @@
+[
+  {
+    "run": "lstm-ordinary-s1",
+    "seed": 6003,
+    "cure": {
+      "step": 13011,
+      "battle": 2,
+      "position": [
+        27,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 13011,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          27,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "lstm-ordinary-s1",
+    "seed": 6003,
+    "cure": {
+      "step": 14378,
+      "battle": 2,
+      "position": [
+        27,
+        33,
+        51
+      ],
+      "antidotes": 0
+    },
+    "nearby_decrease": [
+      {
+        "step": 14378,
+        "before": 1,
+        "after": 0,
+        "battle": 2,
+        "position": [
+          27,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "lstm-parent-s1",
+    "seed": 6003,
+    "cure": {
+      "step": 6770,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 6770,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "lstm-parent-s1",
+    "seed": 6004,
+    "cure": {
+      "step": 15878,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 15878,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "lstm-parent-s1",
+    "seed": 6009,
+    "cure": {
+      "step": 6350,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 6350,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "lstm-parent-s2",
+    "seed": 6005,
+    "cure": {
+      "step": 11063,
+      "battle": 2,
+      "position": [
+        27,
+        19,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 11063,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          27,
+          19,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "lstm-tail-s0",
+    "seed": 6003,
+    "cure": {
+      "step": 15731,
+      "battle": 2,
+      "position": [
+        26,
+        19,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 15731,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          19,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-ordinary-s0",
+    "seed": 6000,
+    "cure": {
+      "step": 4880,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 4880,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-ordinary-s0",
+    "seed": 6005,
+    "cure": {
+      "step": 7760,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 0
+    },
+    "nearby_decrease": [
+      {
+        "step": 7760,
+        "before": 1,
+        "after": 0,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-ordinary-s0",
+    "seed": 6006,
+    "cure": {
+      "step": 9651,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 9651,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-ordinary-s2",
+    "seed": 6001,
+    "cure": {
+      "step": 8681,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 8681,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-ordinary-s2",
+    "seed": 6001,
+    "cure": {
+      "step": 8752,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 0
+    },
+    "nearby_decrease": [
+      {
+        "step": 8752,
+        "before": 1,
+        "after": 0,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-ordinary-s2",
+    "seed": 6007,
+    "cure": {
+      "step": 8968,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 8968,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-ordinary-s2",
+    "seed": 6009,
+    "cure": {
+      "step": 9976,
+      "battle": 2,
+      "position": [
+        29,
+        19,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 9976,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          29,
+          19,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-parent-s0",
+    "seed": 6000,
+    "cure": {
+      "step": 5780,
+      "battle": 2,
+      "position": [
+        27,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 5780,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          27,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-parent-s1",
+    "seed": 6006,
+    "cure": {
+      "step": 4714,
+      "battle": 2,
+      "position": [
+        26,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 4714,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-parent-s1",
+    "seed": 6009,
+    "cure": {
+      "step": 4639,
+      "battle": 2,
+      "position": [
+        27,
+        33,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 4639,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          27,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-parent-s1",
+    "seed": 6009,
+    "cure": {
+      "step": 6971,
+      "battle": 2,
+      "position": [
+        27,
+        33,
+        51
+      ],
+      "antidotes": 0
+    },
+    "nearby_decrease": [
+      {
+        "step": 6971,
+        "before": 1,
+        "after": 0,
+        "battle": 2,
+        "position": [
+          27,
+          33,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-tail-s2",
+    "seed": 6007,
+    "cure": {
+      "step": 10425,
+      "battle": 2,
+      "position": [
+        26,
+        19,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 10425,
+        "before": 2,
+        "after": 1,
+        "battle": 2,
+        "position": [
+          26,
+          19,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-transition-s1",
+    "seed": 6009,
+    "cure": {
+      "step": 5579,
+      "battle": 0,
+      "position": [
+        27,
+        43,
+        51
+      ],
+      "antidotes": 1
+    },
+    "nearby_decrease": [
+      {
+        "step": 5579,
+        "before": 2,
+        "after": 1,
+        "battle": 0,
+        "position": [
+          27,
+          43,
+          51
+        ]
+      }
+    ]
+  },
+  {
+    "run": "ppo-transition-s1",
+    "seed": 6009,
+    "cure": {
+      "step": 8514,
+      "battle": 2,
+      "position": [
+        27,
+        33,
+        51
+      ],
+      "antidotes": 0
+    },
+    "nearby_decrease": [
+      {
+        "step": 8514,
+        "before": 1,
+        "after": 0,
+        "battle": 2,
+        "position": [
+          27,
+          33,
+          51
+        ]
+      }
+    ]
+  }
+]

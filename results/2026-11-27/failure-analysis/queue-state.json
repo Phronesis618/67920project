@@ -1,0 +1,80 @@
+{
+  "status": {
+    "config_sha256": "2a5b2429588935eaa71f8f8663e056f15190b3d145c5270e751afe05119c42c1",
+    "created_utc": "2026-11-27T18:37:02.001531+00:00",
+    "jobs": {
+      "train-ppo-gentle-s0": {
+        "status": "succeeded",
+        "pid": 97317,
+        "started_utc": "2026-11-27T18:37:02.017020+00:00",
+        "elapsed_seconds": 1010.3111332900007,
+        "exit_code": 0,
+        "finished_utc": "2026-11-27T18:53:52.324069+00:00"
+      },
+      "eval-ppo-gentle-s0-quarter": {
+        "status": "pending"
+      },
+      "eval-ppo-gentle-s0-final": {
+        "status": "pending"
+      },
+      "train-lstm-gentle-s0": {
+        "status": "pending"
+      },
+      "eval-lstm-gentle-s0-quarter": {
+        "status": "pending"
+      },
+      "eval-lstm-gentle-s0-final": {
+        "status": "pending"
+      },
+      "train-ppo-gentle-s1": {
+        "status": "pending"
+      },
+      "eval-ppo-gentle-s1-quarter": {
+        "status": "pending"
+      },
+      "eval-ppo-gentle-s1-final": {
+        "status": "pending"
+      },
+      "train-lstm-gentle-s1": {
+        "status": "pending"
+      },
+      "eval-lstm-gentle-s1-quarter": {
+        "status": "pending"
+      },
+      "eval-lstm-gentle-s1-final": {
+        "status": "pending"
+      },
+      "train-ppo-gentle-s2": {
+        "status": "pending"
+      },
+      "eval-ppo-gentle-s2-quarter": {
+        "status": "pending"
+      },
+      "eval-ppo-gentle-s2-final": {
+        "status": "pending"
+      },
+      "train-lstm-gentle-s2": {
+        "status": "pending"
+      },
+      "eval-lstm-gentle-s2-quarter": {
+        "status": "pending"
+      },
+      "eval-lstm-gentle-s2-final": {
+        "status": "pending"
+      },
+      "report": {
+        "status": "pending"
+      }
+    },
+    "phase": "paused",
+    "controller_pid": 97316,
+    "active_job": null,
+    "updated_utc": "2026-11-27T18:53:52.344412+00:00"
+  },
+  "backup": {
+    "pid": 82214,
+    "started_utc": "2026-11-27T18:57:10.450449+00:00",
+    "finished_utc": "2026-11-27T18:57:14.296880+00:00",
+    "exit_code": 0
+  }
+}

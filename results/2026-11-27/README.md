@@ -1,5 +1,11 @@
 # Route retention and earlier failure replay
 
+**Latest: [failure-mechanism audit](failure-analysis/README.md).** The follow-up
+sweep is paused after one in-flight run. A controlled branch wins a naturally
+stalled trainer encounter in 290 actions; the original policy times out after
+12,995 more actions and 441 rejected RUN selections. See the audit for limits,
+poison/navigation findings and verified reward behavior.
+
 **Update: the campaign completed November 27 at 9:35 a.m. Pacific.** All 18 training
 runs and 240 evaluation episodes finished; none reached Pewter/Brock. See the
 [completed results and next comparison](completed.md). The launch details below

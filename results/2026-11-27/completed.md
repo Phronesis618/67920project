@@ -36,6 +36,11 @@ prevent the observed navigation regression.
 
 ## Next bounded comparison
 
+**Update: paused November 27 at 10:53 a.m. Pacific** after the first in-flight PPO
+training job completed. Its evaluations and the other five training runs have
+not started. The user requested diagnosis before more sweeping experiments;
+see the [failure-mechanism audit](failure-analysis/README.md).
+
 **Launched November 27 at 10:37 a.m. Pacific**, starting with PPO seed 0.
 The immutable training source is `9ae1c5d`; the queue contains six training jobs,
 twelve checkpoint evaluations, and one report. [Launch evidence](conservative-launch.json)

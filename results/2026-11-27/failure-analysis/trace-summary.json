@@ -1,0 +1,98 @@
+{
+  "totals": {
+    "time_limit": 120,
+    "forest_arrivals": 132,
+    "final_battle_0": 116,
+    "timeout_battle_0": 87,
+    "final_battle_1": 67,
+    "timeout_battle_1": 9,
+    "wipe": 85,
+    "final_battle_2": 57,
+    "timeout_battle_2": 24,
+    "rule_violation": 35
+  },
+  "by_group": {
+    "lstm-ordinary": {
+      "time_limit": 24,
+      "wipe": 2,
+      "rule_violation": 4
+    },
+    "lstm-parent": {
+      "rule_violation": 5,
+      "wipe": 17,
+      "time_limit": 8
+    },
+    "lstm-tail": {
+      "rule_violation": 2,
+      "time_limit": 19,
+      "wipe": 9
+    },
+    "lstm-transition": {
+      "rule_violation": 7,
+      "time_limit": 9,
+      "wipe": 14
+    },
+    "ppo-ordinary": {
+      "wipe": 8,
+      "rule_violation": 3,
+      "time_limit": 19
+    },
+    "ppo-parent": {
+      "wipe": 19,
+      "time_limit": 8,
+      "rule_violation": 3
+    },
+    "ppo-tail": {
+      "time_limit": 18,
+      "rule_violation": 6,
+      "wipe": 6
+    },
+    "ppo-transition": {
+      "time_limit": 15,
+      "rule_violation": 5,
+      "wipe": 10
+    }
+  },
+  "faint_causes": {
+    "overworld_poison": 29,
+    "trainer_battle": 35,
+    "wild_battle": 24
+  },
+  "wild_run": {
+    "attempts": 4743,
+    "successes": 4618
+  },
+  "poison_faints_with_antidotes": 27,
+  "antidote_inventory_decrease_count": 54,
+  "poison_clear_event_count": 21,
+  "forest_arrival_step": {
+    "n": 132,
+    "min": 1171,
+    "median": 5531.5,
+    "max": 16226
+  },
+  "forest_actions_remaining": {
+    "n": 132,
+    "min": 158,
+    "median": 10852.5,
+    "max": 15213
+  },
+  "trainer_entry_remaining_actions": {
+    "n": 102,
+    "min": 104,
+    "median": 8676.0,
+    "max": 13771
+  },
+  "completed_trainer_action_duration": {
+    "n": 45,
+    "min": 549,
+    "median": 2144,
+    "max": 8126
+  },
+  "trainer_entries": 102,
+  "trainer_exits": 45,
+  "trainer_entries_single_mon": 99,
+  "trainer_entries_full_health": 33,
+  "notes": "Existing stochastic evaluations, including six parent checkpoints. No new policy trials. Battle exits are not independently labeled wins. Inventory decreases are not automatically item uses. Static overworld position includes dialogue and menus; it is not always an obstacle.",
+  "source_trace_audit_sha256": "ebbcce27f65f1c7a959db544575767f311b234a69a406471d13d0e0d77b2e8a5"
+}

@@ -1,0 +1,13 @@
+{
+  "gamma": 0.9995,
+  "gae_lambda": 0.99,
+  "rollout_steps": 512,
+  "direct_GAE_weights": {
+    "100": 0.34817637965474146,
+    "290": 0.04690487522353007,
+    "512": 0.004508296205484251,
+    "1000": 2.6181411200217304e-05,
+    "2144": 1.5002965231425864e-10
+  },
+  "note": "Weights apply to distant TD residuals in GAE, not the full learning reach of PPO. Value bootstrapping can propagate reward farther across updates. Trainer duration is not identical to delay from each meaningful attack."
+}

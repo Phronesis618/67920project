@@ -1,0 +1,282 @@
+[
+  {
+    "run": "ppo-tail-s1",
+    "seed": 6000,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 2,
+    "supported": true
+  },
+  {
+    "run": "lstm-tail-s0",
+    "seed": 6000,
+    "region": 51,
+    "initially_used": false,
+    "encounters": 3,
+    "supported": true
+  },
+  {
+    "run": "lstm-tail-s0",
+    "seed": 6008,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 1,
+    "supported": true
+  },
+  {
+    "run": "ppo-tail-s0",
+    "seed": 6001,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 5,
+    "supported": true
+  },
+  {
+    "run": "lstm-transition-s2",
+    "seed": 6005,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 43,
+    "supported": true
+  },
+  {
+    "run": "lstm-transition-s2",
+    "seed": 6007,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 17,
+    "supported": true
+  },
+  {
+    "run": "ppo-transition-s2",
+    "seed": 6009,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 1,
+    "supported": true
+  },
+  {
+    "run": "lstm-parent-s0",
+    "seed": 6000,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 9,
+    "supported": true
+  },
+  {
+    "run": "lstm-parent-s0",
+    "seed": 6001,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 4,
+    "supported": true
+  },
+  {
+    "run": "lstm-parent-s0",
+    "seed": 6007,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 13,
+    "supported": true
+  },
+  {
+    "run": "lstm-parent-s0",
+    "seed": 6008,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 3,
+    "supported": true
+  },
+  {
+    "run": "lstm-parent-s0",
+    "seed": 6009,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 6,
+    "supported": true
+  },
+  {
+    "run": "ppo-parent-s2",
+    "seed": 6003,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 2,
+    "supported": true
+  },
+  {
+    "run": "lstm-ordinary-s2",
+    "seed": 6000,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 2,
+    "supported": true
+  },
+  {
+    "run": "lstm-ordinary-s2",
+    "seed": 6001,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 6,
+    "supported": true
+  },
+  {
+    "run": "lstm-ordinary-s2",
+    "seed": 6003,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 7,
+    "supported": true
+  },
+  {
+    "run": "lstm-transition-s0",
+    "seed": 6000,
+    "region": 51,
+    "initially_used": false,
+    "encounters": 6,
+    "supported": true
+  },
+  {
+    "run": "lstm-transition-s0",
+    "seed": 6004,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 7,
+    "supported": true
+  },
+  {
+    "run": "lstm-transition-s0",
+    "seed": 6006,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 3,
+    "supported": true
+  },
+  {
+    "run": "ppo-tail-s2",
+    "seed": 6004,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 5,
+    "supported": true
+  },
+  {
+    "run": "ppo-tail-s2",
+    "seed": 6005,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 10,
+    "supported": true
+  },
+  {
+    "run": "ppo-tail-s2",
+    "seed": 6006,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 2,
+    "supported": true
+  },
+  {
+    "run": "ppo-tail-s2",
+    "seed": 6008,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 10,
+    "supported": true
+  },
+  {
+    "run": "lstm-transition-s1",
+    "seed": 6004,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 8,
+    "supported": true
+  },
+  {
+    "run": "lstm-transition-s1",
+    "seed": 6006,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 12,
+    "supported": true
+  },
+  {
+    "run": "ppo-transition-s1",
+    "seed": 6001,
+    "region": 51,
+    "initially_used": false,
+    "encounters": 4,
+    "supported": true
+  },
+  {
+    "run": "ppo-transition-s1",
+    "seed": 6004,
+    "region": 51,
+    "initially_used": false,
+    "encounters": 6,
+    "supported": true
+  },
+  {
+    "run": "ppo-transition-s1",
+    "seed": 6005,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 8,
+    "supported": true
+  },
+  {
+    "run": "ppo-transition-s0",
+    "seed": 6009,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 6,
+    "supported": true
+  },
+  {
+    "run": "ppo-ordinary-s0",
+    "seed": 6001,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 3,
+    "supported": true
+  },
+  {
+    "run": "ppo-ordinary-s0",
+    "seed": 6009,
+    "region": 12,
+    "initially_used": true,
+    "encounters": 2,
+    "supported": true
+  },
+  {
+    "run": "ppo-parent-s0",
+    "seed": 6009,
+    "region": 51,
+    "initially_used": false,
+    "encounters": 5,
+    "supported": true
+  },
+  {
+    "run": "ppo-ordinary-s1",
+    "seed": 6005,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 25,
+    "supported": true
+  },
+  {
+    "run": "ppo-parent-s1",
+    "seed": 6005,
+    "region": 51,
+    "initially_used": false,
+    "encounters": 4,
+    "supported": true
+  },
+  {
+    "run": "lstm-ordinary-s1",
+    "seed": 6007,
+    "region": 13,
+    "initially_used": false,
+    "encounters": 7,
+    "supported": true
+  }
+]
