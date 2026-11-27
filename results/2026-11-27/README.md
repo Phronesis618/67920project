@@ -1,5 +1,10 @@
 # Route retention and earlier failure replay
 
+**Update: the campaign completed November 27 at 9:35 a.m. Pacific.** All 18 training
+runs and 240 evaluation episodes finished; none reached Pewter/Brock. See the
+[completed results and next comparison](completed.md). The launch details below
+describe the original setup.
+
 **Launched November 26, 10:27 p.m. Pacific (November 27, 06:27 UTC).** The first
 job is `train-lstm-transition-s0`. The finite queue has 18 training jobs, 24
 ten-episode evaluations, and one report job. The source snapshot is commit

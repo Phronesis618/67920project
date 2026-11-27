@@ -2,6 +2,7 @@
 
 import argparse
 import json
+import math
 import time
 from datetime import UTC, datetime
 from functools import partial
@@ -40,6 +41,8 @@ def main(argv=None):
     p.add_argument("--timesteps", type=int, default=1048576)
     p.add_argument("--num-envs", type=int, default=16)
     p.add_argument("--device", default="cuda")
+    p.add_argument("--learning-rate", type=float, help="Optional explicit continuation override")
+    p.add_argument("--target-kl", type=float, help="Optional KL early-stopping target")
     p.add_argument(
         "--smoke",
         action="store_true",
@@ -50,6 +53,10 @@ def main(argv=None):
         p.error("timesteps and num-envs must be positive")
     if args.num_envs % 2 or args.num_envs < 2:
         p.error("Use an even number of workers, at least two")
+    for name in ("learning_rate", "target_kl"):
+        value = getattr(args, name)
+        if value is not None and (not math.isfinite(value) or value <= 0):
+            p.error(f"{name} must be finite and positive")
     if args.output.exists() and any(args.output.iterdir()):
         p.error("Choose an empty output directory")
     parent = json.loads((args.parent / "manifest.json").read_text())
@@ -85,6 +92,9 @@ def main(argv=None):
     try:
         algorithm = parent["algorithm"]
         overrides = {"n_steps": 32, "batch_size": 32} if args.smoke else {}
+        for name in ("learning_rate", "target_kl"):
+            if getattr(args, name) is not None:
+                overrides[name] = getattr(args, name)
         model = ALGORITHMS[algorithm].load(
             args.parent / "final.zip",
             env=env,
@@ -110,6 +120,14 @@ def main(argv=None):
             "parent_checkpoint": str((args.parent / "final.zip").resolve()),
             "parent_checkpoint_sha256": sha256(args.parent / "final.zip"),
             "parent_timesteps": initial_steps,
+            "optimizer_settings": {
+                "learning_rate_at_start": model.lr_schedule(1.0),
+                "target_kl": model.target_kl,
+                "n_epochs": model.n_epochs,
+                "explicit_overrides": {
+                    k: v for k, v in overrides.items() if k in ("learning_rate", "target_kl")
+                },
+            },
             "created_utc": datetime.now(UTC).isoformat(),
             "arguments": {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
             "restart": {
@@ -124,7 +142,7 @@ def main(argv=None):
                 "max_failures_per_route_worker": 8,
                 "context_selection": "Uniform available overworld/wild/trainer contexts, then uniform anchor",
             },
-            "contract": "Original route reward, pixel/action observations, optimizer and hyperparameters retained. Ordinary arm uses all original-start workers. Mixed arms dedicate half the workers/actions to original-route practice; replay workers sample only failures from those route workers (fallback original when bank empty). Tail anchors are 64..1024 actions before failure; transition anchors follow battle-context or coherent map changes anywhere in the failed episode, plus the first action. Both samplers stratify by RAM-derived overworld/wild/trainer context; this is privileged reset selection, not an actor input. No item-specific rewards, forced fighting or action masks. Original remaining horizon and rule/reward history retained; LSTM hidden state resets. Evaluation always original post-parcel save.",
+            "contract": "Original route reward, pixel/action observations and optimizer moments retained. Hyperparameters retained except explicit learning-rate/target-KL overrides recorded in optimizer_settings (and smoke-only rollout/batch overrides). Ordinary arm uses all original-start workers. Mixed arms dedicate half the workers/actions to original-route practice; replay workers sample only failures from those route workers (fallback original when bank empty). Tail anchors are 64..1024 actions before failure; transition anchors follow battle-context or coherent map changes anywhere in the failed episode, plus the first action. Both samplers stratify by RAM-derived overworld/wild/trainer context; this is privileged reset selection, not an actor input. No item-specific rewards, forced fighting or action masks. Original remaining horizon and rule/reward history retained; LSTM hidden state resets. Evaluation always original post-parcel save.",
             **git_metadata(),
         }
         write_json(args.output / "manifest.json", manifest)
@@ -156,6 +174,8 @@ def main(argv=None):
                 "total_timesteps": model.num_timesteps,
                 "seconds": time.monotonic() - start,
                 "worker_stats": env.env_method("replay_stats"),
+                "optimizer_learning_rates": [g["lr"] for g in model.policy.optimizer.param_groups],
+                "target_kl": model.target_kl,
             },
         )
     finally:

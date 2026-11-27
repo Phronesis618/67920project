@@ -151,6 +151,9 @@ def main():
     parser.add_argument("--episodes", type=int, default=5)
     parser.add_argument("--seed", type=int, default=1000)
     parser.add_argument("--device", default="cuda")
+    parser.add_argument(
+        "--checkpoint", type=Path, help="Evaluate an earlier saved checkpoint instead of final.zip"
+    )
     parser.add_argument("--videos", type=int, default=2)
     parser.add_argument(
         "--video-episodes",
@@ -168,6 +171,7 @@ def main():
         parser.error("video episodes must be within the replayed episode range")
     args.output.mkdir(parents=True, exist_ok=False)
     manifest = json.loads((args.run / "manifest.json").read_text())
+    checkpoint = args.checkpoint if args.checkpoint is not None else args.run / "final.zip"
     config = dict(manifest["config"])
     config.setdefault("position_mode", "legacy-raw")
     config.update(session_path=str(args.output / "emulator"), save_video=False)
@@ -178,11 +182,16 @@ def main():
     torch.set_num_threads(1)
     env = ForestObserver(config)
     original = args.run / "evaluation.json"
-    original_records = json.loads(original.read_text())["records"] if original.exists() else []
+    original_records = (
+        json.loads(original.read_text())["records"]
+        if original.exists() and args.checkpoint is None
+        else []
+    )
     result = {
         "source_run": str(args.run),
         "training_commit": manifest["git_commit"],
-        "model_sha256": hashlib.sha256((args.run / "final.zip").read_bytes()).hexdigest(),
+        "checkpoint": str(checkpoint.resolve()),
+        "model_sha256": hashlib.sha256(checkpoint.read_bytes()).hexdigest(),
         "diagnostic_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "created_utc": datetime.now(UTC).isoformat(),
         "device": args.device,
@@ -195,12 +204,11 @@ def main():
         "notes": "Stochastic policy; seed once before the episode loop, as in evaluate_main. "
         "Frame-level observer only. Forest videos start on arrival, one frame/action at 10fps "
         "(about 4x game speed). Battle rate denominator includes battle and menu actions. "
-        "End-state match is checked against original evaluation; CPU/GPU replays can differ.",
+        "End-state match is checked against original evaluation only for the final model with matching seeds; null means no reference. CPU/GPU replays can differ.",
     }
     try:
-        model = ALGORITHMS[manifest["algorithm"]].load(
-            args.run / "final.zip", env=env, device=args.device
-        )
+        model = ALGORITHMS[manifest["algorithm"]].load(checkpoint, env=env, device=args.device)
+        result["model_timesteps"] = model.num_timesteps
         set_random_seed(args.seed)
         for episode in range(args.episodes):
             env.recording = False
@@ -288,9 +296,13 @@ def main():
             expected = next(
                 (r for r in original_records if r["evaluation_seed"] == args.seed + episode), None
             )
-            record["original_evaluation_match"] = expected is not None and all(
-                json.dumps(info[k]) == json.dumps(expected[k])
-                for k in ("episode_steps", "end_reason", "position", "deaths", "episode_return")
+            record["original_evaluation_match"] = (
+                None
+                if expected is None
+                else all(
+                    json.dumps(info[k]) == json.dumps(expected[k])
+                    for k in ("episode_steps", "end_reason", "position", "deaths", "episode_return")
+                )
             )
             result["records"].append(record)
             write_json(args.output / "summary.json", result)

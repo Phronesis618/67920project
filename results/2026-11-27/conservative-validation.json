@@ -1,0 +1,91 @@
+{
+  "unit_tests_passed": 82,
+  "lint": "passed",
+  "integration": {
+    "ppo": {
+      "training": {
+        "additional_timesteps": 512,
+        "total_timesteps": 11534848,
+        "seconds": 1.6038411250337958,
+        "worker_stats": [
+          {
+            "role": "route",
+            "actions": {
+              "original": 256
+            },
+            "resets": {
+              "original": 3
+            },
+            "failures_published": 2,
+            "active_bank_entries": 4
+          },
+          {
+            "role": "route",
+            "actions": {
+              "original": 256
+            },
+            "resets": {
+              "original": 3
+            },
+            "failures_published": 2,
+            "active_bank_entries": 4
+          }
+        ],
+        "optimizer_learning_rates": [
+          3e-05
+        ],
+        "target_kl": 0.02
+      },
+      "earlier_checkpoint_evaluation": {
+        "model_timesteps": 11534336,
+        "sha256": "680491cc447c60d159e85e70b06faa8d9f0db7834804b1a3f3eb8f21dd738e7f",
+        "steps": 128,
+        "end_reason": "time_limit",
+        "no_reference": true
+      }
+    },
+    "lstm": {
+      "training": {
+        "additional_timesteps": 512,
+        "total_timesteps": 11534848,
+        "seconds": 2.7865477921441197,
+        "worker_stats": [
+          {
+            "role": "route",
+            "actions": {
+              "original": 256
+            },
+            "resets": {
+              "original": 3
+            },
+            "failures_published": 2,
+            "active_bank_entries": 4
+          },
+          {
+            "role": "route",
+            "actions": {
+              "original": 256
+            },
+            "resets": {
+              "original": 3
+            },
+            "failures_published": 2,
+            "active_bank_entries": 4
+          }
+        ],
+        "optimizer_learning_rates": [
+          3e-05
+        ],
+        "target_kl": 0.02
+      },
+      "earlier_checkpoint_evaluation": {
+        "model_timesteps": 11534336,
+        "sha256": "0d1ada3353a4a259d421eef1260c8c340de5697b5dd27f272d057ceb9150bf57",
+        "steps": 128,
+        "end_reason": "time_limit",
+        "no_reference": true
+      }
+    }
+  },
+  "scope": "512-action CPU smoke training per algorithm, 2 workers, 128-action episode limit. Verifies optimizer overrides and earlier-checkpoint selection; not performance evidence."
+}
