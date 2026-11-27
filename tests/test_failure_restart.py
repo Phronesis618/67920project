@@ -1,29 +1,8 @@
-import io
-import pickle
-
 import numpy as np
 import pytest
 from failure_restart import FailureRestart, capture, restore
 from pyboy.utils import WindowEvent
 from red_gym_env_v2_nuzlocke import RedGymEnv
-
-
-@pytest.fixture
-def snapshot_pyboy(fake_pyboy, monkeypatch):
-    original = fake_pyboy.load_state
-
-    def save(self, f):
-        f.write(b"TEST" + pickle.dumps((self.memory, self.frames)))
-
-    def load(self, f):
-        raw = f.read()
-        if raw.startswith(b"TEST"):
-            self.memory, self.frames = pickle.loads(raw[4:])
-        else:
-            original(self, io.BytesIO(raw))
-
-    monkeypatch.setattr(fake_pyboy, "save_state", save, raising=False)
-    monkeypatch.setattr(fake_pyboy, "load_state", load)
 
 
 def test_roundtrip_preserves_rules_rewards_and_observation_history(snapshot_pyboy, config):

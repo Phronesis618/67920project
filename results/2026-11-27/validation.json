@@ -1,0 +1,104 @@
+{
+  "unit_tests": {
+    "passed": 82
+  },
+  "ruff": "passed",
+  "real_emulator": {
+    "passed": true,
+    "trace": "runs/followups-backup-20261125/diagnostics/ppo-ordinary-s0/episode-00-actions.jsonl.gz",
+    "original_actions_checked": 10832,
+    "trainer_entry_step": 9717,
+    "anchor": {
+      "original_step": 9717,
+      "battle": 2,
+      "map": 51,
+      "file": "failure-00001-step-09717.pkl.gz",
+      "sha256": "7323b2304e325335c5a8e32ef3a6b5354d0d8c04951a071f1308b551ea664cf7",
+      "failure": 1,
+      "episode_index": 0,
+      "lead_actions": 1115,
+      "end_reason": "wipe",
+      "source_reset": "original",
+      "mode": "transition"
+    },
+    "matched_branch_actions": 32,
+    "matched": [
+      "unwrapped_control_rewards_pixels_WRAM_and_all_info",
+      "pixels_and_actions",
+      "WRAM",
+      "branch_rewards",
+      "termination"
+    ],
+    "original_end_reason": "wipe",
+    "restart_original_step": 9717,
+    "note": "Actions borrowed from a previous trace; both environments reset freshly together. This is a paired wrapper-integrity check, not a reproduction of the historical evaluation (which reset after preceding episodes). No scripted combat training, RAM edits, or altered reward."
+  },
+  "cpu_smokes": {
+    "ppo": {
+      "additional_timesteps": 512,
+      "total_timesteps": 11534848,
+      "seconds": 2.033812625100836,
+      "worker_stats": [
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 4
+        },
+        {
+          "role": "replay",
+          "actions": {
+            "original": 128,
+            "replay": 128
+          },
+          "resets": {
+            "original": 1,
+            "replay": 2
+          },
+          "failures_published": 0,
+          "active_bank_entries": 0
+        }
+      ]
+    },
+    "lstm": {
+      "additional_timesteps": 512,
+      "total_timesteps": 11534848,
+      "seconds": 2.938048708019778,
+      "worker_stats": [
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 2
+        },
+        {
+          "role": "replay",
+          "actions": {
+            "original": 128,
+            "replay": 128
+          },
+          "resets": {
+            "original": 1,
+            "replay": 2
+          },
+          "failures_published": 0,
+          "active_bank_entries": 0
+        }
+      ]
+    }
+  },
+  "notes": [
+    "Smoke runs use two workers, 128-action episodes and 512 new actions; these are integration checks, not performance evidence.",
+    "An initial attempt to reproduce episode 1 in isolation failed historical reward matching. The final validator instead pairs wrapped and unwrapped environments from the same fresh reset and checks trainer-entry restoration. No emulator or reward code was changed to accommodate the check."
+  ]
+}

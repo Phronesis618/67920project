@@ -1,3 +1,5 @@
+import io
+import pickle
 from types import SimpleNamespace
 
 import numpy as np
@@ -60,6 +62,24 @@ def fake_pyboy(monkeypatch):
     torch.set_num_threads(1)
     monkeypatch.setattr(red_gym_env_v2, "PyBoy", FakePyBoy)
     return FakePyBoy
+
+
+@pytest.fixture
+def snapshot_pyboy(fake_pyboy, monkeypatch):
+    original = fake_pyboy.load_state
+
+    def save(self, f):
+        f.write(b"TEST" + pickle.dumps((self.memory, self.frames)))
+
+    def load(self, f):
+        raw = f.read()
+        if raw.startswith(b"TEST"):
+            self.memory, self.frames = pickle.loads(raw[4:])
+        else:
+            original(self, io.BytesIO(raw))
+
+    monkeypatch.setattr(fake_pyboy, "save_state", save, raising=False)
+    monkeypatch.setattr(fake_pyboy, "load_state", load)
 
 
 @pytest.fixture
