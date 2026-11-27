@@ -36,6 +36,14 @@ prevent the observed navigation regression.
 
 ## Next bounded comparison
 
+**Launched November 27 at 10:37 a.m. Pacific**, starting with PPO seed 0.
+The immutable training source is `9ae1c5d`; the queue contains six training jobs,
+twelve checkpoint evaluations, and one report. [Launch evidence](conservative-launch.json)
+records the live optimizer settings and first successful Mac backup at 10:37:39.
+All 82 tests, CPU and CUDA smoke training for both algorithms, and explicit
+earlier-checkpoint evaluation checks passed; these validate implementation, not
+learned performance. [Local validation details](conservative-validation.json).
+
 Test a **conservative optimizer setting on ordinary route training only**:
 PPO/LSTM × three seeds, starting from the same earlier parent checkpoints, each
 adding 1,048,576 actions. Reduce learning rate from 0.0003 to 0.00003 and enable
@@ -53,6 +61,10 @@ This is an exploratory comparison using the already-inspected evaluation seeds
 would support the combined setting rather than isolate either cause. The previous
 large KL updates motivate this test but do not prove why navigation regressed.
 The queue remains finite and retains the **November 29, 8:59 p.m. Pacific** cutoff.
+
+New campaign: `/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-conservative-20261127`.
+Local mirror: `runs/conservative-backup-20261127`, copied every three minutes while
+the Mac remains connected and awake. Persistent saves do not depend on the Mac.
 
 [Per-seed report](completed-detail.md) · [Exact counts, episode outcomes,
 manifests, training allocation and completion/backup records](completed.json).

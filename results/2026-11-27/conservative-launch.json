@@ -1,0 +1,102 @@
+{
+  "observed_utc": "2026-11-27T18:37:40.745301+00:00",
+  "campaign": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-conservative-20261127",
+  "source_commit": "9ae1c5d",
+  "phase": "running",
+  "active_job": "train-ppo-gentle-s0",
+  "active_job_status": {
+    "status": "running",
+    "pid": 97317,
+    "started_utc": "2026-11-27T18:37:02.017020+00:00",
+    "elapsed_seconds": 30.054175605997443
+  },
+  "job_count": 19,
+  "stop_at": "2026-11-30T04:59:00+00:00",
+  "contract": "Six ordinary-route continuations: PPO/LSTM x 3 matched seeds, from the same pre-comparison parents. Change learning rate 0.0003 to 0.00003 and enable target_kl=0.02; retain optimizer moments, all other training settings, reward and pixel/action inputs. No failure replay. Train 1,048,576 new actions; evaluate fixed 262,144-action and final checkpoints on original-start seeds 6000..6009 (120 new episodes). Reuse already-completed matched parent/ordinary evaluations. Exploratory reuse of inspected seeds, not a new untouched test set. LR and KL are a bundled intervention. No automatic extensions; retain the existing November 29 Pacific cutoff.",
+  "cuda_smokes": {
+    "ppo": {
+      "additional_timesteps": 512,
+      "total_timesteps": 11534848,
+      "seconds": 2.955846879980527,
+      "worker_stats": [
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 4
+        },
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 4
+        }
+      ],
+      "optimizer_learning_rates": [
+        3e-05
+      ],
+      "target_kl": 0.02
+    },
+    "lstm": {
+      "additional_timesteps": 512,
+      "total_timesteps": 11534848,
+      "seconds": 4.688234733010177,
+      "worker_stats": [
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 4
+        },
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 4
+        }
+      ],
+      "optimizer_learning_rates": [
+        3e-05
+      ],
+      "target_kl": 0.02
+    }
+  },
+  "training_log": "1166973 |\n|    clip_fraction        | 0.039        |\n|    clip_range           | 0.2          |\n|    entropy_loss         | -1.15        |\n|    explained_variance   | 0.0532       |\n|    learning_rate        | 3e-05        |\n|    loss                 | -0.0156      |\n|    n_updates            | 5636         |\n|    policy_gradient_loss | -0.0159      |\n|    value_loss           | 0.0446       |\n------------------------------------------\n-----------------------------------------\n| time/                   |             |\n|    fps                  | 1457        |\n|    iterations           | 3           |\n|    time_elapsed         | 16          |\n|    total_timesteps      | 11558912    |\n| train/                  |             |\n|    approx_kl            | 0.007287812 |\n|    clip_fraction        | 0.0415      |\n|    clip_range           | 0.2         |\n|    entropy_loss         | -1.23       |\n|    explained_variance   | 0.0549      |\n|    learning_rate        | 3e-05       |\n|    loss                 | 0.00209     |\n|    n_updates            | 5640        |\n|    policy_gradient_loss | -0.017      |\n|    value_loss           | 0.0967      |\n-----------------------------------------\n------------------------------------------\n| time/                   |              |\n|    fps                  | 1470         |\n|    iterations           | 4            |\n|    time_elapsed         | 22           |\n|    total_timesteps      | 11567104     |\n| train/                  |              |\n|    approx_kl            | 0.0058317594 |\n|    clip_fraction        | 0.0313       |\n|    clip_range           | 0.2          |\n|    entropy_loss         | -1.24        |\n|    explained_variance   | 0.0337       |\n|    learning_rate        | 3e-05        |\n|    loss                 | -0.025       |\n|    n_updates            | 5644         |\n|    policy_gradient_loss | -0.0113      |\n|    value_loss           | 0.0279       |\n------------------------------------------\n------------------------------------------\n| time/                   |              |\n|    fps                  | 1471         |\n|    iterations           | 5            |\n|    time_elapsed         | 27           |\n|    total_timesteps      | 11575296     |\n| train/                  |              |\n|    approx_kl            | 0.0061343433 |\n|    clip_fraction        | 0.0355       |\n|    clip_range           | 0.2          |\n|    entropy_loss         | -1.24        |\n|    explained_variance   | 0.0605       |\n|    learning_rate        | 3e-05        |\n|    loss                 | -0.0143      |\n|    n_updates            | 5648         |\n|    policy_gradient_loss | -0.0131      |\n|    value_loss           | 0.0239       |\n------------------------------------------\n-----------------------------------------\n| time/                   |             |\n|    fps                  | 1480        |\n|    iterations           | 6           |\n|    time_elapsed         | 33          |\n|    total_timesteps      | 11583488    |\n| train/                  |             |\n|    approx_kl            | 0.008013802 |\n|    clip_fraction        | 0.0493      |\n|    clip_range           | 0.2         |\n|    entropy_loss         | -1.22       |\n|    explained_variance   | 0.109       |\n|    learning_rate        | 3e-05       |\n|    loss                 | -0.061      |\n|    n_updates            | 5652        |\n|    policy_gradient_loss | -0.0237     |\n|    value_loss           | 0.00135     |\n-----------------------------------------\n",
+  "gpu": "utilization.gpu [%], memory.used [MiB]\n0 %, 513 MiB\n",
+  "optimizer_settings": {
+    "learning_rate_at_start": 3e-05,
+    "target_kl": 0.02,
+    "n_epochs": 4,
+    "explicit_overrides": {
+      "learning_rate": 3e-05,
+      "target_kl": 0.02
+    }
+  },
+  "git_dirty": false,
+  "first_mac_backup": {
+    "pid": 82214,
+    "started_utc": "2026-11-27T18:37:36.950760+00:00",
+    "finished_utc": "2026-11-27T18:37:39.851304+00:00",
+    "exit_code": 0
+  }
+}
