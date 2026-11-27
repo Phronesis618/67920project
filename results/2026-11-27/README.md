@@ -1,5 +1,11 @@
 # Route retention and earlier failure replay
 
+**Launched November 26, 10:27 p.m. Pacific (November 27, 06:27 UTC).** The first
+job is `train-lstm-transition-s0`. The finite queue has 18 training jobs, 24
+ten-episode evaluations, and one report job. The source snapshot is commit
+`87a258d`; [launch.json](launch.json) records the observed running state and CUDA
+checks. This is launch evidence, not a claim of improved game performance.
+
 The previous comparison did not clear the forest. This follow-up tests whether
 practice starts too late and displaces ordinary route training. It changes the
 training-start distribution, not the reward or policy action set.
@@ -51,6 +57,9 @@ traces, battle RUN hooks, faint causes, and one tail video per model accompany
 the route outcomes. No training-reset evaluations are substituted for full-route
 results. Report trainer RUN rates alongside encounter exposure, trainer timeouts,
 forest arrival, Pewter/Brock, and deaths; avoiding encounters is not success.
+The diagnostic script's legacy `original_evaluation_match` field is not applicable
+to this fresh seed range; no prior seed-6000 evaluation exists to match. The
+campaign report uses these new episode outcomes directly.
 
 This is a hypothesis test, not a demonstrated fix. Tail versus transition compares
 anchor timing under the same fixed worker allocation and context stratification.
@@ -62,3 +71,19 @@ The finite queue is built by `scripts/build_route_replay_queue.py`, reports thro
 `scripts/report_route_replay.py`, and stops training/evaluation by
 **November 29, 8:59 p.m. Pacific**. Checkpoints, snapshots, logs and videos live on
 the attached persistent filesystem; a separate Mac backup mirrors the campaign.
+
+## Validation and storage
+
+All 82 tests and lint checks passed. PPO and LSTM each passed both CPU and CUDA
+integration runs, including shared-bank replay. A real-game paired check matched
+10,832 actions against an unwrapped environment, then restored a trainer-entry
+anchor 1,115 actions before the failure and matched the next 32 actions' pixels,
+WRAM, rewards and termination. [validation.json](validation.json) retains these
+checks and their scope; they test implementation, not learned performance.
+
+Remote campaign:
+`/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127`.
+The first Mac backup succeeded at **06:27:40 UTC**, and the backup process is set
+to repeat every three minutes while this Mac is connected and awake. Persistent
+filesystem saves are independent of the Mac backup. The local mirror is
+`runs/route-replay-backup-20261127`.

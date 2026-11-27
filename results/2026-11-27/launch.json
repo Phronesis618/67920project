@@ -1,0 +1,89 @@
+{
+  "observed_utc": "2026-11-27T06:28:27.329954+00:00",
+  "campaign": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127",
+  "source": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-route-replay-20261127",
+  "training_commit": "87a258db8ea0d48ee4e2463916eced67473599d0",
+  "phase": "running",
+  "active_job": "train-lstm-transition-s0",
+  "active_job_status": {
+    "status": "running",
+    "pid": 67463,
+    "started_utc": "2026-11-27T06:27:19.616783+00:00",
+    "elapsed_seconds": 60.08747626800323
+  },
+  "job_count": 43,
+  "stop_at": "2026-11-30T04:59:00+00:00",
+  "contract": "18 matched continuations: PPO/LSTM x original/tail/transition x three seeds; each adds 1,048,576 actions to the corresponding completed ordinary parent. Mixed arms reserve 8/16 workers for full-route practice and use only their failed-episode banks. No reward, actor-input or action-set changes. RAM context is used for privileged reset sampling. 10 fresh original-start diagnostic evaluations per continuation and per parent, seeds 6000..6009. 240 episodes total. Finite queue; no automatic unbounded extensions.",
+  "cuda_smokes": {
+    "ppo": {
+      "additional_timesteps": 512,
+      "total_timesteps": 11534848,
+      "seconds": 4.2114187109982595,
+      "worker_stats": [
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 4
+        },
+        {
+          "role": "replay",
+          "actions": {
+            "original": 128,
+            "replay": 128
+          },
+          "resets": {
+            "original": 1,
+            "replay": 2
+          },
+          "failures_published": 0,
+          "active_bank_entries": 0
+        }
+      ]
+    },
+    "lstm": {
+      "additional_timesteps": 512,
+      "total_timesteps": 11534848,
+      "seconds": 6.389754739997443,
+      "worker_stats": [
+        {
+          "role": "route",
+          "actions": {
+            "original": 256
+          },
+          "resets": {
+            "original": 3
+          },
+          "failures_published": 2,
+          "active_bank_entries": 2
+        },
+        {
+          "role": "replay",
+          "actions": {
+            "original": 128,
+            "replay": 128
+          },
+          "resets": {
+            "original": 1,
+            "replay": 2
+          },
+          "failures_published": 0,
+          "active_bank_entries": 0
+        }
+      ]
+    }
+  },
+  "latest_training_log": "UserWarning: Using SDL2 binaries from pysdl2-dll 2.32.10\nWrapping the env in a VecTransposeImage.\n{\"initialized\": \"/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-transition-s0\", \"arm\": \"transition\", \"route_workers\": 8}\nLogging to /lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-transition-s0/tensorboard/RecurrentPPO_0\n---------------------------------\n| time/              |          |\n|    fps             | 816      |\n|    iterations      | 1        |\n|    time_elapsed    | 10       |\n|    total_timesteps | 11542528 |\n---------------------------------\n",
+  "gpu": "name, utilization.gpu [%], memory.used [MiB]\nNVIDIA A10, 7 %, 799 MiB\n",
+  "first_mac_backup": {
+    "pid": 68260,
+    "started_utc": "2026-11-27T06:27:36.479136+00:00",
+    "finished_utc": "2026-11-27T06:27:40.587309+00:00",
+    "exit_code": 0
+  }
+}
