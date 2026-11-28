@@ -103,3 +103,29 @@ single summed validation loss across all twelve labels, which fluctuated by ±0.
 epochs in both runs. This run does not separate the effect of peeks from that selection
 noise; per-label epoch selection and repeated seeds are needed before concluding that
 peeks hurt legality.
+
+## Three seeds, no epoch selection
+
+Epoch selection by a summed validation loss was noisy (it moved by about ±0.3 between
+epochs), so `train_memory.py` now decays the learning rate on a cosine (1e-3 → 5e-5 over
+6 epochs) and evaluates the average of the last two epochs' weights. Both datasets were
+retrained with seeds 0–2 on the same split ([metrics-seeds.json](metrics-seeds.json)).
+Memory model, mean ± sd over seeds:
+
+| Label | input | no peeks | with peeks |
+|---|---:|---:|---:|
+| Encounter catchable | 0.63 | 0.96 ± 0.00 | 0.96 ± 0.01 |
+| … at wild-battle entry / during wild battles | 0.62 / 0.51 | 0.97 / 0.90 | 0.97 / 0.89 |
+| Route 2 used / forest used | 0.66 / 0.69 | 0.98 / 0.95 | 0.97 / 0.96 |
+| Poisoned | 0.71 | 0.90 | 0.90 |
+| More than one Pokémon owned | 0.50 | 0.70 ± 0.07 | 0.69 ± 0.01 |
+| Party HP (R²) | 0.01 | 0.42 ± 0.03 | 0.37 ± 0.08 |
+| Enemy HP / balls (R²) | 0.01 / 0.01 | 0.22 / 0.20 | 0.24 / 0.19 |
+| Time since last wild battle (R²) | 0.02 | 0.64 | 0.63 |
+| Antidotes / event flags (R²) | < 0 | < 0 | < 0 |
+
+The earlier drop in catch legality with peeks was selection noise: with a fixed
+procedure both datasets reach 0.96. Menu checks made no measurable difference to any
+label over three seeds; the earlier count and HP gains came from the training procedure,
+not the peeks. Party HP, enemy HP, balls and time since a wild battle are now partly
+learned; antidote counts and event flags are not.
