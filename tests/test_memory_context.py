@@ -8,6 +8,7 @@ from context_aux import (
     ContextPolicy,
     ContextPPO,
     MemoryLabels,
+    context_layout,
     memory_prediction_loss,
 )
 from context_experiment import convert_parent
@@ -118,3 +119,15 @@ def test_memory_arm_trains_saves_and_reloads(tmp_path):
     finally:
         base_env.close()
         env.close()
+
+
+def test_memory_predictions_feed_the_pilot_diagnostics_in_its_layout():
+    logits = torch.zeros(2, HEAD_DIM)
+    logits[:, HEAD_SLICES["battle_type"]] = torch.tensor([0.0, 0.0, 4.0])
+    logits[:, HEAD_SLICES["poisoned"]] = 2.0
+    logits[:, HEAD_SLICES["party_hp"]] = 0.25
+    logits[:, HEAD_SLICES["has_antidote"]] = -3.0
+    layout = context_layout(logits)
+    assert layout.shape == (2, 6)
+    assert layout[0, :3].argmax() == 2 and layout[0, 3] == 2.0 and layout[0, 5] == -3.0
+    torch.testing.assert_close(layout[:, 4].sigmoid(), torch.full((2,), 0.25))

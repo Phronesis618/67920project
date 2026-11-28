@@ -137,6 +137,26 @@ def prediction_loss(logits, targets, mask):
     return (battle_loss + poison_loss + hp_loss + item_loss) / 4
 
 
+def context_layout(logits):
+    """Memory-head output in the pilot's 6-column layout for its diagnostics.
+
+    Columns: battle-type logits (3), poison logit, HP logit (diagnostics apply a sigmoid;
+    the memory head predicts HP directly, so it is mapped through the inverse sigmoid),
+    antidote-available logit.
+    """
+    s = lstm_memory.HEAD_SLICES
+    hp = logits[..., s["party_hp"]].clamp(1e-4, 1 - 1e-4)
+    return th.cat(
+        [
+            logits[..., s["battle_type"]],
+            logits[..., s["poisoned"]],
+            th.log(hp / (1 - hp)),
+            logits[..., s["has_antidote"]],
+        ],
+        -1,
+    )
+
+
 def memory_prediction_loss(logits, targets, mask):
     """lstm_memory.label_loss over the memory set; padding and invalid labels excluded."""
     n = len(lstm_memory.TARGETS)
@@ -186,7 +206,11 @@ class ContextPolicy(RecurrentMultiInputActorCriticPolicy):
         latent, states = self._process_sequence(
             features, lstm_states, episode_starts, self.lstm_actor
         )
-        self.last_context_logits = self.context_head(latent).detach()
+        logits = self.context_head(latent).detach()
+        if self.context_targets == "memory":
+            self.last_memory_logits = logits
+            logits = context_layout(logits)
+        self.last_context_logits = logits
         return self._get_action_dist_from_latent(self.mlp_extractor.forward_actor(latent)), states
 
 
