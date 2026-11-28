@@ -10,6 +10,7 @@ from battle_training import (
     BattleReplay,
     BattleReward,
     BattleRewardWeights,
+    catch_in_progress,
     snapshot_config_sha,
     verify_rom,
 )
@@ -396,3 +397,16 @@ def test_bank_builder_filters_groups_dedups_and_checks(config, tmp_path):
     (a / "failure-banks/worker-0/failure-1.pkl.gz").write_bytes(b"tampered")
     with pytest.raises(ValueError, match="Hash mismatch"):
         build_battle_bank.main([str(a), "--output", str(tmp_path / "bad"), "--per-group", "9"])
+
+
+def test_catch_in_progress_detects_a_catch_that_needs_no_input(snapshot_pyboy, config):
+    env = RedGymEnv(dict(config, max_steps=50))
+    try:
+        env.reset(seed=0)
+        battle(env.pyboy, 1)
+        blob = capture(env, env.step(4)[0])  # restored emulator resumes at frame 24
+        assert not catch_in_progress(env, blob, actions=4)
+        env.pyboy.transitions = {72: lambda p: p.memory.__setitem__(0xD163, 2)}
+        assert catch_in_progress(env, blob, actions=4)
+    finally:
+        env.close()

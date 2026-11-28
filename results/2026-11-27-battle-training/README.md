@@ -56,7 +56,7 @@ a copy; rebuild it on Lambda with the same command before a campaign.
 
 ## Validation
 
-- 95 tests pass (13 new). Lint clean on the new files.
+- 96 tests pass (14 new). Lint clean on the new files.
 - Real game, frozen parents, 16 bank battles each, 512-action cap
   ([PPO](validation-ppo-parent.json), [LSTM](validation-lstm-parent.json)): hooks fired
   (16 and 7 rejected trainer RUNs), terms matched visible play (a trainer win ≈ +4.3
@@ -73,6 +73,12 @@ step count, so with the smoke horizon every replay episode ended after one actio
 crashed with SIGTRAP inside the pickled `clip_range` schedule, so the experiment now
 rebuilds schedules from plain values.
 
+A third defect was in the bank: 9 of 384 wild snapshots (tail anchors from episodes that
+ended in an illegal catch) were taken after a ball had been thrown, so the catch
+completed within about 10 actions whatever the policy did. `build_battle_bank.py
+--screen-rom/--screen-state` presses only B from each wild snapshot and drops those that
+still end in a catch. Rebuilt with screening, the same command dropped 6.
+
 ## Conservative `outcome` preset
 
 `--reward-preset outcome` replaces every dense battle term with the battle result only:
@@ -80,15 +86,17 @@ rebuilds schedules from plain values.
 | Battle ends in | Reward |
 |---|---:|
 | Win (enemy fainted, party alive) | +10 × party HP fraction at exit |
-| Flee or catch | 0 |
+| Flee or legal catch | 0 |
+| Illegal catch (or any other rule violation) | −10 |
 | Wipe during the battle | −10 |
 | Replay battle reaching the 1,024-action cap | −10 |
 
 The last row is an addition beyond "fleeing 0, losing −10". Trainer battles cannot be
 fled, so without it a stall to the cap would cost almost nothing while a risky fight
 risks −10, which recreates the stalling incentive. `--battle-timeout-penalty` overrides
-it. Death and violation penalties default to 0 (the parents' values): a battle wipe
-is already charged, and a walking-poison faint or illegal catch earns nothing extra.
+it. An illegal catch ends the episode inside the battle, so it is charged like a loss
+through `violation_penalty` 10. The death penalty defaults to 0 because a battle wipe is
+already charged; a walking-poison faint earns nothing extra.
 Route workers stalling in a trainer battle until the episode limit get no penalty
 from this preset. Wild wins still switch off at the level cap.
 

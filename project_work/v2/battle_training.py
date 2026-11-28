@@ -21,7 +21,7 @@ from pathlib import Path
 import gymnasium as gym
 import numpy as np
 from failure_restart import restore
-from memory_addresses import BATTLE_TYPE_ADDRESS
+from memory_addresses import BATTLE_TYPE_ADDRESS, BOX_COUNT_ADDRESS, PARTY_SIZE_ADDRESS
 
 # wEnemyMon fields (pret/pokered ram/wram.asm). Checked on restored campaign
 # snapshots: species/HP/max HP/level match the visible wild and trainer battles.
@@ -125,11 +125,12 @@ PRESETS = {
 }
 
 # Dense keeps the earlier death/violation penalties. Outcome already charges a wipe in
-# battle; a battle stalled to the replay cap counts as a loss, because trainer battles
-# cannot be fled and a zero-cost stall would beat a risky fight.
+# battle (so no death penalty), and treats both a rule violation (an illegal catch
+# ends the episode inside the battle) and a replay battle stalled to the cap as a
+# loss: trainer battles cannot be fled, so a zero-cost stall would beat a risky fight.
 PRESET_PENALTIES = {
     "dense": {"battle_timeout_penalty": 1.0, "death_penalty": 2.0, "violation_penalty": 2.0},
-    "outcome": {"battle_timeout_penalty": 10.0, "death_penalty": 0.0, "violation_penalty": 0.0},
+    "outcome": {"battle_timeout_penalty": 10.0, "death_penalty": 0.0, "violation_penalty": 10.0},
 }
 
 
@@ -275,6 +276,22 @@ class BattleReward(gym.Wrapper):
         if isinstance(self.env, BattleReplay):
             stats["replay"] = self.env.replay_stats()
         return stats
+
+
+def catch_in_progress(env, blob, actions=60, b_button=5):
+    """True when a catch completes while only B is pressed: a ball is already thrown.
+
+    Such snapshots end in a catch whatever the policy does, so they teach nothing.
+    """
+    restore(env, blob)
+    owned = env.read_m(PARTY_SIZE_ADDRESS) + env.read_m(BOX_COUNT_ADDRESS)
+    for _ in range(actions):
+        _, _, terminated, truncated, _ = env.step(b_button)
+        if env.read_m(PARTY_SIZE_ADDRESS) + env.read_m(BOX_COUNT_ADDRESS) > owned:
+            return True
+        if terminated or truncated or env.read_m(BATTLE_TYPE_ADDRESS) != WILD:
+            return False
+    return False
 
 
 def load_bank(directory):
