@@ -72,3 +72,34 @@ quantities; they need per-label scaling or separate early stopping before use.
 - The trained memory (`memory_model.pt`, not committed) is not yet connected to a
   policy. It could initialise a recurrent policy's actor LSTM, or feed a policy its
   predictions; either is a separate step.
+
+## Menu checks (`--peek-rate 0.002`)
+
+Ball and antidote counts appear only in the bag, and overworld HP only on the party
+screen; recorded play rarely opens either. `build_memory_dataset.py --peek-rate` copies
+the state at random overworld actions into a second emulator that opens START, looks at
+the bag or the party, and closes it (navigation checked against the start-menu border
+tile and cursor in RAM; a check where the menu did not open is discarded). Those actions
+are spliced into the sequence and flagged; the main replay never reloads and still
+matched every trace. At the policy's 72×80 resolution the bag shows "×5" and "×2" and the
+party screen the HP bar and "22/22". Peek actions are trained on but never scored.
+
+All 280 episodes again, 29,609 peek actions, the same 56 test episodes
+([metrics-peek.json](metrics-peek.json)). Memory model, no peeks → with peeks:
+
+| Label | no peeks | with peeks |
+|---|---:|---:|
+| Party HP (R²) | −0.93 | **0.21** |
+| Balls (R²) | −2.99 | **0.17** |
+| Enemy HP / antidotes (R²) | −0.52 / −0.57 | −0.04 / −0.13 |
+| Event flags (R²) | −2.18 | −2.91 |
+| Encounter catchable | **0.93** | 0.81 |
+| … at wild-battle entry / during wild battles | **0.97 / 0.85** | 0.83 / 0.61 |
+
+Peeks made party HP and ball counts learnable from memory for the first time (modestly).
+Event flags never appear in a menu and were not helped. Catch legality fell, but the
+selected epoch also changed (epoch 2 instead of 4): one epoch is chosen per model from a
+single summed validation loss across all twelve labels, which fluctuated by ±0.3 between
+epochs in both runs. This run does not separate the effect of peeks from that selection
+noise; per-label epoch selection and repeated seeds are needed before concluding that
+peeks hurt legality.
