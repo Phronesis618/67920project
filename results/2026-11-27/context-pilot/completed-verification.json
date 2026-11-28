@@ -1,0 +1,446 @@
+{
+  "queue_status": {
+    "config_sha256": "9f8ac236cf10bddbb3c5c8bf52e8c691962757eed3e1df061977af7bd77a5b0d",
+    "created_utc": "2026-11-28T02:57:45.250496+00:00",
+    "jobs": {
+      "build-natural-suite": {
+        "status": "succeeded",
+        "pid": 103114,
+        "started_utc": "2026-11-28T02:57:45.276970+00:00",
+        "elapsed_seconds": 339.76519645698136,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:03:25.038370+00:00"
+      },
+      "train-auxiliary": {
+        "status": "succeeded",
+        "pid": 103184,
+        "started_utc": "2026-11-28T03:03:25.061925+00:00",
+        "elapsed_seconds": 522.6759690930485,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:12:07.731967+00:00"
+      },
+      "cases-auxiliary": {
+        "status": "succeeded",
+        "pid": 104358,
+        "started_utc": "2026-11-28T03:12:07.755881+00:00",
+        "elapsed_seconds": 87.74950589402579,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:13:35.500158+00:00"
+      },
+      "route-auxiliary": {
+        "status": "succeeded",
+        "pid": 104464,
+        "started_utc": "2026-11-28T03:13:35.524778+00:00",
+        "elapsed_seconds": 468.22814946604194,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:21:23.746761+00:00"
+      },
+      "train-control": {
+        "status": "succeeded",
+        "pid": 104724,
+        "started_utc": "2026-11-28T03:21:23.769766+00:00",
+        "elapsed_seconds": 429.83239731704816,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:28:33.597222+00:00"
+      },
+      "cases-control": {
+        "status": "succeeded",
+        "pid": 105938,
+        "started_utc": "2026-11-28T03:28:33.619385+00:00",
+        "elapsed_seconds": 79.42654017795576,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:29:53.040814+00:00"
+      },
+      "route-control": {
+        "status": "succeeded",
+        "pid": 106040,
+        "started_utc": "2026-11-28T03:29:53.064153+00:00",
+        "elapsed_seconds": 469.6410936350003,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:37:42.700096+00:00"
+      },
+      "cases-parent": {
+        "status": "succeeded",
+        "pid": 106182,
+        "started_utc": "2026-11-28T03:37:42.726226+00:00",
+        "elapsed_seconds": 103.86936590599362,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:39:26.590271+00:00"
+      },
+      "route-parent": {
+        "status": "succeeded",
+        "pid": 106285,
+        "started_utc": "2026-11-28T03:39:26.613323+00:00",
+        "elapsed_seconds": 396.8139801660436,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:46:03.422231+00:00"
+      },
+      "report": {
+        "status": "succeeded",
+        "pid": 106448,
+        "started_utc": "2026-11-28T03:46:03.446409+00:00",
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:46:03.777694+00:00",
+        "elapsed_seconds": 0.33651621598983184
+      }
+    },
+    "phase": "completed",
+    "controller_pid": 103113,
+    "active_job": null,
+    "updated_utc": "2026-11-28T03:46:03.794375+00:00"
+  },
+  "final_backup": {
+    "pid": 84518,
+    "started_utc": "2026-11-28T03:49:38.627583+00:00",
+    "finished_utc": "2026-11-28T03:49:40.850971+00:00",
+    "exit_code": 0
+  },
+  "matched_parent_sha256": "94bf62279a96f4a5ffff151fe297d141dde7fecc390de3d3d438e4c898aef300",
+  "matched_configuration_checks_passed": true,
+  "additional_actions_per_arm": 262144,
+  "auxiliary_fatal_encounters": [
+    {
+      "seed": 6100,
+      "faint": {
+        "kind": "faint",
+        "frame": 243885,
+        "step": 10162,
+        "position": [
+          27,
+          19,
+          51
+        ],
+        "cause": "trainer_battle",
+        "battle": 2,
+        "before": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 2,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        },
+        "after": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 0,
+          "max_hp": 22,
+          "level": 6,
+          "status": 0
+        }
+      },
+      "last_trainer_entry": {
+        "type": 2,
+        "start_frame": 233801,
+        "start_step": 9742,
+        "position": [
+          27,
+          19,
+          51
+        ],
+        "party_at_entry": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 14,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "run_hooks": {
+          "run_attempt": 3,
+          "trainer_run_rejected": 3
+        }
+      },
+      "final_antidotes": 2
+    },
+    {
+      "seed": 6101,
+      "faint": {
+        "kind": "faint",
+        "frame": 260945,
+        "step": 10873,
+        "position": [
+          27,
+          33,
+          51
+        ],
+        "cause": "trainer_battle",
+        "battle": 2,
+        "before": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 3,
+          "max_hp": 24,
+          "level": 7,
+          "status": 8
+        },
+        "after": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 0,
+          "max_hp": 24,
+          "level": 7,
+          "status": 0
+        }
+      },
+      "last_trainer_entry": {
+        "type": 2,
+        "start_frame": 240024,
+        "start_step": 10001,
+        "position": [
+          27,
+          33,
+          51
+        ],
+        "party_at_entry": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 19,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "run_hooks": {
+          "run_attempt": 9,
+          "trainer_run_rejected": 9
+        }
+      },
+      "final_antidotes": 2
+    },
+    {
+      "seed": 6102,
+      "faint": {
+        "kind": "faint",
+        "frame": 118791,
+        "step": 4950,
+        "position": [
+          27,
+          19,
+          51
+        ],
+        "cause": "trainer_battle",
+        "battle": 2,
+        "before": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 3,
+          "max_hp": 26,
+          "level": 8,
+          "status": 8
+        },
+        "after": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 0,
+          "max_hp": 26,
+          "level": 8,
+          "status": 0
+        }
+      },
+      "last_trainer_entry": {
+        "type": 2,
+        "start_frame": 117433,
+        "start_step": 4894,
+        "position": [
+          27,
+          19,
+          51
+        ],
+        "party_at_entry": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 3,
+            "max_hp": 26,
+            "level": 8,
+            "status": 8
+          }
+        ],
+        "run_hooks": {}
+      },
+      "final_antidotes": 2
+    },
+    {
+      "seed": 6103,
+      "faint": {
+        "kind": "faint",
+        "frame": 107345,
+        "step": 4473,
+        "position": [
+          28,
+          33,
+          51
+        ],
+        "cause": "trainer_battle",
+        "battle": 2,
+        "before": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 1,
+          "max_hp": 24,
+          "level": 7,
+          "status": 8
+        },
+        "after": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 0,
+          "max_hp": 24,
+          "level": 7,
+          "status": 0
+        }
+      },
+      "last_trainer_entry": {
+        "type": 2,
+        "start_frame": 87216,
+        "start_step": 3634,
+        "position": [
+          28,
+          33,
+          51
+        ],
+        "party_at_entry": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "run_hooks": {
+          "run_attempt": 3,
+          "trainer_run_rejected": 3
+        }
+      },
+      "final_antidotes": 2
+    },
+    {
+      "seed": 6104,
+      "faint": {
+        "kind": "faint",
+        "frame": 325023,
+        "step": 13543,
+        "position": [
+          27,
+          19,
+          51
+        ],
+        "cause": "trainer_battle",
+        "battle": 2,
+        "before": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 1,
+          "max_hp": 26,
+          "level": 8,
+          "status": 8
+        },
+        "after": {
+          "identity": [
+            25110,
+            34706
+          ],
+          "species": 177,
+          "hp": 0,
+          "max_hp": 26,
+          "level": 8,
+          "status": 0
+        }
+      },
+      "last_trainer_entry": {
+        "type": 2,
+        "start_frame": 316993,
+        "start_step": 13209,
+        "position": [
+          27,
+          19,
+          51
+        ],
+        "party_at_entry": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 4,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        ],
+        "run_hooks": {
+          "run_attempt": 2,
+          "trainer_run_rejected": 2
+        }
+      },
+      "final_antidotes": 1
+    }
+  ],
+  "faint_causes": {
+    "parent": {
+      "trainer_battle": 2,
+      "overworld_poison": 1,
+      "wild_battle": 2
+    },
+    "control": {
+      "wild_battle": 1
+    },
+    "auxiliary": {
+      "trainer_battle": 5
+    }
+  },
+  "files": {
+    "completed-evidence/cases/auxiliary.json": "785456a4d411ece28459522ae28ba47272382d0e4d29ec9463c6f84e3e56586d",
+    "completed-evidence/cases/control.json": "49fad07abf06c5641372ed0608a486c21fd30dfc81f5f26fc569f8de5d0db6c6",
+    "completed-evidence/cases/parent.json": "58a18e7c24361e120a48e2f2694b9969218875cf6867a59fdd478e476f76c07c",
+    "completed-evidence/route/auxiliary.json": "580ef63e90dc3e7903e73f35273cfc3e152448881af670c17b19ffcf1259f2d7",
+    "completed-evidence/route/control.json": "1e9c6f8886b966ad6217088b69ea72a7f24d271f254b2a87393c7fdf80bed3a5",
+    "completed-evidence/route/parent.json": "77e1fa7e1e5c805dae463ba86595ca5ac5dcbf018058aa51891498cc9d9a74c1"
+  }
+}

@@ -1,0 +1,1755 @@
+{
+  "run": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/auxiliary",
+  "checkpoint_sha256": "655105a29e1da1c3f764ab98c3771138dd1a8f1fa5c669fd633da2473c1e1bad",
+  "suite": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/suite",
+  "rows": [
+    {
+      "case": "wild-episode0-step743",
+      "kind": "wild",
+      "rep": 0,
+      "seed": 6200,
+      "success": true,
+      "actions": 38,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          4,
+          31,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 1,
+        "run_succeeded_battle1": 1
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 38,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            35,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            38,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            38
+          ]
+        ],
+        "hp_mae": 0.16155239939689636,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "wild-episode0-step743",
+      "kind": "wild",
+      "rep": 1,
+      "seed": 6201,
+      "success": true,
+      "actions": 78,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          4,
+          31,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 1,
+        "run_succeeded_battle1": 1
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 78,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            4,
+            73,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            78,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            78
+          ]
+        ],
+        "hp_mae": 0.1497669342236641,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "wild-episode0-step743",
+      "kind": "wild",
+      "rep": 2,
+      "seed": 6202,
+      "success": true,
+      "actions": 77,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          4,
+          31,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 1,
+        "run_succeeded_battle1": 1
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 77,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            74,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            77,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            77
+          ]
+        ],
+        "hp_mae": 0.1741695868504512,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "wild-episode1-step935",
+      "kind": "wild",
+      "rep": 0,
+      "seed": 6210,
+      "success": true,
+      "actions": 70,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          9,
+          28,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 1,
+        "run_succeeded_battle1": 1
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 70,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            58,
+            9
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            70,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            70
+          ]
+        ],
+        "hp_mae": 0.14951900669506618,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "wild-episode1-step935",
+      "kind": "wild",
+      "rep": 1,
+      "seed": 6211,
+      "success": true,
+      "actions": 32,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          9,
+          28,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 1,
+        "run_succeeded_battle1": 1
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 32,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            29,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            32,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            32
+          ]
+        ],
+        "hp_mae": 0.124034708365798,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "wild-episode1-step935",
+      "kind": "wild",
+      "rep": 2,
+      "seed": 6212,
+      "success": true,
+      "actions": 236,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          9,
+          28,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 1,
+        "run_succeeded_battle1": 1
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 236,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            40,
+            188,
+            8
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            236,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            236
+          ]
+        ],
+        "hp_mae": 0.17442156323942087,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "trainer-episode2-step10191",
+      "kind": "trainer",
+      "rep": 0,
+      "seed": 6220,
+      "success": true,
+      "actions": 919,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          27,
+          33,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 11,
+            "max_hp": 26,
+            "level": 8,
+            "status": 8
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle2": 6,
+        "trainer_run_rejected_battle2": 6
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 919,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            62,
+            91,
+            765
+          ]
+        ],
+        "poison_confusion": [
+          [
+            405,
+            17
+          ],
+          [
+            461,
+            36
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            919
+          ]
+        ],
+        "hp_mae": 0.2043084385799765,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "trainer-episode2-step10191",
+      "kind": "trainer",
+      "rep": 1,
+      "seed": 6221,
+      "success": true,
+      "actions": 1553,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          27,
+          33,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 17,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle2": 10,
+        "trainer_run_rejected_battle2": 10
+      },
+      "faints": [],
+      "cures": [],
+      "prediction": {
+        "actions": 1553,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            67,
+            131,
+            1354
+          ]
+        ],
+        "poison_confusion": [
+          [
+            1415,
+            138
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1553
+          ]
+        ],
+        "hp_mae": 0.21906040757606662,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "trainer-episode2-step10191",
+      "kind": "trainer",
+      "rep": 2,
+      "seed": 6222,
+      "success": false,
+      "actions": 1055,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          27,
+          33,
+          51
+        ],
+        "battle": 2,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 24,
+            "level": 7,
+            "status": 0
+          }
+        ],
+        "antidotes": 1
+      },
+      "run_hooks": {
+        "run_attempt_battle2": 5,
+        "trainer_run_rejected_battle2": 5
+      },
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 25299,
+          "step": 11246,
+          "position": [
+            27,
+            33,
+            51
+          ],
+          "cause": "trainer_battle",
+          "battle": 2,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 2,
+            "max_hp": 24,
+            "level": 7,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 24,
+            "level": 7,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [
+        {
+          "frame": 10753,
+          "identity": [
+            25110,
+            34706
+          ]
+        }
+      ],
+      "prediction": {
+        "actions": 1055,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            71,
+            102,
+            882
+          ]
+        ],
+        "poison_confusion": [
+          [
+            410,
+            11
+          ],
+          [
+            588,
+            46
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1055
+          ]
+        ],
+        "hp_mae": 0.22808884206400099,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "poison-episode2-step13886",
+      "kind": "poison",
+      "rep": 0,
+      "seed": 6230,
+      "success": false,
+      "actions": 68,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          27,
+          23,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 1,
+        "run_succeeded_battle1": 1
+      },
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 1626,
+          "step": 13954,
+          "position": [
+            27,
+            23,
+            51
+          ],
+          "cause": "overworld_poison",
+          "battle": 0,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 1,
+            "max_hp": 26,
+            "level": 8,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [],
+      "prediction": {
+        "actions": 68,
+        "battle_confusion": [
+          [
+            27,
+            0,
+            2
+          ],
+          [
+            3,
+            36,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            68,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            68
+          ]
+        ],
+        "hp_mae": 0.7121236759840566,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "poison-episode2-step13886",
+      "kind": "poison",
+      "rep": 1,
+      "seed": 6231,
+      "success": false,
+      "actions": 37,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          25,
+          33,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {},
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 884,
+          "step": 13923,
+          "position": [
+            25,
+            33,
+            51
+          ],
+          "cause": "overworld_poison",
+          "battle": 0,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 1,
+            "max_hp": 26,
+            "level": 8,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [],
+      "prediction": {
+        "actions": 37,
+        "battle_confusion": [
+          [
+            36,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            37,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            37
+          ]
+        ],
+        "hp_mae": 0.6740013616713317,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "poison-episode2-step13886",
+      "kind": "poison",
+      "rep": 2,
+      "seed": 6232,
+      "success": false,
+      "actions": 32,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          27,
+          31,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {},
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 760,
+          "step": 13918,
+          "position": [
+            27,
+            31,
+            51
+          ],
+          "cause": "overworld_poison",
+          "battle": 0,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 1,
+            "max_hp": 26,
+            "level": 8,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [],
+      "prediction": {
+        "actions": 32,
+        "battle_confusion": [
+          [
+            31,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            32,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            32
+          ]
+        ],
+        "hp_mae": 0.6941926894942299,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "trainer-episode4-step5574",
+      "kind": "trainer",
+      "rep": 0,
+      "seed": 6240,
+      "success": true,
+      "actions": 1526,
+      "end_reason": "running",
+      "final": {
+        "position": [
+          26,
+          33,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 7,
+            "max_hp": 26,
+            "level": 8,
+            "status": 0
+          }
+        ],
+        "antidotes": 1
+      },
+      "run_hooks": {
+        "run_attempt_battle2": 8,
+        "trainer_run_rejected_battle2": 8
+      },
+      "faints": [],
+      "cures": [
+        {
+          "frame": 15505,
+          "identity": [
+            25110,
+            34706
+          ]
+        }
+      ],
+      "prediction": {
+        "actions": 1526,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            40,
+            90,
+            1395
+          ]
+        ],
+        "poison_confusion": [
+          [
+            1263,
+            117
+          ],
+          [
+            111,
+            35
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1526
+          ]
+        ],
+        "hp_mae": 0.18675835386680276,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "trainer-episode4-step5574",
+      "kind": "trainer",
+      "rep": 1,
+      "seed": 6241,
+      "success": false,
+      "actions": 1309,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          26,
+          33,
+          51
+        ],
+        "battle": 2,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 24,
+            "level": 7,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "run_hooks": {
+        "run_attempt_battle2": 13,
+        "trainer_run_rejected_battle2": 13
+      },
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 31409,
+          "step": 6883,
+          "position": [
+            26,
+            33,
+            51
+          ],
+          "cause": "trainer_battle",
+          "battle": 2,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 1,
+            "max_hp": 24,
+            "level": 7,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 24,
+            "level": 7,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [],
+      "prediction": {
+        "actions": 1309,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            30,
+            85,
+            1194
+          ]
+        ],
+        "poison_confusion": [
+          [
+            116,
+            3
+          ],
+          [
+            957,
+            233
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1309
+          ]
+        ],
+        "hp_mae": 0.2053149699470394,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "trainer-episode4-step5574",
+      "kind": "trainer",
+      "rep": 2,
+      "seed": 6242,
+      "success": false,
+      "actions": 1209,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          26,
+          33,
+          51
+        ],
+        "battle": 2,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 24,
+            "level": 7,
+            "status": 0
+          }
+        ],
+        "antidotes": 1
+      },
+      "run_hooks": {
+        "run_attempt_battle2": 7,
+        "trainer_run_rejected_battle2": 7
+      },
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 29014,
+          "step": 6783,
+          "position": [
+            26,
+            33,
+            51
+          ],
+          "cause": "trainer_battle",
+          "battle": 2,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 2,
+            "max_hp": 24,
+            "level": 7,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 24,
+            "level": 7,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [
+        {
+          "frame": 8233,
+          "identity": [
+            25110,
+            34706
+          ]
+        }
+      ],
+      "prediction": {
+        "actions": 1209,
+        "battle_confusion": [
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            68,
+            100,
+            1041
+          ]
+        ],
+        "poison_confusion": [
+          [
+            652,
+            35
+          ],
+          [
+            425,
+            97
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1209
+          ]
+        ],
+        "hp_mae": 0.25488322641703587,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "poison-episode5-step11615",
+      "kind": "poison",
+      "rep": 0,
+      "seed": 6250,
+      "success": false,
+      "actions": 184,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          29,
+          19,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 30,
+            "level": 10,
+            "status": 0
+          }
+        ],
+        "antidotes": 1
+      },
+      "run_hooks": {},
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 4410,
+          "step": 11799,
+          "position": [
+            29,
+            19,
+            51
+          ],
+          "cause": "overworld_poison",
+          "battle": 0,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 1,
+            "max_hp": 30,
+            "level": 10,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 30,
+            "level": 10,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [],
+      "prediction": {
+        "actions": 184,
+        "battle_confusion": [
+          [
+            183,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            184,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            184
+          ]
+        ],
+        "hp_mae": 0.6668088660251511,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "poison-episode5-step11615",
+      "kind": "poison",
+      "rep": 1,
+      "seed": 6251,
+      "success": false,
+      "actions": 100,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          26,
+          14,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 30,
+            "level": 10,
+            "status": 0
+          }
+        ],
+        "antidotes": 1
+      },
+      "run_hooks": {},
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 2395,
+          "step": 11715,
+          "position": [
+            26,
+            14,
+            51
+          ],
+          "cause": "overworld_poison",
+          "battle": 0,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 1,
+            "max_hp": 30,
+            "level": 10,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 30,
+            "level": 10,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [],
+      "prediction": {
+        "actions": 100,
+        "battle_confusion": [
+          [
+            88,
+            6,
+            6
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            100,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            100
+          ]
+        ],
+        "hp_mae": 0.6240256859362125,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    },
+    {
+      "case": "poison-episode5-step11615",
+      "kind": "poison",
+      "rep": 2,
+      "seed": 6252,
+      "success": false,
+      "actions": 87,
+      "end_reason": "wipe",
+      "final": {
+        "position": [
+          25,
+          9,
+          51
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 30,
+            "level": 10,
+            "status": 0
+          }
+        ],
+        "antidotes": 1
+      },
+      "run_hooks": {},
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 2083,
+          "step": 11702,
+          "position": [
+            25,
+            9,
+            51
+          ],
+          "cause": "overworld_poison",
+          "battle": 0,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 1,
+            "max_hp": 30,
+            "level": 10,
+            "status": 8
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 30,
+            "level": 10,
+            "status": 0
+          }
+        }
+      ],
+      "cures": [],
+      "prediction": {
+        "actions": 87,
+        "battle_confusion": [
+          [
+            86,
+            0,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            87,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            87
+          ]
+        ],
+        "hp_mae": 0.6398400603954134,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      }
+    }
+  ],
+  "complete": true,
+  "contract": "Identical naturally reached snapshots, original remaining horizon/rewards/rules, stochastic matched seeds, full recorded history for recurrent warmup. At most 2048 fresh actions. Trainer success needs a new forest trainer event flag; poison success needs a frame-matched antidote cure; wild success needs the game's successful RUN hook. Small development diagnostic, not full-route performance."
+}

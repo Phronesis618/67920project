@@ -1,5 +1,12 @@
 # Focused pilot: can learned state recognition improve combat and recovery?
 
+**Completed November 27 at 7:46 p.m. Pacific.** See the
+[completed comparison and failure analysis](completed.md). Auxiliary learning
+retained forest arrivals (6/6 versus control 0/6), but tied control on diagnostic
+trainer wins (3/6), did not solve poison recovery, and reached no Pewter/Brock
+milestone. All jobs succeeded and the final backup completed. The launch record
+below is historical.
+
 **Launched November 27 at 6:57 p.m. Pacific.** The immutable source is `528f5a7`.
 The auxiliary arm finished its 262,144 actions at 7:12 p.m.; its original-route
 evaluation was running at 7:20 p.m., with the control and parent comparisons still

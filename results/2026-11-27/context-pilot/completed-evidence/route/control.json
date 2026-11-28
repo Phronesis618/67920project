@@ -1,0 +1,2609 @@
+{
+  "source_run": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/control",
+  "training_commit": "528f5a7ecaddd0e71495b82ec7d8cdede3e5e078",
+  "checkpoint": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/control/final.zip",
+  "model_sha256": "650bc9a7ed79f777c797ea0b108b5941737d99060eaa66a7de82948d3c580b79",
+  "diagnostic_sha256": "84172bbe6edbda4cf87fb30a3f2983dab32e39a884db5d3ef770a4064586e64a",
+  "created_utc": "2026-11-28T03:29:55.360597+00:00",
+  "device": "cuda",
+  "seed": 6100,
+  "video_scope": "tail",
+  "video_episodes": null,
+  "config": {
+    "session_path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/route/control/emulator",
+    "gb_path": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/PokemonRed.gb",
+    "init_state": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/has_pokedex_nballs.state",
+    "headless": true,
+    "save_final_state": false,
+    "print_rewards": false,
+    "save_video": false,
+    "fast_video": true,
+    "action_freq": 24,
+    "max_steps": 16384,
+    "reward_scale": 0.5,
+    "explore_weight": 0.025,
+    "navigation_reward": true,
+    "navigation_gamma": 0.9995,
+    "navigation_graph_sha256": "95559cfc6d0cefac8d85fd82fc5bbdec86d8cc23b739907f2e67609570a8e02e",
+    "position_mode": "coherent-v1",
+    "map_headers_sha256": "ba9d062fc1a4cabea520e9f2592721133290a12c9091618151033cdccc1a3d1e",
+    "observation_mode": "pixels",
+    "include_explore_map": false,
+    "level_cap": 14,
+    "start_jitter_frames": 0,
+    "initial_used_regions": [
+      12
+    ],
+    "region_map": {},
+    "death_penalty": 0,
+    "violation_penalty": 0
+  },
+  "hooks": {
+    "run_attempt": [
+      19151,
+      "fa57d03d"
+    ],
+    "wild_run_failed": [
+      19271,
+      "21974b"
+    ],
+    "trainer_run_rejected": [
+      19276,
+      "219c4b"
+    ],
+    "run_succeeded": [
+      19337,
+      "21a14b"
+    ]
+  },
+  "records": [
+    {
+      "evaluation_seed": 6100,
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 243,
+        "max_map_progress": 2,
+        "episode_steps": 8309,
+        "episode_return": -9.418429897338978,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 352,
+        "closest_brock_distance": 343,
+        "path_reward": -2.625,
+        "path_reward_total": -13.209783203124175,
+        "position": [
+          9,
+          29,
+          12
+        ],
+        "raw_position": [
+          9,
+          29,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 1205
+      },
+      "forest_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "forest_trainers": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "frame_counts": {
+        "battle0": 172298,
+        "battle1": 27118
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 12,
+        "run_succeeded_battle1": 12
+      },
+      "faints": [],
+      "battles": [
+        {
+          "type": 1,
+          "start_frame": 81955,
+          "start_step": 3415,
+          "position": [
+            10,
+            33,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 82794,
+          "end_step": 3450
+        },
+        {
+          "type": 1,
+          "start_frame": 83667,
+          "start_step": 3487,
+          "position": [
+            6,
+            30,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 87570,
+          "end_step": 3649
+        },
+        {
+          "type": 1,
+          "start_frame": 87746,
+          "start_step": 3657,
+          "position": [
+            6,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 88482,
+          "end_step": 3687
+        },
+        {
+          "type": 1,
+          "start_frame": 99809,
+          "start_step": 4159,
+          "position": [
+            7,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 100962,
+          "end_step": 4207
+        },
+        {
+          "type": 1,
+          "start_frame": 116975,
+          "start_step": 4874,
+          "position": [
+            12,
+            25,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {},
+          "end_frame": 121996,
+          "end_step": 5084
+        },
+        {
+          "type": 1,
+          "start_frame": 149177,
+          "start_step": 6216,
+          "position": [
+            5,
+            30,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 150114,
+          "end_step": 6255
+        },
+        {
+          "type": 1,
+          "start_frame": 150740,
+          "start_step": 6281,
+          "position": [
+            7,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 154146,
+          "end_step": 6423
+        },
+        {
+          "type": 1,
+          "start_frame": 168668,
+          "start_step": 7028,
+          "position": [
+            8,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 169458,
+          "end_step": 7061
+        },
+        {
+          "type": 1,
+          "start_frame": 169628,
+          "start_step": 7068,
+          "position": [
+            6,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 171114,
+          "end_step": 7130
+        },
+        {
+          "type": 1,
+          "start_frame": 175195,
+          "start_step": 7300,
+          "position": [
+            6,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 176058,
+          "end_step": 7336
+        },
+        {
+          "type": 1,
+          "start_frame": 179489,
+          "start_step": 7479,
+          "position": [
+            7,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 180234,
+          "end_step": 7510
+        },
+        {
+          "type": 1,
+          "start_frame": 183794,
+          "start_step": 7659,
+          "position": [
+            6,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 184674,
+          "end_step": 7695
+        },
+        {
+          "type": 1,
+          "start_frame": 192314,
+          "start_step": 8014,
+          "position": [
+            5,
+            30,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 193146,
+          "end_step": 8048
+        },
+        {
+          "type": 1,
+          "start_frame": 193890,
+          "start_step": 8079,
+          "position": [
+            9,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 13,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {}
+        }
+      ],
+      "final": {
+        "position": [
+          9,
+          29,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 13,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          },
+          {
+            "identity": [
+              0,
+              0
+            ],
+            "species": 0,
+            "hp": 0,
+            "max_hp": 0,
+            "level": 0,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "forest_trainers_beaten": 0,
+      "context_prediction": {
+        "actions": 8309,
+        "battle_confusion": [
+          [
+            6993,
+            169,
+            19
+          ],
+          [
+            183,
+            931,
+            14
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            8309,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            8309
+          ]
+        ],
+        "hp_mae": 0.19366720064493534,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      },
+      "antidote_cures": [],
+      "original_evaluation_match": null
+    },
+    {
+      "evaluation_seed": 6101,
+      "info": {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 87,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -20.68670898438083,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 371,
+        "closest_brock_distance": 364,
+        "path_reward": -0.001275390625000039,
+        "path_reward_total": -20.795458984380954,
+        "position": [
+          2,
+          3,
+          0
+        ],
+        "raw_position": [
+          2,
+          3,
+          0
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 183
+      },
+      "forest_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "forest_trainers": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "frame_counts": {
+        "battle0": 393216
+      },
+      "run_hooks": {},
+      "faints": [],
+      "battles": [],
+      "final": {
+        "position": [
+          2,
+          3,
+          0
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "forest_trainers_beaten": 0,
+      "context_prediction": {
+        "actions": 16384,
+        "battle_confusion": [
+          [
+            16315,
+            65,
+            4
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            16384,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            16384
+          ]
+        ],
+        "hp_mae": 0.08560630359170318,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      },
+      "antidote_cures": [],
+      "original_evaluation_match": null
+    },
+    {
+      "evaluation_seed": 6102,
+      "info": {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 120,
+        "max_map_progress": 2,
+        "episode_steps": 16384,
+        "episode_return": -18.660517578128875,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 345,
+        "closest_brock_distance": 343,
+        "path_reward": -0.0013261718749997264,
+        "path_reward_total": -20.81051757812895,
+        "position": [
+          10,
+          25,
+          12
+        ],
+        "raw_position": [
+          10,
+          25,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 331
+      },
+      "forest_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "forest_trainers": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "frame_counts": {
+        "battle0": 388165,
+        "battle1": 5051
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 5,
+        "run_succeeded_battle1": 5
+      },
+      "faints": [],
+      "battles": [
+        {
+          "type": 1,
+          "start_frame": 350107,
+          "start_step": 14588,
+          "position": [
+            10,
+            32,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 350850,
+          "end_step": 14619
+        },
+        {
+          "type": 1,
+          "start_frame": 351147,
+          "start_step": 14632,
+          "position": [
+            11,
+            32,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 352218,
+          "end_step": 14676
+        },
+        {
+          "type": 1,
+          "start_frame": 353129,
+          "start_step": 14714,
+          "position": [
+            8,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 354594,
+          "end_step": 14775
+        },
+        {
+          "type": 1,
+          "start_frame": 360671,
+          "start_step": 15028,
+          "position": [
+            8,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 361530,
+          "end_step": 15064
+        },
+        {
+          "type": 1,
+          "start_frame": 363137,
+          "start_step": 15131,
+          "position": [
+            7,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 364050,
+          "end_step": 15169
+        }
+      ],
+      "final": {
+        "position": [
+          10,
+          25,
+          12
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "forest_trainers_beaten": 0,
+      "context_prediction": {
+        "actions": 16384,
+        "battle_confusion": [
+          [
+            16124,
+            36,
+            14
+          ],
+          [
+            29,
+            181,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            16384,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            16384
+          ]
+        ],
+        "hp_mae": 0.08854164935473818,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      },
+      "antidote_cures": [],
+      "original_evaluation_match": null
+    },
+    {
+      "evaluation_seed": 6103,
+      "info": {
+        "is_success": false,
+        "end_reason": "rule_violation",
+        "violation_reasons": [
+          "illegal_catch"
+        ],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 80,
+        "max_map_progress": 2,
+        "episode_steps": 5865,
+        "episode_return": -9.886115234375804,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 355,
+        "closest_brock_distance": 348,
+        "path_reward": -2.61328125,
+        "path_reward_total": -9.986115234375823,
+        "position": [
+          6,
+          31,
+          12
+        ],
+        "raw_position": [
+          6,
+          31,
+          12
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 135
+      },
+      "forest_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "forest_trainers": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "frame_counts": {
+        "battle0": 133952,
+        "battle1": 6808
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 3,
+        "run_succeeded_battle1": 3
+      },
+      "faints": [],
+      "battles": [
+        {
+          "type": 1,
+          "start_frame": 130991,
+          "start_step": 5458,
+          "position": [
+            11,
+            34,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 131874,
+          "end_step": 5495
+        },
+        {
+          "type": 1,
+          "start_frame": 132715,
+          "start_step": 5530,
+          "position": [
+            10,
+            32,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 134154,
+          "end_step": 5590
+        },
+        {
+          "type": 1,
+          "start_frame": 134899,
+          "start_step": 5621,
+          "position": [
+            9,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 137562,
+          "end_step": 5732
+        },
+        {
+          "type": 1,
+          "start_frame": 138938,
+          "start_step": 5790,
+          "position": [
+            6,
+            31,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {}
+        }
+      ],
+      "final": {
+        "position": [
+          6,
+          31,
+          12
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          },
+          {
+            "identity": [
+              0,
+              0
+            ],
+            "species": 0,
+            "hp": 0,
+            "max_hp": 0,
+            "level": 0,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "forest_trainers_beaten": 0,
+      "context_prediction": {
+        "actions": 5865,
+        "battle_confusion": [
+          [
+            5559,
+            23,
+            0
+          ],
+          [
+            75,
+            207,
+            1
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            5865,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            5865
+          ]
+        ],
+        "hp_mae": 0.09397294185452246,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      },
+      "antidote_cures": [],
+      "original_evaluation_match": null
+    },
+    {
+      "evaluation_seed": 6104,
+      "info": {
+        "is_success": false,
+        "end_reason": "time_limit",
+        "violation_reasons": [],
+        "deaths": 0,
+        "regions_used": 1,
+        "badges": 0,
+        "map_coverage": 94,
+        "max_map_progress": 1,
+        "episode_steps": 16384,
+        "episode_return": -20.711763671880966,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 371,
+        "closest_brock_distance": 364,
+        "path_reward": -0.001275390625000039,
+        "path_reward_total": -20.804263671881056,
+        "position": [
+          1,
+          2,
+          0
+        ],
+        "raw_position": [
+          1,
+          2,
+          0
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 169
+      },
+      "forest_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "forest_trainers": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "frame_counts": {
+        "battle0": 393216
+      },
+      "run_hooks": {},
+      "faints": [],
+      "battles": [],
+      "final": {
+        "position": [
+          1,
+          2,
+          0
+        ],
+        "battle": 0,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 22,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "forest_trainers_beaten": 0,
+      "context_prediction": {
+        "actions": 16384,
+        "battle_confusion": [
+          [
+            16306,
+            59,
+            19
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            16384,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            16384
+          ]
+        ],
+        "hp_mae": 0.08080617804989743,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      },
+      "antidote_cures": [],
+      "original_evaluation_match": null
+    },
+    {
+      "evaluation_seed": 6105,
+      "info": {
+        "is_success": false,
+        "end_reason": "wipe",
+        "violation_reasons": [],
+        "deaths": 1,
+        "regions_used": 2,
+        "badges": 0,
+        "map_coverage": 497,
+        "max_map_progress": 4,
+        "episode_steps": 15562,
+        "episode_return": -21.224987684010905,
+        "milestones": {
+          "got_parcel": true,
+          "delivered_parcel": true,
+          "got_pokedex": true,
+          "beat_brock": false,
+          "reached_viridian_forest": false,
+          "reached_pewter": false
+        },
+        "navigation_goal": "brock",
+        "navigation_distance": 240,
+        "closest_brock_distance": 227,
+        "path_reward": -3.0625,
+        "path_reward_total": -23.939212890622358,
+        "position": [
+          4,
+          48,
+          13
+        ],
+        "raw_position": [
+          4,
+          48,
+          13
+        ],
+        "position_coherent": true,
+        "deferred_position_frames": 1283
+      },
+      "forest_arrival": null,
+      "forest_actions": 0,
+      "forest_wild_battles": 0,
+      "forest_trainers": 0,
+      "wild_battles_per_1000_forest_actions": null,
+      "frame_counts": {
+        "battle0": 300598,
+        "battle1": 72890
+      },
+      "run_hooks": {
+        "run_attempt_battle1": 41,
+        "run_succeeded_battle1": 37,
+        "wild_run_failed_battle1": 4
+      },
+      "faints": [
+        {
+          "kind": "faint",
+          "frame": 373483,
+          "step": 15562,
+          "position": [
+            4,
+            48,
+            13
+          ],
+          "cause": "wild_battle",
+          "battle": 1,
+          "before": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 2,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          },
+          "after": {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        }
+      ],
+      "battles": [
+        {
+          "type": 1,
+          "start_frame": 40059,
+          "start_step": 1670,
+          "position": [
+            9,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 40770,
+          "end_step": 1699
+        },
+        {
+          "type": 1,
+          "start_frame": 43919,
+          "start_step": 1830,
+          "position": [
+            6,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 22,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 49914,
+          "end_step": 2080
+        },
+        {
+          "type": 1,
+          "start_frame": 50753,
+          "start_step": 2115,
+          "position": [
+            8,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 17,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 51930,
+          "end_step": 2164
+        },
+        {
+          "type": 1,
+          "start_frame": 52099,
+          "start_step": 2171,
+          "position": [
+            7,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 17,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 55122,
+          "end_step": 2297
+        },
+        {
+          "type": 1,
+          "start_frame": 69665,
+          "start_step": 2903,
+          "position": [
+            12,
+            24,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 14,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 70626,
+          "end_step": 2943
+        },
+        {
+          "type": 1,
+          "start_frame": 82411,
+          "start_step": 3434,
+          "position": [
+            12,
+            24,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 14,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 83346,
+          "end_step": 3473
+        },
+        {
+          "type": 1,
+          "start_frame": 108356,
+          "start_step": 4515,
+          "position": [
+            6,
+            28,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 14,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 109314,
+          "end_step": 4555
+        },
+        {
+          "type": 1,
+          "start_frame": 109459,
+          "start_step": 4561,
+          "position": [
+            6,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 14,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 110250,
+          "end_step": 4594
+        },
+        {
+          "type": 1,
+          "start_frame": 110594,
+          "start_step": 4609,
+          "position": [
+            8,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 14,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 113346,
+          "end_step": 4723
+        },
+        {
+          "type": 1,
+          "start_frame": 114843,
+          "start_step": 4786,
+          "position": [
+            6,
+            29,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 12,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 115698,
+          "end_step": 4821
+        },
+        {
+          "type": 1,
+          "start_frame": 117116,
+          "start_step": 4880,
+          "position": [
+            4,
+            31,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 12,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 119490,
+          "end_step": 4979
+        },
+        {
+          "type": 1,
+          "start_frame": 148747,
+          "start_step": 6198,
+          "position": [
+            14,
+            14,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 10,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 149490,
+          "end_step": 6229
+        },
+        {
+          "type": 1,
+          "start_frame": 183522,
+          "start_step": 7647,
+          "position": [
+            15,
+            14,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 10,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 184386,
+          "end_step": 7683
+        },
+        {
+          "type": 1,
+          "start_frame": 184604,
+          "start_step": 7692,
+          "position": [
+            16,
+            13,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 10,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 188898,
+          "end_step": 7871
+        },
+        {
+          "type": 1,
+          "start_frame": 190412,
+          "start_step": 7934,
+          "position": [
+            15,
+            12,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 191442,
+          "end_step": 7977
+        },
+        {
+          "type": 1,
+          "start_frame": 238339,
+          "start_step": 9931,
+          "position": [
+            15,
+            15,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 239442,
+          "end_step": 9977
+        },
+        {
+          "type": 1,
+          "start_frame": 241315,
+          "start_step": 10055,
+          "position": [
+            16,
+            12,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 242346,
+          "end_step": 10098
+        },
+        {
+          "type": 1,
+          "start_frame": 242811,
+          "start_step": 10118,
+          "position": [
+            12,
+            9,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 245682,
+          "end_step": 10237
+        },
+        {
+          "type": 1,
+          "start_frame": 247899,
+          "start_step": 10330,
+          "position": [
+            11,
+            7,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 248756,
+          "end_step": 10365
+        },
+        {
+          "type": 1,
+          "start_frame": 249027,
+          "start_step": 10377,
+          "position": [
+            11,
+            6,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 250842,
+          "end_step": 10452
+        },
+        {
+          "type": 1,
+          "start_frame": 251227,
+          "start_step": 10468,
+          "position": [
+            11,
+            7,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 252044,
+          "end_step": 10502
+        },
+        {
+          "type": 1,
+          "start_frame": 252523,
+          "start_step": 10522,
+          "position": [
+            12,
+            6,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 256650,
+          "end_step": 10694
+        },
+        {
+          "type": 1,
+          "start_frame": 256891,
+          "start_step": 10704,
+          "position": [
+            12,
+            7,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 257898,
+          "end_step": 10746
+        },
+        {
+          "type": 1,
+          "start_frame": 258115,
+          "start_step": 10755,
+          "position": [
+            12,
+            6,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 259050,
+          "end_step": 10794
+        },
+        {
+          "type": 1,
+          "start_frame": 259843,
+          "start_step": 10827,
+          "position": [
+            15,
+            6,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 262218,
+          "end_step": 10926
+        },
+        {
+          "type": 1,
+          "start_frame": 266426,
+          "start_step": 11102,
+          "position": [
+            10,
+            9,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 267260,
+          "end_step": 11136
+        },
+        {
+          "type": 1,
+          "start_frame": 267932,
+          "start_step": 11164,
+          "position": [
+            13,
+            9,
+            12
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 269130,
+          "end_step": 11214
+        },
+        {
+          "type": 1,
+          "start_frame": 322947,
+          "start_step": 13457,
+          "position": [
+            5,
+            49,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 323828,
+          "end_step": 13493
+        },
+        {
+          "type": 1,
+          "start_frame": 324425,
+          "start_step": 13518,
+          "position": [
+            7,
+            49,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 326154,
+          "end_step": 13590
+        },
+        {
+          "type": 1,
+          "start_frame": 330819,
+          "start_step": 13785,
+          "position": [
+            6,
+            48,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 331818,
+          "end_step": 13826
+        },
+        {
+          "type": 1,
+          "start_frame": 339650,
+          "start_step": 14153,
+          "position": [
+            7,
+            48,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 340533,
+          "end_step": 14189
+        },
+        {
+          "type": 1,
+          "start_frame": 341210,
+          "start_step": 14218,
+          "position": [
+            8,
+            48,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 342162,
+          "end_step": 14257
+        },
+        {
+          "type": 1,
+          "start_frame": 342812,
+          "start_step": 14284,
+          "position": [
+            4,
+            49,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 343628,
+          "end_step": 14318
+        },
+        {
+          "type": 1,
+          "start_frame": 344441,
+          "start_step": 14352,
+          "position": [
+            4,
+            48,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 345330,
+          "end_step": 14389
+        },
+        {
+          "type": 1,
+          "start_frame": 345667,
+          "start_step": 14403,
+          "position": [
+            4,
+            49,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 346602,
+          "end_step": 14442
+        },
+        {
+          "type": 1,
+          "start_frame": 347259,
+          "start_step": 14470,
+          "position": [
+            7,
+            48,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 2,
+            "wild_run_failed": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 350418,
+          "end_step": 14601
+        },
+        {
+          "type": 1,
+          "start_frame": 354426,
+          "start_step": 14768,
+          "position": [
+            4,
+            49,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 1,
+            "run_succeeded": 1
+          },
+          "end_frame": 355602,
+          "end_step": 14817
+        },
+        {
+          "type": 1,
+          "start_frame": 359451,
+          "start_step": 14978,
+          "position": [
+            4,
+            48,
+            13
+          ],
+          "party_at_entry": [
+            {
+              "identity": [
+                25110,
+                34706
+              ],
+              "species": 177,
+              "hp": 8,
+              "max_hp": 22,
+              "level": 6,
+              "status": 0
+            }
+          ],
+          "run_hooks": {
+            "run_attempt": 3,
+            "wild_run_failed": 3
+          }
+        }
+      ],
+      "final": {
+        "position": [
+          4,
+          48,
+          13
+        ],
+        "battle": 1,
+        "party": [
+          {
+            "identity": [
+              25110,
+              34706
+            ],
+            "species": 177,
+            "hp": 0,
+            "max_hp": 22,
+            "level": 6,
+            "status": 0
+          }
+        ],
+        "antidotes": 2
+      },
+      "forest_trainers_beaten": 0,
+      "context_prediction": {
+        "actions": 15562,
+        "battle_confusion": [
+          [
+            12304,
+            201,
+            28
+          ],
+          [
+            484,
+            2132,
+            413
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "poison_confusion": [
+          [
+            15562,
+            0
+          ],
+          [
+            0,
+            0
+          ]
+        ],
+        "antidote_confusion": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            15562
+          ]
+        ],
+        "hp_mae": 0.3184553740332816,
+        "confusion_convention": "rows=true label, columns=predicted label; correlated action samples, not independent trials"
+      },
+      "antidote_cures": [],
+      "original_evaluation_match": null
+    }
+  ],
+  "notes": "Stochastic policy; seed once before the episode loop, as in evaluate_main. Frame-level observer only. Forest videos start on arrival, one frame/action at 10fps (about 4x game speed). Battle rate denominator includes battle and menu actions. End-state match is checked against original evaluation only for the final model with matching seeds; null means no reference. CPU/GPU replays can differ.",
+  "model_timesteps": 11796480,
+  "finished_utc": "2026-11-28T03:37:41.877625+00:00"
+}

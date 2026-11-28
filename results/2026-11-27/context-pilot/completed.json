@@ -1,0 +1,782 @@
+{
+  "arms": {
+    "parent": {
+      "cases": {
+        "wild": {
+          "trials": 6,
+          "successes": 6,
+          "trainer_run_rejections": 0,
+          "median_success_actions": 41.0,
+          "prediction": {
+            "battle_confusion": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "poison_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "battle_recall": [
+              null,
+              null,
+              null
+            ],
+            "poison_recall": [
+              null,
+              null
+            ],
+            "antidote_recall": [
+              null,
+              null
+            ],
+            "actions": 0,
+            "hp_mae": null
+          }
+        },
+        "trainer": {
+          "trials": 6,
+          "successes": 1,
+          "trainer_run_rejections": 92,
+          "median_success_actions": 2010.0,
+          "prediction": {
+            "battle_confusion": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "poison_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "battle_recall": [
+              null,
+              null,
+              null
+            ],
+            "poison_recall": [
+              null,
+              null
+            ],
+            "antidote_recall": [
+              null,
+              null
+            ],
+            "actions": 0,
+            "hp_mae": null
+          }
+        },
+        "poison": {
+          "trials": 6,
+          "successes": 0,
+          "trainer_run_rejections": 0,
+          "median_success_actions": null,
+          "prediction": {
+            "battle_confusion": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "poison_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "battle_recall": [
+              null,
+              null,
+              null
+            ],
+            "poison_recall": [
+              null,
+              null
+            ],
+            "antidote_recall": [
+              null,
+              null
+            ],
+            "actions": 0,
+            "hp_mae": null
+          }
+        }
+      },
+      "route": {
+        "counts": {
+          "episodes": 6,
+          "forest": 6,
+          "reached_pewter": 0,
+          "beat_brock": 0,
+          "trainer_wins": 2,
+          "antidote_cures": 1,
+          "trainer_entries": 4,
+          "trainer_frames": 239715,
+          "trainer_run_rejected_battle2": 66,
+          "run_attempt_battle1": 138,
+          "run_succeeded_battle1": 130,
+          "poison_faints": 1,
+          "poison_faints_with_antidotes": 1
+        },
+        "endings": {
+          "wipe": 5,
+          "time_limit": 1
+        },
+        "prediction": {
+          "battle_confusion": [
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "poison_confusion": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "antidote_confusion": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "battle_recall": [
+            null,
+            null,
+            null
+          ],
+          "poison_recall": [
+            null,
+            null
+          ],
+          "antidote_recall": [
+            null,
+            null
+          ],
+          "actions": 0,
+          "hp_mae": null
+        }
+      }
+    },
+    "control": {
+      "cases": {
+        "wild": {
+          "trials": 6,
+          "successes": 6,
+          "trainer_run_rejections": 0,
+          "median_success_actions": 37.5,
+          "prediction": {
+            "battle_confusion": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                42,
+                326,
+                1
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "poison_confusion": [
+              [
+                369,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                369
+              ]
+            ],
+            "battle_recall": [
+              null,
+              0.8834688346883469,
+              null
+            ],
+            "poison_recall": [
+              1.0,
+              null
+            ],
+            "antidote_recall": [
+              null,
+              1.0
+            ],
+            "actions": 369,
+            "hp_mae": 0.2770477061268437
+          }
+        },
+        "trainer": {
+          "trials": 6,
+          "successes": 3,
+          "trainer_run_rejections": 74,
+          "median_success_actions": 1271.0,
+          "prediction": {
+            "battle_confusion": [
+              [
+                0,
+                1,
+                2
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                1428,
+                2397,
+                5607
+              ]
+            ],
+            "poison_confusion": [
+              [
+                4015,
+                0
+              ],
+              [
+                5420,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                9435
+              ]
+            ],
+            "battle_recall": [
+              0.0,
+              null,
+              0.5944656488549618
+            ],
+            "poison_recall": [
+              1.0,
+              0.0
+            ],
+            "antidote_recall": [
+              null,
+              1.0
+            ],
+            "actions": 9435,
+            "hp_mae": 0.32386720145291986
+          }
+        },
+        "poison": {
+          "trials": 6,
+          "successes": 0,
+          "trainer_run_rejections": 0,
+          "median_success_actions": null,
+          "prediction": {
+            "battle_confusion": [
+              [
+                474,
+                12,
+                12
+              ],
+              [
+                37,
+                72,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "poison_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                607,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                607
+              ]
+            ],
+            "battle_recall": [
+              0.9518072289156626,
+              0.6605504587155964,
+              null
+            ],
+            "poison_recall": [
+              null,
+              0.0
+            ],
+            "antidote_recall": [
+              null,
+              1.0
+            ],
+            "actions": 607,
+            "hp_mae": 0.652713426206218
+          }
+        }
+      },
+      "route": {
+        "counts": {
+          "episodes": 6,
+          "forest": 0,
+          "reached_pewter": 0,
+          "beat_brock": 0,
+          "trainer_wins": 0,
+          "antidote_cures": 0,
+          "trainer_entries": 0,
+          "trainer_frames": 0,
+          "trainer_run_rejected_battle2": 0,
+          "run_attempt_battle1": 61,
+          "run_succeeded_battle1": 57,
+          "poison_faints": 0
+        },
+        "endings": {
+          "rule_violation": 2,
+          "time_limit": 3,
+          "wipe": 1
+        },
+        "prediction": {
+          "battle_confusion": [
+            [
+              73601,
+              553,
+              84
+            ],
+            [
+              771,
+              3451,
+              428
+            ],
+            [
+              0,
+              0,
+              0
+            ]
+          ],
+          "poison_confusion": [
+            [
+              78888,
+              0
+            ],
+            [
+              0,
+              0
+            ]
+          ],
+          "antidote_confusion": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              78888
+            ]
+          ],
+          "battle_recall": [
+            0.9914194886715698,
+            0.7421505376344086,
+            null
+          ],
+          "poison_recall": [
+            1.0,
+            null
+          ],
+          "antidote_recall": [
+            null,
+            1.0
+          ],
+          "actions": 78888,
+          "hp_mae": 0.14315615920146899
+        }
+      }
+    },
+    "auxiliary": {
+      "cases": {
+        "wild": {
+          "trials": 6,
+          "successes": 6,
+          "trainer_run_rejections": 0,
+          "median_success_actions": 73.5,
+          "prediction": {
+            "battle_confusion": [
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                56,
+                457,
+                18
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "poison_confusion": [
+              [
+                531,
+                0
+              ],
+              [
+                0,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                531
+              ]
+            ],
+            "battle_recall": [
+              null,
+              0.8606403013182674,
+              null
+            ],
+            "poison_recall": [
+              1.0,
+              null
+            ],
+            "antidote_recall": [
+              null,
+              1.0
+            ],
+            "actions": 531,
+            "hp_mae": 0.16352316439713013
+          }
+        },
+        "trainer": {
+          "trials": 6,
+          "successes": 3,
+          "trainer_run_rejections": 49,
+          "median_success_actions": 1526.0,
+          "prediction": {
+            "battle_confusion": [
+              [
+                0,
+                0,
+                3
+              ],
+              [
+                0,
+                0,
+                0
+              ],
+              [
+                338,
+                599,
+                6631
+              ]
+            ],
+            "poison_confusion": [
+              [
+                4261,
+                321
+              ],
+              [
+                2542,
+                447
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                7571
+              ]
+            ],
+            "battle_recall": [
+              0.0,
+              null,
+              0.8761892177589852
+            ],
+            "poison_recall": [
+              0.9299432562199913,
+              0.14954834392773503
+            ],
+            "antidote_recall": [
+              null,
+              1.0
+            ],
+            "actions": 7571,
+            "hp_mae": 0.21536103035236598
+          }
+        },
+        "poison": {
+          "trials": 6,
+          "successes": 0,
+          "trainer_run_rejections": 0,
+          "median_success_actions": null,
+          "prediction": {
+            "battle_confusion": [
+              [
+                451,
+                6,
+                12
+              ],
+              [
+                3,
+                36,
+                0
+              ],
+              [
+                0,
+                0,
+                0
+              ]
+            ],
+            "poison_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                508,
+                0
+              ]
+            ],
+            "antidote_confusion": [
+              [
+                0,
+                0
+              ],
+              [
+                0,
+                508
+              ]
+            ],
+            "battle_recall": [
+              0.9616204690831557,
+              0.9230769230769231,
+              null
+            ],
+            "poison_recall": [
+              null,
+              0.0
+            ],
+            "antidote_recall": [
+              null,
+              1.0
+            ],
+            "actions": 508,
+            "hp_mae": 0.6620828968685443
+          }
+        }
+      },
+      "route": {
+        "counts": {
+          "episodes": 6,
+          "forest": 6,
+          "reached_pewter": 0,
+          "beat_brock": 0,
+          "trainer_wins": 2,
+          "antidote_cures": 1,
+          "trainer_entries": 7,
+          "trainer_frames": 125348,
+          "trainer_run_rejected_battle2": 28,
+          "run_attempt_battle1": 70,
+          "run_succeeded_battle1": 67,
+          "poison_faints": 0
+        },
+        "endings": {
+          "wipe": 5,
+          "time_limit": 1
+        },
+        "prediction": {
+          "battle_confusion": [
+            [
+              50224,
+              308,
+              53
+            ],
+            [
+              385,
+              3512,
+              681
+            ],
+            [
+              208,
+              534,
+              4480
+            ]
+          ],
+          "poison_confusion": [
+            [
+              57651,
+              184
+            ],
+            [
+              2321,
+              229
+            ]
+          ],
+          "antidote_confusion": [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              60385
+            ]
+          ],
+          "battle_recall": [
+            0.9928634970841158,
+            0.7671472258628222,
+            0.8579088471849866
+          ],
+          "poison_recall": [
+            0.9968185354888908,
+            0.08980392156862745
+          ],
+          "antidote_recall": [
+            null,
+            1.0
+          ],
+          "actions": 60385,
+          "hp_mae": 0.15212653086596228
+        }
+      }
+    }
+  },
+  "missing": [],
+  "interpretation": "Pilot only. Prediction accuracy is a mechanism check, not task success. Compare verified trainer wins and antidote cures against matched control, retain wild escape and original-route forest/Pewter/Brock progress. Two natural cases per context with repeated stochastic branches are not six independent states; one selected training seed is not a replicated result. No automatic expansion."
+}
