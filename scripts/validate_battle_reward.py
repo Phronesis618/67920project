@@ -15,7 +15,13 @@ import torch
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "project_work/v2"))
-from battle_training import BattleReplay, BattleReward, snapshot_config_sha
+from battle_training import (
+    PRESET_PENALTIES,
+    PRESETS,
+    BattleReplay,
+    BattleReward,
+    snapshot_config_sha,
+)
 from experiment import ALGORITHMS
 from red_gym_env_v2_nuzlocke import RedGymEnv
 
@@ -28,6 +34,7 @@ def main(argv=None):
     p.add_argument("--trainer-share", type=float, default=0.5)
     p.add_argument("--max-battle-actions", type=int, default=512)
     p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--reward-preset", choices=sorted(PRESETS), default="dense")
     args = p.parse_args(argv)
     torch.set_num_threads(1)
     parent = json.loads((args.parent / "manifest.json").read_text())
@@ -48,7 +55,9 @@ def main(argv=None):
             trainer_share=args.trainer_share,
             max_battle_actions=args.max_battle_actions,
             config_sha=sha,
+            timeout_penalty=PRESET_PENALTIES[args.reward_preset]["battle_timeout_penalty"],
         ),
+        PRESETS[args.reward_preset],
         gamma=float(config["navigation_gamma"]),
         rom=args.rom,
     )

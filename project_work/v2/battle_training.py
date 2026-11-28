@@ -94,10 +94,43 @@ class BattleRewardWeights:
     trainer_run_rejected: float = 0.05  # per rejected RUN in a trainer battle
     overtime_after: int = 512  # actions within one battle before overtime applies
     overtime: float = 0.001  # per battle action beyond overtime_after
+    win_hp_scaled: float = 0.0  # per win, times party HP fraction at battle exit
+    loss: float = 0.0  # when the party wipes during a battle
 
     def __post_init__(self):
         if any(v < 0 for v in asdict(self).values()):
             raise ValueError("Battle reward weights must be nonnegative")
+
+
+# "outcome" rewards only how a battle ends: a win is worth up to 10, scaled by the
+# HP left; fleeing or catching is 0; a wipe in battle is -10. No shaping terms.
+_OFF = dict.fromkeys(
+    (
+        "trainer_damage",
+        "trainer_ko",
+        "trainer_win",
+        "wild_damage",
+        "wild_ko",
+        "wild_win",
+        "level",
+        "hp_potential",
+        "trainer_run_rejected",
+        "overtime",
+    ),
+    0.0,
+)
+PRESETS = {
+    "dense": BattleRewardWeights(),
+    "outcome": BattleRewardWeights(**_OFF, win_hp_scaled=10.0, loss=10.0),
+}
+
+# Dense keeps the earlier death/violation penalties. Outcome already charges a wipe in
+# battle; a battle stalled to the replay cap counts as a loss, because trainer battles
+# cannot be fled and a zero-cost stall would beat a risky fight.
+PRESET_PENALTIES = {
+    "dense": {"battle_timeout_penalty": 1.0, "death_penalty": 2.0, "violation_penalty": 2.0},
+    "outcome": {"battle_timeout_penalty": 10.0, "death_penalty": 0.0, "violation_penalty": 0.0},
+}
 
 
 class BattleReward(gym.Wrapper):
@@ -151,6 +184,7 @@ class BattleReward(gym.Wrapper):
         self.levels = {m.identity: m.level for m in base.read_party_mons()}
         self.phi = self.weights.hp_potential * base.read_hp_fraction()
         self.pending_rejected = 0
+        self.lost = False
         self.totals = Counter()
 
     def reset(self, **kwargs):
@@ -203,8 +237,14 @@ class BattleReward(gym.Wrapper):
             self.totals[f"{kind}_battles"] += 1
             if won:
                 terms[f"{kind}_win"] += scale * getattr(w, f"{kind}_win")
+                terms["win_hp"] += scale * w.win_hp_scaled * base.read_hp_fraction()
                 self.totals[f"{kind}_wins"] += 1
             self.enemy = None
+        if (previous or now) and base.tracker.wiped and not self.lost:
+            # A wipe ends the episode, often while the battle flag is still set.
+            terms["loss"] -= w.loss
+            self.totals[f"{kind}_losses"] += 1
+            self.lost = True
 
         cap = base.level_cap if base.level_cap is not None else 100
         for mon in base.read_party_mons():

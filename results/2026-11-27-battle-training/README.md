@@ -56,7 +56,7 @@ a copy; rebuild it on Lambda with the same command before a campaign.
 
 ## Validation
 
-- 94 tests pass (12 new). Lint clean on the new files.
+- 95 tests pass (13 new). Lint clean on the new files.
 - Real game, frozen parents, 16 bank battles each, 512-action cap
   ([PPO](validation-ppo-parent.json), [LSTM](validation-lstm-parent.json)): hooks fired
   (16 and 7 rejected trainer RUNs), terms matched visible play (a trainer win ≈ +4.3
@@ -72,6 +72,33 @@ step count, so with the smoke horizon every replay episode ended after one actio
 (covered by a new test); and loading Lambda (Python 3.11) checkpoints on Python 3.12
 crashed with SIGTRAP inside the pickled `clip_range` schedule, so the experiment now
 rebuilds schedules from plain values.
+
+## Conservative `outcome` preset
+
+`--reward-preset outcome` replaces every dense battle term with the battle result only:
+
+| Battle ends in | Reward |
+|---|---:|
+| Win (enemy fainted, party alive) | +10 × party HP fraction at exit |
+| Flee or catch | 0 |
+| Wipe during the battle | −10 |
+| Replay battle reaching the 1,024-action cap | −10 |
+
+The last row is an addition beyond "fleeing 0, losing −10". Trainer battles cannot be
+fled, so without it a stall to the cap would cost almost nothing while a risky fight
+risks −10, which recreates the stalling incentive. `--battle-timeout-penalty` overrides
+it. Death and violation penalties default to 0 (the parents' values): a battle wipe
+is already charged, and a walking-poison faint or illegal catch earns nothing extra.
+Route workers stalling in a trainer battle until the episode limit get no penalty
+from this preset. Wild wins still switch off at the level cap.
+
+Same 16 real bank battles, outcome preset
+([PPO](validation-outcome-ppo-parent.json), [LSTM](validation-outcome-lstm-parent.json)):
+trainer wins scored +2.3, +4.3, +2.3 (PPO) and +5.0 (LSTM), since the parents finish
+with 23–50% HP; wipes −10 and capped stalls −10 on top of base shaping. At these win
+rates fighting a trainer is worth about −5 in expectation, the same as stalling, so
+the policy has to win more, or more healthily, before fighting pays. Smoke training
+for both parents completed ([smoke.json](smoke.json), `outcome-*`).
 
 ## Open before launching
 

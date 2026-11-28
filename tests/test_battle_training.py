@@ -6,6 +6,7 @@ from battle_training import (
     ENEMY_HP,
     ENEMY_MAX_HP,
     ENEMY_SPECIES,
+    PRESETS,
     BattleReplay,
     BattleReward,
     BattleRewardWeights,
@@ -189,6 +190,50 @@ def test_rejected_trainer_run_and_overtime_penalties(fake_pyboy, config):
         env.unwrapped.pyboy.memory[0xD057] = 1
         env._hook("trainer_run_rejected")  # only counted in trainer battles
         assert env.pending_rejected == 0
+    finally:
+        env.close()
+
+
+def test_outcome_preset_win_scaled_by_hp_flee_zero_loss_minus_ten(fake_pyboy, config):
+    env = BattleReward(RedGymEnv(dict(config, max_steps=8)), PRESETS["outcome"], gamma=1.0)
+    try:
+        env.reset(seed=0)
+        terms = script(
+            env,
+            [
+                lambda p: (battle(p, 2), enemy(p, 5, 20)),
+                lambda p: (enemy(p, 5, 0), p.set_mon(hp=5)),  # damage/KO not rewarded
+                lambda p: battle(p, 0),
+            ],
+        )
+        assert terms == [{}, {}, {"win_hp": pytest.approx(2.5)}]  # 10 x 5/20 HP left
+
+        env.reset(seed=0)
+        terms = script(
+            env,
+            [
+                lambda p: (p.set_mon(level=6), battle(p, 1), enemy(p, 7, 20)),
+                lambda p: enemy(p, 7, 4),
+                lambda p: battle(p, 0),  # fled
+            ],
+        )
+        assert terms == [{}, {}, {}]
+
+        env.reset(seed=0)
+        env.unwrapped.pyboy.transitions = {
+            24: lambda p: (battle(p, 2), enemy(p, 5, 20)),
+            48: lambda p: p.set_mon(hp=0),
+        }
+        assert env.step(4)[4]["battle_reward"] == {}
+        _, _, terminated, _, info = env.step(4)
+        assert terminated and info["end_reason"] == "wipe"
+        assert info["battle_reward"] == {"loss": -10.0}
+        assert env.totals["trainer_losses"] == 1
+
+        env.reset(seed=0)  # fainting outside battle (walking poison) is not a battle loss
+        env.unwrapped.pyboy.transitions = {24: lambda p: p.set_mon(hp=0)}
+        _, _, terminated, _, info = env.step(4)
+        assert terminated and info["battle_reward"] == {}
     finally:
         env.close()
 
