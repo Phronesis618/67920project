@@ -5,7 +5,8 @@ Three models see the same frozen policy features and predict the same RAM labels
 - ``input``: a linear head on the current features only (no memory) - the control;
 - ``parent_frozen``: the LSTM parent's actor LSTM, frozen, plus a trained linear head -
   what the parent's memory already holds (a linear probe);
-- ``memory``: an LSTM (initialised from the parent's actor LSTM) plus head, both trained.
+- ``memory``: an LSTM (initialised from the parent's actor LSTM, or randomly with
+  ``--init random``) plus head, both trained.
 
 Episodes are split into train, validation and test sets by episode, stratified by how
 they ended, so illegal-catch episodes appear in each. Each model keeps the epoch with
@@ -13,6 +14,9 @@ the lowest validation loss (the LSTM can memorise its training episodes). Traini
 time: each episode is cut into ``--chunk``-action pieces with the LSTM state carried
 (detached) from one piece to the next. A label that ``memory`` predicts on held-out
 episodes clearly better than ``input`` is held in memory, not read off the screen.
+Inserted menu-check actions (``peek.npy``, see build_memory_dataset.py) are trained on
+but never scored: scores cover ordinary play only, so a count shown in a menu counts
+only if the memory carries it afterwards.
 """
 
 import argparse
@@ -44,6 +48,11 @@ def load_dataset(directory):
                 "labels": np.load(path / "labels.npy", mmap_mode="r"),
                 "mask": np.load(path / "mask.npy", mmap_mode="r"),
                 "battle": np.load(path / "battle.npy"),
+                "peek": (
+                    np.load(path / "peek.npy")
+                    if (path / "peek.npy").exists()
+                    else np.zeros(len(np.load(path / "battle.npy")), bool)
+                ),
             }
         )
     if not episodes:
@@ -167,7 +176,7 @@ def score(kind, y, prediction):
 
 
 def evaluate(model, episodes, args):
-    predictions, labels, masks, battles, first_battle = [], [], [], [], []
+    predictions, labels, masks, battles, first_battle, played = [], [], [], [], [], []
     with th.no_grad():
         for i in range(0, len(episodes), args.batch_episodes):
             batch = episodes[i : i + args.batch_episodes]
@@ -179,10 +188,12 @@ def evaluate(model, episodes, args):
                 masks.append(np.asarray(episode["mask"]) > 0)
                 battle = episode["battle"]
                 battles.append(battle)
+                played.append(~episode["peek"])
                 entry = (battle == WILD) & np.concatenate([[True], battle[:-1] != WILD])
                 first_battle.append(entry)
     prediction, label, mask = map(np.concatenate, (predictions, labels, masks))
     battle, entry = np.concatenate(battles), np.concatenate(first_battle)
+    mask = mask & np.concatenate(played)[:, None]  # score ordinary play, not menu checks
     scores = {}
     for i, name in enumerate(NAMES):
         keep = mask[:, i]
@@ -208,6 +219,7 @@ def main(argv=None):
     p.add_argument("--test-fraction", type=float, default=0.2)
     p.add_argument("--seed", type=int, default=0)
     p.add_argument("--models", nargs="+", default=["input", "parent_frozen", "memory"])
+    p.add_argument("--init", choices=("parent", "random"), default="parent", help="memory model")
     args = p.parse_args(argv)
     th.manual_seed(args.seed)
     th.set_num_threads(max(1, th.get_num_threads()))
@@ -225,6 +237,7 @@ def main(argv=None):
         "test_episodes": [e["name"] for e in test_set],
         "train_actions": int(sum(len(e["labels"]) for e in train_set)),
         "test_actions": int(sum(len(e["labels"]) for e in test_set)),
+        "peek_actions": int(sum(e["peek"].sum() for e in episodes)),
         "arguments": {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
         "metric": "balanced accuracy (binary, chance 0.5) / R^2 (regression, 0 = mean)",
         "models": {},
@@ -234,7 +247,7 @@ def main(argv=None):
     results["positive_weights"] = dict(zip(NAMES, pos_weight.tolist()))
     for name in args.models:
         model = MemoryModel(feature_dim, recurrent=name != "input", mean=mean, std=std)
-        if name != "input":
+        if name == "parent_frozen" or (name == "memory" and args.init == "parent"):
             model.load_policy_lstm(parent.policy.lstm_actor)
         if name == "parent_frozen":
             model.lstm.requires_grad_(False)

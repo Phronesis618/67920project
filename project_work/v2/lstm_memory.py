@@ -12,6 +12,7 @@ import numpy as np
 import torch as th
 from memory_addresses import BATTLE_TYPE_ADDRESS, BOX_COUNT_ADDRESS, PARTY_SIZE_ADDRESS
 
+BUTTONS = ("down", "left", "right", "up", "A", "B", "start")  # the env's action order
 ENEMY_HP, ENEMY_MAX_HP = 0xCFE6, 0xCFF4  # wEnemyMon HP and max HP (pret/pokered)
 WILD, TRAINER = 1, 2
 POKE_BALL, ANTIDOTE = 0x04, 0x0B
@@ -133,3 +134,49 @@ def policy_features(policy, observations):
     with th.no_grad():
         tensor, _ = policy.obs_to_tensor(batch)
         return policy.extract_features(tensor).cpu().numpy()
+
+
+# Start-menu checks. Checked on the real game: the background tile at row 0, column 10
+# (wTileMap 0xC3A0) is the start menu's border while it is open and 0x80 on the party
+# screen; wCurrentMenuItem 0xCC26 is the start-menu cursor (POKeDEX 0, POKeMON 1, ITEM 2).
+MENU_CORNER, START_MENU_TILE, PARTY_SCREEN_TILE = 0xC3A0 + 10, 0x79, 0x80
+MENU_CURSOR, JOY_IGNORE = 0xCC26, 0xCD6B
+PEEK_TARGETS = {"party": 1, "bag": 2}
+
+
+def can_peek(env):
+    """Overworld with input accepted: the start menu can open."""
+    return env.read_m(BATTLE_TYPE_ADDRESS) == 0 and env.read_m(JOY_IGNORE) == 0
+
+
+def menu_peek(env, kind, last_wild_step):
+    """Open the start menu, look at the bag or the party, close it.
+
+    Runs in ``env`` from its current state and returns [(observation, labels, mask)] for
+    each action, or None if the menu did not behave as expected (the caller discards it).
+    Looking at a menu changes no item, HP or flag, so labels stay true afterwards.
+    """
+    steps = []
+
+    def act(button):
+        obs, _, terminated, truncated, _ = env.step(BUTTONS.index(button))
+        steps.append((obs, *read_labels(env, last_wild_step)))
+        return terminated or truncated
+
+    if act("start") or env.read_m(MENU_CORNER) != START_MENU_TILE:
+        return None
+    target = PEEK_TARGETS[kind]
+    for _ in range(8):
+        cursor = env.read_m(MENU_CURSOR)
+        if cursor == target:
+            break
+        if act("down" if cursor < target else "up"):
+            return None
+    if env.read_m(MENU_CURSOR) != target or act("A") or act("up"):  # open, then look
+        return None
+    for _ in range(8):
+        if env.read_m(MENU_CORNER) not in (START_MENU_TILE, PARTY_SCREEN_TILE):
+            return steps
+        if act("B"):
+            return None
+    return None

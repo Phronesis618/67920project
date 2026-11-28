@@ -153,7 +153,10 @@ def test_trained_memory_beats_the_no_memory_control(fake_pyboy, config, tmp_path
     synthetic_dataset(tmp_path / "ds")
     cfg = dict(config, observation_mode="pixels", session_path=tmp_path / "p")
     plain = DummyVecEnv([lambda: RedGymEnv(cfg)])
-    RecurrentPPO("MultiInputLstmPolicy", plain, n_steps=8, batch_size=8).save(tmp_path / "m.zip")
+    # A stand-in parent is only needed to load; the memory model starts from a seeded
+    # random LSTM (loading the parent's LSTM is tested separately).
+    parent = RecurrentPPO("MultiInputLstmPolicy", plain, n_steps=8, batch_size=8, seed=0)
+    parent.save(tmp_path / "m.zip")
     plain.close()
     torch.set_num_threads(1)
     train_memory.main(
@@ -174,6 +177,8 @@ def test_trained_memory_beats_the_no_memory_control(fake_pyboy, config, tmp_path
             "8",
             "--lr",
             "3e-3",
+            "--init",
+            "random",
         ]
     )
     metrics = json.loads((tmp_path / "out" / "metrics.json").read_text())
@@ -181,3 +186,37 @@ def test_trained_memory_beats_the_no_memory_control(fake_pyboy, config, tmp_path
     memory = metrics["models"]["memory"]["test"]["encounter_catchable"]
     assert memory > 0.85 and control < 0.65
     assert (tmp_path / "out" / "memory_model.pt").exists()
+
+
+def test_menu_peeks_are_spliced_flagged_and_leave_the_replay_verified(
+    snapshot_pyboy, config, tmp_path, monkeypatch
+):
+    cfg = dict(config, observation_mode="pixels", max_steps=5, session_path=tmp_path / "rec")
+    env = RedGymEnv(cfg)
+    try:
+        write_trace_dir(env, tmp_path / "diag", [[4, 5, 0, 1, 2]], cfg)
+    finally:
+        env.close()
+    plain = DummyVecEnv([lambda: RedGymEnv(dict(cfg, session_path=tmp_path / "p"))])
+    RecurrentPPO("MultiInputLstmPolicy", plain, n_steps=8, batch_size=8).save(tmp_path / "m.zip")
+    plain.close()
+    calls = []
+
+    def fake_peek(peek_env, kind, last_wild):
+        calls.append(kind)
+        if len(calls) == 2:
+            return None  # a menu that did not open is discarded
+        obs = peek_env.step(6)[0]
+        return [(obs, *read_labels(peek_env, last_wild))] * 3
+
+    monkeypatch.setattr(build_memory_dataset, "menu_peek", fake_peek)
+    monkeypatch.setattr(build_memory_dataset, "can_peek", lambda env: True)
+    task = (tmp_path / "diag", tmp_path / "out", cfg["gb_path"], cfg["init_state"])
+    _, written = build_memory_dataset.replay_directory(task + (tmp_path / "m.zip", 4, 1.0, 0))
+    episode = tmp_path / "out" / written[0]
+    peek = np.load(episode / "peek.npy")
+    meta = json.loads((episode / "meta.json").read_text())
+    assert len(calls) == 5 and peek.sum() == 3 * 4 and len(peek) == 5 + 12
+    assert np.load(episode / "features.npy").shape[0] == len(peek)
+    assert meta["peek_actions"] == 12 and sum(meta["peeks"].values()) == 5
+    assert not peek[0] and peek[1:4].all() and not peek[4]  # peek follows its source step
