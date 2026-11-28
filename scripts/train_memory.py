@@ -34,7 +34,15 @@ import torch as th
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "project_work/v2"))
-from lstm_memory import BINARY, NAMES, WILD, MemoryModel, label_loss
+from lstm_memory import (
+    HEAD_SLICES,
+    KINDS,
+    TARGET_NAMES,
+    WILD,
+    MemoryModel,
+    label_loss,
+    targets_from,
+)
 from sb3_contrib import RecurrentPPO
 
 PORTABLE = {"_last_lstm_states": None, "clip_range": 0.2, "lr_schedule": None}
@@ -43,18 +51,22 @@ PORTABLE = {"_last_lstm_states": None, "clip_range": 0.2, "lr_schedule": None}
 def load_dataset(directory):
     episodes = []
     for path in sorted(p for p in Path(directory).iterdir() if (p / "meta.json").exists()):
+        battle = np.load(path / "battle.npy")
+        targets, mask = targets_from(
+            np.load(path / "labels.npy"), np.load(path / "mask.npy"), battle
+        )
         episodes.append(
             {
                 "name": path.name,
                 "meta": json.loads((path / "meta.json").read_text()),
                 "features": np.load(path / "features.npy", mmap_mode="r"),
-                "labels": np.load(path / "labels.npy", mmap_mode="r"),
-                "mask": np.load(path / "mask.npy", mmap_mode="r"),
-                "battle": np.load(path / "battle.npy"),
+                "labels": targets,
+                "mask": mask,
+                "battle": battle,
                 "peek": (
                     np.load(path / "peek.npy")
                     if (path / "peek.npy").exists()
-                    else np.zeros(len(np.load(path / "battle.npy")), bool)
+                    else np.zeros(len(battle), bool)
                 ),
             }
         )
@@ -109,11 +121,11 @@ def run_batch(model, batch, chunk, optimizer=None, pos_weight=None):
 
 
 def balance(episodes):
-    """Per-label positive weight (negatives / positives) over the training actions."""
+    """Per-target positive weight (negatives / positives) over the training actions."""
     labels = np.concatenate([np.asarray(e["labels"]) for e in episodes])
     mask = np.concatenate([np.asarray(e["mask"]) for e in episodes]) > 0
-    weights = np.ones(len(NAMES), dtype=np.float32)
-    for i in np.flatnonzero(BINARY):
+    weights = np.ones(len(TARGET_NAMES), dtype=np.float32)
+    for i in (i for i, kind in enumerate(KINDS) if kind == "binary"):
         y = labels[mask[:, i], i]
         if len(y) and 0 < y.mean() < 1:
             weights[i] = (1 - y.mean()) / y.mean()
@@ -188,9 +200,16 @@ def train(model, episodes, validation, args, name, pos_weight):
 
 
 def score(kind, y, prediction):
+    """Balanced accuracy for binary and categorical targets, R^2 for regression."""
     if len(y) == 0:
         return None
-    if kind:  # binary: balanced accuracy, chance 0.5
+    if kind == "categorical":  # mean per-class recall, chance 1 / classes present
+        guess, classes = prediction.argmax(1), np.unique(y)
+        if len(classes) < 2:
+            return None
+        return float(np.mean([(guess[y == c] == c).mean() for c in classes]))
+    prediction = prediction[:, 0]
+    if kind == "binary":  # chance 0.5
         positive, negative = y == 1, y == 0
         if not positive.any() or not negative.any():
             return None
@@ -220,14 +239,16 @@ def evaluate(model, episodes, args):
     battle, entry = np.concatenate(battles), np.concatenate(first_battle)
     mask = mask & np.concatenate(played)[:, None]  # score ordinary play, not menu checks
     scores = {}
-    for i, name in enumerate(NAMES):
+    for i, name in enumerate(TARGET_NAMES):
         keep = mask[:, i]
-        scores[name] = score(BINARY[i], label[keep, i], prediction[keep, i])
-    catch = NAMES.index("encounter_catchable")
+        out = prediction[keep][:, HEAD_SLICES[name]]
+        scores[name] = score(KINDS[i], label[keep, i], out)
+    catch = TARGET_NAMES.index("encounter_catchable")
+    head = HEAD_SLICES["encounter_catchable"]
     # The decision points: every wild-battle action, and the first action of each battle.
     for key, keep in (("catchable_in_wild_battle", battle == WILD), ("catchable_at_entry", entry)):
         keep = keep & mask[:, catch]
-        scores[key] = score(True, label[keep, catch], prediction[keep, catch])
+        scores[key] = score("binary", label[keep, catch], prediction[keep][:, head])
         scores[f"{key}_n"] = int(keep.sum())
     return scores
 
@@ -269,12 +290,15 @@ def main(argv=None):
         "test_actions": int(sum(len(e["labels"]) for e in test_set)),
         "peek_actions": int(sum(e["peek"].sum() for e in episodes)),
         "arguments": {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
-        "metric": "balanced accuracy (binary, chance 0.5) / R^2 (regression, 0 = mean)",
+        "metric": "balanced accuracy (binary chance 0.5; battle_type mean per-class recall, "
+        "chance 1/3) / R^2 (regression, 0 = mean)",
         "models": {},
     }
     pos_weight = balance(train_set)
     mean, std = feature_stats(train_set)
-    results["positive_weights"] = dict(zip(NAMES, pos_weight.tolist()))
+    results["positive_weights"] = {
+        n: w for n, w, k in zip(TARGET_NAMES, pos_weight.tolist(), KINDS) if k == "binary"
+    }
     for name in args.models:
         model = MemoryModel(feature_dim, recurrent=name != "input", mean=mean, std=std)
         if name == "parent_frozen" or (name == "memory" and args.init == "parent"):
@@ -291,13 +315,14 @@ def main(argv=None):
             th.save(
                 {
                     "state_dict": model.state_dict(),
-                    "labels": list(NAMES),
+                    "targets": list(TARGET_NAMES),
+                    "head_slices": {k: [v.start, v.stop] for k, v in HEAD_SLICES.items()},
                     "feature_dim": feature_dim,
                 },
                 args.output / "memory_model.pt",
             )
     (args.output / "metrics.json").write_text(json.dumps(results, indent=2) + "\n")
-    rows = list(NAMES) + ["catchable_in_wild_battle", "catchable_at_entry"]
+    rows = list(TARGET_NAMES) + ["catchable_in_wild_battle", "catchable_at_entry"]
     print(f"{'label':26s}" + "".join(f"{m:>15s}" for m in args.models))
     for row in rows:
         cells = [results["models"][m]["test"].get(row) for m in args.models]

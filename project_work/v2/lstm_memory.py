@@ -38,7 +38,33 @@ LABELS = (
     ("since_wild_battle", "regression"),  # actions / 2048, capped
 )
 NAMES = tuple(name for name, _ in LABELS)
-BINARY = np.array([kind == "binary" for _, kind in LABELS])
+
+# Training targets: the RAM labels above plus the targets of Jeffrey's context pilot
+# (project_work/v2/context_aux.py) that they do not already cover. Party HP and poison
+# are shared. Battle type is a 3-way class (overworld / wild / trainer) and antidote
+# availability a yes/no; both are derived from stored data, so old datasets still work.
+TARGETS = LABELS + (("battle_type", "categorical"), ("has_antidote", "binary"))
+TARGET_NAMES = tuple(name for name, _ in TARGETS)
+KINDS = tuple(kind for _, kind in TARGETS)
+WIDTHS = {"binary": 1, "regression": 1, "categorical": 3}
+HEAD_SLICES, _start = {}, 0
+for _name, _kind in TARGETS:
+    HEAD_SLICES[_name] = slice(_start, _start + WIDTHS[_kind])
+    _start += WIDTHS[_kind]
+HEAD_DIM = _start
+
+
+def targets_from(labels, mask, battle):
+    """Extend stored RAM labels with the derived targets; class indices for categories."""
+    labels, mask, battle = np.asarray(labels), np.asarray(mask), np.asarray(battle)
+    battle_type = np.where(np.isin(battle, (0, 1, 2)), battle, -1).astype(np.float32)
+    antidotes = NAMES.index("antidotes")
+    extra = np.stack([battle_type, (labels[:, antidotes] > 0).astype(np.float32)], 1)
+    extra_mask = np.stack([battle_type >= 0, mask[:, antidotes] > 0], 1).astype(np.float32)
+    return (
+        np.concatenate([labels, extra], 1).astype(np.float32),
+        np.concatenate([mask.astype(np.float32), extra_mask], 1),
+    )
 
 
 def bag_count(memory, item):
@@ -82,23 +108,40 @@ def read_labels(env, last_wild_step):
     return labels, mask
 
 
-def label_loss(prediction, labels, mask, pos_weight=None):
-    """Mean over present labels of each label's masked loss (BCE or MSE).
+def label_loss(prediction, targets, mask, pos_weight=None):
+    """Mean over present targets of each target's masked loss.
 
-    ``pos_weight`` (per label, ignored for regression) balances rare binary labels so the
-    head cannot score well by always predicting the majority class.
+    ``prediction`` is (..., HEAD_DIM) head output, ``targets``/``mask`` (..., len(TARGETS)).
+    Binary targets use BCE (``pos_weight`` per target balances rare positives), regression
+    MSE, and categorical cross-entropy with each class present in the batch weighted
+    equally (as in Jeffrey's context pilot), so the head cannot win on the majority class.
     """
-    binary = th.as_tensor(BINARY, device=prediction.device)
-    bce = th.nn.functional.binary_cross_entropy_with_logits(
-        prediction, labels, reduction="none", pos_weight=pos_weight
-    )
-    mse = (prediction - labels) ** 2
-    counts = mask.sum(dim=tuple(range(mask.dim() - 1)))
-    per_label = (th.where(binary, bce, mse) * mask).sum(dim=tuple(range(mask.dim() - 1)))
-    per_label = per_label / counts.clamp(min=1)
-    present = counts > 0
-    loss = per_label[present].mean() if present.any() else prediction.sum() * 0
-    return loss, per_label.detach()
+    prediction = prediction.reshape(-1, prediction.shape[-1])
+    targets = targets.reshape(-1, targets.shape[-1])
+    mask = mask.reshape(-1, mask.shape[-1]) > 0
+    losses = []
+    for i, (name, kind) in enumerate(TARGETS):
+        keep = mask[:, i]
+        if not keep.any():
+            losses.append(None)
+            continue
+        out, y = prediction[keep, HEAD_SLICES[name]], targets[keep, i]
+        if kind == "binary":
+            weight = None if pos_weight is None else pos_weight[i]
+            loss = th.nn.functional.binary_cross_entropy_with_logits(
+                out[:, 0], y, pos_weight=weight
+            )
+        elif kind == "regression":
+            loss = ((out[:, 0] - y) ** 2).mean()
+        else:
+            classes = y.long()
+            each = th.nn.functional.cross_entropy(out, classes, reduction="none")
+            loss = th.stack([each[classes == c].mean() for c in th.unique(classes)]).mean()
+        losses.append(loss)
+    present = [loss for loss in losses if loss is not None]
+    total = th.stack(present).mean() if present else prediction.sum() * 0
+    per_target = th.tensor([np.nan if v is None else v.item() for v in losses])
+    return total, per_target
 
 
 class MemoryModel(th.nn.Module):
@@ -115,7 +158,7 @@ class MemoryModel(th.nn.Module):
         self.register_buffer("mean", th.zeros(feature_dim) if mean is None else mean)
         self.register_buffer("std", th.ones(feature_dim) if std is None else std)
         self.lstm = th.nn.LSTM(feature_dim, hidden, batch_first=True) if recurrent else None
-        self.head = th.nn.Linear(hidden if recurrent else feature_dim, len(LABELS))
+        self.head = th.nn.Linear(hidden if recurrent else feature_dim, HEAD_DIM)
 
     def forward(self, features, state=None):
         if not self.recurrent:

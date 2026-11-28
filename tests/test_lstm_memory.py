@@ -5,7 +5,16 @@ from dataclasses import asdict
 import numpy as np
 import pytest
 import torch
-from lstm_memory import NAMES, MemoryModel, label_loss, read_labels
+from lstm_memory import (
+    HEAD_DIM,
+    HEAD_SLICES,
+    NAMES,
+    TARGET_NAMES,
+    MemoryModel,
+    label_loss,
+    read_labels,
+    targets_from,
+)
 from memory_addresses import BATTLE_TYPE_ADDRESS
 from red_gym_env_v2_nuzlocke import RedGymEnv
 from sb3_contrib import RecurrentPPO
@@ -41,16 +50,46 @@ def test_catchable_label_follows_the_area_and_the_encounter(fake_pyboy, config):
 
 
 def test_label_loss_masks_items_and_balances_rare_positives():
-    n = len(NAMES)
-    prediction, labels, mask = torch.zeros(4, n), torch.ones(4, n), torch.zeros(4, n)
+    n = len(TARGET_NAMES)
+    prediction, targets, mask = torch.zeros(4, HEAD_DIM), torch.ones(4, n), torch.zeros(4, n)
     mask[:2, CATCH] = 1
-    loss, per_label = label_loss(prediction, labels, mask)
-    assert per_label[CATCH].item() == pytest.approx(np.log(2), rel=1e-5)
+    loss, per_target = label_loss(prediction, targets, mask)
     assert loss.item() == pytest.approx(np.log(2), rel=1e-5)  # BCE at logit 0
+    assert per_target[CATCH].item() == pytest.approx(np.log(2), rel=1e-5)
+    assert np.isnan(per_target[ENEMY].item())  # absent targets are left out of the mean
     weight = torch.ones(n)
     weight[CATCH] = 3.0
-    weighted, _ = label_loss(prediction, labels, mask, weight)
+    weighted, _ = label_loss(prediction, targets, mask, weight)
     assert weighted.item() == pytest.approx(3 * np.log(2), rel=1e-5)
+
+
+def test_battle_type_is_a_class_balanced_three_way_target():
+    n, battle = len(TARGET_NAMES), TARGET_NAMES.index("battle_type")
+    targets, mask = torch.zeros(4, n), torch.zeros(4, n)
+    targets[:, battle] = torch.tensor([0.0, 0.0, 0.0, 2.0])  # three overworld, one trainer
+    mask[:, battle] = 1
+    prediction = torch.zeros(4, HEAD_DIM)
+    prediction[3, HEAD_SLICES["battle_type"]] = torch.tensor([0.0, 0.0, 5.0])
+    loss, _ = label_loss(prediction, targets, mask)
+    # Each class present counts equally: the confident trainer row is not outvoted.
+    overworld = np.log(3)
+    trainer = -np.log(np.exp(5) / (2 + np.exp(5)))
+    assert loss.item() == pytest.approx((overworld + trainer) / 2, rel=1e-5)
+
+
+def test_targets_add_battle_type_and_antidote_availability():
+    labels = np.zeros((3, len(NAMES)), np.float32)
+    mask = np.ones((3, len(NAMES)), np.uint8)
+    labels[1, NAMES.index("antidotes")] = 0.4
+    targets, target_mask = targets_from(labels, mask, np.array([0, 2, 0xFF], np.uint8))
+    battle, antidote = TARGET_NAMES.index("battle_type"), TARGET_NAMES.index("has_antidote")
+    assert targets[:, battle].tolist() == [0, 2, -1] and target_mask[:, battle].tolist() == [
+        1,
+        1,
+        0,
+    ]
+    assert targets[:, antidote].tolist() == [0, 1, 0]
+    assert targets.shape == (3, len(TARGET_NAMES))
 
 
 def test_control_standardises_and_memory_loads_the_policy_lstm():
@@ -59,6 +98,7 @@ def test_control_standardises_and_memory_loads_the_policy_lstm():
     out, state = control(torch.full((1, 1, 4), 6.0))
     assert state is None
     torch.testing.assert_close(out, control.head(torch.ones(1, 1, 4)))  # (6 - 2) / 4
+    assert out.shape[-1] == HEAD_DIM
     policy_lstm = torch.nn.LSTM(4, 8)
     memory = MemoryModel(4, hidden=8)
     memory.load_policy_lstm(policy_lstm)
@@ -111,7 +151,7 @@ def test_replay_builds_verified_episodes_and_rejects_divergence(fake_pyboy, conf
     assert len(written) == 2
     episode = tmp_path / "out" / written[0]
     assert np.load(episode / "features.npy").shape == (5, 277)
-    assert np.load(episode / "labels.npy").shape == (5, len(NAMES))
+    assert np.load(episode / "labels.npy").shape == (5, len(NAMES))  # RAM labels as stored
 
     trace = tmp_path / "diag" / "episode-01-actions.jsonl.gz"
     with gzip.open(trace, "rt") as f:
@@ -143,7 +183,8 @@ def synthetic_dataset(directory, episodes=60, length=120, seed=0):
         np.save(path / "features.npy", features.astype(np.float16))
         np.save(path / "labels.npy", labels)
         np.save(path / "mask.npy", mask)
-        np.save(path / "battle.npy", np.zeros(length, np.uint8))
+        # 0xFF (no battle type) masks the battle-type target: only memory is tested here.
+        np.save(path / "battle.npy", np.full(length, 0xFF, np.uint8))
         np.save(path / "map.npy", np.zeros(length, np.uint8))
         meta = {"end_reason": "time_limit", "violation_reasons": [], "steps": length}
         (path / "meta.json").write_text(json.dumps(meta))
