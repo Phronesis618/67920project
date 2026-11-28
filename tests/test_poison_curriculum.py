@@ -14,6 +14,12 @@ from red_gym_env_v2_nuzlocke import RedGymEnv
 MON = PartyMon((10, 20), 177, 18, 22, 6, 8)
 
 
+def test_diagnostic_can_explicitly_count_in_battle_cures():
+    signal = CureSignals([MON], 3, 2, allowed_battles=(0, 1, 2))
+    signal.observe([replace(MON, status=0)], 2, 2, set())
+    assert len(signal.events) == 1
+
+
 @pytest.mark.parametrize("lag", [0, 1, 2, -1, -2])
 def test_cure_matches_inventory_across_frame_boundary(lag):
     signal = CureSignals([MON], 3, 0)

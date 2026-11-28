@@ -77,7 +77,8 @@ class CureSignals:
     allows the status write and inventory write to straddle an emulator tick.
     """
 
-    def __init__(self, party, antidotes, battle):
+    def __init__(self, party, antidotes, battle, allowed_battles=(0,)):
+        self.allowed_battles = tuple(allowed_battles)
         self.previous = {m.identity: m for m in party}
         self.antidotes = antidotes
         self.battle = battle
@@ -92,7 +93,7 @@ class CureSignals:
         current = {m.identity: m for m in party}
         spent = max(0, self.antidotes - antidotes)
         self.antidotes_spent += spent
-        if battle == self.battle == 0:
+        if battle == self.battle and battle in self.allowed_battles:
             self.spends.extend([self.frame] * spent)
             for key, mon in current.items():
                 old = self.previous.get(key)

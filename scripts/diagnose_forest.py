@@ -152,6 +152,11 @@ def main():
     parser.add_argument("--seed", type=int, default=1000)
     parser.add_argument("--device", default="cuda")
     parser.add_argument(
+        "--context-diagnostic",
+        action="store_true",
+        help="Also score state predictions, verified trainer flags and antidote cures",
+    )
+    parser.add_argument(
         "--checkpoint", type=Path, help="Evaluate an earlier saved checkpoint instead of final.zip"
     )
     parser.add_argument("--videos", type=int, default=2)
@@ -180,7 +185,13 @@ def main():
         if hashlib.sha1(Path(config[key]).read_bytes()).hexdigest() != manifest[hash_key]:
             raise ValueError(f"{key} does not match the training manifest")
     torch.set_num_threads(1)
-    env = ForestObserver(config)
+    if args.context_diagnostic:
+        from context_aux import context_target
+        from context_benchmark import CureObserver, PredictionMetrics
+
+        env = CureObserver(config)
+    else:
+        env = ForestObserver(config)
     original = args.run / "evaluation.json"
     original_records = (
         json.loads(original.read_text())["records"]
@@ -213,6 +224,8 @@ def main():
         for episode in range(args.episodes):
             env.recording = False
             obs, _ = env.reset(seed=args.seed + episode)
+            initial_trainer_flags = env.read_m(0xD7F3) & 28
+            predictions = PredictionMetrics() if args.context_diagnostic else None
             state, episode_start = None, np.array([True])
             forest_actions = 0
             writer = None
@@ -230,9 +243,12 @@ def main():
                 env.begin(events)
                 try:
                     while True:
+                        target = context_target(env) if args.context_diagnostic else None
                         action, state = model.predict(
                             obs, state=state, episode_start=episode_start, deterministic=False
                         )
+                        if predictions is not None and hasattr(model.policy, "last_context_logits"):
+                            predictions.add(model.policy.last_context_logits, target)
                         obs, reward, terminated, truncated, info = env.step(int(action))
                         episode_start[:] = False
                         snapshot = env.snapshot()
@@ -292,7 +308,13 @@ def main():
                 "faints": env.faints,
                 "battles": env.battles,
                 "final": env.snapshot(),
+                "forest_trainers_beaten": (
+                    (env.read_m(0xD7F3) & 28) & ~initial_trainer_flags
+                ).bit_count(),
             }
+            if args.context_diagnostic:
+                record["context_prediction"] = predictions.result()
+                record["antidote_cures"] = env.signals.events
             expected = next(
                 (r for r in original_records if r["evaluation_seed"] == args.seed + episode), None
             )
