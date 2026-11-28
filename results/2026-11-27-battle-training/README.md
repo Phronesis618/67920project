@@ -114,3 +114,31 @@ for both parents completed ([smoke.json](smoke.json), `outcome-*`).
 - This changes the reward, which the route-replay write-up advised against
   mid-comparison; agree on it before a campaign.
 - `rl-conservative-20261127` was using the Lambda GPU when this was written.
+
+## Catch legality and fresh-area starts
+
+The parents see only three stacked 72×80 screens and their last three buttons; party
+size and used regions are not inputs. A catch is legal only at the first encounter in an
+area, which no screen shows, so only a recurrent policy's memory can track it. In 16
+full original-start episodes per parent, PPO ended 0 of 8 and LSTM 3 of 8 on an illegal
+catch (all on Routes 1–2); most forest throws hit trainer Pokémon, which cannot be
+caught. Replay that starts mid-battle with a blank LSTM cannot know about an earlier
+encounter, so a legal and an illegal Route 2 battle look identical.
+
+- `BattleReplay --area-share` starts episodes on entry to a fresh area (overworld, no
+  encounter there yet) and runs until the player leaves the map or `--max-area-actions`
+  (2,048); battles inside it keep the episode going, with the same per-battle cap. The
+  LSTM then sees the first, legal encounter and every later illegal one.
+- The outcome preset rewards a legal catch +5 (an illegal one is a −10 violation).
+- The bank builder labels wild snapshots by catch legality (from the pickled rule
+  tracker) and samples legal and illegal ones as separate groups. `--memory-consistent`
+  keeps only starts a fresh LSTM can judge: legal first encounters, Route 1 (used in the
+  starting save), fresh-area starts on `--area-maps`, and trainer battles. Built from the
+  18 route-replay runs with `--area-maps 13 51` and screening: 559 snapshots, including
+  159 fresh-area starts and 144 legal first encounters.
+- Before training, the LSTM parent on 24 fresh-area starts fled all 54 wild battles,
+  made 3 illegal catches and no legal ones, and stalled 10 forest trainer battles to the
+  cap.
+
+Training the memory directly (auxiliary loss and probes) is on the separate
+`lstm-memory` branch.
