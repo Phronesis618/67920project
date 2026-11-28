@@ -1,0 +1,405 @@
+{
+  "checked_utc": "2026-11-28T03:20:17.261988+00:00",
+  "status": {
+    "config_sha256": "9f8ac236cf10bddbb3c5c8bf52e8c691962757eed3e1df061977af7bd77a5b0d",
+    "created_utc": "2026-11-28T02:57:45.250496+00:00",
+    "jobs": {
+      "build-natural-suite": {
+        "status": "succeeded",
+        "pid": 103114,
+        "started_utc": "2026-11-28T02:57:45.276970+00:00",
+        "elapsed_seconds": 339.76519645698136,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:03:25.038370+00:00"
+      },
+      "train-auxiliary": {
+        "status": "succeeded",
+        "pid": 103184,
+        "started_utc": "2026-11-28T03:03:25.061925+00:00",
+        "elapsed_seconds": 522.6759690930485,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:12:07.731967+00:00"
+      },
+      "cases-auxiliary": {
+        "status": "succeeded",
+        "pid": 104358,
+        "started_utc": "2026-11-28T03:12:07.755881+00:00",
+        "elapsed_seconds": 87.74950589402579,
+        "exit_code": 0,
+        "finished_utc": "2026-11-28T03:13:35.500158+00:00"
+      },
+      "route-auxiliary": {
+        "status": "running",
+        "pid": 104464,
+        "started_utc": "2026-11-28T03:13:35.524778+00:00",
+        "elapsed_seconds": 390.49717053503264
+      },
+      "train-control": {
+        "status": "pending"
+      },
+      "cases-control": {
+        "status": "pending"
+      },
+      "route-control": {
+        "status": "pending"
+      },
+      "cases-parent": {
+        "status": "pending"
+      },
+      "route-parent": {
+        "status": "pending"
+      },
+      "report": {
+        "status": "pending"
+      }
+    },
+    "phase": "running",
+    "controller_pid": 103113,
+    "active_job": "route-auxiliary",
+    "updated_utc": "2026-11-28T03:20:06.015810+00:00"
+  },
+  "queue": {
+    "cwd": "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127",
+    "required_mount": "/lambda/nfs/jeff-67920-rl-checkpoints",
+    "stop_at": "2026-11-30T04:59:00+00:00",
+    "max_consecutive_failures": 1,
+    "environment": {
+      "OMP_NUM_THREADS": "1",
+      "MKL_NUM_THREADS": "1",
+      "OPENBLAS_NUM_THREADS": "1",
+      "MPLCONFIGDIR": "/tmp/67920-matplotlib",
+      "PYTHONUNBUFFERED": "1"
+    },
+    "jobs": [
+      {
+        "id": "build-natural-suite",
+        "timeout_seconds": 3600,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/context_benchmark.py",
+          "build",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/diagnostics/lstm-parent-s2",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/suite"
+        ]
+      },
+      {
+        "id": "train-auxiliary",
+        "needs": [
+          "build-natural-suite"
+        ],
+        "timeout_seconds": 7200,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/v2/context_experiment.py",
+          "--parent",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s2",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/auxiliary",
+          "--arm",
+          "auxiliary",
+          "--seed",
+          "2",
+          "--timesteps",
+          "262144",
+          "--rom",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/PokemonRed.gb",
+          "--state",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/has_pokedex_nballs.state"
+        ]
+      },
+      {
+        "id": "cases-auxiliary",
+        "needs": [
+          "train-auxiliary"
+        ],
+        "timeout_seconds": 3600,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/context_benchmark.py",
+          "evaluate",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/auxiliary",
+          "--suite",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/suite",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/cases/auxiliary"
+        ]
+      },
+      {
+        "id": "route-auxiliary",
+        "needs": [
+          "train-auxiliary"
+        ],
+        "timeout_seconds": 7200,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/diagnose_forest.py",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/auxiliary",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/route/auxiliary",
+          "--episodes",
+          "6",
+          "--seed",
+          "6100",
+          "--videos",
+          "1",
+          "--video-scope",
+          "tail",
+          "--context-diagnostic"
+        ]
+      },
+      {
+        "id": "train-control",
+        "needs": [
+          "build-natural-suite"
+        ],
+        "timeout_seconds": 7200,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/v2/context_experiment.py",
+          "--parent",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s2",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/control",
+          "--arm",
+          "control",
+          "--seed",
+          "2",
+          "--timesteps",
+          "262144",
+          "--rom",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/PokemonRed.gb",
+          "--state",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/project_work/has_pokedex_nballs.state"
+        ]
+      },
+      {
+        "id": "cases-control",
+        "needs": [
+          "train-control"
+        ],
+        "timeout_seconds": 3600,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/context_benchmark.py",
+          "evaluate",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/control",
+          "--suite",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/suite",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/cases/control"
+        ]
+      },
+      {
+        "id": "route-control",
+        "needs": [
+          "train-control"
+        ],
+        "timeout_seconds": 7200,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/diagnose_forest.py",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/runs/control",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/route/control",
+          "--episodes",
+          "6",
+          "--seed",
+          "6100",
+          "--videos",
+          "1",
+          "--video-scope",
+          "tail",
+          "--context-diagnostic"
+        ]
+      },
+      {
+        "id": "cases-parent",
+        "needs": [
+          "build-natural-suite"
+        ],
+        "timeout_seconds": 3600,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/context_benchmark.py",
+          "evaluate",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s2",
+          "--suite",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/suite",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/cases/parent"
+        ]
+      },
+      {
+        "id": "route-parent",
+        "needs": [
+          "build-natural-suite"
+        ],
+        "timeout_seconds": 7200,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/diagnose_forest.py",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-failure-20261125/runs/lstm-ordinary-s2",
+          "--output",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127/route/parent",
+          "--episodes",
+          "6",
+          "--seed",
+          "6100",
+          "--videos",
+          "1",
+          "--video-scope",
+          "tail",
+          "--context-diagnostic"
+        ]
+      },
+      {
+        "id": "report",
+        "timeout_seconds": 300,
+        "command": [
+          "/home/ubuntu/67920-venv/bin/python",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/source-context-20261127/scripts/context_campaign.py",
+          "report",
+          "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-context-20261127"
+        ]
+      }
+    ],
+    "contract": "One development-selected LSTM parent (seed 2: best parent forest reach in the inspected comparison), two matched 262144-action original-route continuations. Only auxiliary prediction gradients into the actor representation differ. Six natural diagnostic snapshots, three stochastic branches each, full recorded recurrent history; no snapshot training. Six new original-route evaluation episodes per model (6100..6105), parent included. No automatic expansion, no scripted actions or new rewards. Stop and review the measured behavior and route retention."
+  },
+  "source_commit": "528f5a7ecaddd0e71495b82ec7d8cdede3e5e078",
+  "source_dirty": false,
+  "auxiliary_training": {
+    "additional_timesteps": 262144,
+    "total_timesteps": 11796480,
+    "seconds": 512.8179082520073,
+    "optimizer_learning_rates": [
+      0.0003,
+      0.0003
+    ]
+  },
+  "suite": {
+    "matched_reconstruction_actions": 76648,
+    "cases": [
+      {
+        "id": "wild-episode0-step743",
+        "kind": "wild",
+        "episode": 0,
+        "seed": 6000,
+        "step": 743,
+        "history_actions": 743,
+        "snapshot_sha256": "02807eb13fe1c01b0d18220936e56ff4c7b9d2a9ff2d1a99bf9bc81d89b5f4c0",
+        "history_sha256": "7ced012543978abc5867d52f556675fa42e40ff891462fd5101504c7ade81ebc",
+        "initial_context": [
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "id": "wild-episode1-step935",
+        "kind": "wild",
+        "episode": 1,
+        "seed": 6001,
+        "step": 935,
+        "history_actions": 935,
+        "snapshot_sha256": "753360f4f7c17ee875cb28984a9187c57434086a5cc237a4590e772a534c9683",
+        "history_sha256": "47d4a6f2ac0c575d28278c9afbf6e8fdc0758c8af2159a7878e5d139a580fa4b",
+        "initial_context": [
+          1.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "id": "trainer-episode2-step10191",
+        "kind": "trainer",
+        "episode": 2,
+        "seed": 6002,
+        "step": 10191,
+        "history_actions": 10191,
+        "snapshot_sha256": "ee0f8ce781dda7e19a7c89a56ec241853b4ccb789f1e93704529611fc377b38d",
+        "history_sha256": "1e68821b394ca9364884b4529b2a3ce01e14fbde4eacf8d27168ebd8047aad9a",
+        "initial_context": [
+          2.0,
+          0.0,
+          1.0,
+          1.0
+        ]
+      },
+      {
+        "id": "poison-episode2-step13886",
+        "kind": "poison",
+        "episode": 2,
+        "seed": 6002,
+        "step": 13886,
+        "history_actions": 13886,
+        "snapshot_sha256": "8d551d3470f673d641a420a2b4930f943f05f6c05ef06b9e69ea037dd8fe0edd",
+        "history_sha256": "952384f0182ce178a03350ff7cf714eb930d954f5d1b915e4d102991681e0e67",
+        "initial_context": [
+          0.0,
+          1.0,
+          0.1538461595773697,
+          1.0
+        ]
+      },
+      {
+        "id": "trainer-episode4-step5574",
+        "kind": "trainer",
+        "episode": 4,
+        "seed": 6004,
+        "step": 5574,
+        "history_actions": 5574,
+        "snapshot_sha256": "61542c1025e5abbd88a66d06ba0cb09620e15a99fe57e3ad705fe3c2786411c5",
+        "history_sha256": "b17c3d6bbb0ffc79ce1a4212ddad8984301ec4836a2f09f29173e41fd19210e2",
+        "initial_context": [
+          2.0,
+          0.0,
+          0.8636363744735718,
+          1.0
+        ]
+      },
+      {
+        "id": "poison-episode5-step11615",
+        "kind": "poison",
+        "episode": 5,
+        "seed": 6005,
+        "step": 11615,
+        "history_actions": 11615,
+        "snapshot_sha256": "1629526a2b470e3c8c26695d860d22fae1b9a1831dcbb0757e9feb091c648622",
+        "history_sha256": "40b181310b54c4ddf1f4cb896d6a352b19843c30a1c950eb5a9d608dc441f4fb",
+        "initial_context": [
+          0.0,
+          1.0,
+          0.2666666805744171,
+          1.0
+        ]
+      }
+    ]
+  },
+  "real_gpu_smoke": {
+    "additional_timesteps": 64,
+    "total_timesteps": 11534400,
+    "seconds": 1.7009068930055946,
+    "optimizer_learning_rates": [
+      0.0003,
+      0.0003
+    ]
+  },
+  "real_inference_smoke_finished": true,
+  "local_tests": {
+    "passed": 28,
+    "files": [
+      "tests/test_context_aux.py",
+      "tests/test_poison_curriculum.py",
+      "tests/test_failure_restart.py"
+    ]
+  },
+  "backup": {
+    "pid": 84518,
+    "started_utc": "2026-11-28T03:16:52.542025+00:00",
+    "finished_utc": "2026-11-28T03:17:16.023672+00:00",
+    "exit_code": 0
+  }
+}

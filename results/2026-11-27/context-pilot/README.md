@@ -1,5 +1,22 @@
 # Focused pilot: can learned state recognition improve combat and recovery?
 
+**Launched November 27 at 6:57 p.m. Pacific.** The immutable source is `528f5a7`.
+The auxiliary arm finished its 262,144 actions at 7:12 p.m.; its original-route
+evaluation was running at 7:20 p.m., with the control and parent comparisons still
+pending. [Launch and validation evidence](launch.json).
+
+The auxiliary policy won **3/6 trainer branches**, escaped **6/6 wild branches**,
+and cured **0/6 poison branches**. Each task uses two natural states with three
+stochastic branches each. These are preliminary absolute scores, not evidence of
+improvement until the control and parent comparisons finish.
+[Complete auxiliary diagnostic records](auxiliary-cases.json).
+
+On the poison branches, the prediction head classified all 508 observed poisoned
+action states as unpoisoned at the 0.5 threshold and substantially overestimated
+HP. These correlated action samples indicate a remaining recognition/memory
+failure in these states; they are not 508 independent trials. The full-route
+comparison will determine whether the intervention preserved navigation.
+
 The [failure audit](../failure-analysis/README.md) found trainer RUN loops and
 poison deaths with antidotes still available. It did not establish why the policy
 fails to select the required actions. This pilot tests one candidate mechanism:
@@ -84,6 +101,8 @@ Entry points:
 - `scripts/diagnose_forest.py --context-diagnostic`: original-route transfer and
   state-prediction diagnostics.
 
-Run status and launch evidence will be recorded beside this document. All remote
-source snapshots, cases, checkpoints and logs live on the attached persistent
-filesystem. The earlier optimizer sweep remains paused.
+The natural-state reconstruction matched 76,648 recorded actions. A 64-action
+real-emulator/GPU smoke run and checkpoint-reload evaluation both completed.
+All source snapshots, cases, checkpoints and logs live on the attached persistent
+filesystem. A second backup to the Mac succeeded at 7:17 p.m. and repeats every
+five minutes until this queue finishes. The earlier optimizer sweep remains paused.

@@ -1,5 +1,10 @@
 # Route retention and earlier failure replay
 
+**Follow-up launched: [focused context-prediction pilot](context-pilot/README.md).**
+Two matched LSTM continuations test auxiliary state prediction against a detached
+readout control, with natural-state diagnostics and original-route evaluation.
+The earlier optimizer sweep remains paused.
+
 **Latest: [failure-mechanism audit](failure-analysis/README.md).** The follow-up
 sweep is paused after one in-flight run. A controlled branch wins a naturally
 stalled trainer encounter in 290 actions; the original policy times out after
