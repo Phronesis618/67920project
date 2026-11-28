@@ -8,7 +8,7 @@ from datetime import UTC, datetime
 from functools import partial
 from pathlib import Path
 
-from context_aux import ContextCallback, ContextLabels, ContextPPO
+from context_aux import ContextCallback, ContextLabels, ContextPPO, MemoryLabels
 from experiment import EpisodeCallback, EpisodeLog, git_metadata, sha1
 from poison_experiment import sha256, write_json
 from red_gym_env_v2_nuzlocke import RedGymEnv
@@ -18,13 +18,16 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 
 
-def make_env(config, output, rank):
+def make_env(config, output, rank, targets="context"):
     env = RedGymEnv(dict(config, session_path=str(output / f"worker-{rank}")))
     env = EpisodeLog(env, output / f"episodes-{rank}.jsonl", rank)
-    return Monitor(ContextLabels(env), info_keywords=("is_success", "end_reason", "deaths"))
+    labels = MemoryLabels if targets == "memory" else ContextLabels
+    return Monitor(labels(env), info_keywords=("is_success", "end_reason", "deaths"))
 
 
-def convert_parent(parent, env, *, seed, backprop, device, n_steps=None, batch_size=None):
+def convert_parent(
+    parent, env, *, seed, backprop, device, n_steps=None, batch_size=None, targets="context"
+):
     """Retain all actor/critic weights and Adam moments; only the readout is new."""
     kwargs = {
         key: getattr(parent, key)
@@ -47,6 +50,7 @@ def convert_parent(parent, env, *, seed, backprop, device, n_steps=None, batch_s
     }
     if n_steps is not None:
         kwargs.update(n_steps=n_steps, batch_size=batch_size)
+    kwargs["policy_kwargs"] = dict(kwargs["policy_kwargs"] or {}, context_targets=targets)
     model = ContextPPO(
         "MultiInputLstmPolicy",
         env,
@@ -82,6 +86,12 @@ def main():
     p.add_argument("--num-envs", type=int, default=16)
     p.add_argument("--device", default="cuda")
     p.add_argument("--smoke", action="store_true")
+    p.add_argument(
+        "--targets",
+        choices=("context", "memory"),
+        default="context",
+        help="context: the original pilot's 4 targets; memory: lstm_memory.TARGETS",
+    )
     args = p.parse_args()
     if args.num_envs < 1 or args.timesteps < 1:
         p.error("positive workers and timesteps required")
@@ -104,10 +114,19 @@ def main():
     )
     if args.smoke:
         config["max_steps"] = 64
-    factories = [partial(make_env, config, args.output, i) for i in range(args.num_envs)]
+    factories = [
+        partial(make_env, config, args.output, i, args.targets) for i in range(args.num_envs)
+    ]
     env = DummyVecEnv(factories) if args.num_envs == 1 else SubprocVecEnv(factories)
     try:
-        source = RecurrentPPO.load(args.parent / "final.zip", device=args.device)
+        # Saved schedules are pickled functions that only run on the Python that saved
+        # them (a Lambda 3.11 checkpoint crashes 3.12 with SIGTRAP). The parents use a
+        # constant clip range 0.2; lr_schedule is rebuilt from learning_rate.
+        source = RecurrentPPO.load(
+            args.parent / "final.zip",
+            device=args.device,
+            custom_objects={"clip_range": 0.2, "lr_schedule": None},
+        )
         model = convert_parent(
             source,
             env,
@@ -116,6 +135,7 @@ def main():
             device=args.device,
             n_steps=16 if args.smoke else None,
             batch_size=16 if args.smoke else None,
+            targets=args.targets,
         )
         initial = model.num_timesteps
         manifest = {
@@ -131,6 +151,7 @@ def main():
             "parent_timesteps": initial,
             "arm": args.arm,
             "context_coef": model.context_coef,
+            "context_targets": model.context_targets,
             "optimizer": {
                 k: getattr(model, k)
                 for k in (

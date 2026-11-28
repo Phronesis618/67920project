@@ -3,12 +3,19 @@
 The control learns the same readout with its recurrent features detached. The
 treatment also backpropagates that loss into the visual encoder and actor LSTM.
 Neither the targets nor the predictions are additional action-policy inputs.
+
+Two target sets: ``context`` (battle type, poison, HP, antidote available; the original
+pilot) and ``memory`` (lstm_memory.TARGETS: those plus facts only memory can supply, such
+as whether an encounter here is catchable, which areas are used, ball and antidote
+counts, event flags and time since the last wild battle). Memory targets carry a
+validity mask, since some are undefined in some states.
 """
 
 from types import SimpleNamespace
 from typing import ClassVar
 
 import gymnasium as gym
+import lstm_memory
 import numpy as np
 import torch as th
 from poison_curriculum import antidote_count
@@ -20,6 +27,9 @@ from stable_baselines3.common.policies import BaseModel
 from stable_baselines3.common.utils import explained_variance
 from torch import nn
 from torch.nn import functional as F
+
+TARGET_WIDTH = {"context": 4, "memory": 2 * len(lstm_memory.TARGETS)}  # memory: values + masks
+HEAD_WIDTH = {"context": 6, "memory": lstm_memory.HEAD_DIM}
 
 
 def context_target(env):
@@ -46,6 +56,22 @@ class ContextLabels(gym.Wrapper):
         return obs, reward, term, trunc, dict(info, context_target_before_action=target)
 
 
+class MemoryLabels(gym.Wrapper):
+    """Memory target set, read before each action like ContextLabels."""
+
+    def reset(self, **kwargs):
+        obs, info = self.env.reset(**kwargs)
+        self.last_wild = self.env.unwrapped.step_count
+        return obs, info
+
+    def step(self, action):
+        target = lstm_memory.memory_target(self.env.unwrapped, self.last_wild)
+        obs, reward, term, trunc, info = self.env.step(action)
+        if self.env.unwrapped.read_m(0xD057) == 1:
+            self.last_wild = self.env.unwrapped.step_count
+        return obs, reward, term, trunc, dict(info, context_target_before_action=target)
+
+
 class ContextCallback(BaseCallback):
     def _on_step(self):
         # VecEnv's info belongs to the just-finished action, even on auto-reset.
@@ -56,9 +82,15 @@ class ContextCallback(BaseCallback):
 
 
 class ContextBuffer(RecurrentDictRolloutBuffer):
+    def __init__(self, *args, target_width=4, **kwargs):
+        self.target_width = target_width
+        super().__init__(*args, **kwargs)
+
     def reset(self):
         super().reset()
-        self.context_targets = np.zeros((self.buffer_size, self.n_envs, 4), dtype=np.float32)
+        self.context_targets = np.zeros(
+            (self.buffer_size, self.n_envs, self.target_width), dtype=np.float32
+        )
         self.pending_targets = None
 
     def add(self, *args, **kwargs):
@@ -75,7 +107,7 @@ class ContextBuffer(RecurrentDictRolloutBuffer):
 
     def _get_samples(self, batch_inds, env_change, env=None):
         sample = super()._get_samples(batch_inds, env_change, env)
-        targets = self.pad(self.context_targets[batch_inds]).reshape(-1, 4)
+        targets = self.pad(self.context_targets[batch_inds]).reshape(-1, self.target_width)
         return SimpleNamespace(**sample._asdict(), context_targets=targets)
 
 
@@ -105,13 +137,24 @@ def prediction_loss(logits, targets, mask):
     return (battle_loss + poison_loss + hp_loss + item_loss) / 4
 
 
+def memory_prediction_loss(logits, targets, mask):
+    """lstm_memory.label_loss over the memory set; padding and invalid labels excluded."""
+    n = len(lstm_memory.TARGETS)
+    values, valid = targets[mask, :n], targets[mask, n:]
+    loss, _ = lstm_memory.label_loss(logits[mask], values, valid, balance_batch=True)
+    return loss
+
+
 class ContextPolicy(RecurrentMultiInputActorCriticPolicy):
-    def __init__(self, *args, **kwargs):
+    def __init__(self, *args, context_targets="context", **kwargs):
+        if context_targets not in HEAD_WIDTH:
+            raise ValueError(f"Unknown target set {context_targets}")
+        self.context_targets = context_targets
         super().__init__(*args, **kwargs)
         if set(self.observation_space.spaces) != {"screens", "recent_actions"}:
             raise ValueError("Context policy requires pixel/action observations only")
         # Super's optimizer already holds every original parameter, in its old order.
-        self.context_head = nn.Linear(self.lstm_output_dim, 6)
+        self.context_head = nn.Linear(self.lstm_output_dim, HEAD_WIDTH[context_targets])
         self.optimizer.add_param_group({"params": self.context_head.parameters()})
 
     def evaluate_with_context(self, obs, actions, lstm_states, episode_starts, detach):
@@ -160,6 +203,7 @@ class ContextPPO(RecurrentPPO):
         if not isinstance(self.policy, ContextPolicy):
             raise TypeError("ContextPPO requires ContextPolicy")
         lstm = self.policy.lstm_actor
+        self.context_targets = self.policy.context_targets
         self.rollout_buffer = ContextBuffer(
             self.n_steps,
             self.observation_space,
@@ -169,6 +213,7 @@ class ContextPPO(RecurrentPPO):
             gamma=self.gamma,
             gae_lambda=self.gae_lambda,
             n_envs=self.n_envs,
+            target_width=TARGET_WIDTH[self.context_targets],
         )
 
     def train(self):
@@ -225,7 +270,10 @@ class ContextPPO(RecurrentPPO):
                 )
                 value_loss = ((data.returns - predicted) ** 2)[mask].mean()
                 entropy_loss = log_prob[mask].mean() if entropy is None else -entropy[mask].mean()
-                aux_loss = prediction_loss(logits, data.context_targets, mask)
+                loss_fn = (
+                    memory_prediction_loss if self.context_targets == "memory" else prediction_loss
+                )
+                aux_loss = loss_fn(logits, data.context_targets, mask)
                 loss = (
                     policy_loss
                     + self.ent_coef * entropy_loss

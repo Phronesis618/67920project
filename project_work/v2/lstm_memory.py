@@ -108,13 +108,15 @@ def read_labels(env, last_wild_step):
     return labels, mask
 
 
-def label_loss(prediction, targets, mask, pos_weight=None):
+def label_loss(prediction, targets, mask, pos_weight=None, balance_batch=False):
     """Mean over present targets of each target's masked loss.
 
     ``prediction`` is (..., HEAD_DIM) head output, ``targets``/``mask`` (..., len(TARGETS)).
     Binary targets use BCE (``pos_weight`` per target balances rare positives), regression
     MSE, and categorical cross-entropy with each class present in the batch weighted
     equally (as in Jeffrey's context pilot), so the head cannot win on the majority class.
+    ``balance_batch`` balances binary targets the same per-batch way instead of with fixed
+    ``pos_weight`` (for online PPO minibatches, where no dataset-wide rate exists).
     """
     prediction = prediction.reshape(-1, prediction.shape[-1])
     targets = targets.reshape(-1, targets.shape[-1])
@@ -126,7 +128,10 @@ def label_loss(prediction, targets, mask, pos_weight=None):
             losses.append(None)
             continue
         out, y = prediction[keep, HEAD_SLICES[name]], targets[keep, i]
-        if kind == "binary":
+        if kind == "binary" and balance_batch:
+            each = th.nn.functional.binary_cross_entropy_with_logits(out[:, 0], y, reduction="none")
+            loss = th.stack([each[y == c].mean() for c in th.unique(y)]).mean()
+        elif kind == "binary":
             weight = None if pos_weight is None else pos_weight[i]
             loss = th.nn.functional.binary_cross_entropy_with_logits(
                 out[:, 0], y, pos_weight=weight
@@ -223,3 +228,11 @@ def menu_peek(env, kind, last_wild_step):
         if act("B"):
             return None
     return None
+
+
+def memory_target(env, last_wild_step):
+    """All targets and their masks for the current observation, as one flat vector."""
+    labels, mask = read_labels(env, last_wild_step)
+    battle = np.array([env.read_m(BATTLE_TYPE_ADDRESS)])
+    targets, target_mask = targets_from(labels[None], mask[None], battle)
+    return np.concatenate([targets[0], target_mask[0]]).astype(np.float32)
