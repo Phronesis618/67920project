@@ -9,8 +9,11 @@ Three models see the same frozen policy features and predict the same RAM labels
   ``--init random``) plus head, both trained.
 
 Episodes are split into train, validation and test sets by episode, stratified by how
-they ended, so illegal-catch episodes appear in each. Each model keeps the epoch with
-the lowest validation loss (the LSTM can memorise its training episodes). Training is truncated backpropagation through
+they ended, so illegal-catch episodes appear in each (``--split-seed``; ``--seed`` only
+changes initialisation and batch order, so repeated seeds share one test set). The
+learning rate follows a cosine decay to ``--lr-final`` over the epochs, and the model
+evaluated is the average of the last ``--average-last`` epochs' weights. No epoch is
+selected by validation: validation loss is logged only, as an overfitting check. Training is truncated backpropagation through
 time: each episode is cut into ``--chunk``-action pieces with the LSTM state carried
 (detached) from one piece to the next. A label that ``memory`` predicts on held-out
 episodes clearly better than ``input`` is held in memory, not read off the screen.
@@ -141,12 +144,22 @@ def mean_loss(model, episodes, args, pos_weight):
         )
 
 
+def epoch_lr(args, epoch):
+    """Cosine decay from --lr (first epoch) to --lr-final (last epoch)."""
+    if args.epochs == 1:
+        return args.lr
+    fraction = epoch / (args.epochs - 1)
+    return args.lr_final + 0.5 * (args.lr - args.lr_final) * (1 + np.cos(np.pi * fraction))
+
+
 def train(model, episodes, validation, args, name, pos_weight):
     parameters = [p for p in model.parameters() if p.requires_grad]
     optimizer = th.optim.Adam(parameters, lr=args.lr)
     rng = np.random.default_rng(args.seed)
-    history, best, best_state = [], np.inf, None
+    history, snapshots = [], []
     for epoch in range(args.epochs):
+        for group in optimizer.param_groups:
+            group["lr"] = epoch_lr(args, epoch)
         order = rng.permutation(len(episodes))
         losses = []
         for i in range(0, len(order), args.batch_episodes):
@@ -154,12 +167,24 @@ def train(model, episodes, validation, args, name, pos_weight):
             _, loss = run_batch(model, batch, args.chunk, optimizer, pos_weight)
             losses.append(loss)
         val = mean_loss(model, validation, args, pos_weight)
-        history.append({"epoch": epoch, "train_loss": float(np.mean(losses)), "val_loss": val})
+        history.append(
+            {
+                "epoch": epoch,
+                "lr": epoch_lr(args, epoch),
+                "train_loss": float(np.mean(losses)),
+                "val_loss": val,
+            }
+        )
         print(json.dumps({"model": name, **history[-1]}), flush=True)
-        if val < best:
-            best, best_state = val, {k: v.clone() for k, v in model.state_dict().items()}
-    model.load_state_dict(best_state)
-    return history, int(min(history, key=lambda h: h["val_loss"])["epoch"])
+        if epoch >= args.epochs - args.average_last:
+            snapshots.append({k: v.detach().clone() for k, v in model.state_dict().items()})
+    # Weight averaging over the last epochs smooths epoch-to-epoch jitter.
+    model.load_state_dict(
+        {k: th.stack([s[k].float() for s in snapshots]).mean(0) for k in snapshots[0]}
+    )
+    averaged = mean_loss(model, validation, args, pos_weight)
+    print(json.dumps({"model": name, "averaged_val_loss": averaged}), flush=True)
+    return history, averaged
 
 
 def score(kind, y, prediction):
@@ -216,16 +241,21 @@ def main(argv=None):
     p.add_argument("--chunk", type=int, default=256)
     p.add_argument("--batch-episodes", type=int, default=16)
     p.add_argument("--lr", type=float, default=1e-3)
+    p.add_argument("--lr-final", type=float, default=5e-5)
+    p.add_argument("--average-last", type=int, default=2, help="Epochs whose weights are averaged")
     p.add_argument("--test-fraction", type=float, default=0.2)
-    p.add_argument("--seed", type=int, default=0)
+    p.add_argument("--seed", type=int, default=0, help="Initialisation and batch order")
+    p.add_argument("--split-seed", type=int, default=0, help="Train/validation/test split")
     p.add_argument("--models", nargs="+", default=["input", "parent_frozen", "memory"])
     p.add_argument("--init", choices=("parent", "random"), default="parent", help="memory model")
     args = p.parse_args(argv)
+    if not 1 <= args.average_last <= args.epochs:
+        p.error("--average-last must be between 1 and --epochs")
     th.manual_seed(args.seed)
     th.set_num_threads(max(1, th.get_num_threads()))
     episodes = load_dataset(args.dataset)
-    train_set, test_set = split(episodes, args.test_fraction, args.seed)
-    train_set, validation = split(train_set, args.test_fraction, args.seed + 1)
+    train_set, test_set = split(episodes, args.test_fraction, args.split_seed)
+    train_set, validation = split(train_set, args.test_fraction, args.split_seed + 1)
     parent = RecurrentPPO.load(args.feature_model, device="cpu", custom_objects=PORTABLE)
     feature_dim = episodes[0]["features"].shape[1]
     args.output.mkdir(parents=True, exist_ok=True)
@@ -251,10 +281,10 @@ def main(argv=None):
             model.load_policy_lstm(parent.policy.lstm_actor)
         if name == "parent_frozen":
             model.lstm.requires_grad_(False)
-        history, best_epoch = train(model, train_set, validation, args, name, pos_weight)
+        history, averaged_val_loss = train(model, train_set, validation, args, name, pos_weight)
         results["models"][name] = {
             "history": history,
-            "best_epoch": best_epoch,
+            "averaged_val_loss": averaged_val_loss,
             "test": evaluate(model, test_set, args),
         }
         if name == "memory":
