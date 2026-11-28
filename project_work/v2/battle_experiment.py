@@ -42,6 +42,8 @@ def make_env(config, output, rank, route_workers, args, weights, config_sha):
             max_battle_actions=args.max_battle_actions,
             timeout_penalty=args.battle_timeout_penalty,
             config_sha=config_sha,
+            area_share=args.area_share,
+            max_area_actions=args.max_area_actions,
         )
     env = BattleReward(env, weights, gamma=args.gamma, rom=args.rom)
     env = EpisodeLog(env, output / f"episodes-{rank}.jsonl", rank)
@@ -58,6 +60,8 @@ def parser():
     p.add_argument("--replay-workers", type=int, help="Default: half of --num-envs")
     p.add_argument("--trainer-share", type=float, default=0.5)
     p.add_argument("--max-battle-actions", type=int, default=1024)
+    p.add_argument("--area-share", type=float, default=0.0, help="Replay starts in fresh areas")
+    p.add_argument("--max-area-actions", type=int, default=2048)
     p.add_argument("--reward-preset", choices=sorted(PRESETS), default="dense")
     p.add_argument("--battle-timeout-penalty", type=float, help="Default: preset's")
     p.add_argument("--death-penalty", type=float, help="Default: preset's")
@@ -120,6 +124,7 @@ def main(argv=None):
     if args.smoke:
         config["max_steps"] = 128
         args.max_battle_actions = min(args.max_battle_actions, 64)
+        args.max_area_actions = min(args.max_area_actions, 128)
     args.gamma = float(config.get("navigation_gamma", 0.9995))
     args.output.mkdir(parents=True, exist_ok=True)
     route_workers = args.num_envs - replay_workers
@@ -185,6 +190,8 @@ def main(argv=None):
                 "replay_workers": replay_workers,
                 "reward_preset": args.reward_preset,
                 "trainer_share": args.trainer_share,
+                "area_share": args.area_share,
+                "max_area_actions": args.max_area_actions,
                 "max_battle_actions": args.max_battle_actions,
                 "battle_timeout_penalty": args.battle_timeout_penalty,
                 "weights": asdict(weights),
@@ -196,8 +203,9 @@ def main(argv=None):
             f"'{args.reward_preset}' battle preset (weights above; wild terms off at the level "
             "cap). dense: damage/KO/win, levels up to the cap, potential-based HP shaping, "
             "rejected trainer RUN and overtime, death and violation penalties. outcome: only "
-            "win = 10 x party HP fraction at exit, flee/catch 0, wipe in battle -10, replay "
-            "battle stalled to the cap -10. Replay workers start at fixed battle snapshots and truncate "
+            "win = 10 x party HP fraction at exit, flee 0, legal catch +5, illegal catch or other "
+            "violation -10, wipe in battle -10, battle stalled to the cap -10. Area replay "
+            "starts (fresh area, no encounter yet) end on leaving the map. Replay workers start at fixed battle snapshots and truncate "
             "at battle exit or max_battle_actions (with penalty). RAM is privileged reward/"
             "reset information only; actor inputs and action set unchanged. Evaluation must "
             "still use original starts.",

@@ -12,8 +12,10 @@ only; actor inputs are unchanged. Snapshot blobs are private run artifacts writt
 by ``failure_restart.capture``, never accepted from external input.
 """
 
+import gzip
 import hashlib
 import json
+import pickle
 from collections import Counter
 from dataclasses import asdict, dataclass
 from pathlib import Path
@@ -26,7 +28,7 @@ from memory_addresses import BATTLE_TYPE_ADDRESS, BOX_COUNT_ADDRESS, PARTY_SIZE_
 # wEnemyMon fields (pret/pokered ram/wram.asm). Checked on restored campaign
 # snapshots: species/HP/max HP/level match the visible wild and trainer battles.
 ENEMY_SPECIES, ENEMY_HP, ENEMY_LEVEL, ENEMY_MAX_HP = 0xCFE5, 0xCFE6, 0xCFF3, 0xCFF4
-WILD, TRAINER = 1, 2
+AREA, WILD, TRAINER = 0, 1, 2  # bank row "battle" values; AREA = overworld start
 
 ROM_SHA1 = "ea9bcae617fdf159b045185467ae58b2e4a48b9a"
 # Bank 0x0f; verify instruction bytes before installing PyBoy execution hooks.
@@ -96,6 +98,7 @@ class BattleRewardWeights:
     overtime: float = 0.001  # per battle action beyond overtime_after
     win_hp_scaled: float = 0.0  # per win, times party HP fraction at battle exit
     loss: float = 0.0  # when the party wipes during a battle
+    legal_catch: float = 0.0  # per catch the rules allow (an illegal one is a violation)
 
     def __post_init__(self):
         if any(v < 0 for v in asdict(self).values()):
@@ -121,7 +124,7 @@ _OFF = dict.fromkeys(
 )
 PRESETS = {
     "dense": BattleRewardWeights(),
-    "outcome": BattleRewardWeights(**_OFF, win_hp_scaled=10.0, loss=10.0),
+    "outcome": BattleRewardWeights(**_OFF, win_hp_scaled=10.0, loss=10.0, legal_catch=5.0),
 }
 
 # Dense keeps the earlier death/violation penalties. Outcome already charges a wipe in
@@ -183,6 +186,7 @@ class BattleReward(gym.Wrapper):
         self.enemy = self._read_enemy() if self.battle else None
         self.battle_actions = 0
         self.levels = {m.identity: m.level for m in base.read_party_mons()}
+        self.owned = self._owned()
         self.phi = self.weights.hp_potential * base.read_hp_fraction()
         self.pending_rejected = 0
         self.lost = False
@@ -200,6 +204,10 @@ class BattleReward(gym.Wrapper):
             battle_reward=dict(terms),
             battle_reward_totals=dict(self.totals),
         )
+
+    def _owned(self):
+        base = self.env.unwrapped
+        return base.read_m(PARTY_SIZE_ADDRESS) + base.read_m(BOX_COUNT_ADDRESS)
 
     def _wild_open(self):
         cap = self.env.unwrapped.level_cap
@@ -247,6 +255,16 @@ class BattleReward(gym.Wrapper):
             self.totals[f"{kind}_losses"] += 1
             self.lost = True
 
+        owned = self._owned()
+        if owned > self.owned and WILD in (previous, now):
+            # The tracker records an illegal catch as a violation in this same action.
+            if "illegal_catch" in base.tracker.violations:
+                self.totals["illegal_catches"] += 1
+            else:
+                terms["legal_catch"] += w.legal_catch
+                self.totals["legal_catches"] += 1
+        self.owned = owned
+
         cap = base.level_cap if base.level_cap is not None else 100
         for mon in base.read_party_mons():
             old = self.levels.get(mon.identity)
@@ -278,6 +296,21 @@ class BattleReward(gym.Wrapper):
         return stats
 
 
+def _tracker(blob):
+    return pickle.loads(gzip.decompress(blob))["attributes"]["tracker"]
+
+
+def snapshot_catchable(blob):
+    """Whether a catch in this snapshot's wild battle would be legal (rule tracker)."""
+    return bool(_tracker(blob).encounter_catchable)
+
+
+def snapshot_area_fresh(blob, map_id):
+    """Whether no encounter has happened yet in this overworld snapshot's region."""
+    tracker = _tracker(blob)
+    return tracker.region_map.get(map_id, map_id) not in tracker.used_regions
+
+
 def catch_in_progress(env, blob, actions=60, b_button=5):
     """True when a catch completes while only B is pressed: a ball is already thrown.
 
@@ -299,8 +332,8 @@ def load_bank(directory):
     rows = json.loads((directory / "bank.json").read_text())
     manifest = json.loads((directory / "bank_manifest.json").read_text())
     for row in rows:
-        if row["battle"] not in (WILD, TRAINER):
-            raise ValueError("Battle bank contains a non-battle snapshot")
+        if row["battle"] not in (AREA, WILD, TRAINER):
+            raise ValueError("Unknown bank row type")
         if not (directory / row["file"]).is_file():
             raise ValueError(f"Missing battle snapshot {row['file']}")
     if not rows:
@@ -309,12 +342,15 @@ def load_bank(directory):
 
 
 class BattleReplay(gym.Wrapper):
-    """Start every episode at a stored battle snapshot; end it when the battle ends.
+    """Start every episode at a stored snapshot: a battle, or entry into a fresh area.
 
-    The bank is fixed for the whole run, so every replay worker sees the same states.
-    A battle exit is a time-limit-style truncation (the game continues), so SB3
-    bootstraps the overworld value. A battle that lasts ``max_battle_actions`` is
-    truncated with ``timeout_penalty``. LSTM hidden state resets as at any episode.
+    Battle starts end when that battle ends. Area starts (overworld, no encounter yet
+    in the area) end when the player leaves the area's map or after
+    ``max_area_actions``; the LSTM therefore sees every encounter that decides whether
+    a later catch is legal. Ends are time-limit-style truncations (the game continues),
+    so SB3 bootstraps. Any single battle lasting ``max_battle_actions`` is truncated
+    with ``timeout_penalty``. LSTM hidden state resets as at any episode. The bank is
+    fixed for the whole run.
     """
 
     def __init__(
@@ -326,53 +362,71 @@ class BattleReplay(gym.Wrapper):
         max_battle_actions=1024,
         timeout_penalty=1.0,
         config_sha=None,
+        area_share=0.0,
+        max_area_actions=2048,
     ):
         super().__init__(env)
-        if not 0 <= trainer_share <= 1 or max_battle_actions < 1 or timeout_penalty < 0:
+        if (
+            not 0 <= trainer_share <= 1
+            or not 0 <= area_share <= 1
+            or min(max_battle_actions, max_area_actions) < 1
+            or timeout_penalty < 0
+        ):
             raise ValueError("Invalid battle replay parameters")
         self.directory = Path(bank)
         self.rows, manifest = load_bank(self.directory)
         if config_sha is not None and manifest["config_sha256"] != config_sha:
             raise ValueError("Battle bank was captured under a different environment config")
-        self.by_type = {t: [r for r in self.rows if r["battle"] == t] for t in (WILD, TRAINER)}
-        self.trainer_share = trainer_share
-        if (trainer_share > 0 and not self.by_type[TRAINER]) or (
-            trainer_share < 1 and not self.by_type[WILD]
+        self.by_type = {
+            t: [r for r in self.rows if r["battle"] == t] for t in (AREA, WILD, TRAINER)
+        }
+        self.trainer_share, self.area_share = trainer_share, area_share
+        battle_starts = area_share < 1
+        if (
+            (area_share > 0 and not self.by_type[AREA])
+            or (battle_starts and trainer_share > 0 and not self.by_type[TRAINER])
+            or (battle_starts and trainer_share < 1 and not self.by_type[WILD])
         ):
-            raise ValueError("Battle bank lacks the battle type this share requires")
+            raise ValueError("Battle bank lacks a start type these shares require")
         self.rng = np.random.default_rng(seed)
         self.max_battle_actions = max_battle_actions
+        self.max_area_actions = max_area_actions
         self.timeout_penalty = timeout_penalty
         self.active = None
         self.actions = 0
+        self.battle_actions = 0
         self.original_step = 0
         self.stats = Counter()
 
     def reset(self, **kwargs):
         obs, info = self.env.reset(**kwargs)
-        kind = TRAINER if self.rng.random() < self.trainer_share else WILD
+        if self.rng.random() < self.area_share:
+            kind = AREA
+        else:
+            kind = TRAINER if self.rng.random() < self.trainer_share else WILD
         pool = self.by_type[kind]
         row = pool[int(self.rng.integers(len(pool)))]
         blob = (self.directory / row["file"]).read_bytes()
         if hashlib.sha256(blob).hexdigest() != row["sha256"]:
             raise ValueError("Battle snapshot hash mismatch")
         obs = restore(self.env.unwrapped, blob)
-        if self.env.unwrapped.read_m(BATTLE_TYPE_ADDRESS) != row["battle"]:
-            raise ValueError("Restored snapshot is not in the recorded battle")
+        restored = self.env.unwrapped.read_m(BATTLE_TYPE_ADDRESS)
+        if (restored if restored in (WILD, TRAINER) else AREA) != row["battle"]:
+            raise ValueError("Restored snapshot is not in the recorded context")
         # Report only this branch; restored reward accounting is retained. The
         # step counter only drives the time limit (no reward reads it); restart it so
-        # a late-episode snapshot gets its whole battle, bounded by max_battle_actions.
+        # a late-episode snapshot gets its whole branch, bounded by the caps here.
         base = self.env.unwrapped
         base.episode_return = 0.0
         base.path_reward_total = 0.0
         self.original_step, base.step_count = base.step_count, 0
-        self.active, self.actions = row, 0
-        self.stats[f"starts_battle{kind}"] += 1
+        self.active, self.actions, self.battle_actions = row, 0, 0
+        self.stats[f"starts_{'area' if kind == AREA else f'battle{kind}'}"] += 1
         return obs, dict(info, **self._info())
 
     def _info(self):
         return {
-            "training_reset": "battle",
+            "training_reset": "area" if self.active["battle"] == AREA else "battle",
             "battle_source": self.active,
             "battle_replay_actions": self.actions,
             "restart_original_step": self.original_step,
@@ -380,16 +434,26 @@ class BattleReplay(gym.Wrapper):
 
     def step(self, action):
         obs, reward, terminated, truncated, info = self.env.step(action)
+        base = self.env.unwrapped
         self.actions += 1
         self.stats["actions"] += 1
+        in_battle = base.read_m(BATTLE_TYPE_ADDRESS) in (WILD, TRAINER)
+        self.battle_actions = self.battle_actions + 1 if in_battle else 0
         if not (terminated or truncated):
-            if self.env.unwrapped.read_m(BATTLE_TYPE_ADDRESS) not in (WILD, TRAINER):
-                truncated = True
-                info = dict(info, end_reason="battle_over")
-            elif self.actions >= self.max_battle_actions:
-                truncated = True
+            end = None
+            if self.battle_actions >= self.max_battle_actions:
                 reward -= self.timeout_penalty
-                info = dict(info, end_reason="battle_timeout")
+                end = "battle_timeout"
+            elif self.active["battle"] != AREA:
+                if not in_battle:
+                    end = "battle_over"
+            elif not in_battle and base.get_game_coords()[2] != self.active["map"]:
+                end = "left_area"
+            elif self.actions >= self.max_area_actions:
+                end = "area_timeout"
+            if end:
+                truncated = True
+                info = dict(info, end_reason=end)
         if terminated or truncated:
             self.stats[f"end_{info['end_reason']}"] += 1
         return obs, reward, terminated, truncated, dict(info, **self._info())

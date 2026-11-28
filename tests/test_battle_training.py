@@ -1,5 +1,8 @@
+import gzip
 import hashlib
 import json
+import pickle
+from types import SimpleNamespace
 
 import pytest
 from battle_training import (
@@ -344,6 +347,11 @@ def test_snapshot_config_sha_ignores_reward_and_path_keys(config):
     assert snapshot_config_sha(config, "r", "other") != base
 
 
+def fake_blob(tag, catchable=False, used=()):
+    tracker = SimpleNamespace(encounter_catchable=catchable, used_regions=set(used), region_map={})
+    return gzip.compress(pickle.dumps({"tag": tag, "attributes": {"tracker": tracker}}))
+
+
 def write_run(root, name, config, rows_by_worker):
     run = root / name
     (run).mkdir(parents=True)
@@ -353,8 +361,9 @@ def write_run(root, name, config, rows_by_worker):
         d = run / "failure-banks" / f"worker-{worker}"
         d.mkdir(parents=True)
         out = []
-        for i, (battle_type, map_id, blob) in enumerate(rows):
+        for i, (battle_type, map_id, tag, *extra) in enumerate(rows):
             name = f"failure-{i}.pkl.gz"
+            blob = fake_blob(tag, *extra)
             (d / name).write_bytes(blob)
             out.append(
                 {
@@ -377,9 +386,9 @@ def test_bank_builder_filters_groups_dedups_and_checks(config, tmp_path):
         tmp_path,
         "a",
         config,
-        {0: [(0, 12, b"overworld"), (1, 12, b"w1"), (1, 12, b"w2"), (1, 12, b"w3")]},
+        {0: [(0, 12, "overworld"), (1, 12, "w1"), (1, 12, "w2"), (1, 12, "w3")]},
     )
-    b = write_run(tmp_path, "b", config, {0: [(2, 51, b"t1"), (1, 12, b"w1")]})
+    b = write_run(tmp_path, "b", config, {0: [(2, 51, "t1"), (1, 12, "w1")]})
     out = tmp_path / "bank"
     build_battle_bank.main([str(a), str(b), "--output", str(out), "--per-group", "2"])
     bank = json.loads((out / "bank.json").read_text())
@@ -391,12 +400,125 @@ def test_bank_builder_filters_groups_dedups_and_checks(config, tmp_path):
         blob = (out / row["file"]).read_bytes()
         assert hashlib.sha256(blob).hexdigest() == row["sha256"]
 
-    other = write_run(tmp_path, "c", dict(config, max_steps=99), {0: [(2, 51, b"t9")]})
+    other = write_run(tmp_path, "c", dict(config, max_steps=99), {0: [(2, 51, "t9")]})
     with pytest.raises(SystemExit):
         build_battle_bank.main([str(a), str(other), "--output", str(tmp_path / "mixed")])
     (a / "failure-banks/worker-0/failure-1.pkl.gz").write_bytes(b"tampered")
     with pytest.raises(ValueError, match="Hash mismatch"):
         build_battle_bank.main([str(a), "--output", str(tmp_path / "bad"), "--per-group", "9"])
+
+
+def test_bank_builder_balances_legal_and_illegal_catches(config, tmp_path):
+    rows = [(1, 13, f"illegal{i}", False) for i in range(6)]
+    rows += [(1, 13, "legal0", True), (1, 13, "legal1", True), (2, 51, "trainer")]
+    run = write_run(tmp_path, "a", config, {0: rows})
+    out = tmp_path / "bank"
+    build_battle_bank.main([str(run), "--output", str(out), "--per-group", "2"])
+    bank = json.loads((out / "bank.json").read_text())
+    assert sorted(str(r["catchable"]) for r in bank) == ["False", "False", "None", "True", "True"]
+    counts = json.loads((out / "bank_manifest.json").read_text())["counts"]
+    assert counts == {
+        "battle1/map13/battle_entry/catchable": 2,
+        "battle1/map13/battle_entry/illegal": 2,
+        "battle2/map51/battle_entry": 1,
+    }
+
+
+def test_memory_consistent_bank_keeps_only_starts_a_fresh_lstm_can_judge(config, tmp_path):
+    cfg = dict(config, initial_used_regions=[12])
+    rows = [
+        (1, 13, "route2-illegal", False),  # an earlier Route 2 encounter the LSTM never saw
+        (1, 13, "route2-first", True),
+        (1, 12, "route1", False),  # Route 1 is used in the starting save
+        (0, 13, "route2-entry", False, ()),
+        (0, 13, "route2-after-encounter", False, (13,)),
+        (0, 1, "town", False, ()),  # not an --area-maps map
+        (2, 51, "trainer"),
+    ]
+    run = write_run(tmp_path, "a", cfg, {0: rows})
+    out = tmp_path / "bank"
+    build_battle_bank.main(
+        [str(run), "--output", str(out), "--area-maps", "13", "--memory-consistent"]
+    )
+    bank = json.loads((out / "bank.json").read_text())
+    kept = sorted((r["battle"], r["map"], r["catchable"], r["area_fresh"]) for r in bank)
+    assert kept == [
+        (0, 13, None, True),
+        (1, 12, False, None),
+        (1, 13, True, None),
+        (2, 51, None, None),
+    ]
+
+
+def test_legal_catch_rewarded_and_illegal_catch_is_a_violation(fake_pyboy, config):
+    env = BattleReward(RedGymEnv(dict(config, max_steps=8)), PRESETS["outcome"], gamma=1.0)
+    try:
+        env.reset(seed=0)
+        terms = script(
+            env,
+            [
+                lambda p: (battle(p, 1), enemy(p, 7, 20)),  # first encounter here: legal
+                lambda p: (p.set_mon(slot=1, identity=(7, 7)), p.memory.__setitem__(0xD163, 2)),
+                lambda p: battle(p, 0),
+                lambda p: (battle(p, 1), enemy(p, 8, 20)),  # second encounter: illegal
+                lambda p: (p.set_mon(slot=2, identity=(8, 8)), p.memory.__setitem__(0xD163, 3)),
+            ],
+        )
+        assert terms[1] == {"legal_catch": 5.0} and terms[2] == {}
+        assert terms[4] == {}
+        assert env.totals["legal_catches"] == 1 and env.totals["illegal_catches"] == 1
+        assert env.unwrapped.tracker.violations == {"illegal_catch"}
+    finally:
+        env.close()
+
+
+def make_area_bank(env, directory, config):
+    directory.mkdir()
+    env.reset(seed=0)
+    blob = capture(env, env.step(4)[0])
+    rows = [{"file": "area.pkl.gz", "sha256": hashlib.sha256(blob).hexdigest(), "battle": 0}]
+    rows[0]["map"] = 0
+    (directory / "area.pkl.gz").write_bytes(blob)
+    (directory / "bank.json").write_text(json.dumps(rows))
+    sha = snapshot_config_sha(config, "rom", "state")
+    (directory / "bank_manifest.json").write_text(json.dumps({"config_sha256": sha}))
+
+
+def test_area_start_runs_through_battles_and_ends_on_leaving_the_map(
+    snapshot_pyboy, config, tmp_path
+):
+    cfg = dict(config, max_steps=50)
+    source = RedGymEnv(cfg)
+    try:
+        make_area_bank(source, tmp_path / "bank", cfg)
+    finally:
+        source.close()
+    env = BattleReplay(
+        RedGymEnv(cfg), tmp_path / "bank", area_share=1.0, max_battle_actions=3, max_area_actions=9
+    )
+    try:
+        assert env.reset()[1]["training_reset"] == "area"
+        p = env.unwrapped.pyboy
+        battle(p, 1)
+        assert not env.step(4)[3]  # a battle inside the area keeps the episode going
+        battle(p, 0)
+        assert not env.step(4)[3]
+        p.set_map(1)
+        _, _, terminated, truncated, info = env.step(4)
+        assert truncated and not terminated and info["end_reason"] == "left_area"
+
+        env.reset()
+        battle(env.unwrapped.pyboy, 2)
+        results = [env.step(4) for _ in range(3)]
+        assert results[-1][3] and results[-1][4]["end_reason"] == "battle_timeout"
+        assert results[-1][1] < results[0][1] - 0.5  # timeout penalty applied
+
+        env.reset()
+        results = [env.step(4) for _ in range(9)]
+        assert [r[3] for r in results].index(True) == 8
+        assert results[-1][4]["end_reason"] == "area_timeout"
+    finally:
+        env.close()
 
 
 def test_catch_in_progress_detects_a_catch_that_needs_no_input(snapshot_pyboy, config):
