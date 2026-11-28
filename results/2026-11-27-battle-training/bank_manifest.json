@@ -1,0 +1,43 @@
+{
+  "config_sha256": "7a054cf1b4edf9898c15ce64bbbef206119f71d4de09952489fa638f64b5d6c4",
+  "created_utc": "2026-11-28T01:08:51.596832+00:00",
+  "sources": [
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-ordinary-s0",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-ordinary-s1",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-ordinary-s2",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-tail-s0",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-tail-s1",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-tail-s2",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-transition-s0",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-transition-s1",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/lstm-transition-s2",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-ordinary-s0",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-ordinary-s1",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-ordinary-s2",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-tail-s0",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-tail-s1",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-tail-s2",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-transition-s0",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-transition-s1",
+    "/lambda/nfs/jeff-67920-rl-checkpoints/67920project/runs/campaign-route-replay-20261127/runs/ppo-transition-s2"
+  ],
+  "per_group": 64,
+  "seed": 0,
+  "maps": [
+    12,
+    13,
+    51
+  ],
+  "available": 2256,
+  "selected": 512,
+  "counts": {
+    "battle1/map12/battle_entry": 64,
+    "battle1/map12/mid_tail": 64,
+    "battle1/map13/battle_entry": 64,
+    "battle1/map13/mid_tail": 64,
+    "battle1/map51/battle_entry": 64,
+    "battle1/map51/mid_tail": 64,
+    "battle2/map51/battle_entry": 64,
+    "battle2/map51/mid_tail": 64
+  }
+}

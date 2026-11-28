@@ -1,0 +1,246 @@
+{
+  "episodes": 16,
+  "end_reasons": {
+    "battle_over": 9,
+    "wipe": 2,
+    "battle_timeout": 4,
+    "rule_violation": 1
+  },
+  "hooks": {
+    "reward_added": 3.5927896073273806,
+    "hook_run_attempt": 13,
+    "hook_trainer_run_rejected": 7,
+    "hook_run_succeeded": 6
+  },
+  "records": [
+    {
+      "episode": 0,
+      "battle": 1,
+      "map": 13,
+      "anchor": "battle_entry",
+      "end_reason": "battle_over",
+      "actions": 169,
+      "return": 0.8769067503874468,
+      "totals": {
+        "reward_hp": -0.49561931818181515,
+        "reward_wild_damage": 0.2,
+        "wild_kos": 1,
+        "reward_wild_ko": 0.2,
+        "reward_level": 1.0,
+        "wild_battles": 1,
+        "wild_wins": 1,
+        "reward_wild_win": 0.2
+      }
+    },
+    {
+      "episode": 1,
+      "battle": 2,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "wipe",
+      "actions": 233,
+      "return": -4.032672348484836,
+      "totals": {
+        "reward_hp": -0.7412916666666663,
+        "reward_trainer_damage": 0.3181818181818182
+      }
+    },
+    {
+      "episode": 2,
+      "battle": 2,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "battle_timeout",
+      "actions": 512,
+      "return": -2.1129783549782903,
+      "totals": {
+        "reward_hp": -0.275454545454506,
+        "trainer_run_rejected": 4,
+        "reward_trainer_run_rejected": -0.2,
+        "reward_trainer_damage": 0.19047619047619047
+      }
+    },
+    {
+      "episode": 3,
+      "battle": 1,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "battle_over",
+      "actions": 27,
+      "return": -0.05932617187499356,
+      "totals": {
+        "reward_hp": -0.013499999999998513,
+        "wild_battles": 1
+      }
+    },
+    {
+      "episode": 4,
+      "battle": 1,
+      "map": 51,
+      "anchor": "battle_entry",
+      "end_reason": "battle_over",
+      "actions": 233,
+      "return": -0.4146167534722193,
+      "totals": {
+        "reward_hp": -0.11649999999998717,
+        "reward_wild_damage": 0.07777777777777778,
+        "wild_battles": 1
+      }
+    },
+    {
+      "episode": 5,
+      "battle": 1,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "battle_over",
+      "actions": 7,
+      "return": -0.013556640624999394,
+      "totals": {
+        "reward_hp": -0.0034999999999996145,
+        "wild_battles": 1
+      }
+    },
+    {
+      "episode": 6,
+      "battle": 1,
+      "map": 12,
+      "anchor": "battle_entry",
+      "end_reason": "battle_over",
+      "actions": 286,
+      "return": -0.559116258741268,
+      "totals": {
+        "reward_hp": -0.3068181818181769,
+        "reward_wild_damage": 0.12307692307692308,
+        "wild_battles": 1
+      }
+    },
+    {
+      "episode": 7,
+      "battle": 2,
+      "map": 51,
+      "anchor": "battle_entry",
+      "end_reason": "battle_timeout",
+      "actions": 512,
+      "return": -1.8882575757574962,
+      "totals": {
+        "reward_hp": -0.3425909090908785,
+        "reward_trainer_damage": 0.3333333333333333,
+        "trainer_run_rejected": 1,
+        "reward_trainer_run_rejected": -0.05
+      }
+    },
+    {
+      "episode": 8,
+      "battle": 1,
+      "map": 13,
+      "anchor": "battle_entry",
+      "end_reason": "battle_over",
+      "actions": 66,
+      "return": -0.11606249999998164,
+      "totals": {
+        "reward_hp": -0.014999999999997349,
+        "wild_battles": 1
+      }
+    },
+    {
+      "episode": 9,
+      "battle": 1,
+      "map": 12,
+      "anchor": "mid_tail",
+      "end_reason": "rule_violation",
+      "actions": 203,
+      "return": -3.985130326704538,
+      "totals": {
+        "reward_hp": -1.090704545454537
+      }
+    },
+    {
+      "episode": 10,
+      "battle": 2,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "battle_over",
+      "actions": 67,
+      "return": 4.437540230562356,
+      "totals": {
+        "reward_hp": 0.019607142857144044,
+        "reward_trainer_damage": 0.5217391304347826,
+        "trainer_kos": 1,
+        "reward_trainer_ko": 1.0,
+        "reward_level": 1.0,
+        "trainer_battles": 1,
+        "trainer_wins": 1,
+        "reward_trainer_win": 2.0
+      }
+    },
+    {
+      "episode": 11,
+      "battle": 1,
+      "map": 51,
+      "anchor": "battle_entry",
+      "end_reason": "battle_over",
+      "actions": 276,
+      "return": -0.453941636029345,
+      "totals": {
+        "reward_hp": -0.14399999999999882,
+        "reward_wild_damage": 0.15294117647058825,
+        "wild_battles": 1
+      }
+    },
+    {
+      "episode": 12,
+      "battle": 2,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "wipe",
+      "actions": 278,
+      "return": -3.507036695075743,
+      "totals": {
+        "reward_hp": -0.18379166666666477,
+        "trainer_run_rejected": 1,
+        "reward_trainer_run_rejected": -0.05,
+        "reward_trainer_damage": 0.4090909090909091
+      }
+    },
+    {
+      "episode": 13,
+      "battle": 2,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "battle_timeout",
+      "actions": 512,
+      "return": -1.9697916666666166,
+      "totals": {
+        "reward_hp": -0.14079166666666582
+      }
+    },
+    {
+      "episode": 14,
+      "battle": 2,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "battle_timeout",
+      "actions": 512,
+      "return": -1.8097056277055914,
+      "totals": {
+        "reward_hp": -0.12218181818181047,
+        "reward_trainer_damage": 0.19047619047619047,
+        "trainer_run_rejected": 1,
+        "reward_trainer_run_rejected": -0.05
+      }
+    },
+    {
+      "episode": 15,
+      "battle": 1,
+      "map": 51,
+      "anchor": "mid_tail",
+      "end_reason": "battle_over",
+      "actions": 7,
+      "return": -0.013090494791666019,
+      "totals": {
+        "reward_hp": -0.002166666666666317,
+        "wild_battles": 1
+      }
+    }
+  ]
+}

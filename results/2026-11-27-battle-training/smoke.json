@@ -1,0 +1,265 @@
+{
+  "ppo": {
+    "git_commit": "02807d4e24a9aed97e029079215706a0f8d7854d",
+    "git_dirty": true,
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "target_kl": 0.03,
+      "clip_range": 0.2,
+      "n_steps": 32,
+      "batch_size": 32,
+      "n_epochs": 4,
+      "gamma": 0.9995
+    },
+    "battle": {
+      "route_workers": 2,
+      "replay_workers": 2,
+      "trainer_share": 0.5,
+      "max_battle_actions": 64,
+      "battle_timeout_penalty": 1.0,
+      "weights": {
+        "trainer_damage": 1.0,
+        "trainer_ko": 1.0,
+        "trainer_win": 2.0,
+        "wild_damage": 0.2,
+        "wild_ko": 0.2,
+        "wild_win": 0.2,
+        "level": 1.0,
+        "hp_potential": 1.0,
+        "trainer_run_rejected": 0.05,
+        "overtime_after": 512,
+        "overtime": 0.001
+      },
+      "bank": "<local smoke copy of the bank>",
+      "bank_rows": 512
+    },
+    "additional_timesteps": 1024,
+    "worker_stats": [
+      {
+        "lifetime": {
+          "reward_added": -0.1279999999999859
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        }
+      },
+      {
+        "lifetime": {
+          "reward_added": -0.1279999999999859
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        }
+      },
+      {
+        "lifetime": {
+          "reward_added": -0.15765909090908414,
+          "hook_run_attempt": 2,
+          "hook_trainer_run_rejected": 1,
+          "hook_run_succeeded": 1
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        },
+        "replay": {
+          "starts_battle2": 3,
+          "actions": 256,
+          "end_battle_timeout": 3,
+          "starts_battle1": 2,
+          "end_battle_over": 1
+        }
+      },
+      {
+        "lifetime": {
+          "reward_added": -0.09912878787877652,
+          "hook_run_attempt": 3,
+          "hook_trainer_run_rejected": 2,
+          "hook_run_succeeded": 1
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        },
+        "replay": {
+          "starts_battle2": 3,
+          "actions": 256,
+          "end_battle_timeout": 2,
+          "starts_battle1": 2,
+          "end_battle_over": 1,
+          "end_wipe": 1
+        }
+      }
+    ],
+    "note": "--smoke: 128-action route episodes, 64-action battles, 32-step rollouts, 4 CPU workers. Implementation check only."
+  },
+  "lstm": {
+    "git_commit": "02807d4e24a9aed97e029079215706a0f8d7854d",
+    "git_dirty": true,
+    "optimizer": {
+      "learning_rate": 0.0001,
+      "target_kl": 0.03,
+      "clip_range": 0.2,
+      "n_steps": 32,
+      "batch_size": 32,
+      "n_epochs": 4,
+      "gamma": 0.9995
+    },
+    "battle": {
+      "route_workers": 2,
+      "replay_workers": 2,
+      "trainer_share": 0.5,
+      "max_battle_actions": 64,
+      "battle_timeout_penalty": 1.0,
+      "weights": {
+        "trainer_damage": 1.0,
+        "trainer_ko": 1.0,
+        "trainer_win": 2.0,
+        "wild_damage": 0.2,
+        "wild_ko": 0.2,
+        "wild_win": 0.2,
+        "level": 1.0,
+        "hp_potential": 1.0,
+        "trainer_run_rejected": 0.05,
+        "overtime_after": 512,
+        "overtime": 0.001
+      },
+      "bank": "<local smoke copy of the bank>",
+      "bank_rows": 512
+    },
+    "additional_timesteps": 1024,
+    "worker_stats": [
+      {
+        "lifetime": {
+          "reward_added": -0.1279999999999859
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        }
+      },
+      {
+        "lifetime": {
+          "reward_added": -0.1279999999999859
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        }
+      },
+      {
+        "lifetime": {
+          "reward_added": -0.20799999999999225,
+          "hook_run_attempt": 3,
+          "hook_run_succeeded": 2,
+          "hook_trainer_run_rejected": 1
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        },
+        "replay": {
+          "starts_battle2": 3,
+          "actions": 256,
+          "end_battle_timeout": 1,
+          "starts_battle1": 2,
+          "end_battle_over": 2,
+          "end_wipe": 1
+        }
+      },
+      {
+        "lifetime": {
+          "reward_added": -0.10411931818180978,
+          "hook_run_attempt": 1,
+          "hook_run_succeeded": 1
+        },
+        "weights": {
+          "trainer_damage": 1.0,
+          "trainer_ko": 1.0,
+          "trainer_win": 2.0,
+          "wild_damage": 0.2,
+          "wild_ko": 0.2,
+          "wild_win": 0.2,
+          "level": 1.0,
+          "hp_potential": 1.0,
+          "trainer_run_rejected": 0.05,
+          "overtime_after": 512,
+          "overtime": 0.001
+        },
+        "replay": {
+          "starts_battle2": 3,
+          "actions": 256,
+          "end_battle_timeout": 3,
+          "starts_battle1": 2,
+          "end_battle_over": 1
+        }
+      }
+    ],
+    "note": "--smoke: 128-action route episodes, 64-action battles, 32-step rollouts, 4 CPU workers. Implementation check only."
+  }
+}
