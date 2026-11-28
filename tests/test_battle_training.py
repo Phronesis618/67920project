@@ -532,3 +532,34 @@ def test_catch_in_progress_detects_a_catch_that_needs_no_input(snapshot_pyboy, c
         assert catch_in_progress(env, blob, actions=4)
     finally:
         env.close()
+
+
+def test_freeze_memory_keeps_cnn_and_actor_lstm_and_trains_the_rest():
+    import torch
+    from battle_experiment import freeze_memory
+    from sb3_contrib import RecurrentPPO
+    from stable_baselines3.common.vec_env import DummyVecEnv
+    from test_context_aux import TinyPixels
+
+    torch.set_num_threads(1)
+    env = DummyVecEnv([TinyPixels])
+    try:
+        model = RecurrentPPO(
+            "MultiInputLstmPolicy", env, n_steps=8, batch_size=8, seed=0, device="cpu"
+        )
+        frozen = freeze_memory(model.policy)
+        assert any(n.startswith("lstm_actor.") for n in frozen)
+        assert any(n.startswith("features_extractor.") for n in frozen)
+        before = {k: v.clone() for k, v in model.policy.state_dict().items()}
+        model.learn(16)
+        after = model.policy.state_dict()
+        for key, value in before.items():
+            same = torch.equal(value, after[key])
+            if key.startswith(("lstm_actor.", "features_extractor.", "pi_features_extractor.")):
+                assert same, key
+        assert not torch.equal(before["action_net.weight"], after["action_net.weight"])
+        assert not torch.equal(
+            before["lstm_critic.weight_ih_l0"], after["lstm_critic.weight_ih_l0"]
+        )
+    finally:
+        env.close()

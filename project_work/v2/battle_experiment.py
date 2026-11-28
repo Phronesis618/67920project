@@ -31,6 +31,21 @@ from stable_baselines3.common.monitor import Monitor
 from stable_baselines3.common.vec_env import DummyVecEnv, SubprocVecEnv
 
 
+def freeze_memory(policy):
+    """Stop the CNN and actor LSTM from training; policy/value layers and critic LSTM learn.
+
+    Keeps a memory-trained representation intact during this stage. The CNN is shared
+    with the critic, so it is frozen for both. Returns the frozen parameter names.
+    """
+    modules = {"features_extractor": policy.features_extractor, "lstm_actor": policy.lstm_actor}
+    frozen = []
+    for prefix, module in modules.items():
+        for name, parameter in module.named_parameters():
+            parameter.requires_grad_(False)
+            frozen.append(f"{prefix}.{name}")
+    return frozen
+
+
 def make_env(config, output, rank, route_workers, args, weights, config_sha):
     env = RedGymEnv(dict(config, session_path=str(output / f"worker-{rank}")))
     if rank >= route_workers:
@@ -69,6 +84,11 @@ def parser():
     p.add_argument("--learning-rate", type=float, help="Default: parent's")
     p.add_argument("--target-kl", type=float, help="Default: parent's (none)")
     p.add_argument("--clip-range", type=float, default=0.2, help="Parents used constant 0.2")
+    p.add_argument(
+        "--freeze-memory",
+        action="store_true",
+        help="Recurrent parents: keep the CNN and actor LSTM fixed (see freeze_memory)",
+    )
     p.add_argument("--device", default="cuda")
     p.add_argument(
         "--smoke",
@@ -158,6 +178,11 @@ def main(argv=None):
         if abs(model.gamma - args.gamma) > 1e-12:
             p.error("Parent PPO gamma differs from its navigation gamma")
         model.set_random_seed(args.seed)
+        frozen = []
+        if args.freeze_memory:
+            if algorithm != "lstm":
+                p.error("--freeze-memory needs a recurrent (lstm) parent")
+            frozen = freeze_memory(model.policy)
         model.tensorboard_log = str(args.output / "tensorboard")
         model.verbose = 1
         # Parent rolling metrics describe a different training segment.
@@ -176,6 +201,7 @@ def main(argv=None):
             "parent_timesteps": initial_steps,
             "created_utc": datetime.now(UTC).isoformat(),
             "arguments": {k: str(v) if isinstance(v, Path) else v for k, v in vars(args).items()},
+            "frozen_parameters": frozen,
             "optimizer": {
                 "learning_rate": model.learning_rate,
                 "target_kl": model.target_kl,
